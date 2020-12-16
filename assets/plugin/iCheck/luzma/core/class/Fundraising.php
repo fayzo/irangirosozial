@@ -16,7 +16,7 @@ class Fundraising extends Follow
             $showpages = ($pages*8)-8;
         }
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = F. user_id2 WHERE F. categories_fundraising ='$categories'  ORDER BY created_on2 Desc Limit $showpages,8");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = U. user_id WHERE F. categories_fundraising ='$categories'  ORDER BY created_on2 Desc Limit $showpages,8");
         ?>
             <div class="row mt-3">
         <?php while($row= $query->fetch_array()) { 
@@ -66,7 +66,15 @@ class Fundraising extends Follow
                               <span class="h5 text-danger"><?php echo number_format($row['money_raising']); ?> Frw </span>
                               <span class="text-muted">raised Out of </span>
                               <span class="text-success"><?php echo number_format($row['money_to_target']).' Frw'; ?></span>
-                              <p class="mt-2"><?php echo $row['text'] ;?></p>
+                              <!-- <p class="mt-2">< ?php echo $row['text'] ;?></p> -->
+                              <p class="mt-2">
+                                <?php if (strlen($row["text"]) > 80) {
+                                            echo $row["text"] = substr($row["text"],0,80).'...
+                                            <br><span class="mb-0"><a href="javascript:void(0)" id="crowfund-readmore" data-crowfund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Continue reading...</a></span>';
+                                            }else{
+                                            echo $row["text"];
+                                            } ?> 
+                                    </p>
                               <div>
                                 <span class="text-success float-left ml-2"><i class="fa fa-check-circle" style='font-size:15px;' aria-hidden="true"></i> Verified</span>
                                 <button type="button" id="fund-readmore" data-fund="<?php echo $row['fund_id'] ;?>" class="btn btn-primary float-right" >+ Read more</button></div>

@@ -155,6 +155,8 @@
    <script src="<?php echo BASE_URL_LINK ;?>js/businessApplyJobs.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/businessApplyRead_inbox.js"></script>
 
+   <script src="<?php echo BASE_URL_LINK ;?>js/unemplyoment_message.js"></script>
+
 
    <script>
     $(function () {

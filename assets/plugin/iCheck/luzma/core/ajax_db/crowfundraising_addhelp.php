@@ -203,7 +203,7 @@ if (isset($_POST['crowfund_view']) && !empty($_POST['crowfund_view'])) {
                            </div> 
                         </div>
                       </div>
-                      <span onclick="crowfundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md ">+ add more</span>
+                      <span onclick="crowfundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md d-none ">+ add more</span>
 
                     <div id="add-videohelp">
                     </div>

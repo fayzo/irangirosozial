@@ -12,6 +12,7 @@ session_unset($_SESSION['profile_img']);
 session_unset($_SESSION['approval']);
 session_unset($_SESSION['chat']);
 session_unset($_SESSION['username']);
+session_unset($_SESSION['job_user']);
 session_destroy();
 // header ('location: '.LOGIN.'');
 

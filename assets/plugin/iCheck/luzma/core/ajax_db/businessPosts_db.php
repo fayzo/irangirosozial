@@ -44,9 +44,9 @@ if (isset($_POST['key'])) {
 		 if ($_POST['key'] == 'jobspostsFetch') {
 			$begin_nmber = $db->real_escape_string($_POST['begin_nmber']);
 			$end_nmber = $db->real_escape_string($_POST['end_nmber']);
-			$session = $db->real_escape_string($_POST['session']);
+			// $session = $db->real_escape_string($_POST['session']);
 
-			$sql = $db->query("SELECT * FROM jobs WHERE turn='off' AND business_id = '$session' ORDER BY created_on DESC LIMIT $begin_nmber, $end_nmber");
+			$sql = $db->query("SELECT * FROM jobs WHERE turn='off' AND business_id = $_SESSION[key] ORDER BY created_on DESC LIMIT $begin_nmber, $end_nmber");
 			if ($sql->num_rows > 0) {
 				$response = "";
 				$increment=0;
@@ -81,9 +81,9 @@ if (isset($_POST['key'])) {
 		 if ($_POST['key'] == 'jobspostsFetchOn') {
 			$begin_nmber = $db->real_escape_string($_POST['begin_nmber']);
 			$end_nmber = $db->real_escape_string($_POST['end_nmber']);
-			$session = $db->real_escape_string($_POST['session']);
+			// $session = $db->real_escape_string($_POST['session']);
 
-			$sql = $db->query("SELECT * FROM jobs WHERE turn='on' AND business_id = '$session'  ORDER BY created_on DESC LIMIT $begin_nmber, $end_nmber");
+			$sql = $db->query("SELECT * FROM jobs WHERE turn='on' AND business_id = $_SESSION[key]  ORDER BY created_on DESC LIMIT $begin_nmber, $end_nmber");
 			if ($sql->num_rows > 0) {
 				$response = "";
 				$increment=0;

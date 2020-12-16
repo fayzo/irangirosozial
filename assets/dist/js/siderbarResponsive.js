@@ -109,13 +109,13 @@ function displayImage0(e) {
         if (y < 1) {
           $('#add-photoo'+ y +'').html(
             '<div class="form-group mt-3">' +
-            '<img src="#" class="profilephotoo' + y + '" alt="User Image">' +
+            '<img src="#" class="profilephotoo' + y + '" alt="User Image"  width= "200px">' +
             '<input type="text" name="photo-Titleo' + y + '" class="form-control mt-1" id="photo-Titleo' + y + '" placeholder="title of photo">' +
             '</div>'
           );
         } else {
           $('#add-photoo'+ y +'').html(
-            '<img src="#" class="profilephotoo' + y + '" alt="User Image">'
+            '<img src="#" class="profilephotoo' + y + '" alt="User Image"  width= "200px">'
           );
         }
 
@@ -159,13 +159,13 @@ function displayImage(e) {
         if (y <= 5) {
           $('#add-photo' + [y + 1] + '').html(
             '<div class="form-group mt-3">' +
-            '<img src="#" class="profilephoto' + y + '" alt="User Image">' +
+            '<img src="#" class="profilephoto' + y + '" alt="User Image"  width= "200px">' +
             '<input type="text" name="photo-Title' + y + '" class="form-control mt-1" id="photo-Title' + y + '" placeholder="title of photo">' +
             '</div>'
           );
         } else {
           $('#add-photo' + [y + 1] + '').html(
-            '<img src="#" class="profilephoto' + y + '" alt="User Image">'
+            '<img src="#" class="profilephoto' + y + '" alt="User Image"  width= "200px">'
           );
         }
 

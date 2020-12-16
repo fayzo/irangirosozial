@@ -11,8 +11,8 @@
         </div>
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
-          <?php if (isset($_SESSION['key'])) { ?>
-            <button type="button" class="btn btn-light" id="add_food" data-food="<?php echo $_SESSION['key']; ?>" > + Add food </button>
+          <?php if (isset($_SESSION['job_user'])) { ?>
+            <button type="button" class="btn btn-light" id="addPostsjobs" > + Add jobs </button>
            <?php } ?>
           </div>
           <div class="col-4 text-center">
@@ -81,6 +81,86 @@
 
       </section>
       <!-- /.content -->
+
+
+      <div id="addPostjobs" class="modal fade">
+              <!-- <div style="max-width: 800px;margin: 1.75rem auto;position: relative;"> -->
+              <div class="modal-dialog" style="max-width: 800px;margin: 1.75rem auto;position: relative;">
+                <div class="modal-content">
+                    <!-- <form method="post" id="form1" action='< ?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>' enctype="multipart/form-data" > -->
+                  <form method="post" id="form1" >
+                    <div class="modal-header text-center">
+                      <h4><i>Jobs To Posts</i> </h4>
+                      <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                        <div class="modal-body">
+                         <span id="responseBusinessJobs1"></span>
+                             <!-- <input type="hidden" name="key" value="create"> -->
+                             <input type="hidden" id="id_posts1" name="id_posts1" value="0">
+                             <input type="hidden" id="businessID_posts1" name="businessID_posts1" value="<?php echo $_SESSION['key'] ;?>">
+                                   
+                              <div class="form-group">
+                                    <select class="form-control" name="categories_jobs1" id="categories_jobs1">
+                                      <option value="">Select what types of Posts</option>
+                                      <option value="Featured">Jobs</option>
+                                      <option value="Tenders">Tenders</option>
+                                      <option value="Consultancy">Consultancy</option>
+                                      <option value="Internships">Internships</option>
+                                      <option value="Public">Public job as goverment</option>
+                                      <option value="Training">To Training</option>
+                                    </select>
+                              </div>
+
+                              <div class="form-group">
+                                   <label for="jobs title">Job Title</label>
+                                   <input type="text" name="job-title1" class="form-control job-title1"  placeholder="job title">
+                               </div>
+                               <div class="form-group">
+                                   <label for="Job Summary">Job Summary</label>
+                                   <textarea id="editor1" name="editor1" class="job-summary1" rows="10" cols="80">
+                                    </textarea>
+                               </div>
+                               <!-- <div class="form-group">
+                                   <label for="Job Summary">Job Summary</label>
+                                   <textarea class="form-control textarea  job-summary1" id="editor7"  rows="4"  placeholder="job summary"></textarea>
+                               </div> -->
+                               <!-- <div class="form-group">
+                                   <label for="email">Responsibilities and Duties</label>
+                                   <textarea class="form-control textarea  responsibilities-duties1" id="editor8"  rows="4" placeholder="Responsibilities Duties"></textarea>
+                               </div>
+                               <div class="form-group">
+                                   <label for="Pages Body">Qualifications and Skills</label>
+                                   <textarea class="form-control textarea  qualifications-skills1" id="editor9" placeholder="Qualifications and Skills"  rows="4"></textarea>
+                               </div>
+                               <div class="form-group">
+                                   <label for="Pages Body">Terms and conditions</label>
+                                   <textarea class="form-control textarea terms-conditions1" id="editor10" placeholder="Qualifications and Skills"  rows="4"></textarea>
+                               </div> -->
+                               <div class="form-group">
+                                   <label for="Pages Body">Deadline to submit</label>
+                                    <input type="date" name="deadline1" class="form-control deadline1" placeholder="Deadline to submit">
+                                   <!-- <textarea class="form-control textarea deadline1" id="editor11" placeholder="Deadline to submit"  rows="4"></textarea> -->
+                               </div>
+                               <div class="form-group">
+                                   <label for="Pages Body">Apply to website or to this site</label>
+                                   <textarea name="website1" class="form-control website1" id="editor12" placeholder="website" ></textarea>
+                               </div>
+                               <div class="form-check">
+                                   <label class="form-check-label">
+                                       <input type="checkbox" class="form-check-input"   value="checkedValue" checked>
+                                       Publish
+                                   </label>
+                               </div>
+                       </div> <!-- THiS IS A MODAL BODY -->
+                       <div class="modal-footer">
+                           <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Close">
+                           <input type="button" id="addposts" value="Save" class="btn btn-success">
+                       </div><!-- THiS IS A MODAL FOOTER -->
+                       </form>  
+                  </div><!-- THiS IS A MODAL CONTENT -->
+                </div><!-- THiS IS A MODAL DIALOG -->
+            </div><!-- THiS IS A MODAL FADE -->
+
 
 
 <?php include "header_navbar_footer/footer.php"?>

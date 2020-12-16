@@ -8,49 +8,16 @@
       <section class="content">
 
         <div class="row">
-          <div class="col-md-3 mb-3 d-none d-md-block">
+          <div class="col-md-3 mb-3 ">
 
             <?php echo $home->userProfile($user_id); ?>
             <?php echo $trending->trends(); ?>
             <!-- Profile Image -->
-
+            
             
             <div class="sticky-tops" style="top: 52px;z-index:1000;">
-              <div class="card card-primary mb-3 ">
-                <div class="card-header main-active p-1">
-                  <h5 class="card-title text-center"><i> Jobs</i></h5>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body message-color pt-0 pb-0">
-                  <div class="row">
-
-                    <div class="col-12 px-0 border-bottom jobHovers mt-2 more" data-job="34" data-business="61">
-                      <div class="user-block mb-2 jobHover">
-                        <div class="user-jobImgBorder">
-                          <div class="user-jobImg">
-                            <img
-                              src="http://localhost:80/Blog_nyarwanda_CMS/assets/image/users_profile_cover/112baby3.png"
-                              alt="User Image">
-                          </div>
-                        </div>
-                        <span class="username">
-                          <!-- Job Title:  -->
-                          <a style="padding-right:3px;" href="#">Clinical Data Analyst</a>
-                        </span>
-                        <span class="description">publish - Sep 12, 2019</span>
-                        <span class="description">Deadline - 2019-09-12</span>
-                      </div>
-                    </div>
-                    <hr>
-
-                  </div>
-                </div> <!-- /.card-body -->
-                <div class="card-footer text-center">
-                  <a href="http://localhost:80/Blog_nyarwanda_CMS/jobs0.php">View all Jobs</a>
-                </div> <!-- /.card-footer -->
-              </div>
-              <!-- /.card -->
-          </div>
+              <?php echo $home->jobsfetch() ;?>
+            </div>
 
           </div>
           <div class="col-md-6 mb-4">

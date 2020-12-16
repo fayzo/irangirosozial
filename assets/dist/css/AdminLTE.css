@@ -23,6 +23,8 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto;
+  text-align: justify;
+  word-spacing: normal;
 }
 .nav-tabs>li {
 width: 33%;

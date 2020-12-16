@@ -6,7 +6,6 @@
         <h1><i>Jobs Description</i></h1>
     </div>
     <div class="card-body">
-      <input type="hidden"  id="session" value="<?php echo $_SESSION['key']; ?>">
 
   <?php if ($jobs['business_id'] == $user['user_id'] && $_SESSION['key'] == $jobs['business_id']) { ?>
              <div class="row">
@@ -227,11 +226,12 @@
                           </div> <!-- edit-body END -->
 
                           <div class="view-body">
-                            
-                             <h4>categories_jobs: </h4>
-                             <p class="categories_jobs0">Examples of an Accountant Responsibilities. </p>
-                           <hr>
-                      
+
+                          <div style="float:right">
+                              <h4>categories_jobs: </h4>
+                              <p class="categories_jobs0">Examples of an Accountant Responsibilities. </p>
+                          </div>
+
                            <h4 >Job Title: </h4>
                             <label class="job-title0">Examples of Accountant job titles </label>
                           <hr>
@@ -347,7 +347,6 @@
                   </div><!-- THiS IS A MODAL CONTENT -->
                 </div><!-- THiS IS A MODAL DIALOG -->
             </div><!-- THiS IS A MODAL FADE -->
-
 
 
              <div id="examplePost" class="modal fade">

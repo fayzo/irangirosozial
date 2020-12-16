@@ -181,7 +181,7 @@ if (isset($_POST['fund_view']) && !empty($_POST['fund_view'])) {
                            </div> 
                         </div>
                       </div>
-                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md ">+ add more</span>
+                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md d-none">+ add more</span>
 
                     <div id="add-videohelp">
                     </div>

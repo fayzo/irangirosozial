@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-4 col-md-2 col-lg-2 py-3 px-2" >
       <div class="list-group sticky-top" id="list-tab" role="tablist" style="top: 50px;">
+      <?php if ($users->jobloggedin() == 'SME' && $users->loggedin() == true) { ?>
         <a class="list-group-item list-group-item-action  active viewBusiness" id="list-profile-list" data-toggle="tab" href="#list-Live_Blog" role="tab" aria-controls="list-profile">Business Profile</a>
+      <?php } ?>
         <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-Add_Post" role="tab" aria-controls="list-profile">Posts Jobs</a>
         <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="tab" href="#list-messages" role="tab" aria-controls="list-messages">Inbox Messages</a>
         <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-profile" role="tab" aria-controls="list-profile">Social Profile</a>
@@ -59,6 +61,8 @@
     </div>
   </div>
 </div>
+
+
 <!-- Use any element to open the sidenav -->
 <!-- <span>open</span> -->
 

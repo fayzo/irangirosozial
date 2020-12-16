@@ -16,7 +16,7 @@ class Crowfund extends Fundraising {
             $showpages = ($pages*8)-8;
         }
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN crowfundraising C ON C. user_id2 = C. user_id2  WHERE C. categories_crowfundraising ='$categories'  ORDER BY created_on2 Desc Limit $showpages,8");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN crowfundraising C ON C. user_id2 = U. user_id  WHERE C. categories_crowfundraising ='$categories'  ORDER BY created_on2 Desc Limit $showpages,8");
         // $query= $mysqli->query("SELECT * FROM users U Left JOIN crowfundraising C  WHERE C. categories_crowfundraising ='$categories'  ORDER BY created_on2 Desc Limit $showpages,8");
         ?>
             <div class="row mt-3">
@@ -60,7 +60,15 @@ class Crowfund extends Fundraising {
                      <div style="height:115px;">
                         <a href="javascript:void(0);"  id="crowfund-readmore" data-crowfund="<?php echo $row['fund_id'] ;?>" class="card-text h5"><?php echo $row['photo_Title_main'] ;?></a>
                         <!-- Kogera umusaruro muguhinga -->
-                        <p class="text-muted"><?php echo $row['text']; ?></p>
+                        <p class="mt-2">
+                       <?php if (strlen($row["text"]) > 80) {
+                                echo $row["text"] = substr($row["text"],0,80).'...
+                                <br><span class="mb-0"><a href="javascript:void(0)" id="crowfund-readmore" data-crowfund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Continue reading...</a></span>';
+                                }else{
+                                echo $row["text"];
+                                } ?> 
+                        </p>
+                        <!-- 117 -->
                         <!-- turashaka kongera umusaruro mu buhinzi tukabona ubufasha buhagije no kubona imbuto -->
                     </div>                      
                     <div class="text-muted mb-1"><?php echo $categories; ?>

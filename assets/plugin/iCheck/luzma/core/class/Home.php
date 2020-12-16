@@ -86,11 +86,11 @@ class Home extends Comment {
             <h5 class="card-title text-center"><i> Jobs</i></h5>
         </div>
         <!-- /.card-header -->
-        <div class="card-body message-color">
+        <div class="card-body message-color pt-0 pb-0">
         <div class="row">
           <?php while($jobs= $query->fetch_array()) { ?>
 
-            <div class="col-12 px-0 border-bottom jobHovers more" data-job="<?php echo $jobs['job_id'];?>"  data-business="<?php echo $jobs['business_id'];?>">
+            <div class="col-12 px-0 border-bottom jobHovers mt-2 more" data-job="<?php echo $jobs['job_id'];?>"  data-business="<?php echo $jobs['business_id'];?>">
                <div class="user-block mb-2 jobHover" >
                    <div class="user-jobImgBorder">
                    <div class="user-jobImg">
@@ -105,9 +105,9 @@ class Home extends Comment {
                    <!-- Job Title:  -->
                        <a style="padding-right:3px;" href="#"><?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></a> 
                    </span>
-                   <span class="description"><?php echo $this->htmlspecialcharss($jobs['companyname']); ?> || <i class="flag-icon flag-icon-<?php echo strtolower($jobs['location']) ;?> h4 mb-0"
-                            id="<?php echo strtolower( $jobs['location']) ;?>" title="us"></i></span>
-                   <span class="description">Shared public - <?php echo $this->timeAgo($jobs['created_on']); ?></span>
+                   <!-- <span class="description">< ?php echo $this->htmlspecialcharss($jobs['companyname']); ?> || <i class="flag-icon flag-icon-<?php echo strtolower($jobs['location']) ;?> h4 mb-0"
+                            id="< ?php echo strtolower( $jobs['location']) ;?>" title="us"></i></span> -->
+                   <span class="description">Publish - <?php echo $this->timeAgo($jobs['created_on']); ?></span>
                    <span class="description">Deadline -  <?php echo $this->htmlspecialcharss($jobs['deadline']); ?></span>
                </div>
             </div>
@@ -121,7 +121,39 @@ class Home extends Comment {
            </div> <!-- /.card-footer -->
        </div>
        <!-- /.card -->
+       <!-- <div class="card card-primary mb-3 ">
+                <div class="card-header main-active p-1">
+                  <h5 class="card-title text-center"><i> Jobs</i></h5>
+                </div>
+                /.card-header
+                <div class="card-body message-color pt-0 pb-0">
+                  <div class="row">
 
+                    <div class="col-12 px-0 border-bottom jobHovers mt-2 more" data-job="34" data-business="61">
+                      <div class="user-block mb-2 jobHover">
+                        <div class="user-jobImgBorder">
+                          <div class="user-jobImg">
+                            <img
+                              src="http://localhost:80/Blog_nyarwanda_CMS/assets/image/users_profile_cover/112baby3.png"
+                              alt="User Image">
+                          </div>
+                        </div>
+                        <span class="username">
+                          Job Title: 
+                          <a style="padding-right:3px;" href="#">Clinical Data Analyst</a>
+                        </span>
+                        <span class="description">publish - Sep 12, 2019</span>
+                        <span class="description">Deadline - 2019-09-12</span>
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+                </div> /.card-body
+                <div class="card-footer text-center">
+                  <a href="http://localhost:80/Blog_nyarwanda_CMS/jobs0.php">View all Jobs</a>
+                </div> /.card-footer
+              </div>
+              /.card -->
     <?php }
         
         function htmlspecialcharss($string)

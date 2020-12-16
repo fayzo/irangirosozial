@@ -31,9 +31,9 @@ if ($users->jobloggedin() == 'individual' && $users->loggedin() == true) {
         </div>
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
-          <?php if (isset($_SESSION['key'])) { ?>
-            <button type="button" class="btn btn-light" id="add_food" data-food="<?php echo $_SESSION['key']; ?>" > + Add food </button>
-           <?php } ?>
+          <!-- < ?php if (isset($_SESSION['job_user'])) { ?>
+            <button type="button" class="btn btn-light" id="addPostsjobs" > + Add jobs </button>
+           < ?php } ?> -->
           </div>
           <div class="col-4 text-center">
             <a class="blog-header-logo text-dark" href="#">Job</a>
