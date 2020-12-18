@@ -103,7 +103,7 @@
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon3">Date birth</span>
+                                        <span class="input-group-text" id="basic-addon3">birth</span>
                                     </div>
                                     <input type="date" class="form-control" name="date" id="date" placeholder="date of birth" />
                                 </div>

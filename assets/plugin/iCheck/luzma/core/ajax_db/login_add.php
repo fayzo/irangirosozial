@@ -121,7 +121,7 @@ if (isset($_REQUEST['login_id']) && !empty($_REQUEST['login_id'])) {
         <span class="colose">
         	<button class="close-imagePopup d-none d-md-block"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrapLogin"  id="popupEnd">
+        <div class="img-popup-wrapLogin"  id="popupEnd" style="max-width: 439px;">
         	<div class="img-popup-body">
                   
             <!-- <div class='body-center0  clear-float d-none d-md-block'>
