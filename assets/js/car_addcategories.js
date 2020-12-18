@@ -56,7 +56,6 @@ $(document).ready(function () {
         var categories_car = $('#categories_car');
         var price = $('#price');
         var phone = $('#phone');
-        var country = $('#country');
         var province = $('.provincecode');
         var districts = $('.districtcode');
         var sector = $('.sectorcode');
@@ -71,7 +70,7 @@ $(document).ready(function () {
         var photo_Title5 = $('#photo-Title5');
 
         
-        if (isEmpty(country) && isEmpty(province) && isEmpty(districts) &&
+        if (isEmpty(province) && isEmpty(districts) &&
             isEmpty(sector) && isEmpty(cell) && isEmpty(village) && isEmpty(authors) && isEmpty(phone) &&
             isEmpty(categories_car) && isEmpty(price) && isEmpty(additioninformation) && isEmpty(photo) &&
             isEmpty(other_photo) && isEmpty(photo_Titleo0) && isEmpty(photo_Title0) && isEmpty(photo_Title1) &&

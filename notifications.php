@@ -43,7 +43,8 @@
                     
                             <li class="time-label">
                                 <span class="bg-danger text-light">
-                                    10 Feb. 2014
+                                    <!-- 10 Feb. 2014 -->
+                                    Notified
                                 </span>
                             </li>
                             <!-- /.timeline-label -->

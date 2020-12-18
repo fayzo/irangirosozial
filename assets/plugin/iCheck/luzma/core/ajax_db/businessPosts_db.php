@@ -171,6 +171,7 @@ if (isset($_POST['key'])) {
 			// 'responsibilities_duties'=> $responsibilities_duties,
 			// 'qualifications_skills'=> $qualifications_skills, 
 			// 'conditions'=> $conditions,
+			'location'=> 'RW',
 			'deadline'=> $deadline, 
             'website'=> $website,
 			'business_id'=> $businessID,

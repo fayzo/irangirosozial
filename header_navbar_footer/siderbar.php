@@ -63,7 +63,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-            <?php echo $trending->trends_hashtag() ;?>
+              <?php echo $trending->trends_hashtag(); ?>
               <!-- <li><a href="hashtag.php"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> -->
             </ul>

@@ -326,7 +326,12 @@ class House extends Home {
     
     public function EditdeletePost($user_id,$house_id3){
         
-        if($user_id == $house_id3 ){ ?>
+        if($user_id == $house_id3 ){ 
+            $mysqli= $this->database;
+            $query= $mysqli->query("SELECT * FROM house WHERE house_id ='$house_id3'");
+            $house= $query->fetch_array();
+            
+            ?>
 
             <ul class="list-inline ml-2  float-right" style="list-style-type: none;">  
 
@@ -466,38 +471,33 @@ class House extends Home {
         switch ($categories) {
             case $categories == 'House_For_sale':
                 # code...
+                // <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
                 echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                      <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
                     ';
                 break;
             case $categories == 'House_For_rent':
                 # code...
-                echo '<img src="'.BASE_URL_LINK.'image/img/photo1.png" width="200px">
-                      <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                     ';
                 break;
             case $categories == 'House_Land':
                 # code...
-                echo '<img src="'.BASE_URL_LINK.'image/img/photo2.png" width="200px">
-                      <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                     ';
                 break;
             case $categories == 'Apartment_For_sale':
                 # code...
-                echo '<img src="'.BASE_URL_LINK.'image/img/photo3.jpg" width="200px">
-                      <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.jpg" width="200px">
                     ';
                 break;
             case $categories == 'Apartment_For_rent':
                 # code...
-                echo '<img src="'.BASE_URL_LINK.'image/img/photo4.jpg" width="200px">
-                      <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.jpg" width="200px">
                     ';
                 break;
             case $categories == 'Offices_stores':
                 # code...
-                echo '<img src="'.BASE_URL_LINK.'image/img/photo4.jpg" width="200px">
-                      <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.jpg" width="200px">
                     ';
                 break;
             } 
@@ -508,32 +508,28 @@ class House extends Home {
         switch ($categories) {
                 case $categories == 'car_For_sale':
                     # code...
+                    // <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
                     echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                            <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
                         ';
                     break;
                 case $categories == 'car_For_rent':
                     # code...
-                    echo '<img src="'.BASE_URL_LINK.'image/img/photo1.png" width="200px">
-                            <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                    echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                         ';
                     break;
                 case $categories == 'camion_For_sale':
                     # code...
-                    echo '<img src="'.BASE_URL_LINK.'image/img/photo2.png" width="200px">
-                            <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                    echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                         ';
                     break;
                 case $categories == 'motor_For_sale':
                     # code...
-                    echo '<img src="'.BASE_URL_LINK.'image/img/photo3.jpg" width="200px">
-                            <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                    echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.jpg" width="200px">
                         ';
                     break;
                 case $categories == 'bicycle_For_sale':
                     # code...
-                    echo '<img src="'.BASE_URL_LINK.'image/img/photo4.jpg" width="200px">
-                            <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                    echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.jpg" width="200px">
                         ';
                     break;
             } 

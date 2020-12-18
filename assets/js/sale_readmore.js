@@ -50,7 +50,6 @@ $(document).ready(function () {
         var code = $('#code');
         var price = $('#price');
         var phone = $('#phone');
-        var country = $('#country');
         var additioninformation = $('#addition-information');
         var province = $('.provincecode');
         var districts = $('.districtcode');
@@ -70,7 +69,7 @@ $(document).ready(function () {
         var photo_Title4 = $('#photo-Title4');
         var photo_Title5 = $('#photo-Title5');
 
-        if (isEmpty(country) && isEmpty(province) && isEmpty(districts) &&
+        if (isEmpty(province) && isEmpty(districts) &&
             isEmpty(sector) && isEmpty(cell) && isEmpty(village) && isEmpty(categories_sale) && 
             isEmpty(additioninformation) && isEmpty(title) && isEmpty(code) && isEmpty(price) && isEmpty(phone) &&
             isEmpty(photo) && isEmpty(other_photo) && isEmpty(video) && isEmpty(youtube) && isEmpty(photo_Titleo0) && isEmpty(photo_Title0) && isEmpty(photo_Title1) && isEmpty(photo_Title2) &&

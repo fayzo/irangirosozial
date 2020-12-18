@@ -139,7 +139,7 @@ class Sale extends Home{
             $showpages = ($pages*9)-9;
         }
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN sale S ON S. user_id01 = S. user_id01 WHERE S. categories_sale = '{$categories}' ORDER BY created_on01 Desc Limit $showpages,9");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN sale S ON S. user_id01 = U. user_id WHERE S. categories_sale = '{$categories}' ORDER BY created_on01 Desc Limit $showpages,9");
         ?>
         <div class="mb-3 ">
           <?php 
@@ -180,34 +180,34 @@ class Sale extends Home{
                                 echo '
                                 <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                 <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                     ';
                                 break;
                             case $categories == 'clothes':
                                 # code...
                                 echo '
-                                <img src="'.BASE_URL_LINK.'image/img/photo1.png" width="200px">
-                                <img src="'.BASE_URL_LINK.'image/img/photo1.png" width="200px">
+                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
+                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                     ';
                                 break;
                             case $categories == 'sports':
                                 # code...
                                 echo '
-                                <img src="'.BASE_URL_LINK.'image/img/photo2.png" width="200px">
-                                <img src="'.BASE_URL_LINK.'image/img/photo2.png" width="200px">
+                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
+                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                     ';
                                 break;
                             case $categories == 'health_beauty':
                                 # code...
                                 echo '
-                                <img src="'.BASE_URL_LINK.'image/img/photo3.jpg" width="200px">
-                                <img src="'.BASE_URL_LINK.'image/img/photo3.jpg" width="200px">
+                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
+                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                     ';
                                 break;
                             case $categories == 'home_garden':
                                 # code...
-                                echo '<img src="'.BASE_URL_LINK.'image/img/photo4.jpg" width="200px">
-                                      <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
+                                echo '
+                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
+                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                     ';
                                 break;
                         } ?>

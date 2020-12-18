@@ -424,6 +424,37 @@ if (isset($_POST['showMessage1']) && !empty($_POST['showMessage1'])) {
    					
 <?php }
 
+if (isset($_POST['showJobs1']) && !empty($_POST['showJobs1'])) {
+    $user_id= $_SESSION['key'];
+    // $tweet_id= $_POST['showMessage'];
+	$mysqli= $db;
+	$query= $mysqli->query("SELECT * FROM  users U Left JOIN  jobs J ON J. business_id = U. user_id WHERE J.turn = 'on' ORDER BY rand() LIMIT 10");
+	?>
+          <?php while($jobs= $query->fetch_array()) { ?>
+					<!--Direct Messages-->
+				
+				<li class="jobHovers more" data-job="<?php echo $jobs['job_id'];?>"  data-business="<?php echo $jobs['business_id'];?>"> <!-- start message -->
+                    <a href="#">
+                      <div class="pull-left" style="position:relative;">
+						  	<?php if (!empty($jobs['profile_img'])) { ?>
+        						     <img src="<?php echo BASE_URL_LINK."image/users_profile_cover/".$jobs['profile_img'];?>"  class="rounded-circle img"  />
+							<?php }else {?>
+        						     <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>"  class="rounded-circle img" />
+							<?php } ?>
+                      </div>
+					<h4>
+						<span style="font-size:13px"><?php echo $home->htmlspecialcharss($jobs['job_title']);?>
+                   		</span>
+					</h4>
+						<p>Publish - <?php echo $home->timeAgo($jobs['created_on']); ?></p>
+						<p>Deadline -  <?php echo $home->timeDeadiline($jobs['deadline']).''.$home->dayRemain($jobs['deadline']); ?></p>
+                    </a>
+				</li> <!-- end message -->
+
+		<?php  } ?>
+
+<?php }
+
 
 if (isset($_POST['showChatPopup']) && !empty($_POST['showChatPopup'])) {
     $user_id= $_SESSION['key'];

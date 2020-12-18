@@ -3,8 +3,8 @@ $(document).ready(function () {
     $(document).on('keyup', '.status', function () {
         var content = $.trim($(this).val());
         var text = content.match(regex);
-        var max = 200;
-        if (text != null) {
+        var max = 400;
+        if (text !== null) {
             var datastring = '' + text;
 
             $.ajax({

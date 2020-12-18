@@ -6,8 +6,6 @@ if (isset($_POST['sale_view']) && !empty($_POST['sale_view'])) {
     $user_id= $_SESSION['key'];
     $get_province = mysqli_query($db,"SELECT * FROM provinces"); ?>
 
-<script src="<?php echo BASE_URL_LINK ;?>dist/js/country_login_ajax-db.js"></script>
-
 <div class="sale-popup">
     <div class="wrap6">
         <span class="colose">
@@ -27,11 +25,11 @@ if (isset($_POST['sale_view']) && !empty($_POST['sale_view'])) {
                     <div>Choose your location and categories </div>
                       <input type="hidden" name="user_id" value="<?php echo $user_id ;?>">
                      <div class="form-row mt-2">
-                        <div class="col">
+                        <!-- <div class="col">
                           <label for="" class="text-dark">Country</label>
-                            <!-- <div id="myCountry"></div> -->
+                            <div id="myCountry"></div>
                             <div id="myDiv"></div>
-                        </div>
+                        </div> -->
                           <div class="col">
                                 <label for="" class="text-dark">Province</label>
                                 <div class="input-group">
@@ -104,8 +102,6 @@ if (isset($_POST['sale_view']) && !empty($_POST['sale_view'])) {
                                 <option value="clothes">Clothes</option>
                                 <option value="sports">Sports</option>
                                 <option value="health_beauty">Health & beauty</option>
-                                <option value="house">House</option>
-                                <option value="car">car</option>
                                 <option value="home_garden">Home & Garden</option>
                               </select>
                             </div>
@@ -192,7 +188,7 @@ if (isset($_POST['sale_view']) && !empty($_POST['sale_view'])) {
                            </div> 
                         </div>
                       </div>
-                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md ">+ add more</span>
+                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md d-none">+ add more</span>
 
                     <div id="add-videohelp">
                     </div>
@@ -276,7 +272,6 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
     $code = $users->test_input($_POST['code']);
     $price = $users->test_input($_POST['price']);
     $phone = $users->test_input($_POST['phone']);
-    $country = $users->test_input($_POST['country']);
     $province =  $users->test_input($_POST['provincecode']);
     $districts =  $users->test_input($_POST['districtcode']);
     $cell=  $users->test_input($_POST['codecell']);
@@ -306,7 +301,6 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 	'code'=> $code,
 	'price'=> $price,
 	'phone'=> $phone,
-	'country01'=> $country,
 	'province'=> $province,
 	'districts'=> $districts,
 	'sector'=> $sector,

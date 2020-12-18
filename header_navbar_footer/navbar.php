@@ -47,7 +47,26 @@
 
         <div class="navbar-custom-menu ml-auto">
           <ul class="nav navbar-nav">
+            <!-- JOBS : style can be found in dropdown.less-->
+            <!-- JOBS : style can be found in dropdown.less-->
+            <li class="dropdown messages-menu">
+              <a href="#" data-toggle="dropdown" id="jobs-dropdown-menu">
+                <i class="fas fa-edit"></i>
+                <span><?php if($notific['total_jobs'] > 0){echo '<span  class="badge badge-success">'.$notific['total_jobs'].'</span>'; } ?></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="header main-active">You have <span><?php if( $notific['total_jobs'] > 0){echo '<span>'.$notific['total_jobs'].'</span>'; }else{ echo 'no' ;} ?></span> jobs</li>
+                <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu large-2" id="jobs-menu-view" >
+                  </ul>
+                </li>
+                <li class="footer"><a href="<?php echo JOBS; ?>">See All Jobs</a></li>
+              </ul>
+            </li>
+            <!-- END JOBS : style can be found in dropdown.less-->
             <!-- Messages: style can be found in dropdown.less-->
+
             <li class="dropdown messages-menu">
               <a href="#" data-toggle="dropdown" id="messages-dropdown-menu">
                 <i class="fa fa-envelope-o"></i>
@@ -93,6 +112,33 @@
               <li class="footer"><a href="<?php echo BASE_URL_PUBLIC ;?>i.notifications" >View all</a></li>
             </ul>
             </li>
+
+         <?php if (isset($_SESSION['job_user'])){ ?>
+
+             <!-- Email: style can be found in dropdown.less -->
+          <li class="dropdown email-menu messages-menu">
+            <a href="#" data-toggle="dropdown" id="email-dropdown-menu">
+              <i class="fa fa-telegram"></i>
+             <span id="email1"><?php if($notific['total_email'] > 0){echo '<span class="badge badge-warning navbar-badge">'.$notific['total_email'].'</span>'; } ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header main-active">You have  <span ><?php if($notific['total_email'] > 0){echo '<span >'.$notific['total_email'].'</span>'; }else{ echo 'no';} ?></span> email</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu large-2" id="email-menu-view">
+                  <!-- <li>
+                    <a href="#">
+                      <i class="fa fa-users text-info"></i> 5 new members joined today
+                    </a>
+                  </li> -->
+                </ul>
+              </li>
+              <li class="footer"><a href="<?php echo BASE_URL_PUBLIC ;?>i.email" >View all</a></li>
+            </ul>
+          </li>
+         <?php } ?>
+
+
             <!-- Tasks: style can be found in dropdown.less -->
             <li class="hidden-xs">
               <form action="#" method="get" class="sidebar-form" style="margin-top: 5px;">

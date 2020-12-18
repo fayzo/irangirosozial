@@ -62,7 +62,7 @@
 
                     </div>
                     <div class="t-fo-right">
-                      <span id="count">200</span>
+                      <span id="count">400</span>
                       <input <?php echo (isset($_SESSION['key']))?'type="submit"':'type="button" id="login-please" data-login="1"';?> class="btn main-active" name="tweet" value="Post">
                     </div>
                     <!--  progress-xs -->

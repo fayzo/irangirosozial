@@ -59,7 +59,7 @@ $user = $home->userData($_SESSION['key']);
                                 </ul>
                             </div>
                             <div class="t-fo-right">
-                                <span id="count">200</span>
+                                <span id="count">400</span>
                                 <input type="submit" class="btn main-active"  id="addpost" name="addpost" value="Post">
                             </div>
                              <span class="progress progress-xs progress-hided">

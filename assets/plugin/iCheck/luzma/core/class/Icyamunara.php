@@ -35,8 +35,8 @@ class Icyamunara extends House {
                <li class="time-label" style="margin-bottom: 0px;">
                         <span style="margin-left: -10px;"> <img src="<?php echo BASE_URL_LINK.'image/banner/discount.png' ;?>" width="80px"> </span>
                         <?php 
+                                    //   <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
                                 echo '<img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                      <img style="float: right;margin-top:15px;margin-right:25px;" src="'.BASE_URL_LINK.'image/banner/weekPrice.png" width="200px">
                             ';
                         ?>
                 </li>

@@ -41,6 +41,22 @@ $(document).ready(function() {
                 });
     });
 
+    $(document).on('click','#jobs-dropdown-menu',function () {
+        var getmessage1=1;
+
+        $.ajax({
+                    url: 'core/ajax_db/messages.php',
+                    method: 'POST',
+                    dataType: 'text',
+                    data: {
+                        showJobs1: getmessage1,
+                    }, success: function (response) {
+                        $("#jobs-menu-view").html(response);
+                        console.log(response);
+                    }
+                });
+    });
+
     $(document).on('click','#notification-dropdown-menu',function () {
         var notificationDrpdown=1;
 

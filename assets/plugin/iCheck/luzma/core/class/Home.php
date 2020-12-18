@@ -80,6 +80,7 @@ class Home extends Comment {
     {
         $mysqli= $this->database;
         $query= $mysqli->query("SELECT * FROM  users U Left JOIN  jobs J ON J. business_id = U. user_id WHERE J.turn = 'on' ORDER BY rand() LIMIT 6 ");
+        if ($query->num_rows > 0) {
         ?>
         <div class="card card-primary mb-3 ">
         <div class="card-header main-active p-1">
@@ -120,6 +121,8 @@ class Home extends Comment {
             <a href="<?php echo JOBS;?>">View all Jobs</a>
            </div> <!-- /.card-footer -->
        </div>
+       <?php } ?>
+
        <!-- /.card -->
        <!-- <div class="card card-primary mb-3 ">
                 <div class="card-header main-active p-1">
@@ -221,7 +224,7 @@ class Home extends Comment {
                    </div>
                    <span><a href="#">Job Title: <?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></a></span><br>
                    <span><?php echo $this->htmlspecialcharss($jobs['companyname']); ?></span> || 
-                       <i class="flag-icon flag-icon-<?php echo strtolower( $jobs['location']) ;?> h4 mb-0"
+                       <i style="font-size:12px" class="flag-icon flag-icon-<?php echo strtolower( $jobs['location']) ;?> h4 mb-0"
                             id="<?php echo strtolower( $jobs['location']) ;?>" title="us"></i><br>
                    <span>Shared public - <?php echo $this->timeAgo($jobs['created_on']); ?></span><br>
                    <span>Deadline - <?php echo $this->htmlspecialcharss($jobs['deadline']); ?></span>
@@ -572,9 +575,9 @@ public function links(){ ?>
       <li class="list-inline-item"><a href="crowfund.php"><i class="fa fa-money" aria-hidden="true"></i> GushoraStartUp</a></li>
       <li class="list-inline-item"><a href="fundraising.php"><i class="fa fa-heartbeat" aria-hidden="true"></i> Fundraising</a></li>
             <?php if($_SESSION['approval'] === 'on'){ ?>
-      <li class="list-inline-item"><a href="unemployment.php"><i class="fa fa-running    "></i> unemployment</a></li>
+      <li class="list-inline-item"><a href="unemployment.php"><i class="fa fa-briefcase"></i> unemployment</a></li>
             <?php } ?>
-      <li class="list-inline-item"><a href="career_profession.php"><i class="fa fa-career"></i>  Professional</a></li>
+      <li class="list-inline-item"><a href="career_profession.php"><i class="fa fa-briefcase"></i>  Professional</a></li>
       <li class="list-inline-item"><a href="sale.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Sale</a></li>
       <li class="list-inline-item"><a href="blog.php"><i class="fas fa-edit"></i> Blog</a></li>
       <li class="list-inline-item"><a href="jobs.php"><i class="fas fa-newspaper    "></i> Jobs</a></li>

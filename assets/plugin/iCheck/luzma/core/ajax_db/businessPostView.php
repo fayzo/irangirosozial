@@ -100,8 +100,6 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
 
           <div class="col-12 px-0 py-2 jobHover border-bottom jobHovers more" data-job="<?php echo $jobs['job_id'];?>"  data-business="<?php echo $jobs['business_id'];?>">
             <div class="user-block mb-2" >
-             <div class="row">
-              <div class="col-2">
                    <div class="user-jobImgall">
                          <?php if (!empty($jobs['profile_img'])) { ?>
                          <img src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $jobs['profile_img'] ;?>" alt="User Image">
@@ -109,12 +107,10 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
                            <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
                          <?php } ?>
                    </div>
-              </div>
-              <div class="col-10 pl-4">
                    <span>
                        <a style="padding-right:3px;" href="<?php echo BASE_URL_PUBLIC ;?>"><?php echo htmlspecialchars($jobs['companyname']); ?></a> || 
-                       <i class="flag-icon flag-icon-<?php echo strtolower($jobs['location']) ;?> h4 mb-0"
-                            id="<?php echo strtolower( $jobs['location']) ;?>" title="us"></i>
+                       <i style="font-size:12px" class="flag-icon flag-icon-<?php echo strtolower($jobs['location']) ;?> h4 mb-0"
+                            id="<?php echo strtolower($jobs['location']) ;?>" title="us"></i>
                    </span><br>
                    <span>Job Title: <?php echo htmlspecialchars($jobs['job_title']); ?></span><br>
                    <span>Shared public -<?php echo $home->timeAgo($jobs['created_on']); ?></span><br>
@@ -124,9 +120,6 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
              </div>
             </div>
             <hr>
-<p><div><ul><li>Perform monthly, quarterly and annual accounting activities including reconciliations of bank and credit card accounts, coordination and completion of annual audits, and reviewing financial reports/support as necessary</li>
-<li><div><p>Perform monthly, quarterly and annual accounting activities including reconciliations of bank and credit card accounts, coordination and completion of annual audits, and reviewing financial reports/support as necessaryï»¿</p></div></li>
-</ul></div></p>
         <?php } 
         }
 } ?>

@@ -281,6 +281,9 @@ class Follow extends Events
        $query= "SELECT * FROM users WHERE user_id != $user_id AND user_id NOT IN (SELECT receiver FROM follow WHERE sender = $user_id ) ORDER BY rand() LIMIT 4";
        $result=$mysqli->query($query);
 
+        if ($result->num_rows > 0) {
+
+        # code...
         echo ' <div class="card mb-3">
                      <div class="card-header main-active text-center">
                            <i> WHO TO FOLLOW </i>
@@ -322,6 +325,9 @@ class Follow extends Events
                          <a href="'.NETWORK.'">View more >>></a>
                      </div>
                  </div>';
+                 
+            }
+
     }
 
     static public function tooltipProfile($whoTofollow,$user_id,$follow_id)

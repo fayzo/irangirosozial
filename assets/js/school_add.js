@@ -4,6 +4,13 @@ $(document).on('click', '#add_school', function (e) {
     $('.progress-hidex').hide();
     $('.progress-hidec').hide();
     $('.progress-hidez').hide();
+
+    $('#provincecode').attr('id', 'provincecode-remove');
+    $('#districtcode').attr('id', 'districtcode-remove');
+    $('#sectorcode').attr('id', 'sectorcode-remove');
+    $('#codecell').attr('id', 'codecell-remove');
+    $('#CodeVillage').attr('id', 'CodeVillage-remove');
+
     e.stopPropagation();
     var school_view = $(this).data('school');
 
@@ -25,11 +32,11 @@ $(document).on('click', '#add_school', function (e) {
 
 $(document).on('click', '#form-school', function (e) {
     // event.preventDefault();
+
     e.stopPropagation();
     var title = $('#title');
     var author = $('#author');
     var phone = $('#phone');
-    var country = $('#country');
     var additioninformation = $('#addition-information');
     var photo = $('#photo');
     var other_photo = $('#other-photo');
@@ -43,7 +50,7 @@ $(document).on('click', '#form-school', function (e) {
     var location_cell = $('#codecell');
     var location_village = $('#CodeVillage');
 
-    if (isEmpty(title) && isEmpty(author) &&isEmpty(phone) && isEmpty(country) && 
+    if (isEmpty(title) && isEmpty(author) &&isEmpty(phone) && 
         isEmpty(location_province) && isEmpty(location_districts) &&
         isEmpty(location_Sector) && isEmpty(location_cell) && isEmpty(location_village) &&
         isEmpty(categories_of_school) && isEmpty(type_of_school) && isEmpty(additioninformation) &&

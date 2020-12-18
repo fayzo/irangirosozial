@@ -32,7 +32,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                         <div class="col">
                           <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2"><i style="font-size:20px;" class="material-icons">school</i></span>
+                                <span class="input-group-text" id="basic-addon2"><i class="material-icons">school</i></span>
                             </div>
                             <input type="text" class="form-control" name="title" id="title" placeholder="name of School">
                           </div>
@@ -60,26 +60,6 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                       </div>
 
                       <div class="form-row mt-2">
-                        <script src="<?php echo BASE_URL_LINK ;?>dist/js/country.js"></script>
-
-                        <div class="col">
-                            <label for="">Country</label>
-                            <div class="input-group" id="myCountry">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon2"><i class="fa fa-map-marker mr-1" aria-hidden="true"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="col">
-                            <div id="myProvince"></div>
-                        </div>
-                        <div class="col">
-                            <div id="myDistricts"></div>
-                        </div>
-
-                        <div class="col">
-                          <div id="mySectors"></div>
-                        </div> -->
 
                         <div class="col">
                             <label for="">Province</label>
@@ -209,7 +189,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                            </div> 
                         </div>
                       </div>
-                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md ">+ add more</span>
+                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md d-none ">+ add more</span>
 
                     <div id="add-videohelp">
                       
@@ -255,7 +235,6 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
     $title = $users->test_input($_POST['title']);
     $author = $users->test_input($_POST['author']);
     $phone = $users->test_input($_POST['phone']);
-    $country = $users->test_input($_POST['country']);
     $additioninformation = $users->test_input($_POST['additioninformation']);
     $categories_of_school=  $users->test_input($_POST['categories_of_school']);
     $type_of_school=  $users->test_input($_POST['type_of_school']);
@@ -285,7 +264,7 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 	'title_'=> $title,
 	'author_'=> $author,
 	'phone_'=> $phone,
-	'country'=> $country,
+	'country'=> 'RW',
 	'photo_'=> $photo_,
 	'other_photo_'=> $other_photo_, 
 	'video_'=> $video_, 

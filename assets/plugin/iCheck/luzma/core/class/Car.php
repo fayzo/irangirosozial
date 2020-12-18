@@ -260,7 +260,9 @@ class Car extends House {
     public function EditdeletePostcar($user_id,$car_id3){
         
         if($user_id == $car_id3 ){ 
-            // $car['user_id3']
+            $mysqli= $this->database;
+            $query= $mysqli->query("SELECT * FROM car WHERE car_id ='$car_id3'");
+            $car= $query->fetch_array();
             ?>
 
             <ul class="list-inline ml-2  float-right" style="list-style-type: none;">  

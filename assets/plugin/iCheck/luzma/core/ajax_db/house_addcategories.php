@@ -6,7 +6,6 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
     $user_id= $_SESSION['key'];
     $get_province = mysqli_query($db,"SELECT * FROM provinces");   
      ?>
-  <script src="<?php echo BASE_URL_LINK ;?>dist/js/country_login_ajax-db.js"></script>
 
 <div class="house-popup">
     <div class="wrap6">
@@ -19,7 +18,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
             <div class="card">
                 <span id="responseSubmithouse"></span>
                 <div class="card-header">
-                    <h5 class="card-text">blog</h5>
+                    <h5 class="card-text">House</h5>
                     <p class="card-text">Add house ? Please fill details below.</p>
                 </div>
                 <form method="post" id="form-house"  enctype="multipart/form-data" >
@@ -28,11 +27,11 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                            <div>Choose your location and categories </div>
                     <div class="form-row">
                       <input type="hidden" name="user_id" value="<?php echo $user_id ;?>">
-                        <div class="col">
+                        <!-- <div class="col">
                           <label for="" class="text-dark">Country</label>
-                            <!-- <div id="myCountry"></div> -->
+                            <div id="myCountry"></div>
                             <div id="myDiv"></div>
-                        </div>
+                        </div> -->
                           <div class="col">
                                 <label for="" class="text-dark">Province</label>
                                 <div class="input-group">
@@ -97,8 +96,8 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                             </div>
 
                         ` <div class="col">
-                            <label for="authors">Authors</label>
-                            <input type="text" class="form-control" name="authors"  id="authors" placeholder="authors">
+                            <label for="authors">Seller name</label>
+                            <input type="text" class="form-control" name="authors"  id="authors" placeholder="name">
                           </div>
 
                         <div class="col">
@@ -175,7 +174,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                            </div> 
                         </div>
                       </div>
-                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md ">+ add more</span>
+                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md d-none">+ add more</span>
 
                     <div id="add-videohelp">
                     </div>
@@ -224,7 +223,6 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
     $categories_house=  $users->test_input($_POST['categories_house']);
     $price = $users->test_input($_POST['price']);
     $phone = $users->test_input($_POST['phone']);
-    $country = $users->test_input($_POST['country']);
     $province =  $users->test_input($_POST['provincecode']);
     $districts =  $users->test_input($_POST['districtcode']);
     $cell=  $users->test_input($_POST['codecell']);
@@ -289,7 +287,6 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
     'youtube'=> $youtube, 
     'price'=> $price,
 	'phone'=> $phone,
-    'country01'=> $country,
     'photo_Title_main'=> $photo_Titleo,
     'photo_Title'=> $photo_Title0.'='.$photo_Title1.'='.$photo_Title2.'='.$photo_Title3.'='.$photo_Title4.'='.$photo_Title5,
 	'province'=> $province,

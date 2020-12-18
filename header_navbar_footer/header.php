@@ -12,6 +12,8 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo BASE_URL_LINK;?>icon/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?php echo BASE_URL_LINK;?>icon/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL_LINK ;?>icon/flag-icon-css-master/css/flag-icon.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo BASE_URL_LINK;?>dist/css/AdminLTE.css">
   <link rel="stylesheet" href="<?php echo BASE_URL_LINK;?>plugin/skins/_all-skins.css">
@@ -32,6 +34,7 @@
   <link rel="stylesheet" href="<?php echo BASE_URL_LINK;?>dist/css/upload_profile_imagee.css">
   <link rel="stylesheet" href="<?php echo BASE_URL_LINK;?>dist/css/background.css">
   <!-- <link rel="stylesheet" href="<?php echo BASE_URL_LINK;?>dist/css/follow.css"> -->
+  <link rel="stylesheet"  href="<?php echo BASE_URL_LINK ;?>dist/css/lightslider.css" />
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -640,6 +643,39 @@
         var xhr = new XMLHttpRequest();
         // Add any event handlers here...
         xhr.open('POST', 'core/ajax_db/unemploymentView_FecthPaginat.php?pages=' + id + '&categories=' + categories, true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+
+                switch (categories) {
+                    case categories:
+                         var pagination = document.getElementById('jobs-hides');
+                         pagination.innerHTML = xhr.responseText;
+                        break;
+                }
+            }
+        };
+          xhr.addEventListener('progress',function(e){
+             var progress= Math.round((e.loaded/e.total)*100);
+             $('.progress-navbar').show();
+             $('#progress_width').css('width',progress +'%');
+             $('#progress_width').html(progress +'%');
+         }, false);
+
+        xhr.addEventListener('load', function (e) { 
+            $('.progress-bar').removeClass('bg-info').addClass('bg-danger').html('<span> completed  <span class="fa fa-check"></span></span>');
+            setInterval(function () {
+                $(".progress-navbar").fadeOut();
+            }, 2000);
+        }, false);
+    }
+    
+
+    
+    function employmentCategories(categories,id) {
+        var xhr = new XMLHttpRequest();
+        // Add any event handlers here...
+        xhr.open('POST', 'core/ajax_db/employmentView_FecthPaginat.php?pages=' + id + '&categories=' + categories, true);
         xhr.send();
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {

@@ -6,7 +6,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !\.php$
 
-
+#RewriteRule ^(.*)$ $1.php [NC,L]
 #RewriteRule ^([0-9a-zA-Z_-]+).(home)/?$ index.php?username=$1 [NC,L,QSA]
 RewriteRule ^([0-9a-zA-Z_-]+)/?$ profile.php?username=$1 [NC,L,QSA]
 RewriteRule ^([0-9a-zA-Z_-]+).(following|followers|posts|album|album_crop)/?$ $2.php?username=$1 [NC,L,QSA]
@@ -14,5 +14,5 @@ RewriteRule ^([0-9a-zA-Z_-]+).(jobs|unemployment|sale|fundraising|crowfund|blog|
 RewriteRule ^([0-9a-zA-Z_-]+).(hashtag)/?$ $2.php?hashtag=$1 [NC,L,QSA]
 RewriteRule ^([0-9a-zA-Z_-]+).([0-9a-zA-Z_-]+).(hashtag)/?$ $3.php?hashtag=$1&f=$2 [NC,L,QSA]
 RewriteRule ^i.notifications/?$ notifications.php [NC,L,QSA]
-#RewriteRule ^i.email/?$ email.php [NC,L,QSA]
+RewriteRule ^i.email/?$ email.php [NC,L,QSA]
 

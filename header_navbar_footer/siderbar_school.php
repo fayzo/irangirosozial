@@ -10,7 +10,7 @@
             <button type="button" class="btn btn-light" id="add_school" data-school="<?php echo $_SESSION['key']; ?>" > + Add school </button>
            <?php } ?>
           </div>
-          <div class="col-4 text-center">
+          <div class="col-4  pt-1 text-center">
             <a class="blog-header-logo text-dark" href="#">School & University</a>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">

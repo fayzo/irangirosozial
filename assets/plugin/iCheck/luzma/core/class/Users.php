@@ -403,7 +403,7 @@ class Users{
         //         </div>');
         // }
         $row= json_encode($mysqli->insert_id);
-        var_dump($queryl,$query);
+        // var_dump($queryl,$query);
         return $row;
     }
 
@@ -1324,6 +1324,104 @@ class Users{
             # code...
              return date('M j, Y',$time); 
         }
+        
+    }
+
+    public function dayRemain($datetime){
+            $Date  = $datetime;
+            $now  = date('Y-m-d');
+            $datetime1 = new DateTime($Date);
+            $datetime2 = new DateTime($now);
+            $interval = $datetime1->diff($datetime2);
+            return ($Date > $now )? 
+            $interval->format('%R%a days Remain'):'';
+    }
+
+    public function timeDeadiline($datetime){
+
+        $time= strtotime($datetime.' 00:00:00');
+        $current= time($datetime.' 00:00:00');
+        if ($time > $current) {
+            # code...
+            $second= $time - $current ;
+            $minute= round($second / 60);
+            $hour= round($second / 3600);
+            $week= round($second / 86400);
+            $month= round($second / 2600640);
+
+            $date = date('d/m/Y', $time);
+
+            $Date  = date('Y-m-d', $time);
+            $now  = date('Y-m-d');
+            $datetime1 = new DateTime($Date);
+            $datetime2 = new DateTime($now);
+            $interval = $datetime1->diff($datetime2);
+            // $interval->format('%R%a days');
+
+
+            if ($week <= 7) {
+                # code...
+                return  $interval->format('%a days').' remain'; 
+            }elseif ($month <= 12) {
+                # code...
+                return date('M j',$time); 
+
+            }else { 
+                # code...
+                return date('M j, Y',$time); 
+            }
+
+            
+        }else{
+            $second= $current - $time;
+            $minute= round($second / 60);
+            $hour= round($second / 3600);
+            $week= round($second / 86400);
+            $month= round($second / 2600640);
+
+            $date = date('d/m/Y', $time);
+
+            $Date  = date('Y-m-d', $time);
+            $now  = date('Y-m-d');
+            $datetime1 = new DateTime($Date);
+            $datetime2 = new DateTime($now);
+            $interval = $datetime1->diff($datetime2);
+            // $interval->format('%R%a days');
+
+            if ($second <= 60) {
+                # code...
+                if ($second == 0 ) {
+                    # code...
+                    return 'now'; 
+                }else {
+                    # code...
+                    return $second.'s remain'; 
+                }
+
+            }elseif ($minute <= 60) {
+                # code...
+                return $minute.'m remain'; 
+            }elseif ($hour <= 24 ) {
+                # code...
+                return $hour.'h remain'; 
+
+            }elseif ($week == 1 ) {
+                # code...
+                return  'yesterday'; 
+            }elseif ($week <= 7) {
+                # code...
+                return  $interval->format('%a days').' ago'; 
+            }elseif ($month <= 12) {
+                # code...
+                return date('M j',$time); 
+
+            }else { 
+                # code...
+                return date('M j, Y',$time); 
+            }
+
+        }
+        
         
     }
 

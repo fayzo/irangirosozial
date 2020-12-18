@@ -119,7 +119,59 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
                     </div>
                   <div class="clear-float">
                       <span class='float-left'>Fields study: <?php echo $row['categories_fields']; ?> </span>
-                      <span class='float-right'>Unemployment: <?php echo $row['unemplyoment']; ?> </span>
+                      <span class='float-right'>Unemployment: <?php echo $row['unemployment']; ?> </span>
+                  </div>
+               </div> <!-- col-10 -->
+            </div> <!-- row -->
+          </div> <!-- user-block -->
+          </div> <!-- col-12 -->
+          <hr class="bg-info mt-0 mb-1" style="width:70%;">
+
+
+        <?php } 
+        }
+} 
+
+
+
+if (isset($_POST['searchProfess']) && !empty($_POST['searchProfess'])) {
+    $user_id= $_SESSION['key'];
+    $search= $users->test_input($_POST['searchProfess']);
+    $result= $employment->searchemployment($search);
+    echo '<h4 style="padding: 0px 10px;">'.$_POST['searchProfess'].'</h4> ';
+
+     if (is_array($result) || is_object($result)){
+
+     foreach ($result as $row) { ?>
+
+         <div class="col-12 px-0 py-2 jobHover more" data-user="<?php echo $row['user_id'];?>" >
+            <div class="user-block mb-2" >
+             <div class="row">
+              <div class="col-2">
+                   <div class="user-jobImgall">
+                         <?php if (!empty($row['profile_img'])) {?>
+                         <img src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $row['profile_img'] ;?>" alt="User Image">
+                         <?php  }else{ ?>
+                           <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
+                         <?php } ?>
+                   </div>
+              </div>
+              <div class="col-10 pl-4">
+                  <div>
+                      <span class='float-left'>Names: <?php echo $row['firstname']." ".$row['lastname']; ?> </span>
+                      <span class="float-right people-message more" data-user="<?php echo $row['user_id'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </span>
+                  </div>
+                  <div class="clear-float">
+                      <span class='float-left'>education: <?php echo $row['education']; ?> </span>
+                      <span class='float-right emailSent' data-user="<?php echo $row['user_id'];?>"><?php echo $row['email']; ?></span>
+                  </div>
+                  <div class="clear-float">
+                      <span class='float-left'>diploma: <?php echo $row['diploma']; ?> </span>
+                      <span class='float-right'><?php echo $row['phone']; ?> </span>
+                    </div>
+                  <div class="clear-float">
+                      <span class='float-left'>Fields study: <?php echo $row['categories_fields']; ?> </span>
+                      <span class='float-right'>Unemployment: <?php echo $row['unemployment']; ?> </span>
                   </div>
                </div> <!-- col-10 -->
             </div> <!-- row -->

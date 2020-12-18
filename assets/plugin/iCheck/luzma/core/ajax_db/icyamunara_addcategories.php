@@ -6,8 +6,6 @@ if (isset($_POST['icyamunara_view']) && !empty($_POST['icyamunara_view'])) {
     $user_id= $_SESSION['key'];
     $get_province = mysqli_query($db,"SELECT * FROM provinces"); ?>
 
-<script src="<?php echo BASE_URL_LINK ;?>dist/js/country_login_ajax-db.js"></script>
-
 <div class="icyamunara-popup">
     <div class="wrap6">
         <span class="colose">
@@ -27,11 +25,11 @@ if (isset($_POST['icyamunara_view']) && !empty($_POST['icyamunara_view'])) {
                     <div>Choose your location and categories </div>
                       <input type="hidden" name="user_id" value="<?php echo $user_id ;?>">
                        <div class="form-row mt-2">
-                        <div class="col">
+                        <!-- <div class="col">
                           <label for="" class="text-dark">Country</label>
-                            <!-- <div id="myCountry"></div> -->
+                            <div id="myCountry"></div>
                             <div id="myDiv"></div>
-                        </div>
+                        </div> -->
                           <div class="col">
                                 <label for="" class="text-dark">Province</label>
                                 <div class="input-group">
@@ -106,9 +104,9 @@ if (isset($_POST['icyamunara_view']) && !empty($_POST['icyamunara_view'])) {
                         <div class="col">
                           <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2">author</span>
+                                <span class="input-group-text" id="basic-addon2">Seller</span>
                             </div>
-                            <input type="text" class="form-control" name="author" id="author" placeholder="name of author">
+                            <input type="text" class="form-control" name="author" id="author" placeholder="name">
                           </div>
                         </div>
 
@@ -157,7 +155,7 @@ if (isset($_POST['icyamunara_view']) && !empty($_POST['icyamunara_view'])) {
                            </div> 
                         </div>
                       </div>
-                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md ">+ add more</span>
+                      <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md d-none">+ add more</span>
 
                     <div id="add-videohelp">
                     </div>
@@ -242,7 +240,6 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
     $authors = $users->test_input($_POST['author']);
     $additioninformation = $users->test_input($_POST['additioninformation']);
     $phone = $users->test_input($_POST['phone']);
-    $country = $users->test_input($_POST['country']);
     $province =  $users->test_input($_POST['provincecode']);
     $districts =  $users->test_input($_POST['districtcode']);
     $cell=  $users->test_input($_POST['codecell']);
@@ -272,7 +269,6 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 	'video'=> $video_, 
     'youtube'=> $youtube, 
 	'phone'=> $phone,
-    'country01'=> $country,
     'photo_Title_main'=> $photo_Titleo,
     'photo_Title'=> $photo_Title0.'='.$photo_Title1.'='.$photo_Title2.'='.$photo_Title3.'='.$photo_Title4.'='.$photo_Title5,
 	'province'=> $province,

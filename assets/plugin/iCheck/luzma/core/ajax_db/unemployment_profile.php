@@ -2,6 +2,39 @@
 include('../init.php');
 $users->preventUsersAccess($_SERVER['REQUEST_METHOD'],realpath(__FILE__),realpath($_SERVER['SCRIPT_FILENAME']));
 
+
+if (isset($_POST['key']) && $_POST['key'] == 'Unemployment') {
+    
+    $user_id = $users->test_input($_POST['user_id1']);
+    $Career = $users->test_input($_POST['Career']);
+    $years = $users->test_input($_POST['years']);
+    $field = $users->test_input($_POST['field']);
+    $diploma = $users->test_input($_POST['diploma']);
+    $age = $users->test_input($_POST['age']);
+    $status = $users->test_input($_POST['status']);
+    $phone = $users->test_input($_POST['phone']);
+    $course = $users->test_input($_POST['course']);
+    $editor1 = $users->test_input($_POST['editor1']);
+    $unemployment = (($_POST['Career'] == 'unemployment'))?'yes':'no';
+
+    $users->update('users',array( 
+    'career'=> $Career, 
+    'years' => $years,
+    'field' => $field, 
+    'categories_fields' => $field, 
+    'diploma' => $diploma,
+    'age'=> $age,
+    'status_career'=> $status,
+    'phone'=> $phone,
+    'course' => $course,
+    'unemployment' => $unemployment,
+    'about'=> $editor1 ),array('user_id'=> $user_id, ));
+
+
+    exit('success');
+}
+
+
 if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
     $user_id= $_POST['user_id'];
     $user= $home->userData($user_id);
@@ -64,8 +97,9 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
                     <!-- <div>Rwanda</div> -->
                 </div>
                 <div class="col-md-1-3 border-left mr-4 p-2">
-                    <h4>Unemployment</h4>
-                    <div>3 years</div>
+                    <h4><?php echo $user['career']; ?></h4>
+                    <!-- Unemployment -->
+                    <div><?php echo $user['years']; ?> years</div>
                 </div>
                 <div class="col-md-1-3 border-left mr-4 p-2">
                     <h4>Resume</h4>
@@ -73,11 +107,11 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
                 </div>
                 <div class="col-md-1-3 border-left mr-4 p-2">
                     <h4>Age</h4>
-                    <div>42 years</div>
+                    <div><?php echo $user['age']; ?> years</div>
                 </div>
                 <div class="col-md-1-3 border-left mr-4 p-2">
                     <h4>Status</h4>
-                    <div>Single</div>
+                    <div><?php echo $user['status_career']; ?></div>
                 </div>
             </div>
 
@@ -95,6 +129,12 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 
                         <div class="text-left pt-3">
                             <ul class="list-inline">
+                            <?php
+                             $course = $user['course'];
+                             $expode = explode(",",$course);
+                             for ($i=0; $i < count($expode); ++$i) { ?>
+                                <li class="list-inline-item h4 btn btn-outline-primary"><i><?php echo $expode[$i] ;?></i></li>
+                            <?php } ?>
                                 <li class="list-inline-item h4 btn btn-outline-primary"><i> project management</i></li>
                                 <li class="list-inline-item h4 btn btn-outline-primary"><i> Account</i></li>
                                 <li class="list-inline-item h4 btn btn-outline-primary"><i> Business management</i></li>
@@ -108,233 +148,9 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
                 </div>
             </section>
 
-           <section class="container" >
-             <h3>About Me</h3>
-           <div class=" border-1 shadow-lg">
-             
-                             <p>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave
-                                 put a
-                                 bird
-                                 on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester
-                                 mlkshk.
-                                 Ethical
-                                 master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk
-                                 fanny pack
-                                 gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester
-                                 chillwave 3 wolf
-                                 moon
-                                 asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas
-                                 church-key
-                                 tofu
-                                 blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies
-                                 narwhal
-                                 American
-                                 Apparel.</p>
-                </div>
-            </section>
-
             <section class="container" >
-             <h3> Experience Skills</h3>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card bg-light border-1 shadow-lg">
-                            <div class="card-header  bg-primary text-light">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <i class="fa fa-info" style="font-size:30px;" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="col-md-8 text-left">
-                                            <h5><i>My Experience Skills</i></h5>
-                                            <div><i class="fa fa-star text-light" aria-hidden="true"></i><i class="fa fa-star text-light" aria-hidden="true"></i><i class="fa fa-star text-light" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></div>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="card-body text-dark">
-                                <ul>
-                                    <li>Child Care</li>
-                                    <li>Housekeeping</li>
-                                    <li>Baby Care</li>
-                                    <li>Pet Care</li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                    </div><!-- col -->
-                    <div class="col-md-4">
-                        <div class="card bg-light border-1 shadow-lg">
-                            <div class="card-header  bg-primary text-light">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <i class="fa fa-info" style="font-size:30px;" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="col-md-8 text-left">
-                                            <h5><i>My Experience Skills</i></h5>
-                                            <div><i class="fa fa-star text-light" aria-hidden="true"></i><i class="fa fa-star text-light" aria-hidden="true"></i><i class="fa fa-star text-light" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></div>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="card-body text-dark">
-                                <ul>
-                                    <li>Child Care</li>
-                                    <li>Housekeeping</li>
-                                    <li>Baby Care</li>
-                                    <li>Pet Care</li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                    </div><!-- col -->
-                    <div class="col-md-4">
-                    <h5></h5>
-                        <div class="card bg-light border-1 shadow-lg">
-                            <div class="card-header bg-primary text-light">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <i class="fa fa-info" style="font-size:30px;" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="col-md-8 text-left">
-                                            <h5><i>My Experience Skills</i></h5>
-                                            <div><i class="fa fa-star text-light" aria-hidden="true"></i><i class="fa fa-star text-light" aria-hidden="true"></i><i class="fa fa-star text-light" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></div>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="card-body text-dark">
-                                <ul>
-                                    <li>Child Care</li>
-                                    <li>Housekeeping</li>
-                                    <li>Baby Care</li>
-                                    <li>Pet Care</li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                    </div><!-- col -->
-                </div>
-            
-            </section>
-
-            <section class="container mt-2 mb-2" >
-                <div class="card mt-3 bg-light border-1 shadow-lg">
-                   <div class="card-header text-dark p-2">
-                       <h3>Working Experience</h3>
-                    </div><!-- /.card-header -->
-                    <div class="card-body text-dark mb-2 ">
-                                <ul class="timeline timeline-inverse">
-                                <li class="time-label">
-                                 <span class="text-dark" style="position: absolute;font-size: 25px; padding: 2px; margin-left: 15px;"><i class="fa fa-calendar"></i></span>
-
-                                <div class="timeline-item card bg-light border-1 shadow-lg">
-                                    <div class="card-body text-dark">
-                                    <table class="table table-hover table-inverse">
-                                        <thead class="thead-inverse">
-                                            <tr>
-                                                <th><h5><i> Date</i></h5></th>
-                                                <th><h5><i class="fa fa-map-marker"></i> <i>Working place</i></h5></th>
-                                                <th><h5><i class="fa fa-users "></i> <i>Couple Family</i></h5></th>
-                                                <th><h5><i class="fa fa-star"></i> <i>Duties</i></h5></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>22 may</td>
-                                                    <td>Gasabo</td>
-                                                    <td>6 Family</td>
-                                                    <td><ul style="margin-left:0px;">
-                                                            <li>child care</li>
-                                                            <li>cooking</li>
-                                                            <li>cleaning</li>
-                                                            </ul>
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>22 may</td>
-                                                    <td>Gasabo</td>
-                                                    <td>6 Family</td>
-                                                    <td><ul style="margin-left:0px;">
-                                                            <li>child care</li>
-                                                            <li>cooking</li>
-                                                            <li>cleaning</li>
-                                                            </ul>
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>22 may</td>
-                                                    <td>Gasabo</td>
-                                                    <td>6 Family</td>
-                                                    <td><ul style="margin-left:0px;">
-                                                            <li>child care</li>
-                                                            <li>cooking</li>
-                                                            <li>cleaning</li>
-                                                            </ul>
-                                                        </td>
-                                                </tr>
-                                            </tbody>
-                                    </table>
-                                    </div>
-                                </div>
-                                </li>
-                                <li>
-                                    <i class="fa fa-clock-o bg-info text-light"></i>
-                                </li>
-                                </ul>
-
-                           </div>
-                    </div>
-                    
-                    <div class="card bg-light border-1 shadow-lg">
-                        <div class="card-header text-dark p-2">
-                            <h3>Education</h3> 
-                        </div><!-- /.card-header -->
-                        <div class="card-body text-dark mb-2">
-
-                             <ul class="timeline timeline-inverse">
-                                <li class="time-label">
-                                 <span class="text-dark" style="position: absolute;font-size: 25px; padding: 2px; margin-left:15px;"><i class="fa fa-calendar"></i></span>
-
-                                <div class="timeline-item card bg-light border-1 shadow-lg">
-                                    <div class="card-body text-dark ">
-                                    <table class="table table-hover table-inverse">
-                                        <thead class="thead-inverse">
-                                            <tr>
-                                                <th><h5> <i>School</i></h5></th>
-                                                <th><h5> <i>Start</i></h5></th>
-                                                <th><h5> <i>End</i></h5></th>
-                                                <th><h5> <i>study</i></h5></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>lycee</td>
-                                                    <td>2000</td>
-                                                    <td>2003</td>
-                                                    <td>Mathematics</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Kabgayi</td>
-                                                    <td>2003</td>
-                                                    <td>2007</td>
-                                                    <td>Mathematics</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>APADE</td>
-                                                    <td>2007</td>
-                                                    <td>2016</td>
-                                                    <td>Mathematics</td>
-                                                </tr>
-                                            </tbody>
-                                    </table>
-                                    </div>
-                                </div>
-                                </li>
-                                <li>
-                                    <i class="fa fa-clock-o bg-info text-light"></i>
-                                </li>
-                                </ul>
-
-                            </div> <!-- /.tab-pane -->
-                            <!-- /.tab-pane -->
-                        </div>
-                    </div>
+                <h3>About Me</h3>
+                <p><?php echo htmlspecialchars_decode($user['about']); ?></p>
             </section>
 
 
@@ -344,3 +160,41 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 </div> <!-- apply-popup" -->
 
 <?php } 
+
+if (isset($_POST['key']) && $_POST['key'] == 'edit') {
+    
+    $user_id = $users->test_input($_POST['rowID']);
+    $data= $users->selects('users',
+    array(
+        'career'=> 'career', 
+        'years'=> 'years', 
+        'field'=> 'field', 
+        'categories_fields'=> 'categories_fields', 
+        'diploma'=> 'diploma', 
+        'age'=> 'age', 
+        'status'=> 'status', 
+        'phone' => 'phone',
+        'course'=> 'course', 
+        'unemployment'=> 'unemployment', 
+        'about'=> 'about', 
+
+    ),array(
+         'user_id'=> $user_id,
+    ));
+
+    $jsonArrays = array(
+        'career' => $data['career'],
+        'years' => $data['years'],
+        'field' => $data['field'],
+        'categories_fields' => $data['categories_fields'],
+        'diploma' => $data['diploma'],
+        'age' => $data['age'],
+        'status_career' => $data['status'],
+        'phone' => $data['phone'],
+        'course' => $data['course'],
+        'unemployment' => $data['unemployment'],
+        'about' => htmlspecialchars_decode($data['about']),
+    );
+    
+    exit(json_encode($jsonArrays));
+ }

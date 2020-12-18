@@ -80,6 +80,8 @@
   <script src="<?php echo BASE_URL_LINK ;?>dist/js/jquery.Jcrop.min.js"></script>
   <script src="<?php echo BASE_URL_LINK ;?>plugin/iCheck/icheck.min.js"></script>
   <script src="<?php echo BASE_URL_LINK ;?>dist/js/siderbarResponsive.js"></script>
+  <script src="<?php echo BASE_URL_LINK ;?>dist/js/lightslider.js"></script> 
+
   <script src="<?php echo BASE_URL_LINK ;?>plugin/ckeditor/ckeditor.js"></script>
 
   <!-- AdminLTE App -->
@@ -166,6 +168,26 @@
     //bootstrap WYSIHTML5 - text editor
     // $('.textarea').wysihtml5()
   });
+
+    // $(document).ready(function() {
+    //     $("#content-slider").lightSlider({
+    //         loop:true,
+    //         keyPress:true
+    //     });
+    //     $('#image-gallery10').lightSlider({
+    //         gallery:true,
+    //         item:1,
+    //         thumbItem:9,
+    //         slideMargin: 0,
+    //         speed:500,
+    //         auto:true,
+    //         loop:true,
+    //         onSliderLoad: function() {
+    //             $('#image-gallery10').removeClass('cS-hidden');
+    //         }  
+    //     });
+    // });
+        
    $(document).ready(function(){
         var size;
         $('#cropbox').Jcrop({
