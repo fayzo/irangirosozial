@@ -259,7 +259,7 @@ if (isset($_REQUEST['login_id']) && !empty($_REQUEST['login_id'])) {
         if (isEmpty(email) && isEmpty(password)) {
             //    alert("complete register");
             $.ajax({
-                url: "core/ajax_db/login_add.php",
+                url: "core/ajax_db/login_add",
                 method: "POST",
                 dataType: "text",
                 data: {

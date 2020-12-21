@@ -30,7 +30,7 @@ class Crowfund extends Fundraising {
                 <div class="card-body">
                     <div class="p-0 font-weight-bold">Funding 
 
-                        <?php if($user_id == $row['user_id2']){ ?>
+                        <?php if(isset($_SESSION['key']) && $user_id == $row['user_id2']){ ?>
                          <ul class="list-inline mb-0  float-right" style="list-style-type: none;">  
 
                                 <li  class=" list-inline-item">

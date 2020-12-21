@@ -6,7 +6,7 @@ $(document).ready(function () {
         var user_id = $(this).data('user');
 
         $.ajax({
-            url: 'core/ajax_db/food_delete.php',
+            url: 'core/ajax_db/food_delete',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -19,7 +19,7 @@ $(document).ready(function () {
                 });
                 $(".delete-it-food").click(function () {
                     $.ajax({
-                        url: 'core/ajax_db/food_delete.php',
+                        url: 'core/ajax_db/food_delete',
                         method: 'POST',
                         dataType: 'text',
                         data: {
@@ -32,12 +32,12 @@ $(document).ready(function () {
                             setInterval(function () {
                                 location.reload();
                             }, 1100);
-                            console.log(response);
+                            // console.log(response);
                         }
 
                     });
                 });
-                console.log(response);
+                // console.log(response);
             }
 
         });
@@ -53,7 +53,7 @@ $(document).ready(function () {
         var banner = $('#banner' + food_id).val();
 
             $.ajax({
-                url: 'core/ajax_db/food_delete.php',
+                url: 'core/ajax_db/food_delete',
                 method: 'POST',
                 dataType: 'text',
                 data: {
@@ -72,7 +72,7 @@ $(document).ready(function () {
                     setInterval(function () {
                         location.reload();
                     }, 1200);
-                    console.log(response);
+                    // console.log(response);
                 }
 
             });

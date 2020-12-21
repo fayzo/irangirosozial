@@ -4,7 +4,7 @@ $(document).ready(function () {
         var job_id = $(this).data('job');
         var business_id = $(this).data('business');
         $.ajax({
-            url: 'core/ajax_db/businessPostView.php',
+            url: 'core/ajax_db/businessPostView',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -15,7 +15,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".job-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -25,7 +25,7 @@ $(document).ready(function () {
         var job_id = $(this).data('job');
         var business_id = $(this).data('business');
         $.ajax({
-            url: 'core/ajax_db/businessPostView0.php',
+            url: 'core/ajax_db/businessPostView0',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -33,7 +33,7 @@ $(document).ready(function () {
                 business_id: business_id,
             }, success: function (response) {
                 $(".jobslarge").html(response);
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -43,7 +43,7 @@ $(document).ready(function () {
         var cv_id = $(this).data('cv_id');
         var business_id = $(this).data('business');
         $.ajax({
-            url: 'core/ajax_db/businessApplyViewinbox.php',
+            url: 'core/ajax_db/businessApplyViewinbox',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -54,7 +54,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".inbox-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -64,7 +64,7 @@ $(document).ready(function () {
         var trash_id = $(this).data('trash_id');
         var business_id = $(this).data('business');
         $.ajax({
-            url: 'core/ajax_db/businessApplyViewTrash.php',
+            url: 'core/ajax_db/businessApplyViewTrash',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -75,7 +75,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".trash-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -88,14 +88,14 @@ $(document).ready(function () {
         }
         var searching = $(this).val();
         $.ajax({
-            url: 'core/ajax_db/businessPostView.php',
+            url: 'core/ajax_db/businessPostView',
             method: 'POST',
             dataType: 'text',
             data: {
                 search: searching,
             }, success: function (response) {
                 $(".job-show").html(response);
-                console.log(response);
+                // console.log(response);
             }
         });
     });

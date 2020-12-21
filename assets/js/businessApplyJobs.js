@@ -5,7 +5,7 @@ $(document).ready(function () {
         var job_id = $(this).data('applyjob');
         var business_id = $(this).data('business');
         $.ajax({
-            url: 'core/ajax_db/businessApplyJobs.php',
+            url: 'core/ajax_db/businessApplyJobs',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -16,7 +16,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".apply-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -62,7 +62,7 @@ $(document).ready(function () {
             return false;
         } else {
             $.ajax({
-                url: 'core/ajax_db/businessApplyJobs.php',
+                url: 'core/ajax_db/businessApplyJobs',
                 method: "POST",
                 data: new FormData(this),
                 contentType: false,

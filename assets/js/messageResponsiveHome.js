@@ -1,35 +1,16 @@
 $(document).ready(function () {
-
-    $(document).on('click', '.collapse-minus1', function () {
-        var getmessage = 1;
     
-        $.ajax({
-            url: 'core/ajax_db/messageStickybottom',
-            method: 'POST',
-            dataType: 'text',
-            data: {
-                showListMessage1: getmessage,
-            }, success: function (response) {
-                $("#collapseExample").html(response);
-                $("#messages").hide();
-                $("#messages1").hide();
-                $("#messages2").hide();
-                // console.log(response);
-            }
-        });
-    });
-    
-    $(document).on('click', '#direct-chat-contacts-view1', function () {
+    $(document).on('click', '.collapse-minus', function () {
         var getmessage = 1;
 
         $.ajax({
-            url: 'core/ajax_db/messageStickybottom',
+            url: 'core/ajax_db/messageResponsiveHome',
             method: 'POST',
             dataType: 'text',
             data: {
-                showListMessage2: getmessage,
+                showListMessage0: getmessage,
             }, success: function (response) {
-                $("#contacts").html(response);
+                $(".popupTweet").html(response);
                 $("#messages").hide();
                 $("#messages1").hide();
                 $("#messages2").hide();
@@ -38,18 +19,37 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '.people-message2', function () {
+    $(document).on('click', '#direct-chat-contacts-view-responsive', function () {
+        var getmessage = 1;
+
+        $.ajax({
+            url: 'core/ajax_db/messageResponsiveHome',
+            method: 'POST',
+            dataType: 'text',
+            data: {
+                showListMessage: getmessage,
+            }, success: function (response) {
+                $("#contacts0").html(response);
+                $("#messages").hide();
+                $("#messages1").hide();
+                $("#messages2").hide();
+                // console.log(response);
+            }
+        });
+    });
+
+
+    $(document).on('click', '.people-messageResponsive1', function () {
         var get_id = $(this).data('user');
-        // $("#contacts").fadeOut();
 
         $.ajax({
-            url: 'core/ajax_db/messageStickybottom',
+            url: 'core/ajax_db/messageResponsiveHome',
             method: 'POST',
             dataType: 'text',
             data: {
-                showChat: get_id,
+                showChat0: get_id,
             }, success: function (response) {
-                $("#collapseExample").html(response);
+                $(".popupTweet").html(response);
 
                 if (autoscroll) {
                     scrolldown();
@@ -64,31 +64,33 @@ $(document).ready(function () {
                 });
 
                 // console.log(response);
-                $('.close-chat1').click(function () {
+
+                $('.close-chat').click(function () {
                     clearInterval(timer);
+                    $('.MessageResponsive').hide();
                 });
-                $('.collapse-minus1').click(function () {
+                $('.collapse-minus').click(function () {
                     clearInterval(timer);
                 });
             }
         });
 
         getmessages = function () {
-        $("#contacts").fadeOut();
+            $("#contacts0").fadeOut();
 
             $.ajax({
-                url: 'core/ajax_db/messageStickybottom',
+                url: 'core/ajax_db/messageResponsiveHome',
                 method: 'POST',
                 dataType: 'text',
                 data: {
-                    showChatMessage1: get_id,
+                    showChatMessage: get_id,
                 }, success: function (response) {
-                    $("#message").html(response);
+                    $("#messages0").html(response);
 
                     if (autoscroll) {
                         scrolldown();
                     }
-                    $('#chats1').on('scroll', function () {
+                    $('#chats').on('scroll', function () {
                         if ($(this).scrollTop() < this.scrollHeight - $(this).height()) {
                             autoscroll = false;
                         } else {
@@ -97,11 +99,12 @@ $(document).ready(function () {
                         // console.log(response);
                     });
 
-                    $('.close-chat1').click(function () {
+                    $('.close-chat').click(function () {
                         clearInterval(timer);
-                    });
+                        $('.MessageResponsive').hide();
 
-                    $('.collapse-minus1').click(function () {
+                    });
+                    $('.collapse-minus').click(function () {
                         clearInterval(timer);
                     });
                 }
@@ -112,33 +115,38 @@ $(document).ready(function () {
         getmessages();
         autoscroll = true;
         scrolldown = function () {
-            $('#chats1').scrollTop($('#chats1').scrollHeight);
+            $('#chats').scrollTop($('#chats').scrollHeight);
         };
 
-        $("#direct-chat-contacts-view1").on('click', function () {
+        $(document).on('click',"#direct-chat-contacts-view-responsive", function () {
             clearInterval(timer);
-            $("#contacts").fadeIn();
+            $("#contacts0").fadeIn();
         });
 
         $(document).on('click', '.deleteMsg', function () {
             var message_id = $(this).data('message');
             $.ajax({
-                url: 'core/ajax_db/messageStickybottom',
+                url: 'core/ajax_db/messageResponsiveHome',
                 method: 'POST',
                 dataType: 'text',
                 data: {
                     DeleteChatpopup: message_id,
                 }, success: function (response) {
-                    $('#message-del1').html(response);
+                    $('#message-del').html(response);
                     getmessages();
                     // console.log(response);
                 }
+            });
+            
+            $(document).on('click', '.cancel', function () {
+                // $('.message-delt').hide();
+                $('.alert-dismissible').hide();
             });
 
             $(document).on('click', '.delete', function () {
 
                 $.ajax({
-                    url: 'core/ajax_db/messageStickybottom',
+                    url: 'core/ajax_db/messageResponsiveHome',
                     method: 'POST',
                     dataType: 'text',
                     data: {
@@ -154,15 +162,15 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('keyup', '.search-user1', function () {
+    $(document).on('keyup', '.search-user0', function () {
         $('.message-recent').hide();
         var searching = $(this).val();
         $.ajax({
-            url: 'core/ajax_db/messageStickybottom',
+            url: 'core/ajax_db/messageResponsiveHome',
             method: 'POST',
             dataType: 'text',
             data: {
-                search1: searching,
+                search: searching,
             }, success: function (response) {
                 $(".message-body").html(response);
                 // console.log(response);
@@ -170,12 +178,12 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#send1', function () {
-        var message = $('#msg1').val();
+    $(document).on('click', '#send0', function () {
+        var message = $('#msg0').val();
         var get_id = $(this).data('user');
 
         $.ajax({
-            url: 'core/ajax_db/messageStickybottom',
+            url: 'core/ajax_db/messageResponsiveHome',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -184,7 +192,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 getmessages();
-                $("#msg").val('');
+                $("#msg0").val('');
                 // console.log(response);
             }
         });

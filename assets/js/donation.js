@@ -4,7 +4,7 @@ $(document).ready(function () {
         var user_id = $(this).data('user');
         var fund_id = $(this).data('fund');
         $.ajax({
-            url: 'core/ajax_db/crowfund_donate.php',
+            url: 'core/ajax_db/crowfund_donate',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -16,7 +16,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".donate-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -25,7 +25,7 @@ $(document).ready(function () {
         var user_id = $(this).data('user');
         var fund_id = $(this).data('fund');
         $.ajax({
-            url: 'core/ajax_db/fund_donate.php',
+            url: 'core/ajax_db/fund_donate',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -37,7 +37,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".donate-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });

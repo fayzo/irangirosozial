@@ -5,7 +5,7 @@ $(document).ready(function () {
         var post_as = $(this).data('post_as');
 
         $.ajax({
-            url: 'core/ajax_db/price_jobsPost.php',
+            url: 'core/ajax_db/price_jobsPost',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -16,7 +16,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".jobs-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -24,7 +24,7 @@ $(document).ready(function () {
     $(document).on('click', '.loginTerms', function (e) {
         e.stopPropagation();
         $.ajax({
-            url: 'core/ajax_db/price_jobsPost.php',
+            url: 'core/ajax_db/price_jobsPost',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -34,7 +34,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".jobs-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -42,7 +42,7 @@ $(document).ready(function () {
     $(document).on('click', '.loginTerms0', function (e) {
         e.stopPropagation();
         $.ajax({
-            url: 'core/ajax_db/price_jobsPost.php',
+            url: 'core/ajax_db/price_jobsPost',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -52,7 +52,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".jobs-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -64,7 +64,7 @@ $(document).ready(function () {
         var post_jobs = $(this).data('pricejob');
 
         $.ajax({
-            url: 'core/ajax_db/price_jobsPost.php',
+            url: 'core/ajax_db/price_jobsPost',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -75,7 +75,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".jobs-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -86,7 +86,7 @@ $(document).ready(function () {
         var payment_jobs_jobs = 'df';
 
         $.ajax({
-            url: 'core/ajax_db/price_jobsPost.php',
+            url: 'core/ajax_db/price_jobsPost',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -98,7 +98,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".jobs-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -114,7 +114,7 @@ function jobsLogin(key) {
     if (isEmpty(username) && isEmpty(email) && isEmpty(password)) {
         //    alert("complete register");
         $.ajax({
-            url: 'core/ajax_db/price_jobsPost.php',
+            url: 'core/ajax_db/price_jobsPost',
             method: "POST",
             dataType: "text",
             data: {
@@ -128,18 +128,18 @@ function jobsLogin(key) {
                 setInterval(function () {
                     $("#response").fadeOut();
                 }, 2000);
-                console.log(response);
+                // console.log(response);
                 if (response.indexOf('SUCCESS') >= 0) {
-                    // window.location = '../indexx.php';
+                    // window.location = '../indexx';
                     if(response.indexOf('SME') >= 0){
-                        window.location = 'business_jobPost.php';
+                        window.location = 'business_jobPost';
                     }else{
-                        window.location = 'individual_jobPost.php';
+                        window.location = 'individual_jobPost';
                     }
                 } else if (response.indexOf('Fail') >= 0) {
                     setInterval(() => {
                             // location.reload();
-                        // window.location = 'lockscreen.php';
+                        // window.location = 'lockscreen';
                     }, 1000);
                     isEmptys(password);
                 } else {

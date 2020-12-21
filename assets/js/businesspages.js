@@ -2,7 +2,7 @@ $(document).on('click','.viewBusiness',function () {
     var rowID= $("#business_id0").data('business');
 
      $.ajax({
-        url: 'core/ajax_db/businesspages_db.php',
+        url: 'core/ajax_db/businesspages_db',
         method: 'POST',
         dataType: 'json',
         data: {
@@ -24,7 +24,7 @@ $(document).on('click','.viewBusiness',function () {
 function BusinessEdits(rowID, type) {
 
     $.ajax({
-        url: 'core/ajax_db/businesspages_db.php',
+        url: 'core/ajax_db/businesspages_db',
         method: 'POST',
         dataType: 'json',
         data: {

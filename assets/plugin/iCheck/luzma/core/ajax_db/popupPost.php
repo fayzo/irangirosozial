@@ -3,7 +3,12 @@ include('../init.php');
 $users->preventUsersAccess($_SERVER['REQUEST_METHOD'],realpath(__FILE__),realpath($_SERVER['SCRIPT_FILENAME']));
 
 if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
-    $user_id= $_SESSION['key'];
+    if (isset($_SESSION['key'])) {
+        # code...
+        $user_id= $_SESSION['key'];
+    }else{
+        $user_id= 1;
+    }
     $tweet_id= $_POST['showpoptweet'];
     $getid="";
     $tweet= $home->getPopupTweet($user_id,$tweet_id,$getid);

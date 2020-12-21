@@ -16,9 +16,9 @@ class Message extends Home
     //         FROM message WHERE message_to = $user_id  AND M. status= 1 GROUP BY message_from ORDER BY M. message_on Desc
     //     ) ORDER BY M. message_on Desc";
 
-    // $query="SELECT * from users U
-    // inner join (select message,message_on,MAX(message_from)as ma, MAX(message_to) as maxid from message group by message_on) as b on
-    //     U.user_id= b.ma WHERE b.maxid= $user_id GROUP BY b.ma ORDER BY b.message_on Desc";
+    $query="SELECT * from users U
+    inner join (select message,message_on,MAX(message_from)as ma, MAX(message_to) as maxid from message group by message_on) as b on
+        U.user_id= b.ma WHERE b.maxid= $user_id GROUP BY b.ma ORDER BY b.message_on Desc";
 
        $result=$mysqli->query($query);
        $data=array();
@@ -32,7 +32,7 @@ class Message extends Home
     public function recentMessageUnread($user_id)
     {
        $mysqli= $this->database;
-       $query="SELECT * FROM message M LEFT JOIN users U ON M. message_from= U. user_id WHERE M. message_to= $user_id AND M. status= 0 GROUP BY M. message_from, M. message_to HAVING  COUNT(DISTINCT M. message_to) AND COUNT(DISTINCT M. message_from) ORDER BY M. message_on Desc ;";
+       $query="SELECT * FROM message M LEFT JOIN users U ON M. message_from= U. user_id WHERE M. message_to= $user_id AND M. status= 0 GROUP BY M. message_from, M. message_to HAVING  COUNT(DISTINCT M. message_to)=1 AND COUNT(DISTINCT M. message_from)=1 ORDER BY M. message_on Desc ;";
 
        $result=$mysqli->query($query);
        $data=array();

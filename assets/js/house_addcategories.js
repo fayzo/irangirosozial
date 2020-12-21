@@ -8,7 +8,7 @@ $(document).ready(function () {
         var house_view = $(this).data('house');
 
         $.ajax({
-            url: 'core/ajax_db/house_addcategories.php',
+            url: 'core/ajax_db/house_addcategories',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -18,7 +18,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".house-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -28,7 +28,7 @@ $(document).ready(function () {
         var house_id = $(this).data('house');
 
         $.ajax({
-            url: 'core/ajax_db/house_readmore.php',
+            url: 'core/ajax_db/house_readmore',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -38,7 +38,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".house-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -95,7 +95,7 @@ $(document).ready(function () {
                 return false;
             } else {
                 $.ajax({
-                    url: 'core/ajax_db/house_addcategories.php',
+                    url: 'core/ajax_db/house_addcategories',
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -144,7 +144,7 @@ $(document).ready(function () {
         e.stopPropagation();
         var house_id = $(this).data('fund');
         $.ajax({
-            url: 'core/ajax_db/houseImageViewPopup.php',
+            url: 'core/ajax_db/houseImageViewPopup',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -154,7 +154,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".img-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });

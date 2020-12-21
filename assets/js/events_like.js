@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         if (comment != "") {
             $.ajax({
-                url: 'core/ajax_db/events_comment.php',
+                url: 'core/ajax_db/events_comment',
                 method: 'POST',
                 dataType: 'text',
                 data: {
@@ -15,7 +15,7 @@ $(document).ready(function () {
                 }, success: function (response) {
                     $('#comments').html(response);
                     $('#commentField').val("");
-                    console.log(response);
+                    // console.log(response);
                 }
             });
         }
@@ -28,7 +28,7 @@ $(document).ready(function () {
         var user_id = $(this).data('user');
 
         $.ajax({
-            url: 'core/ajax_db/events_delete.php',
+            url: 'core/ajax_db/events_delete',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -41,7 +41,7 @@ $(document).ready(function () {
                 });
                 $(".delete-it-events").click(function () {
                     $.ajax({
-                        url: 'core/ajax_db/events_delete.php',
+                        url: 'core/ajax_db/events_delete',
                         method: 'POST',
                         dataType: 'text',
                         data: {
@@ -54,12 +54,12 @@ $(document).ready(function () {
                             setInterval(function () {
                                 location.reload();
                             }, 1100);
-                            console.log(response);
+                            // console.log(response);
                         }
 
                     });
                 });
-                console.log(response);
+                // console.log(response);
             }
 
         });
@@ -71,7 +71,7 @@ $(document).ready(function () {
         var comment_id = $(this).data('comment');
 
         $.ajax({
-            url: 'core/ajax_db/events_comment.php',
+            url: 'core/ajax_db/events_comment',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -83,7 +83,7 @@ $(document).ready(function () {
                 setInterval(function () {
                     $("#responseComment").fadeOut();
                 }, 1000);
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -96,7 +96,7 @@ $(document).ready(function () {
         var button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/events_like.php',
+            url: 'core/ajax_db/events_like',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -113,7 +113,7 @@ $(document).ready(function () {
                
                 // location.reload();
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -129,7 +129,7 @@ $(document).ready(function () {
         var button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/events_like.php',
+            url: 'core/ajax_db/events_like',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -149,7 +149,7 @@ $(document).ready(function () {
                 button.find('.fa-heart-o').removeClass('fa-heart');
 
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -164,7 +164,7 @@ $(document).ready(function () {
         var button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/eventsUserComment_like.php',
+            url: 'core/ajax_db/eventsUserComment_like',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -181,7 +181,7 @@ $(document).ready(function () {
                
                 // location.reload();
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -197,7 +197,7 @@ $(document).ready(function () {
         var button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/eventsUserComment_like.php',
+            url: 'core/ajax_db/eventsUserComment_like',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -217,7 +217,7 @@ $(document).ready(function () {
                 button.find('.fa-heart-o').removeClass('fa-heart');
 
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });

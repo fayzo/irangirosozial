@@ -35,6 +35,7 @@ if (array_diff($fileActualExt,$allower_ext) == false) { ?>
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
         <div class="img-popup-wrap" id="popupEnd">
+        
           <div class="row ">
            <div class="col-12">
               <div class="card">

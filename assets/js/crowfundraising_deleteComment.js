@@ -4,7 +4,7 @@ $(document).on('click', '.deleteCrowFundraisingComment', function (e) {
     var comment_id = $(this).data('comment');
 
     $.ajax({
-        url: 'core/ajax_db/crowfunding_comment.php',
+        url: 'core/ajax_db/crowfunding_comment',
         method: 'POST',
         dataType: 'text',
         data: {
@@ -18,7 +18,7 @@ $(document).on('click', '.deleteCrowFundraisingComment', function (e) {
                 $("#responseComment").fadeOut();
             }, 1000);
 
-            console.log(response);
+            // console.log(response);
         }
     });
 });
@@ -30,7 +30,7 @@ $(document).on('click', '.deleteCrowFundraisingComment', function (e) {
         var user_id = $(this).data('user');
 
         $.ajax({
-            url: 'core/ajax_db/crowfund_delete.php',
+            url: 'core/ajax_db/crowfund_delete',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -43,7 +43,7 @@ $(document).on('click', '.deleteCrowFundraisingComment', function (e) {
                 });
                 $(".delete-it-crowfund").click(function () {
                     $.ajax({
-                        url: 'core/ajax_db/crowfund_delete.php',
+                        url: 'core/ajax_db/crowfund_delete',
                         method: 'POST',
                         dataType: 'text',
                         data: {
@@ -56,12 +56,12 @@ $(document).on('click', '.deleteCrowFundraisingComment', function (e) {
                             setInterval(function () {
                                 location.reload();
                             }, 1100);
-                            console.log(response);
+                            // console.log(response);
                         }
 
                     });
                 });
-                console.log(response);
+                // console.log(response);
             }
 
         });

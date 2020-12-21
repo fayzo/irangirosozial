@@ -18,12 +18,13 @@ if (isset($_POST['showpopupdelete']) && !empty($_POST['showpopupdelete'])) {
 
     <div class="fund-popup">
       <div class="wrap5">
-        <div class="post-popup-body-wrap" style="top: 15%;">
+        <div class="post-popup-body-wrap">
+
             <div class="card">
             <span id='responseDeletePost'></span>
-                <div class="card-header">
+                <div class="card-header main-active">
                     <span class="closeDelete"><button class="close-retweet-popup"><i class="fa fa-times" aria-hidden="true"></i></button></span>
-                    <h5 class="text-center text-muted">Are you sure you want to delete this Posts?</h5>
+                    <h5 class="text-center">Are you sure you want to delete this Posts?</h5>
                 </div>
                 <div class="card-body">
 
@@ -88,7 +89,7 @@ if (isset($_POST['showpopupdelete']) && !empty($_POST['showpopupdelete'])) {
                 </div><!-- shadow -->
 
                 </div><!-- card-body -->
-                <div class="card-footer"><!-- card-footer -->
+                <div class="card-footer main-active text-light"><!-- card-footer -->
                 <button class="delete-it-crowfund  btn btn-primary btn-md float-right ml-3" type="submit">Delete</button>
                 <button class="cancel-it btn btn-info btn-md  float-right">Cancel</button>
                 </div><!-- card-footer -->

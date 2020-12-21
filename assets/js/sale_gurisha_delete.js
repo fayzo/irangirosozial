@@ -8,7 +8,7 @@ $(document).ready(function () {
         var sale_view = $(this).data('gurisha');
 
         $.ajax({
-            url: 'core/ajax_db/sale_add_gurisha.php',
+            url: 'core/ajax_db/sale_add_gurisha',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -18,7 +18,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".sale-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -75,7 +75,7 @@ $(document).ready(function () {
                 return false;
             } else {
                 $.ajax({
-                    url: 'core/ajax_db/sale_add_gurisha.php',
+                    url: 'core/ajax_db/sale_add_gurisha',
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -126,7 +126,7 @@ $(document).ready(function () {
         var user_id = $(this).data('user');
 
         $.ajax({
-            url: 'core/ajax_db/sale_gurisha_delete.php',
+            url: 'core/ajax_db/sale_gurisha_delete',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -139,7 +139,7 @@ $(document).ready(function () {
                 });
                 $(".delete-it-sale-gurisha").click(function () {
                     $.ajax({
-                        url: 'core/ajax_db/sale_gurisha_delete.php',
+                        url: 'core/ajax_db/sale_gurisha_delete',
                         method: 'POST',
                         dataType: 'text',
                         data: {
@@ -152,12 +152,12 @@ $(document).ready(function () {
                             setInterval(function () {
                                 location.reload();
                             }, 1100);
-                            console.log(response);
+                            // console.log(response);
                         }
 
                     });
                 });
-                console.log(response);
+                // console.log(response);
             }
 
         });
@@ -175,7 +175,7 @@ $(document).ready(function () {
         var banner = $('#banner' + sale_id).val();
 
         $.ajax({
-            url: 'core/ajax_db/sale_gurisha_delete.php',
+            url: 'core/ajax_db/sale_gurisha_delete',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -195,7 +195,7 @@ $(document).ready(function () {
                 setInterval(function () {
                     location.reload();
                 }, 1100);
-                console.log(response);
+                // console.log(response);
             }
 
         });
@@ -224,7 +224,7 @@ $(document).ready(function () {
         var sale = $(this).data('sale');
 
         $.ajax({
-            url: 'core/ajax_db/sale_gurisha_offer.php',
+            url: 'core/ajax_db/sale_gurisha_offer',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -235,7 +235,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".gurisha-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -246,7 +246,7 @@ $(document).ready(function () {
         var sale = $(this).data('sale');
 
         $.ajax({
-            url: 'core/ajax_db/sale_offer.php',
+            url: 'core/ajax_db/sale_offer',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -257,7 +257,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".sale-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -268,7 +268,7 @@ $(document).ready(function () {
 function checkout(checkout) {
 
     $.ajax({
-        url: 'core/ajax_db/sale_offer.php',
+        url: 'core/ajax_db/sale_offer',
         method: 'POST',
         dataType: 'text',
         data: {
@@ -283,7 +283,7 @@ function checkout(checkout) {
                 $("#responseSubmititerm").fadeOut();
             });
             $("#responseCheckout").html(response);
-            console.log(response);
+            // console.log(response);
         }
     });
 }
@@ -291,7 +291,7 @@ function checkout(checkout) {
 function paymentSale(payment) {
 
     $.ajax({
-        url: 'core/ajax_db/sale_offer.php',
+        url: 'core/ajax_db/sale_offer',
         method: 'POST',
         dataType: 'text',
         data: {
@@ -306,7 +306,7 @@ function paymentSale(payment) {
                 $("#responseSubmititerm").fadeOut();
             });
             $("#responseCheckout").html(response);
-            console.log(response);
+            // console.log(response);
         }
     });
 }

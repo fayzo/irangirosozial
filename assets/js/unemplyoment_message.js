@@ -5,7 +5,7 @@ $(document).ready(function () {
         var user_id = $(this).data('user');
 
         $.ajax({
-            url: 'core/ajax_db/unemployment_Emailmessage.php',
+            url: 'core/ajax_db/unemployment_Emailmessage',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -15,7 +15,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".user-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -28,14 +28,14 @@ $(document).ready(function () {
         }
         var searching = $(this).val();
         $.ajax({
-            url: 'core/ajax_db/unemployment_Emailmessage.php',
+            url: 'core/ajax_db/unemployment_Emailmessage',
             method: 'POST',
             dataType: 'text',
             data: {
                 search: searching,
             }, success: function (response) {
                 $(".job-show").html(response);
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -48,14 +48,14 @@ $(document).ready(function () {
         }
         var searching = $(this).val();
         $.ajax({
-            url: 'core/ajax_db/unemployment_Emailmessage.php',
+            url: 'core/ajax_db/unemployment_Emailmessage',
             method: 'POST',
             dataType: 'text',
             data: {
                 searchProfess: searching,
             }, success: function (response) {
                 $(".job-show").html(response);
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -63,7 +63,7 @@ $(document).ready(function () {
     $(document).on('click', '#unemployment', function () {
         var user_id = $(this).data('user');
         $.ajax({
-            url: 'core/ajax_db/unemployment_profile.php',
+            url: 'core/ajax_db/unemployment_profile',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -73,7 +73,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".user-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -102,7 +102,7 @@ $(document).ready(function () {
             isEmpty(age) && isEmpty(status) && isEmpty(phone) && isEmpty(course)) {
 
             $.ajax({
-                url: 'core/ajax_db/unemployment_profile.php',
+                url: 'core/ajax_db/unemployment_profile',
                 type: 'post',
                 dataType: 'text',
                 // data: form,
@@ -130,7 +130,7 @@ $(document).ready(function () {
                         // alert(response);
                         $("#responseBusinessJobs1").html(response);
                     }
-                    console.log(response);
+                    // console.log(response);
                 }
             });
         }
@@ -145,7 +145,7 @@ function unemploymentEdits(user_id) {
         CKEDITOR.instances[instance].updateElement();
     }
     $.ajax({
-        url: 'core/ajax_db/unemployment_profile.php',
+        url: 'core/ajax_db/unemployment_profile',
         method: 'POST',
         dataType: 'json',
         data: {
@@ -195,7 +195,7 @@ function ajax_requestsPostsUnemploy(key) {
         isEmpty(age) && isEmpty(status) && isEmpty(phone) && isEmpty(course)) {
 
         $.ajax({
-            url: 'core/ajax_db/unemployment_profile.php',
+            url: 'core/ajax_db/unemployment_profile',
             type: 'post',
             dataType: 'text',
             // data: form,

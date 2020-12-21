@@ -5,7 +5,7 @@ $(document).ready(function () {
         var events_id = $(this).data('events');
 
         $.ajax({
-            url: 'core/ajax_db/events_readmore.php',
+            url: 'core/ajax_db/events_readmore',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -15,7 +15,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".events-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -28,7 +28,7 @@ $(document).ready(function () {
         var events_view = $(this).data('events');
 
         $.ajax({
-            url: 'core/ajax_db/events_addcategories.php',
+            url: 'core/ajax_db/events_addcategories',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -38,7 +38,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".events-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -91,7 +91,7 @@ $(document).ready(function () {
           
             } else {
                 $.ajax({
-                    url: 'core/ajax_db/events_addcategories.php',
+                    url: 'core/ajax_db/events_addcategories',
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -140,7 +140,7 @@ $(document).ready(function () {
         e.stopPropagation();
         var events_id = $(this).data('events');
         $.ajax({
-            url: 'core/ajax_db/eventsraisingImageViewPopup.php',
+            url: 'core/ajax_db/eventsraisingImageViewPopup',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -150,7 +150,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".img-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -163,7 +163,7 @@ $(document).ready(function () {
         $button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/events_share.php',
+            url: 'core/ajax_db/events_share',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -175,7 +175,7 @@ $(document).ready(function () {
                     $('.events-share-popup').hide();
                 });
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -184,7 +184,7 @@ $(document).ready(function () {
         $comment = $('.retweetMsg').val();
 
         $.ajax({
-            url: 'core/ajax_db/events_share.php',
+            url: 'core/ajax_db/events_share',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -197,7 +197,7 @@ $(document).ready(function () {
                 $counter.text($count++);
                 $button.removeClass('.events-retweet0').addClass('.events-retweeted0');
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });

@@ -1,6 +1,6 @@
 <header class="main-header">
       <!-- Logo -->
-      <a href="index.php" class="logo">
+      <a href="<?php echo HOME; ?>" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>IR</b>LT</span>
         <!-- logo for regular state and mobile devices -->
@@ -15,7 +15,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="sidebar-toggle_" href="index.php">
+        <a class="sidebar-toggle_" href="<?php echo HOME; ?>">
           <i class="fa fa-home"> </i>
           <span class="hidden-xs">Home</span>
           </a>
@@ -28,19 +28,19 @@
          </a>
          <?php if (isset($_SESSION['job_user']) && $_SESSION['job_user'] === 'SME'){ ?>
         
-        <a class="sidebar-toggle_" href="business_jobPost.php">
+        <a class="sidebar-toggle_" href="<?php echo BUSINESS_POST_JOBS; ?>">
           <i class="fa fa-star"> </i>
           <span class="hidden-xs">Post Jobs</span>
         </a>
          <?php }else if (isset($_SESSION['job_user']) && $_SESSION['job_user'] === 'individual'){ ?>
         
-        <a class="sidebar-toggle_" href="individual_jobPost.php">
+        <a class="sidebar-toggle_" href="<?php echo INDIVIDUAL_POST_JOBS; ?>">
           <i class="fa fa-star"> </i>
           <span class="hidden-xs">Post Jobs</span>
         </a>
         <?php } ?>
         
-        <a class="sidebar-toggle_" href="network.php">
+        <a class="sidebar-toggle_" href="<?php echo NETWORK; ?>">
           <i class="fa fa-users"> </i>
           <span class="hidden-xs">Network</span>
          </a>

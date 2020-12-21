@@ -58,7 +58,7 @@
                             <li>
                                 <i class="fa fa-envelope bg-primary text-light"></i>
 
-                                <div class="timeline-item card shadow-lg">
+                                <div class="timeline-item card ">
                                   <div class="card-body">
                                     <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
 
@@ -87,7 +87,7 @@
                             <li>
                                 <i class="fa fa-user bg-info text-light"></i>
 
-                                <div class="timeline-item card shadow-lg">
+                                <div class="timeline-item card ">
                                   <div class="card-body">
                                      <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['follow_on']) ;?></span>
                                     <div class="user-block">
@@ -102,7 +102,7 @@
                                         </div> 
                                        <span class="username">
                                             <a
-                                                href="<?php echo PROFILE ;?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
+                                                href="<?php echo $data['username'] ;?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
                                             <!-- //Jonathan Burke Jr. -->
                                         </span>
                                         <span class="description"> <h3 >Followed you on <!-- accepted your friend request --> </h3></span>
@@ -125,7 +125,7 @@
                             <li>
                                 <i class="fa fa-heart bg-danger text-light"></i>
 
-                                <div class="timeline-item card shadow-lg">
+                                <div class="timeline-item card ">
                                     <div class="card-header ">
                                         <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['posted_on']) ;?></span>
                                         <div class="user-block">
@@ -140,7 +140,7 @@
                                             </div> 
                                            <span class="username">
                                                 <a
-                                                    href="<?php echo PROFILE ;?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
+                                                    href="<?php echo $data['username'];?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
                                                 <!-- //Jonathan Burke Jr. -->
                                             </span>
                                             <span class="description"> <h3>Likes your Post <!-- accepted your friend request --> </h3></span>
@@ -878,7 +878,7 @@
                             <li>
                                 <i class="fa fa-retweet bg-success text-light"></i>
 
-                                <div class="timeline-item card shadow-lg">
+                                <div class="timeline-item card ">
                                     <div class="card-header ">
                                         <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['posted_on']) ;?></span>
                                         <div class="user-block">
@@ -892,7 +892,7 @@
                                                 </div>
                                             </div> 
                                            <span class="username">
-                                                <a href="<?php echo PROFILE ;?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
+                                                <a href="<?php echo $data['username'];?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
                                                 <!-- //Jonathan Burke Jr. -->
                                             </span>
                                             <span class="description"> <h3>Shares your Post <!-- accepted your friend request --> </h3></span>
@@ -1635,7 +1635,7 @@
                             <li>
                                 <i class="fa fa-at bg-purple text-dark "></i>
                                 <!-- <i class="fa fa-at bg-warning text-light">@</i> -->
-                              <div class="timeline-item card shadow-lg">
+                              <div class="timeline-item card ">
                                 <div class="card-header ">
                                         <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['posted_on']) ;?></span>
                                         <div class="user-block">
@@ -1650,7 +1650,7 @@
                                             </div> 
                                            <span class="username">
                                                 <a
-                                                    href="<?php echo PROFILE ;?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
+                                                    href="<?php echo $data['username'];?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
                                                 <!-- //Jonathan Burke Jr. -->
                                             </span>
                                             <span class="description"> <h3>Mention Your name <!-- accepted your friend request --> </h3></span>

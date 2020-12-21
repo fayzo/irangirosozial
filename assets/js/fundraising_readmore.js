@@ -5,7 +5,7 @@ $(document).ready(function () {
         var fund_id = $(this).data('fund');
 
         $.ajax({
-            url: 'core/ajax_db/fundraising_readmore.php',
+            url: 'core/ajax_db/fundraising_readmore',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -16,7 +16,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".fund-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -29,7 +29,7 @@ $(document).ready(function () {
         var fund_view = $(this).data('fund');
 
         $.ajax({
-            url: 'core/ajax_db/fundraising_addhelp.php',
+            url: 'core/ajax_db/fundraising_addhelp',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -39,7 +39,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".fund-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -104,7 +104,7 @@ $(document).ready(function () {
                 return false;
             } else {
                 $.ajax({
-                    url: 'core/ajax_db/fundraising_addhelp.php',
+                    url: 'core/ajax_db/fundraising_addhelp',
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -153,7 +153,7 @@ $(document).ready(function () {
         e.stopPropagation();
         var fund_id = $(this).data('fund');
         $.ajax({
-            url: 'core/ajax_db/FundraisingImageViewPopup.php',
+            url: 'core/ajax_db/FundraisingImageViewPopup',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -163,7 +163,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".img-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });

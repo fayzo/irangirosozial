@@ -47,7 +47,7 @@ $(document).ready(function () {
         if (isEmpty(categories_jobs) && isEmpty(job_title) && isEmpty(deadline)) {
 
             $.ajax({
-                url: 'core/ajax_db/businessPosts_db.php',
+                url: 'core/ajax_db/businessPosts_db',
                 type: 'post',
                 dataType: 'text',
                 // data: form,
@@ -75,7 +75,7 @@ $(document).ready(function () {
                         // alert(response);
                         $("#responseBusinessJobs1").html(response);
                     }
-                    console.log(response);
+                    // console.log(response);
                 }
             });
         }
@@ -89,7 +89,7 @@ $(document).ready(function () {
 function PostsEdits(rowID, businessID, type) {
 
     $.ajax({
-        url: 'core/ajax_db/businessPosts_db.php',
+        url: 'core/ajax_db/businessPosts_db',
         method: 'POST',
         dataType: 'json',
         data: {
@@ -149,7 +149,7 @@ function ajax_requestsPosts(key) {
         isEmpty(conditions) && isEmpty(deadline)) {
 
         $.ajax({
-            url: 'core/ajax_db/businessPosts_db.php',
+            url: 'core/ajax_db/businessPosts_db',
             type: 'post',
             dataType: 'text',
             data: {
@@ -188,7 +188,7 @@ function ajax_requestsPosts(key) {
 function jobspostsFetch(begin_nmber,end_nmber) {
 
     $.ajax({
-        url: 'core/ajax_db/businessPosts_db.php',
+        url: 'core/ajax_db/businessPosts_db',
         method: 'POST',
         dataType: 'text',
         data: {
@@ -208,7 +208,7 @@ function jobspostsFetch(begin_nmber,end_nmber) {
 function jobspostsFetchOn(begin_nmber,end_nmber) {
 
     $.ajax({
-        url: 'core/ajax_db/businessPosts_db.php',
+        url: 'core/ajax_db/businessPosts_db',
         method: 'POST',
         dataType: 'text',
         data: {
@@ -228,7 +228,7 @@ function jobspostsFetchOn(begin_nmber,end_nmber) {
 function jobsdeleteRow(rowID) {
           if (confirm('Are you sure??')) {
               $.ajax({
-                  url: 'core/ajax_db/businessPosts_db.php',
+                  url: 'core/ajax_db/businessPosts_db',
                   method: 'POST',
                   dataType: 'text',
                   data: {
@@ -246,7 +246,7 @@ function jobsdeleteRow(rowID) {
 function shows(rowID,turnOnOff) {
          if (confirm('Are you sure??')) {
              $.ajax({
-                 url: 'core/ajax_db/businessPosts_db.php',
+                 url: 'core/ajax_db/businessPosts_db',
                  method: 'POST',
                  dataType: 'text',
                  data: {

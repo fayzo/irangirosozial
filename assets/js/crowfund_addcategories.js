@@ -5,7 +5,7 @@ $(document).ready(function () {
         var crowfund_id = $(this).data('crowfund');
 
         $.ajax({
-            url: 'core/ajax_db/crowfundraising_readmore.php',
+            url: 'core/ajax_db/crowfundraising_readmore',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -29,7 +29,7 @@ $(document).ready(function () {
         var crowfund_view = $(this).data('crowfund');
 
         $.ajax({
-            url: 'core/ajax_db/crowfundraising_addhelp.php',
+            url: 'core/ajax_db/crowfundraising_addhelp',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -106,7 +106,7 @@ $(document).ready(function () {
                 return false;
             } else {
                 $.ajax({
-                    url: 'core/ajax_db/crowfundraising_addhelp.php',
+                    url: 'core/ajax_db/crowfundraising_addhelp',
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -155,7 +155,7 @@ $(document).ready(function () {
         e.stopPropagation();
         var crowfund_id = $(this).data('crowfund');
         $.ajax({
-            url: 'core/ajax_db/crowfundraisingImageViewPopup.php',
+            url: 'core/ajax_db/crowfundraisingImageViewPopup',
             method: 'POST',
             dataType: 'text',
             data: {

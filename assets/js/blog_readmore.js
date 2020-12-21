@@ -8,7 +8,7 @@ $(document).ready(function () {
         var blog_view = $(this).data('blog');
 
         $.ajax({
-            url: 'core/ajax_db/blog_addcategories.php',
+            url: 'core/ajax_db/blog_addcategories',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -18,7 +18,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".blog-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -28,7 +28,7 @@ $(document).ready(function () {
         var blog_id = $(this).data('blog');
 
         $.ajax({
-            url: 'core/ajax_db/blog_readmore.php',
+            url: 'core/ajax_db/blog_readmore',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -39,7 +39,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".blog-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -136,7 +136,7 @@ $(document).ready(function () {
         e.stopPropagation();
         var fund_id = $(this).data('fund');
         $.ajax({
-            url: 'core/ajax_db/FundraisingImageViewPopup.php',
+            url: 'core/ajax_db/FundraisingImageViewPopup',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -146,7 +146,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".img-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -160,7 +160,7 @@ $(document).ready(function () {
         $button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/blog_share.php',
+            url: 'core/ajax_db/blog_share',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -172,7 +172,7 @@ $(document).ready(function () {
                     $('.blog-share-popup').hide();
                 });
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -181,7 +181,7 @@ $(document).ready(function () {
         $comment = $('.retweetMsg').val();
 
         $.ajax({
-            url: 'core/ajax_db/blog_share.php',
+            url: 'core/ajax_db/blog_share',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -194,7 +194,7 @@ $(document).ready(function () {
                 $counter.text($count++);
                 $button.removeClass('.blog-retweet0').addClass('.blog-retweeted0');
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });

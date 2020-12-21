@@ -8,7 +8,7 @@ $(document).ready(function () {
         var icyamunara_view = $(this).data('icyamunara');
 
         $.ajax({
-            url: 'core/ajax_db/icyamunara_addcategories.php',
+            url: 'core/ajax_db/icyamunara_addcategories',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -18,7 +18,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".icyamunara-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -28,7 +28,7 @@ $(document).ready(function () {
         var house_id = $(this).data('icyamunara');
 
         $.ajax({
-            url: 'core/ajax_db/icyamunara_readmore.php',
+            url: 'core/ajax_db/icyamunara_readmore',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -38,7 +38,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".icyamunara-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -91,7 +91,7 @@ $(document).ready(function () {
                 return false;
             } else {
                 $.ajax({
-                    url: 'core/ajax_db/icyamunara_addcategories.php',
+                    url: 'core/ajax_db/icyamunara_addcategories',
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,

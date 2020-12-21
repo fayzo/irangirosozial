@@ -6,7 +6,7 @@ $(document).ready(function () {
         var cvid = $(this).data('cvid');
 
                 $.ajax({
-                    url: 'core/ajax_db/businessApplyViewInbox.php',
+                    url: 'core/ajax_db/businessApplyViewInbox',
                     method: 'POST',
                     dataType: 'text',
                     data:{
@@ -37,7 +37,7 @@ $(document).ready(function () {
         var trashid = $(this).data('trashid');
 
                 $.ajax({
-                    url: 'core/ajax_db/businessApplyViewTrash.php',
+                    url: 'core/ajax_db/businessApplyViewTrash',
                     method: "POST",
                     method: 'POST',
                     dataType: 'text',

@@ -4,7 +4,7 @@ $(document).on('click', '.deleteFundraisingComment', function (e) {
     var comment_id = $(this).data('comment');
 
     $.ajax({
-        url: 'core/ajax_db/fundraising_comment.php',
+        url: 'core/ajax_db/fundraising_comment',
         method: 'POST',
         dataType: 'text',
         data: {
@@ -16,7 +16,7 @@ $(document).on('click', '.deleteFundraisingComment', function (e) {
             setInterval(function () {
                 $("#responseComment").fadeOut();
             }, 1000);
-            console.log(response);
+            // console.log(response);
         }
     });
 });
@@ -27,7 +27,7 @@ $(document).on('click', '.deleteFundraising', function (e) {
     var user_id = $(this).data('user');
 
     $.ajax({
-        url: 'core/ajax_db/fund_delete.php',
+        url: 'core/ajax_db/fund_delete',
         method: 'POST',
         dataType: 'text',
         data: {
@@ -40,7 +40,7 @@ $(document).on('click', '.deleteFundraising', function (e) {
             });
             $(".delete-it-fund").click(function () {
                 $.ajax({
-                    url: 'core/ajax_db/fund_delete.php',
+                    url: 'core/ajax_db/fund_delete',
                     method: 'POST',
                     dataType: 'text',
                     data: {
@@ -53,12 +53,12 @@ $(document).on('click', '.deleteFundraising', function (e) {
                         setInterval(function () {
                             location.reload();
                         }, 1100);
-                        console.log(response);
+                        // console.log(response);
                     }
 
                 });
             });
-            console.log(response);
+            // console.log(response);
         }
 
     });

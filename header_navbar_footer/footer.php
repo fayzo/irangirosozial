@@ -1,6 +1,7 @@
 
  <?php if (isset($_SESSION['key'])){ ?>
    <!-- DIRECT CHAT PRIMARY -->
+
    <!-- <div class="row">
        <div class="col-md-3">
            <div class="card direct-chats direct-chat direct-chat-primary">
@@ -8,7 +9,7 @@
                    <h5 class="card-title pb-0"><i> Message Chat</i></h5>
 
                    <div class="card-tools">
-                       <span id="tooltipsmessages1" data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">< ?php if( $notific['totalmessage'] > 0){echo '<span>'.$notific['totalmessage'].'</span>'; } ?></span>
+                       <span id="tooltipsmessages1" data-toggle="tooltip" title="3 New Messages" class="badge badge-primary"><?php if( $notific['totalmessage'] > 0){echo '<span>'.$notific['totalmessage'].'</span>'; } ?></span>
                        <button type="button" class="btn btn-tool btn-sm collapse-minus" data-toggle="collapse"
                            data-target="#collapseExample4">
                            <i class="fa fa-minus"></i>
@@ -110,6 +111,7 @@
    <script src="<?php echo BASE_URL_LINK ;?>js/notification.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/messageStickyBottom.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/messageStickyRight.js"></script>
+   <script src="<?php echo BASE_URL_LINK ;?>js/messageResponsiveHome.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/BoxWidget.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/album_image.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/jobs_price_post.js"></script>

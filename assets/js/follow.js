@@ -6,7 +6,7 @@ $(document).ready(function() {
       if (button.hasClass('following-btn')) {
 
              $.ajax({
-                    url: 'core/ajax_db/follow.php',
+                    url: 'core/ajax_db/follow',
                     method: 'POST',
                     dataType: 'text',
                     data: {
@@ -20,7 +20,7 @@ $(document).ready(function() {
                         $('.count-following').text(response.following);
                         $('.count-followers').text(response.followers);
 
-                        // console.log(response);
+                        // // console.log(response);
                         // console.log(response.following);
                         // console.log(response.followers);
                     }
@@ -29,7 +29,7 @@ $(document).ready(function() {
       }else{
 
             $.ajax({
-                    url: 'core/ajax_db/follow.php',
+                    url: 'core/ajax_db/follow',
                     method: 'POST',
                     dataType: 'text',
                     data: {
@@ -44,7 +44,7 @@ $(document).ready(function() {
                         $('.count-following').text(response.following);
                         $('.count-followers').text(response.followers);
 
-                        // console.log(response);
+                        // // console.log(response);
                         // console.log(response.following);
                         // console.log(response.followers);
                     }

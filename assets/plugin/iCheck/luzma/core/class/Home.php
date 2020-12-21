@@ -153,7 +153,7 @@ class Home extends Comment {
                   </div>
                 </div> /.card-body
                 <div class="card-footer text-center">
-                  <a href="http://localhost:80/Blog_nyarwanda_CMS/jobs0.php">View all Jobs</a>
+                  <a href="http://localhost:80/Blog_nyarwanda_CMS/jobs0">View all Jobs</a>
                 </div> /.card-footer
               </div>
               /.card -->
@@ -484,20 +484,20 @@ class Home extends Comment {
 
         <?php if (isset($_SESSION['key'])) { ?>
 
-                <li><a href="jobs.php"><i class="fa fa-circle-o text-yellow"></i> Job</a></li>
-                <li><a href="career_profession.php"><i class="fa fa-circle-o text-aqua"></i>Professional</a></li>
-                <li><a href="unemployment.php"><i class="fa fa-circle-o text-aqua"></i>unemployment</a></li>
-                <li><a href="icyamunara.php"><i class="fa fa-shopping-basket "></i>Marketplace</a></li>
-                <li><a href="blog.php"><i class="fa fa-circle-o text-red"></i>Blog</a></li>
-                <li><a href="events.php"><i class="fa fa-circle-o text-red"></i>Events</a></li>
-                <li><a href="crowfund.php"><i class="fa fa-money "></i> gushoraStartUp</a></li>
-                <li><a href="fundraising.php"><i class="fa fa-heartbeat"></i>Fundraising</a></li>
-                <li><a href="food.php"><i class="fa fa-cutlery"></i>Foodzana</a></li>
-                <li><a href="sale.php"><i class="fa fa-cutlery"></i>Sale</a></li>
-                <li><a href="icyamunara.php"><i class="fa fa-shopping-basket"></i>Cyamunara</a></li>
-                <li><a href="house.php"><i class="fa fa-home"></i>House</a></li>
-                <li><a href="car.php"><i class="fa fa-car"></i>Car</a></li>
-                <li><a href="school.php"><i class="fa fa-building"></i>School</a></li>
+                <li><a href="jobs"><i class="fa fa-circle-o text-yellow"></i> Job</a></li>
+                <li><a href="career_profession"><i class="fa fa-circle-o text-aqua"></i>Professional</a></li>
+                <li><a href="unemployment"><i class="fa fa-circle-o text-aqua"></i>unemployment</a></li>
+                <li><a href="icyamunara"><i class="fa fa-shopping-basket "></i>Marketplace</a></li>
+                <li><a href="blog"><i class="fa fa-circle-o text-red"></i>Blog</a></li>
+                <li><a href="events"><i class="fa fa-circle-o text-red"></i>Events</a></li>
+                <li><a href="crowfund"><i class="fa fa-money "></i> gushoraStartUp</a></li>
+                <li><a href="fundraising"><i class="fa fa-heartbeat"></i>Fundraising</a></li>
+                <li><a href="food"><i class="fa fa-cutlery"></i>Foodzana</a></li>
+                <li><a href="sale"><i class="fa fa-cutlery"></i>Sale</a></li>
+                <li><a href="icyamunara"><i class="fa fa-shopping-basket"></i>Cyamunara</a></li>
+                <li><a href="house"><i class="fa fa-home"></i>House</a></li>
+                <li><a href="car"><i class="fa fa-car"></i>Car</a></li>
+                <li><a href="school"><i class="fa fa-building"></i>School</a></li>
                 
         <?php }else { ?>
 
@@ -510,7 +510,7 @@ class Home extends Comment {
                 <li><a href="irangiro.crowfund"><i class="fa fa-money "></i> gushoraStartUp</a></li>
                 <li><a href="irangiro.fundraising"><i class="fa fa-heartbeat"></i>Fundraising</a></li>
                 <li><a href="irangiro.food"><i class="fa fa-cutlery"></i>Foodzana</a></li>
-                <li><a href="irangiro.sale.php"><i class="fa fa-cutlery"></i>Sale</a></li>
+                <li><a href="irangiro.sale"><i class="fa fa-cutlery"></i>Sale</a></li>
                 <li><a href="irangiro.icyamunara"><i class="fa fa-shopping-basket"></i>Cyamunara</a></li>
                 <li><a href="irangiro.house"><i class="fa fa-home"></i>House</a></li>
                 <li><a href="irangiro.car"><i class="fa fa-car"></i>Car</a></li>
@@ -530,21 +530,21 @@ class Home extends Comment {
 
         <?php if (isset($_SESSION['key'])) { ?>
             <ul>
-                <li><h5><a class="alink" href="jobs.php">Jobs</a></h5></li>
-                <li><h5><a class="alink" href="career_profession.php">Professional</a></h5> </li>
-                <li><h5><a class="alink" href="crowfund.php">GushoraStartUp</a></h5> </li>
-                <li><h5><a class="alink" href="fundraising.php"> Fundraising</a></h5></li>
+                <li><h5><a class="alink" href="jobs">Jobs</a></h5></li>
+                <li><h5><a class="alink" href="career_profession">Professional</a></h5> </li>
+                <li><h5><a class="alink" href="crowfund">GushoraStartUp</a></h5> </li>
+                <li><h5><a class="alink" href="fundraising"> Fundraising</a></h5></li>
                 <?php if($_SESSION['approval'] === 'on'){ ?>
-                <li><h5><a class="alink" href="unemployment.php"> unemployment</a></h5> </li>
+                <li><h5><a class="alink" href="unemployment"> unemployment</a></h5> </li>
                 <?php } ?>
-                <li><h5><a class="alink" href="blog.php">Blog</a></h5></li>
-                <li><h5><a class="alink" href="sale.php">Sale</a></h5></li>
-                <li><h5><a class="alink" href="events.php">Events</a></h5></li>
-                <li><h5><a class="alink" href="house.php">House</a></h5></li>
-                <li><h5><a class="alink" href="car.php">Car</a></h5></li>
-                <li><h5><a class="alink" href="icyamunara.php">Cyamunara</a></h5></li>
-                <li><h5><a class="alink" href="food.php">Foodzana</a></h5></li>
-                <li><h5><a class="alink" href="school.php">school</a></h5> </li>
+                <li><h5><a class="alink" href="blog">Blog</a></h5></li>
+                <li><h5><a class="alink" href="sale">Sale</a></h5></li>
+                <li><h5><a class="alink" href="events">Events</a></h5></li>
+                <li><h5><a class="alink" href="house">House</a></h5></li>
+                <li><h5><a class="alink" href="car">Car</a></h5></li>
+                <li><h5><a class="alink" href="icyamunara">Cyamunara</a></h5></li>
+                <li><h5><a class="alink" href="food">Foodzana</a></h5></li>
+                <li><h5><a class="alink" href="school">school</a></h5> </li>
             </ul>
         
         <?php }else { ?>
@@ -572,21 +572,21 @@ class Home extends Comment {
 public function links(){ ?>
     <?php if (isset($_SESSION['key'])) { ?>
  <ul class="list-inline link-view">
-      <li class="list-inline-item"><a href="crowfund.php"><i class="fa fa-money" aria-hidden="true"></i> GushoraStartUp</a></li>
-      <li class="list-inline-item"><a href="fundraising.php"><i class="fa fa-heartbeat" aria-hidden="true"></i> Fundraising</a></li>
+      <li class="list-inline-item"><a href="crowfund"><i class="fa fa-money" aria-hidden="true"></i> GushoraStartUp</a></li>
+      <li class="list-inline-item"><a href="fundraising"><i class="fa fa-heartbeat" aria-hidden="true"></i> Fundraising</a></li>
             <?php if($_SESSION['approval'] === 'on'){ ?>
-      <li class="list-inline-item"><a href="unemployment.php"><i class="fa fa-briefcase"></i> unemployment</a></li>
+      <li class="list-inline-item"><a href="unemployment"><i class="fa fa-briefcase"></i> unemployment</a></li>
             <?php } ?>
-      <li class="list-inline-item"><a href="career_profession.php"><i class="fa fa-briefcase"></i>  Professional</a></li>
-      <li class="list-inline-item"><a href="sale.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Sale</a></li>
-      <li class="list-inline-item"><a href="blog.php"><i class="fas fa-edit"></i> Blog</a></li>
-      <li class="list-inline-item"><a href="jobs.php"><i class="fas fa-newspaper    "></i> Jobs</a></li>
-      <li class="list-inline-item"><a href="events.php"><i class="fas fa-envelope-open-text    "></i> Events</a></li>
-      <li class="list-inline-item"><a href="house.php"><i class="fas fa-house-damage    "></i> House</a></li>
-      <li class="list-inline-item"><a href="car.php"><i class="fa fa-car" aria-hidden="true"></i> Car</a></li>
-      <li class="list-inline-item"><a href="icyamunara.php"><i class="fa fa-car" aria-hidden="true"></i> Cyamunara</a></li>
-      <li class="list-inline-item"><a href="food.php"><i class="fa fa-cutlery" aria-hidden="true"></i> Foodzana</a></li>
-      <li class="list-inline-item"><a href="school.php"><i class="fas fa-school    "></i> school</a></li>
+      <li class="list-inline-item"><a href="career_profession"><i class="fa fa-briefcase"></i>  Professional</a></li>
+      <li class="list-inline-item"><a href="sale"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Sale</a></li>
+      <li class="list-inline-item"><a href="blog"><i class="fas fa-edit"></i> Blog</a></li>
+      <li class="list-inline-item"><a href="jobs"><i class="fas fa-newspaper    "></i> Jobs</a></li>
+      <li class="list-inline-item"><a href="events"><i class="fas fa-envelope-open-text    "></i> Events</a></li>
+      <li class="list-inline-item"><a href="house"><i class="fas fa-house-damage    "></i> House</a></li>
+      <li class="list-inline-item"><a href="car"><i class="fa fa-car" aria-hidden="true"></i> Car</a></li>
+      <li class="list-inline-item"><a href="icyamunara"><i class="fa fa-car" aria-hidden="true"></i> Cyamunara</a></li>
+      <li class="list-inline-item"><a href="food"><i class="fa fa-cutlery" aria-hidden="true"></i> Foodzana</a></li>
+      <li class="list-inline-item"><a href="school"><i class="fas fa-school    "></i> school</a></li>
     </ul>
     <?php }else { ?>
     <ul  class="list-inline link-view">
@@ -774,7 +774,7 @@ public function links(){ ?>
                       <div class="card-body">
                           <div class="card-title"><?php echo $row["title"]; ?></div> <!-- product-title -->
                           <p class="card-text product-price"><?php echo "$".$row["price"]; ?></p>
-                          <form method="post" action="sale.php?action=add&code=<?php echo $row["code"]; ?>">
+                          <form method="post" action="sale?action=add&code=<?php echo $row["code"]; ?>">
                	      	  <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" readonly/><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
                           </form>
                       </div><!-- card-body -->

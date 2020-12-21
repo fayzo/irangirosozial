@@ -64,7 +64,29 @@
 	z-index: 10001;
 	
 }
+.wrap5 {
+    background-color: rgba(0, 0, 0, 0.34);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 10000;
+    overflow-y: scroll;
+    display: block;
+}
 
+.post-popup-body-wrap {
+    width: 550px;
+    height: auto;
+    margin: 0px auto;
+    top: 5%;
+    position: relative;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #9E9E9E;
+    overflow: hidden;
+}
 
 .img-popup-body{
 	border-radius: 4px;

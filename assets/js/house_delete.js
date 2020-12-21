@@ -6,7 +6,7 @@ $(document).ready(function () {
         var user_id = $(this).data('user');
 
         $.ajax({
-            url: 'core/ajax_db/house_delete.php',
+            url: 'core/ajax_db/house_delete',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -19,7 +19,7 @@ $(document).ready(function () {
                 });
                 $(".delete-it-house").click(function () {
                     $.ajax({
-                        url: 'core/ajax_db/house_delete.php',
+                        url: 'core/ajax_db/house_delete',
                         method: 'POST',
                         dataType: 'text',
                         data: {
@@ -32,12 +32,12 @@ $(document).ready(function () {
                             setInterval(function () {
                                 location.reload();
                             }, 1100);
-                            console.log(response);
+                            // console.log(response);
                         }
 
                     });
                 });
-                console.log(response);
+                // console.log(response);
             }
 
         });
@@ -54,7 +54,7 @@ $(document).ready(function () {
         var banner = $('#banner' + house_id).val();
 
             $.ajax({
-                url: 'core/ajax_db/house_delete.php',
+                url: 'core/ajax_db/house_delete',
                 method: 'POST',
                 dataType: 'text',
                 data: {
@@ -73,7 +73,7 @@ $(document).ready(function () {
                     setInterval(function () {
                         location.reload();
                     }, 1100);
-                    console.log(response);
+                    // console.log(response);
                 }
 
             });

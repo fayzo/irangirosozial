@@ -7,7 +7,7 @@ $(document).ready(function () {
         var button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/fundraising_like.php',
+            url: 'core/ajax_db/fundraising_like',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -24,7 +24,7 @@ $(document).ready(function () {
                
                 // location.reload();
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -40,7 +40,7 @@ $(document).ready(function () {
         var button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/fundraising_like.php',
+            url: 'core/ajax_db/fundraising_like',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -60,7 +60,7 @@ $(document).ready(function () {
                 button.find('.fa-heart-o').removeClass('fa-heart');
 
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -75,7 +75,7 @@ $(document).ready(function () {
         var button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/fundraisingUserComment_like.php',
+            url: 'core/ajax_db/fundraisingUserComment_like',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -92,7 +92,7 @@ $(document).ready(function () {
                
                 // location.reload();
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -108,7 +108,7 @@ $(document).ready(function () {
         var button = $(this);
 
         $.ajax({
-            url: 'core/ajax_db/fundraisingUserComment_like.php',
+            url: 'core/ajax_db/fundraisingUserComment_like',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -128,7 +128,7 @@ $(document).ready(function () {
                 button.find('.fa-heart-o').removeClass('fa-heart');
 
 
-                console.log(response);
+                // console.log(response);
             }
         });
     });

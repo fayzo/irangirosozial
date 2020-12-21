@@ -6,7 +6,7 @@
             e.stopPropagation();
 
                     $.ajax({
-                        url: 'food.php',
+                        url: 'food',
                         method: "POST",
                         data: new FormData(this),
                         contentType: false,

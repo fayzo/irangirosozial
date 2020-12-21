@@ -30,7 +30,7 @@ class Fundraising extends Follow
                         </div>
                         <div style="position: absolute;bottom: 0px; right: 0;left:0px;background-color: #cfd3d6a1">
                             
-                                    <?php if($user_id == $row['user_id2']){ ?>          
+                                    <?php if(isset($_SESSION['key']) && $user_id == $row['user_id2']){ ?>          
                                     <ul class="list-inline mb-0 float-right mt-2 ml-1 mr-2" style="list-style-type: none;">  
 
                                             <li  class=" list-inline-item">

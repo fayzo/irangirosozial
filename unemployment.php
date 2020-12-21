@@ -31,7 +31,7 @@
         </div>
       </header>
 
-<div class="container mb-5 mt-3">
+<div class="container">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="row mb-2">

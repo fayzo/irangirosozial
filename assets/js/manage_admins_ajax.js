@@ -37,7 +37,7 @@
         function deleteRow(rowID) {
             if (confirm('Are you sure?')) {
                 $.ajax({
-                    url: 'core/ajax_db/manage_admin_db.php',
+                    url: 'core/ajax_db/manage_admin_db',
                     method: 'POST',
                     dataType: 'text',
                     data: {
@@ -53,7 +53,7 @@
 
         function viewORedits(rowID, type) {
             $.ajax({
-                url: 'core/ajax_db/manage_admin_db.php',
+                url: 'core/ajax_db/manage_admin_db',
                 method: 'POST',
                 dataType: 'json',
                 data: {
@@ -103,7 +103,7 @@
 
         function fetch_admin(start, limit) {
             $.ajax({
-                url: 'core/ajax_db/manage_admin_db.php',
+                url: 'core/ajax_db/manage_admin_db',
                 method: 'POST',
                 dataType: 'text',
                 data: {
@@ -128,7 +128,7 @@
 
         function fetch_admin1(start, limit) {
             $.ajax({
-                url: 'core/ajax_db/manage_admin_db.php',
+                url: 'core/ajax_db/manage_admin_db',
                 method: 'POST',
                 dataType: 'text',
                 data: {
@@ -154,7 +154,7 @@
          function approved(rowID,approval) {
             if (confirm('Are you sure??')) {
                 $.ajax({
-                    url: 'core/ajax_db/manage_admin_db.php',
+                    url: 'core/ajax_db/manage_admin_db',
                     method: 'POST',
                     dataType: 'text',
                     data: {
@@ -181,7 +181,7 @@
             var state = $("#statez");
 
                 $.ajax({
-                   url: 'core/ajax_db/manage_admin_db.php',
+                   url: 'core/ajax_db/manage_admin_db',
                    type: 'post',
                    dataType: 'text',
                    data: {
@@ -227,7 +227,7 @@ $(document).ready(function () {
     $("#users_form").on('submit', (function (e) {
         e.preventDefault();
         $.ajax({
-            url: 'core/ajax_db/adduser_upload.php',
+            url: 'core/ajax_db/adduser_upload',
             dataType: 'text',
             type: "POST",
             data: new FormData(this),
@@ -337,7 +337,7 @@ $(document).on('click', '.update_profile_id', function () {
     var t = $(this).attr("id");
     console.log(t);
     $.ajax({
-        url: 'core/ajax_db/manage_admin_db.php',
+        url: 'core/ajax_db/manage_admin_db',
         type: 'post',
         dataType: 'json',
         data: {

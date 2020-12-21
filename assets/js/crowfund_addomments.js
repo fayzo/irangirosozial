@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         if (comment != "") {
             $.ajax({
-                url: 'core/ajax_db/crowfunding_comment.php',
+                url: 'core/ajax_db/crowfunding_comment',
                 method: 'POST',
                 dataType: 'text',
                 data: {
@@ -15,7 +15,7 @@ $(document).ready(function () {
                 }, success: function (response) {
                     $('#comments').html(response);
                     $('#commentField').val("");
-                    console.log(response);
+                    // console.log(response);
                 }
             });
         }

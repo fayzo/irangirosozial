@@ -5,7 +5,7 @@ $(document).ready(function () {
         var fund_id = $(this).data('fund');
 
         $.ajax({
-            url: 'core/ajax_db/sale_readmore.php',
+            url: 'core/ajax_db/sale_readmore',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -15,7 +15,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".fund-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -28,7 +28,7 @@ $(document).ready(function () {
         var sale_view = $(this).data('sale');
 
         $.ajax({
-            url: 'core/ajax_db/sale_add.php',
+            url: 'core/ajax_db/sale_add',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -38,7 +38,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".sale-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -94,7 +94,7 @@ $(document).ready(function () {
                 return false;
             } else {
                 $.ajax({
-                    url: 'core/ajax_db/sale_add.php',
+                    url: 'core/ajax_db/sale_add',
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -143,7 +143,7 @@ $(document).ready(function () {
         e.stopPropagation();
         var fund_id = $(this).data('fund');
         $.ajax({
-            url: 'core/ajax_db/saleImageViewPopup.php',
+            url: 'core/ajax_db/saleImageViewPopup',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -153,7 +153,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".img-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });

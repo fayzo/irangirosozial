@@ -8,7 +8,7 @@ $(document).ready(function () {
         var food_view = $(this).data('food');
 
         $.ajax({
-            url: 'core/ajax_db/food_addcategories.php',
+            url: 'core/ajax_db/food_addcategories',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -18,7 +18,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".food-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -28,7 +28,7 @@ $(document).ready(function () {
         var food_id = $(this).data('food');
 
         $.ajax({
-            url: 'core/ajax_db/food_readmore.php',
+            url: 'core/ajax_db/food_readmore',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -38,7 +38,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".food-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
@@ -96,7 +96,7 @@ $(document).ready(function () {
                 return false;
             } else {
                 $.ajax({
-                    url: 'core/ajax_db/food_addcategories.php',
+                    url: 'core/ajax_db/food_addcategories',
                     method: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -145,7 +145,7 @@ $(document).ready(function () {
         e.stopPropagation();
         var food_id = $(this).data('fund');
         $.ajax({
-            url: 'core/ajax_db/foodImageViewPopup.php',
+            url: 'core/ajax_db/foodImageViewPopup',
             method: 'POST',
             dataType: 'text',
             data: {
@@ -155,7 +155,7 @@ $(document).ready(function () {
                 $(".close-imagePopup").click(function () {
                     $(".img-popup").hide();
                 });
-                console.log(response);
+                // console.log(response);
             }
         });
     });
