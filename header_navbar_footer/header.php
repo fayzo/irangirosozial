@@ -772,12 +772,12 @@
   
   <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
   <body class="hold-transition skin-blue fixed sidebar-mini-expand-feature sidebar-mini">
-  <!-- Site wrapper -->
+  <!-- Site wrapper skin-blue -->
 <?php }else{ ?>
 
   <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
   <body class="hold-transition skin-blue fixed sidebar-collapse">
-  <!-- Site wrapper -->
+  <!-- Site wrapper skin-blue -->
 
 <?php } ?>
 <div class="wrapper">

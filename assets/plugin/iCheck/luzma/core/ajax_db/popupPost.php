@@ -15,27 +15,35 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
 
 <div class="tweet-show-popup-wrap">
     <input type="checkbox" id="tweet-show-popup-wrap">
-    <div class="wrap4">
-        <label for="tweet-show-popup-wrap">
-            <div class="tweet-show-popup-box-cut">
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </div>
-        </label>
-        <div class="tweet-show-popup-box">
+      <div class="wrap6" id="disabler">
+        <span class="colose">
+        	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </span>
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+        <div class="img-popup-wrapLogin"  id="popupEnd">
+        	<div class="img-popup-body">
 
             <div class="card">
                 <div class="card-header">
+                     <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
 
                     <div class="user-block">
                         <!-- <button class="f-btn btn btn-primary btn-sm float-right"><i class="fa fa-user-plus"></i> Follow</button> -->
                         <div class="float-right"><?php echo $follow->followBtn($tweet['user_id'],$user_id,$tweet['user_id']) ;?></div>
                         <?php if (!empty($tweet['profile_img'])) { ?>
-                        <div class="user-blockImgBorder">
-                        <div class="user-blockImg">
-                          <img src="<?php echo BASE_URL_LINK."image/users_profile_cover/".$tweet['profile_img'] ;?>"
-                          alt="user image">
-                        </div>
-                        </div>
+                            <div class="user-blockImgBorder">
+                            <div class="user-blockImg">
+                            <img src="<?php echo BASE_URL_LINK."image/users_profile_cover/".$tweet['profile_img'] ;?>"
+                            alt="user image">
+                            </div>
+                            </div>
+                        <?php }else{ ?>
+                            <div class="user-blockImgBorder">
+                            <div class="user-blockImg">
+                            <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE ;?>"
+                            alt="user image">
+                            </div>
+                            </div>
                         <?php } ?>
                         <span class="username">
                             <a href="<?php echo BASE_URL_PUBLIC.$tweet['username'] ;?>"><?php echo $tweet['username'] ;?></a>
@@ -653,7 +661,7 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
                             </div>
                             <?php }?>
 
-                            <div class="username mt-3 mr-0">
+                            <div class="username mt-3 mr-0" style="display: flex;">
                                 <div class="input-group">
                                     <input class="form-control form-control-sm" id="commentField" type="text"
                                         name="comment" data-tweet="<?php echo $tweet['tweet_id'];?>"
@@ -725,6 +733,7 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
                 </div><!-- comment-End -->
 
             </div><!-- card-End -->
+        </div> <!-- Wrp4 -->
         </div> <!-- Wrp4 -->
     </div> <!-- tweet-show-popup-wrap" -->
 

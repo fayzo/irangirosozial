@@ -10,6 +10,7 @@ class Posts_home extends Gurisha {
     {
         $mysqli= $this->database;
         // $sql="SELECT * FROM tweets T LEFT JOIN users U ON T. tweetBy= U. user_id LEFT JOIN blog B ON B. tweet_blog_by = U. user_id WHERE T. tweetBy = $user_id AND T. retweet_id='0' AND B. blog_post = 'posted' OR T. tweetBy= U. user_id AND T. retweet_by != $user_id AND B. blog_post= 'posted' AND T. tweetBy IN (SELECT receiver FROM follow WHERE sender= $user_id) ORDER BY T. tweet_id DESC LIMIT $limit ";
+        // $sql="SELECT * FROM tweets T LEFT JOIN users U ON (T. retweet_by = U. user_id OR T. tweetBy= U. user_id) WHERE T. tweetBy = $user_id AND T. retweet_id='0' OR T. retweet_by != $user_id ORDER BY T. tweet_id DESC LIMIT $limit";
         $sql="SELECT * FROM tweets T LEFT JOIN users U ON T. tweetBy= U. user_id WHERE T. tweetBy = $user_id AND T. retweet_id='0' OR T. tweetBy= U. user_id AND T. retweet_by != $user_id AND T. tweetBy IN (SELECT receiver FROM follow WHERE sender= $user_id) ORDER BY T. tweet_id DESC LIMIT $limit";
         $query= $mysqli->query($sql);
         $tweets=array();

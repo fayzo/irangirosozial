@@ -82,8 +82,8 @@ $(document).ready(function () {
                     button.removeClass('dislike-btn');
                     counter++;
                     likescounter.text(counter++);
-                    button.find('.fa-thumbs-o-down').addClass('.fa-thumbs-down').css('color', 'green');
-                    button.find('.fa-thumbs-down').removeClass('.fa-thumbs-o-down');
+                    button.find('.fa-thumbs-o-down').addClass('fa-thumbs-down').css('color', 'green');
+                    button.find('.fa-thumbs-down').removeClass('fa-thumbs-o-down');
 
                     // location.reload();
 

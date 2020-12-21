@@ -1334,7 +1334,7 @@ class Users{
             $datetime2 = new DateTime($now);
             $interval = $datetime1->diff($datetime2);
             return ($Date > $now )? 
-            $interval->format('%R%a days Remain'):'';
+            ' Remain('.$interval->format('%R%a').'days)':'';
     }
 
     public function timeDeadiline($datetime){

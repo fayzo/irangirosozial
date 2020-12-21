@@ -63,7 +63,6 @@ if (isset($_GET['hashtag']) && !empty($_GET['hashtag'])) {
                     <!-- TWEETS IMAGES  -->
                     	 <?php 
                     	$tweets = $trending->getTweetsTrendbyhastag($hashtag);
-                    	// echo var_dump($tweets);
                     	foreach ($tweets as $tweet) {
                             if (!empty($tweet['tweet_image'])) {
                                 # code...
@@ -1283,22 +1282,24 @@ if (isset($_GET['hashtag']) && !empty($_GET['hashtag'])) {
                             </div>
                             <!-- /.card-end -->
                     
-                      <?php  }else { ?>
+                      <!-- < ?php }else { ? >
                           <div class="container">
                               <div class="row">
+
                                   <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header main-active py-2 text-center">
                                             <h4 class="card-title">No photos</h4>
                                         </div>
-                                        <img class="card-img-top" src="<?php echo BASE_URL_LINK.NO_PHOTO ;?>" alt="">
+                                        <img class="card-img-top" src="< ?php echo BASE_URL_LINK.NO_PHOTO ;? >" alt="">
                                     </div>
                                   </div>
                                   
                               </div>
-                          </div>
-                     <?php } 
-                    } ?>
+                          </div>  -->
+                    <?php }
+
+                     } ?>
                     <!-- < ?php } ?> -->
                     <!-- TWEETS IMAGES -->
                     <?php 

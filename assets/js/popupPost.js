@@ -9,7 +9,7 @@ $(document).ready(function () {
                         showpoptweet: tweet_id,
                     }, success: function (response) {
                         $(".popupTweet").html(response);
-                        $(".tweet-show-popup-box-cut").click(function () {
+                        $(".close-imagePopup").click(function () {
                             $(".tweet-show-popup-wrap").hide();
                         });
                         console.log(response);

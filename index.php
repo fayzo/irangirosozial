@@ -36,7 +36,7 @@
                           <?php } ?>
                       </div>
                     </div>
-                    <span class="username">
+                    <span class="username" style="margin-left: 50px">
                       <textarea class="status" name="status" id="status" placeholder="Type Something here!" rows="4"
                         cols="50"></textarea>
                       <div class="hash-box">

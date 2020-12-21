@@ -36,10 +36,10 @@ $(document).ready(function() {
                         tweet_By: $tweet_by,
                         comments: $comment
                     }, success: function (response) {
+                        $button.removeClass('retweet').addClass('retweeted');
                         $('.retweet-popup').hide();
                         $count++;
                         $counter.text($count++);
-                        $button.removeClass('.retweet').addClass('.retweeted');
 
                         console.log(response);
                     }
