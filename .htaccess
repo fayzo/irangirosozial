@@ -1,13 +1,21 @@
 RewriteEngine On
 # Handle Authorization Header
+RewriteBase /
+
+RewriteCond %{HTTP} !=on
+RewriteCond %{HTTP_HOST} ^www\irangiro\.com$
+RewriteRule .* http://irangiro.com%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP} =on
+RewriteCond %{HTTP_HOST} ^www\irangiro\.com$
+RewriteRule .* http://irangiro.com%{REQUEST_URI} [R=301,L]
 
 # Redirect Trailing Slashes If Not A Folder...
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !\.php$
 RewriteCond %{REQUEST_FILENAME}\.php -f
 
-RewriteRule ^(.*)$ $1.php [NC,L,QSA]
+RewriteRule ^(.*)$ $1.php [NC,L]
 RewriteRule ^([0-9a-zA-Z_-]+).(home)/?$ index.php?username=$1 [NC,L,QSA]
 RewriteRule ^([0-9a-zA-Z_-]+)/?$ profile.php?username=$1 [NC,L,QSA]
 RewriteRule ^([0-9a-zA-Z_-]+).(following|followers|posts|album|album_crop)/?$ $2.php?username=$1 [NC,L,QSA]

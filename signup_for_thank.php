@@ -2,6 +2,7 @@
 require 'phpmailer/PHPMailerAutoload.php';
 $mail = new PHPMailer;
 
+
 $mail->isSMTP();        // Set mailer to use SMTP IF UR USING IN LOCOHOST TURN IT ON IF UR USING TURN OFF
 // $mail->SMTPDebug = 3;                               // Enable verbose debug output
 // $mail->Debugoutput = 'html';
@@ -13,26 +14,28 @@ $mail->SMTPOptions = array(
     'allow_self_signed' => true
     )
     );
-$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->Host = 'iragiro.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'irangiroltd@gmail.com';                 // SMTP username
-$mail->Password = $mail->passme();                          // SMTP password
-$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 587;                                    // TCP port to connect to
+$mail->Username = 'admin@iragiro.com';                 // SMTP username
+$mail->Password = '';                         // SMTP passwordrwanda1234@z
+$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 465;    // TCP port to connect to 465 or 587
 
-$mail->setFrom('irangiroltd@gmail.com', 'Irangiro');
-$mail->addAddress('shemafaysal@gmail.com');     // Add a recipient
-// $mail->addAddress('ellen@example.com');               // Name is optional
-$mail->addReplyTo('irangiroltd@gmail.com');
+$mail->setFrom('admin@iragiro.com', 'Irangiro');
+$mail->addAddress($email);               // Name is optional
+$mail->addAddress('irangiroltd@gmail.com');     // Add a recipient
+$mail->addReplyTo('irangiroltd@gmail.com');  // TCP port to connect to
+
 // $mail->addCC('cc@example.com');
 // $mail->addBCC('bcc@example.com');
 
 // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-$mail->isHTML(true);                                  // Set email format to HTML
+
+$mail->isHTML(true);                        // Set email format to HTML
 
 $mail->Subject = 'Your account irangiro';
-// $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+
 $variables = array (
     "{{name}}" => $firstname." ".$lastname,
     "{{email}}" => $email,
@@ -40,7 +43,7 @@ $variables = array (
     "{{password}}" => $password,
 );
 
-$message = file_get_contents('signup.html');
+$message = file_get_contents('signup.html', __DIR__);
 
 foreach ($variables as $key => $value) {
     # code...
@@ -48,8 +51,8 @@ foreach ($variables as $key => $value) {
 }
 
 $mail->msgHTML($message);
-
-$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+// $mail->Body    = $message;
+// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
 if(!$mail->send()) {
     echo 'Message could not be sent.';
