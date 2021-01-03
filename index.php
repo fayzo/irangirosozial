@@ -8,7 +8,7 @@
       <section class="content">
 
         <div class="row">
-          <div class="col-md-3 mb-3 ">
+          <div class="col-md-3 mb-3 d-none d-md-block">
 
             <?php echo $home->userProfile($user_id); ?>
             <?php echo $trending->trends(); ?>

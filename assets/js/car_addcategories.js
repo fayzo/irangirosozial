@@ -23,8 +23,8 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#car-readmore', function (e) {
-        e.stopPropagation();
+    $(document).on('click', '#car-readmore', function () {
+        // e.stopPropagation();
         var car_id = $(this).data('car');
 
         $.ajax({

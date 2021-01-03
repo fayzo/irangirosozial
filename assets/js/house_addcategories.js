@@ -23,8 +23,8 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#house-readmore', function (e) {
-        e.stopPropagation();
+    $(document).on('click', '#house-readmore', function () {
+        // e.stopPropagation();
         var house_id = $(this).data('house');
 
         $.ajax({

@@ -23,8 +23,8 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#icyamunara-readmore', function (e) {
-        e.stopPropagation();
+    $(document).on('click', '#icyamunara-readmore', function () {
+        // e.stopPropagation();
         var house_id = $(this).data('icyamunara');
 
         $.ajax({
