@@ -22,7 +22,7 @@
 <div class="container-fluid pt-3 ">
 
     <div class="row">
-      <div class="col-3 col-md-3 col-lg-3">
+      <div class="col-md-3 d-none d-md-block">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Title</h4>
@@ -35,12 +35,12 @@
             </div> <!-- card -->
       </div>
 
-      <div class="col-6 col-md-6 col-lg-6" id="jobs-hides">
+      <div class="col-md-6" id="jobs-hides">
             <!-- < ?php echo $school->schoolList(1,1); ?> -->
             <?php echo $school->schoolList0(1,'kindergarden School'); ?>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 d-none d-md-block" >
         <span id="responseSubmititerm"> </span>
         <div id="responseSubmitcartiterm">
           <div class="card">

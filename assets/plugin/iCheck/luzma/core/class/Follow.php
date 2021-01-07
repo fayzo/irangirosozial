@@ -366,7 +366,7 @@ class Follow extends Events
                             <div class="info-body-name">
                                 <div class="in-b-name">
                                     <div><a href="<?php echo BASE_URL_PUBLIC.$user['username'] ;?>"><?php echo $user['firstname']." ".$user['lastname'] ;?></a><span><?php echo self::followBtns($whoTofollow,$user_id,$follow_id); ?></span></div>
-                                    <span><small><a href="<?php echo BASE_URL_PUBLIC.$user['username'] ;?>"><?php if(!empty($user['career'])){ echo $user['career'] ;}else{ echo 'no career' ;} ?></a></small></span>
+                                    <!-- <span><small><a href="< ?php echo BASE_URL_PUBLIC.$user['username'] ;?>">< ?php if(!empty($user['career'])){ echo $user['career'] ;}else{ echo 'no career' ;} ?></a></small></span> -->
                                 </div><!-- in b name end-->
                             </div><!-- info body name end-->
                         </div><!-- info in body end-->

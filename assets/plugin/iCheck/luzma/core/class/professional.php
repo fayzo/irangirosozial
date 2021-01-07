@@ -71,8 +71,6 @@ class Employment extends Home {
 
             <div class="col-12 px-0 py-2 jobHover more" data-user="<?php echo $row['user_id'];?>" >
             <div class="user-block mb-2" >
-             <div class="row">
-              <div class="col-2">
                    <div class="user-jobImgall" id="unemployment" data-user="<?php echo $row['user_id'];?>">
                          <?php if (!empty($row['profile_img'])) {?>
                          <img src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $row['profile_img'] ;?>" alt="User Image">
@@ -80,26 +78,24 @@ class Employment extends Home {
                            <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
                          <?php } ?>
                    </div>
-              </div>
-              <div class="col-10 pl-4">
-                  <div>
-                      <span class='float-left'>Names: <?php echo $row['firstname']." ".$row['lastname']; ?> </span>
-                      <span <?php if(isset($_SESSION['key'])){ echo 'class="float-right people-message more"'; }else{ echo 'class="float-right more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $row['user_id'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </span>
-                  </div>
-                  <div class="clear-float">
-                      <span class='float-left'>education: <?php echo $row['education']; ?> </span>
-                      <span  <?php if(isset($_SESSION['key'])){ echo 'class="float-right emailSent more"'; }else{ echo 'class="float-right more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $row['user_id'];?>"><?php echo $row['email']; ?></span>
-                  </div>
-                  <div class="clear-float">
-                      <span class='float-left'>diploma: <?php echo $row['diploma']; ?> </span>
-                      <span class='float-right'><?php echo $row['phone']; ?> </span>
+                    <div class='float-left' style='display: flow-root;'>
+                        <div class="clear-float">
+                            <span class='float-left'>Names: <?php echo $row['firstname']." ".$row['lastname']; ?> </span>
+                            <span <?php if(isset($_SESSION['key'])){ echo 'class="float-right people-message more"'; }else{ echo 'class="float-right more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $row['user_id'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </span>
+                        </div>
+                        <div class="clear-float">
+                            <span class='float-left'>education: <?php echo $row['education']; ?> </span>
+                            <span  <?php if(isset($_SESSION['key'])){ echo 'class="float-right emailSent more"'; }else{ echo 'class="float-right more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $row['user_id'];?>"><?php echo $row['email']; ?></span>
+                        </div>
+                        <div class="clear-float">
+                            <span class='float-left'>diploma: <?php echo $row['diploma']; ?> </span>
+                            <span class='float-right'><?php echo $row['phone']; ?> </span>
+                            </div>
+                        <div class="clear-float">
+                            <span class='float-left'>Fields study: <?php echo $row['categories_fields']; ?> </span>
+                            <span class='float-right'>Unemployment: <?php echo $row['unemployment']; ?> </span>
+                        </div>
                     </div>
-                  <div class="clear-float">
-                      <span class='float-left'>Fields study: <?php echo $row['categories_fields']; ?> </span>
-                      <span class='float-right'>Unemployment: <?php echo $row['unemployment']; ?> </span>
-                  </div>
-               </div> <!-- col-10 -->
-            </div> <!-- row -->
           </div> <!-- user-block -->
           </div> <!-- col-12 -->
           <hr class="bg-info mt-0 mb-1" style="width:70%;">

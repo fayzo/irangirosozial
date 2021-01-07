@@ -10,6 +10,11 @@
                  <?php  }else{ ?>
                 <div class="user-header-follow-logout text-white" style="background: url('<?php echo BASE_URL_LINK.NO_COVER_IMAGE_URL ;?>') center center;background-size: cover; overflow: hidden; width: 100%;">
                  <?php } ?>
+
+                    <div class="text-center">
+                        <h3 class="widget-user-usernames"><?php echo $user['username'];?></h3>
+                        <h5 class="widget-user-desc">Member since <?php echo $users->timeAgo($user['date_registry']); ?></h5>
+                    </div>
                 </div>
                 <div class="user-image-follow">
 

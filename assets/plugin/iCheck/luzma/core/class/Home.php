@@ -493,7 +493,7 @@ class Home extends Comment {
                 <li><a href="crowfund"><i class="fa fa-money "></i> gushoraStartUp</a></li>
                 <li><a href="fundraising"><i class="fa fa-heartbeat"></i>Fundraising</a></li>
                 <!-- <li><a href="food"><i class="fa fa-cutlery"></i>Foodzana</a></li> -->
-                <li><a href="sale"><i class="fa fa-cutlery"></i>Sale</a></li>
+                <li><a href="sale"><i class="fa fa-shopping-cart"></i>Sale</a></li>
                 <li><a href="icyamunara"><i class="fa fa-shopping-basket"></i>Cyamunara</a></li>
                 <li><a href="house"><i class="fa fa-home"></i>House</a></li>
                 <li><a href="car"><i class="fa fa-car"></i>Car</a></li>
@@ -504,17 +504,17 @@ class Home extends Comment {
                 <li><a href="irangiro.jobs"><i class="fa fa-circle-o text-yellow"></i> Job</a></li>
                 <li><a href="irangiro.career_profession"><i class="fa fa-circle-o text-aqua"></i>Professional</a></li>
                 <li><a href="irangiro.unemployment"><i class="fa fa-circle-o text-aqua"></i>unemployment</a></li>
-                <li><a href="irangiro.icyamunara"><i class="fa fa-shopping-basket "></i>Marketplace</a></li>
-                <li><a href="irangiro.blog"><i class="fas fa-edit"></i>Blog</a></li>
+                <li><a href="irangiro.icyamunara"><i class="fa fa-shopping-basket text-red"></i>Marketplace</a></li>
+                <li><a href="irangiro.blog"><i class="fas fa-edit text-aqua"></i>Blog</a></li>
                 <li><a href="irangiro.events"><i class="fa fa-circle-o text-red"></i>Events</a></li>
-                <li><a href="irangiro.crowfund"><i class="fa fa-money "></i> gushoraStartUp</a></li>
-                <li><a href="irangiro.fundraising"><i class="fa fa-heartbeat"></i>Fundraising</a></li>
+                <li><a href="irangiro.crowfund"><i class="fa fa-money text-aqua"></i> gushoraStartUp</a></li>
+                <li><a href="irangiro.fundraising"><i class="fa fa-heartbeat text-red"></i>Fundraising</a></li>
                 <!-- <li><a href="irangiro.food"><i class="fa fa-cutlery"></i>Foodzana</a></li> -->
-                <li><a href="irangiro.sale"><i class="fa fa-cutlery"></i>Sale</a></li>
+                <li><a href="irangiro.sale"><i class="fa fa-shopping-cart text-red"></i>Sale</a></li>
                 <li><a href="irangiro.icyamunara"><i class="fa fa-shopping-basket"></i>Cyamunara</a></li>
                 <li><a href="irangiro.house"><i class="fa fa-home"></i>House</a></li>
-                <li><a href="irangiro.car"><i class="fa fa-car"></i>Car</a></li>
-                <li><a href="irangiro.school"><i class="fa fa-building"></i>School</a></li>
+                <li><a href="irangiro.car"><i class="fa fa-car "></i>Car</a></li>
+                <li><a href="irangiro.school"><i class="fa fa-building "></i>School</a></li>
 
         <?php } ?>
     <?php }

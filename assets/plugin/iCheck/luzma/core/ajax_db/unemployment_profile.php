@@ -45,15 +45,18 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 }
 </style>
 <div class="user-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrap">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+        <div class="img-popup-wrap"  id="popupEnd">
         	<div class="img-popup-body">
 
             <div class="container-fuild">
                 <div class="row">
+                    <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
+
                     <div class="col-12">
                         <div class="card card-widget widget-user" style="height:150px;">
                             <!-- Add the bg color to the header using any of the bg-* classes -->

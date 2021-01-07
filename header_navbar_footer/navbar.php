@@ -178,8 +178,10 @@
                 <?php  } ?>
                 
                   <p>
-                    <?php echo $_SESSION['username'];?> - Web Developer
-                    <small>Member since Nov. 2012</small>
+                    <?php echo $_SESSION['username'];?>
+                    <!-- - Member -->
+                    <!-- <small>Member since Nov. 2012</small> -->
+                    <small>Member since <?php echo $users->timeAgo($user['date_registry']); ?></small>
                   </p>
                 </li>
                 <!-- Menu Body -->

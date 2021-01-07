@@ -47,6 +47,9 @@
             </section>
            <?php include "siderbar_jobs_post/messages.php"?>
         </div> <!-- END-OF A LINK OF Messages ID=#  -->
+<?php
+        $user= $home->userData($_SESSION['key']);
+ ?>
 
         <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
            <?php include "siderbar_jobs_post/setting.php"?>

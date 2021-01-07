@@ -20,7 +20,7 @@
                             style="background: url('<?php echo BASE_URL_LINK.NO_COVER_IMAGE_URL ;?>')no-repeat center center;background-size:cover;">
                   <?php  } ?>
                         <h3 class="widget-user-username"><?php echo $profileData['username'] ;?></h3> <!-- Elizabeth Pierce -->
-                        <h5 class="widget-user-desc">Web Designer</h5>
+                        <h5 class="widget-user-desc">Member since <?php echo $users->timeAgo($profileData['date_registry']); ?></h5>
                     </div>
                     <div class="widget-user-image">
                         <?php if (!empty($profileData['profile_img'])) {?>
@@ -93,51 +93,13 @@
 
         <div class="row">
           <div class="col-md-3 mb-3 d-none d-md-block">
-            <?php echo $home->userProfile($profileData['user_id']); ?>
-            
-            <div class="sticky-tops" style="top: 52px;">
-                  <div class="card card-primary mb-3">
-                      <div class="card-header main-active p-1">
-                          <h5 class="card-title text-center"><i> About Me</i></h5>
-                      </div>
-                      <!-- /.card-header -->
-                      <div class="card-body">
-                          <strong><i class="fa fa-book mr-1"></i> Education</strong>
-
-                          <p class="text-muted">
-                              <?php echo $profileData['education']; ?>
-                          </p>
-
-                          <strong><i class="fa fa-book mr-1"></i> Diploma</strong>
-
-                          <p class="text-muted">
-                              <?php echo $profileData['diploma']; ?>
-                          </p>
-
-                          <strong><i class="fa fa-map-marker mr-1"></i> Location</strong>
-
-                          <p class="text-muted"> <?php echo $profileData['location']; ?></p>
-
-                          <strong><i class="fa fa-pencil mr-1"></i> Skills</strong>
-
-                          <p class="text-muted">
-                              <span class="badge badge-danger"> <?php echo $profileData['skills']; ?></span>
-                              <span class="badge badge-success">Coding</span>
-                              <span class="badge badge-info">Javascript</span>
-                              <span class="badge badge-warning">PHP</span>
-                              <span class="badge badge-primary">Node.js</span>
-                          </p>
-
-                          <strong><i class="fa fa-file-text-o mr-1"></i> Hobbys</strong>
-
-                          <p class="text-muted"> <?php echo $profileData['hobbys']; ?></p>
-                      </div>
-                      <!-- /.card-body -->
-                  </div>
-                  <!-- /.card -->
-                  <?php echo $trending->trends(); ?>
-            </div>
-
+                <?php echo $home->userProfile($profileData['user_id']); ?>
+                
+                <?php echo $home->jobsfetch() ;?>
+                
+                <div class="sticky-top" style="top: 52px;">
+                    <?php echo $trending->trends(); ?>
+                </div>
           </div>
           <div class="col-md-6">
                 <div class="row">
@@ -150,10 +112,8 @@
           <div class="col-md-3 d-none d-md-block">
             <?php $follow->whoTofollow($profileData['user_id'],$profileData['user_id'])?>
 
-            <div class="sticky-top " style="top: 52px;">
-              <!-- hastTag Me Box -->
-                <!-- jobs -->
-                <!-- < ?php echo $home->jobsfetch() ;?> -->
+            <div class="sticky-top" style="top: 52px;">
+                <?php echo $home->options(); ?>
                 <!-- jobs -->
             </div>
           </div>

@@ -1,14 +1,14 @@
 RewriteEngine On
 # Handle Authorization Header
-RewriteBase /
+#RewriteBase /
 
-RewriteCond %{HTTP} !=on
-RewriteCond %{HTTP_HOST} ^www\irangiro\.com$
-RewriteRule .* http://irangiro.com%{REQUEST_URI} [R=301,L]
+#RewriteCond %{HTTP} !=on
+#RewriteCond %{HTTP_HOST} ^www\irangiro\.com$
+#RewriteRule .* http://irangiro.com%{REQUEST_URI} [R=301,L]
 
-RewriteCond %{HTTP} =on
-RewriteCond %{HTTP_HOST} ^www\irangiro\.com$
-RewriteRule .* http://irangiro.com%{REQUEST_URI} [R=301,L]
+#RewriteCond %{HTTP} =on
+#RewriteCond %{HTTP_HOST} ^www\irangiro\.com$
+#RewriteRule .* http://irangiro.com%{REQUEST_URI} [R=301,L]
 
 # Redirect Trailing Slashes If Not A Folder...
 RewriteCond %{REQUEST_FILENAME} !-d

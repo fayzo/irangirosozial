@@ -22,7 +22,7 @@ array('countViewin_profile' => 'countViewin_profile +1', ),$profileData['user_id
                             style="background: url('<?php echo BASE_URL_LINK.NO_COVER_IMAGE_URL ;?>')no-repeat center center;background-size:cover;">
                   <?php  } ?>
                         <h3 class="widget-user-username"><?php echo $profileData['username'] ;?></h3> <!-- Elizabeth Pierce -->
-                        <h5 class="widget-user-desc">Web Designer</h5>
+                        <h5 class="widget-user-desc">Member</h5>
                     </div>
                     <div class="widget-user-image">
                         <?php if (!empty($profileData['profile_img'])) {?>
@@ -139,10 +139,11 @@ array('countViewin_profile' => 'countViewin_profile +1', ),$profileData['user_id
                   <!-- /.card -->
                 <div class="mb-3">
                   <?php echo $follow->FollowingListsProfile($profileData['user_id'],$user_id,$profileData['user_id']); ?>
-              </div>
-                  <?php echo $trending->trends(); ?>
+                </div>
             </div>
-
+                <div class="sticky-top" style="top: 52px;">
+                  <?php echo $trending->trends(); ?>
+                </div>
           </div>
           <div class="col-md-6">
                 <div class="row">
@@ -166,8 +167,13 @@ array('countViewin_profile' => 'countViewin_profile +1', ),$profileData['user_id
 
           <div class="col-md-3">
             <?php $follow->whoTofollow($profileData['user_id'],$profileData['user_id'])?>
+
+            <div class="sticky-top" style="top: 52px;z-index:1000;">
+               <?php echo $home->options(); ?>
+            </div>
           </div>
           <!-- col -->
+          
         </div>
         <!-- row -->
 

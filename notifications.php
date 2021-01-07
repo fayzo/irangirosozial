@@ -28,6 +28,9 @@
                 </div>
                 <?php echo $trending->trends(); ?>
                 <!-- Profile Image -->
+                <div class="sticky-top" style="top: 52px;">
+                  <?php echo $home->jobsfetch() ;?>
+                </div>
             </div>
             <!-- /.col -->
 
@@ -2424,13 +2427,11 @@
             <!-- /.col -->
            
             <div class="col-md-3 d-none d-md-block">
-                <div class="row">
-                    <div class="col-md-12 mb-3">
-                       <?php echo $follow->whoTofollow($user_id,$user_id) ;?>
-                    </div>
-
+                <?php echo $follow->whoTofollow($user_id,$user_id) ;?>
+                
+                <div class="sticky-top" style="top: 52px;">
+                    <?php echo $home->options(); ?>
                 </div>
-                <!-- /.row -->
             </div>
             <!-- /.col-md-3 -->
 

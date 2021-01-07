@@ -55,7 +55,7 @@
     <section class="content">
         <div class="row">
    <?php if (isset($_SESSION['key'])){ ?>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-3 mb-3 d-none d-md-block">
                 <!-- Profile Image -->
                 <?php echo $home->userProfile($user_id); ?>
                 <!-- hastTag Me Box -->
@@ -63,7 +63,7 @@
             </div>
             <!-- /.col -->
 <?php }else{ ?>
-    <div class="col-md-3 mb-3">
+    <div class="col-md-3 mb-3 d-none d-md-block">
           <?php echo $home->jobsfetch() ;?>
     </div>
 <?php } ?>
@@ -83,7 +83,7 @@
 
             <div class="col-md-3">
                 <div class="row">
-                    <div class="col-md-12 mb-3">
+                    <div class="col-md-12 mb-3 d-none d-md-block">
                        <?php echo $follow->whoTofollow($user_id,$user_id) ;?>
                     </div>
                     <!-- /.col -->

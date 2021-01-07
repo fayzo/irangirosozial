@@ -23,7 +23,7 @@ if (isset($_POST['post_as']) && !empty($_POST['post_as'])) {
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
         <div class="img-popup-wrap">
-        	<div class="img-popup-body">
+        	<div class="img-popup-bodys">
 
           <div class="card borders-bottoms">
               <div class="card-header text-center">
@@ -104,8 +104,8 @@ if (isset($_POST['loginTerms']) && !empty($_POST['loginTerms'])) {
               <label for="inputPassword" class="sr-only">Password</label>
               <input type="text" id="inputPassword" class="form-control mb-3" placeholder="Password" >
 
-            <button class="btn btn-lg btn-primary btn-block mb-3" onclick="jobsLogin('SME');" type="button">Sign in</button> or
-            <button class="btn btn-lg btn-primary btn-sm mb-1" id="helper-family" type="button">Sign up</button> 
+            <button class="btn btn-lg btn-primary btn-block mb-3" onclick="jobsLogin('SME');" type="button">Sign in</button>
+            <!-- or <button class="btn btn-lg btn-primary btn-sm mb-1" id="helper-family" type="button">Sign up</button>  -->
             <div class=" text-center h4" id='response'></div>
             <p class="mt-5 mb-3  text-center  text-muted"><?php echo $users->copyright(2018); ?></p>
           </form>
@@ -157,8 +157,8 @@ if (isset($_POST['loginTerms0']) && !empty($_POST['loginTerms0'])) {
               <label for="inputPassword" class="sr-only">Password</label>
               <input type="text" id="inputPassword" class="form-control mb-3" placeholder="Password" >
 
-            <button class="btn btn-lg btn-primary btn-block mb-3" onclick="jobsLogin('individual');" type="button">Sign in</button> or
-            <button class="btn btn-lg btn-primary btn-sm mb-1" id="job-helper" type="button">Sign up</button> 
+            <button class="btn btn-lg btn-primary btn-block mb-3" onclick="jobsLogin('individual');" type="button">Sign in</button> 
+            <!--or <button class="btn btn-lg btn-primary btn-sm mb-1" id="job-helper" type="button">Sign up</button>  -->
             <div class=" text-center h4" id='response'></div>
             <p class="mt-5 mb-3  text-center  text-muted"><?php echo $users->copyright(2018); ?></p>
           </form>

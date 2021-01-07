@@ -47,12 +47,10 @@ if (isset($_GET['hashtag']) && !empty($_GET['hashtag'])) {
         <div class="row">
 
             <div class="col-md-3 mb-3 d-none d-md-block">
-                <div class="mb-2">
-                    <?php echo $home->userProfile($user_id); ?>
-                </div>
+                <?php echo $home->userProfile($user_id); ?>
+
                 <?php echo $trending->trends(); ?>
-                <!-- Profile Image -->
-                <!-- jobs -->
+
             </div>
             <!-- /.col -->
 
@@ -2568,13 +2566,11 @@ if (isset($_GET['hashtag']) && !empty($_GET['hashtag'])) {
             <!-- /.col-md-6 -->
 
             <div class="col-md-3 d-none d-md-block">
-                <div class="row">
-                    <div class="col-md-12 mb-3">
-                       <?php echo $follow->whoTofollow($user_id,$user_id) ;?>
-                    </div>
+                <?php echo $follow->whoTofollow($user_id,$user_id) ;?>
 
-                </div>
-                <!-- /.row -->
+                <div class="sticky-top" style="top: 52px;">
+                    <?php echo $home->options(); ?>
+                 </div>
             </div>
             <!-- /.col-md-3 -->
 

@@ -314,7 +314,7 @@ if (isset($_POST['notificationDrpdown']) && !empty($_POST['notificationDrpdown']
 			endif; 
 			endforeach; 
 	?>
-                  <li>
+                  <!-- <li>
                     <a href="#">
                       <i class="fa fa-warning text-warning"></i> Very long description here that may not fit into the
                       page and may cause design problems
@@ -334,7 +334,7 @@ if (isset($_POST['notificationDrpdown']) && !empty($_POST['notificationDrpdown']
                     <a href="#">
                       <i class="fa fa-user text-danger"></i> You changed your username
                     </a>
-                  </li>
+                  </li> -->
 
 <?php }
 

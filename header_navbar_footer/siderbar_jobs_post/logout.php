@@ -10,6 +10,11 @@
                  <?php  }else{ ?>
                 <div class="user-header-follow-logout text-white" style="background: url('<?php echo BASE_URL_LINK.NO_COVER_IMAGE_URL ;?>') center center;background-size: cover; overflow: hidden; width: 100%;">
                  <?php } ?>
+
+                    <div class="text-center">
+                        <h3 class="widget-user-usernames"><?php echo $user['username'];?></h3>
+                        <h5 class="widget-user-desc">Member since <?php echo $users->timeAgo($user['date_registry']); ?></h5>
+                    </div>
                 </div>
                 <div class="user-image-follow">
 
@@ -20,8 +25,9 @@
                  <?php } ?>
 
                 </div>
+               
                 <div class="logout">
-                    <h5 class="user-username-follow"><?php echo $user['firstname']." ".$user['lastname'] ;?></h5>
+                    <h5 class="user-username-follow"><?php echo $user['username'] ;?></h5>
                     <h5 class="user-username-follow"><small><?php echo $user['career'] ;?></small></h5>
                     <button  type="button" class="btn btn-md main-active "><a class="text-white" href="<?php echo LOGOUT ;?>">Logout</a></button>
                 </div>

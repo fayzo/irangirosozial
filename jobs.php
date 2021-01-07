@@ -70,7 +70,7 @@
             <!-- whoTofollow: user whoTofollow style 1 -->
             <?php echo $follow->whoTofollow($user_id,$user_id) ;?>
 
-            <div class="sticky-tops" style="top: 52px;z-index:1000;">
+            <div class="sticky-top" style="top: 52px;z-index:1000;">
                <?php echo $home->options(); ?>
             </div>
           

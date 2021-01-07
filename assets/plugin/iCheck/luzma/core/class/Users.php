@@ -84,6 +84,8 @@ class Users{
     
         if ($sql->num_rows > 0) {
             $_SESSION['job_user'] = $job_user;
+            $_SESSION['key'] = $row['user_id'];
+            
             exit ('<div class="alert alert-success alert-dismissible fade show text-center">
                     <button class="close" data-dismiss="alert" type="button">
                         <span>&times;</span>
@@ -92,6 +94,8 @@ class Users{
 
         }else if($sql1->num_rows > 0){
             $_SESSION['job_user'] = $job_user;
+            $_SESSION['key'] = $rows['user_id'];
+
             exit ('<div class="alert alert-danger alert-dismissible fade show text-center">
                     <button class="close" data-dismiss="alert" type="button">
                         <span>&times;</span>

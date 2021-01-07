@@ -41,8 +41,8 @@
                             <!-- src="<?php echo BASE_URL_LINK ;?>image/img/photo1.png" -->
                         </div>
 
-                        <h3 class="widget-user-usernames">Elizabeth Pierce</h3>
-                        <h5 class="widget-user-descs">Web Designer</h5>
+                        <h3 class="widget-user-usernames"><?php echo $user['username'];?></h3>
+                        <h5 class="widget-user-desc">Member since <?php echo $users->timeAgo($user['date_registry']); ?></h5>
                     </div>
                     <!-- END OF Background-cover image -->
 
@@ -321,15 +321,12 @@
         <!-- /.col-md-6 -->
 
         <div class="col-md-3">
-            <div class="row">
-                <div class="col-md-12 mb-3">
-                    <!-- whoTofollow: user whoTofollow style 1 -->
-                    <?php $follow->whoTofollow($user['user_id'],$user['user_id'])?>
-                </div>
-                <!-- /. col -->
+            <!-- whoTofollow: user whoTofollow style 1 -->
+            <?php $follow->whoTofollow($user['user_id'],$user['user_id'])?>
 
+            <div class="sticky-top" style="top: 52px;z-index:1000;">
+                <?php echo $home->options(); ?>
             </div>
-            <!-- /.row -->
         </div>
         <!-- /.col-md-3 -->
 

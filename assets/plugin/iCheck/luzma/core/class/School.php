@@ -45,14 +45,14 @@ class School extends Home {
 
                 </div>
             </div>
-             <form class="form-inline  float-right">
+             <!-- <form class="form-inline  float-right">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i> </span>
                     </div>
                     <input type="text" class="form-control searchSchool"  aria-describedby="helpId" placeholder="Search Accountant, finance ,enginneer">
                 </div>
-              </form>
+              </form> -->
 
             <div class="nav-scroller py-0" style="clear:right;height:2rem;">
                 <nav class="nav d-flex justify-content-between pb-0"  >
@@ -131,7 +131,7 @@ class School extends Home {
           <?php while($row= $query->fetch_array()) { ?>
 
             <div class="card flex-md-row shadow-sm h-md-100 border-0 mb-3">
-                    <img class="card-img-left flex-auto d-none d-lg-block" height="150px" width="150px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
+                    <img class="card-img-left flex-auto" height="150px" width="150px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
                 <div class="card-body d-flex flex-column align-items-start pt-0">
                     <h5 class="text-primary mb-0">
                     <a class="text-primary" href="javascript:void(0)"  id="school-readmore" data-school="<?php echo $row['school_id'] ;?>"><?php echo $row['title_'] ;?></a>

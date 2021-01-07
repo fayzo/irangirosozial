@@ -23,15 +23,19 @@ if (isset($_POST['fund_id']) && !empty($_POST['fund_id'])) {
     ?>
 
 <div class="fund-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrap">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+           <div class="img-popup-wrap"  id="popupEnd">
+
         	<div class="img-popup-body">
 
             <div class="card">
                 <div class="card-header">
+                <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
+
                    <div class="user-block">
                         <div class="user-blockImgBorder">
                          <div class="user-blockImg">

@@ -29,7 +29,7 @@
 
 <div class="container-fluid">
      <div class="row mt-4">
-         <div class="col-md-3">
+         <div class="col-md-3 d-none d-md-block">
              <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Title</h4>
@@ -46,7 +46,7 @@
             <?php echo $car->carList('car_For_sale',1,$user_id); ?>
          </div> <!-- col -->
 
-         <div class="col-md-3">
+         <div class="col-md-3 d-none d-md-block">
 
            <div class="card">
                 <div class="card-header">

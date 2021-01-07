@@ -35,6 +35,9 @@
                 <div class="mb-3">
                   <?php echo $follow->FollowingListsProfile($profileData['user_id'],$user_id,$profileData['user_id']); ?>
                 </div>
+                <?php echo $home->jobsfetch() ;?>
+            </div>
+            <div class="sticky-top" style="top: 52px;">
                   <?php echo $trending->trends(); ?>
             </div>
           </div>
@@ -61,6 +64,10 @@
 
           <div class="col-md-3 d-none d-md-block">
             <?php $follow->whoTofollow($profileData['user_id'],$profileData['user_id'])?>
+
+            <div class="sticky-top" style="top: 52px;z-index:1000;">
+                <?php echo $home->options(); ?>
+            </div>
 
           </div>
           <!-- col -->

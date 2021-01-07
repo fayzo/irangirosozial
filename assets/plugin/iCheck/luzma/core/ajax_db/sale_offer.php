@@ -36,14 +36,19 @@ if (isset($_POST['sale']) && !empty($_POST['sale'])) {
 		}
 </style>
 <div class="sale-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrap">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+           <div class="img-popup-wrap"  id="popupEnd">
+
         	<div class="img-popup-body">
 
             <div class="card">
+                <div class="card-header">
+                   <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
+                </div>
                 <div class="card-body">
                  <div class="row reusercolor p-2 mb-2">
 

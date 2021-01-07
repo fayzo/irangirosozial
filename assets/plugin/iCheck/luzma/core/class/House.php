@@ -26,14 +26,14 @@ class House extends Home {
         ?>
         <div class="card card-primary mb-3 ">
          <div class="card-header main-active p-1">
-            <form class="form-inline float-right">
+            <!-- <form class="form-inline float-right">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i> </span>
                     </div>
                     <input type="text" class="form-control search0"  aria-describedby="helpId" placeholder="Search Accountant, finance ,enginneer">
                 </div>
-            </form>
+            </form> -->
             <h5 class="card-title text-center"><i> House to Search</i></h5>
 
             <div class="nav-scroller  py-0" style="clear:right;height:2rem;">
