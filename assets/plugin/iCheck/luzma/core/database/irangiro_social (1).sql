@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2020 at 04:43 AM
+-- Generation Time: Jan 10, 2021 at 04:09 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -2968,7 +2968,10 @@ INSERT INTO `comment` (`comment_id`, `comment`, `comment_on`, `comment_by`, `com
 (13, 'nice', 430, 61, '2020-11-13 15:29:16', 0, 0),
 (14, 'gud', 429, 61, '2020-11-13 15:30:24', 0, 0),
 (15, 'reka', 429, 61, '2020-11-13 15:30:32', 0, 0),
-(17, 'uraho', 463, 61, '2020-12-01 13:28:43', 0, -2);
+(17, 'uraho', 463, 61, '2020-12-01 13:28:43', 0, -2),
+(18, 'nice', 55, 2, '2020-12-18 04:09:42', 0, 0),
+(19, 'gud', 55, 2, '2020-12-18 04:10:00', 0, 0),
+(20, 'nice', 54, 4, '2021-01-06 22:37:35', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3465,7 +3468,11 @@ CREATE TABLE `follow` (
 
 INSERT INTO `follow` (`follow_id`, `sender`, `receiver`, `follow_on`) VALUES
 (6, 2, 1, '2020-12-16 02:23:21'),
-(8, 1, 2, '2020-12-16 02:15:13');
+(8, 1, 2, '2020-12-16 02:15:13'),
+(9, 1, 3, '2020-12-18 04:14:03'),
+(10, 1, 4, '2020-12-18 04:49:38'),
+(11, 4, 1, '2020-12-18 04:27:54'),
+(12, 2, 5, '2020-12-19 11:16:24');
 
 -- --------------------------------------------------------
 
@@ -3743,7 +3750,13 @@ INSERT INTO `message` (`message_id`, `message`, `message_to`, `message_from`, `m
 (1, 'amakuru', 2, 1, '2020-12-09 11:30:25', 1),
 (2, 'amakuruumeze bon', 2, 1, '2020-12-09 11:30:31', 1),
 (3, 'ndaho', 1, 2, '2020-12-09 11:39:59', 1),
-(4, 'kbs', 1, 2, '2020-12-09 11:40:05', 1);
+(4, 'kbs', 1, 2, '2020-12-09 11:40:05', 1),
+(5, 'uraho', 2, 1, '2020-12-21 04:38:14', 1),
+(6, 'yego', 1, 2, '2020-12-21 04:30:38', 1),
+(7, 'uraho', 2, 1, '2020-12-21 04:10:17', 0),
+(8, 'uraho', 2, 1, '2020-12-21 04:10:17', 0),
+(10, 'amakurur yawe', 4, 1, '2020-12-21 04:27:37', 1),
+(11, 'ewan', 4, 1, '2020-12-21 04:27:45', 1);
 
 -- --------------------------------------------------------
 
@@ -3772,8 +3785,17 @@ INSERT INTO `notification` (`notification_id`, `notification_for`, `notification
 (4, 1, 2, 1, 'follow', '2020-12-16 02:22:32', 1),
 (5, 1, 2, 1, 'follow', '2020-12-16 02:22:33', 1),
 (6, 1, 2, 1, 'follow', '2020-12-16 02:23:21', 1),
-(7, 2, 1, 2, 'follow', '2020-12-16 01:54:39', 0),
-(8, 2, 1, 2, 'follow', '2020-12-16 02:15:13', 0);
+(7, 2, 1, 2, 'follow', '2020-12-16 01:54:39', 1),
+(8, 2, 1, 2, 'follow', '2020-12-16 02:15:13', 1),
+(9, 3, 1, 3, 'follow', '2020-12-18 04:14:03', 1),
+(10, 3, 1, 46, 'retweet', '2020-12-18 04:14:37', 1),
+(11, 4, 1, 54, 'retweet', '2020-12-18 04:44:02', 1),
+(12, 4, 1, 4, 'follow', '2020-12-18 04:49:38', 1),
+(13, 1, 4, 1, 'follow', '2020-12-18 04:27:54', 1),
+(14, 5, 2, 56, 'retweet', '2020-12-19 11:16:08', 1),
+(15, 5, 2, 5, 'follow', '2020-12-19 11:16:24', 1),
+(16, 5, 1, 57, 'retweet', '2020-12-19 11:17:31', 1),
+(17, 1, 4, 42, 'retweet', '2021-01-06 22:25:00', 1);
 
 -- --------------------------------------------------------
 
@@ -4432,7 +4454,11 @@ INSERT INTO `trends` (`trend_id`, `hashtag`, `target`, `created_on`) VALUES
 (9, 'MentalHealth', '32', '2020-12-06 07:44:45'),
 (10, 'Bipolar', '33', '2020-12-06 07:45:11'),
 (11, 'Autism', '34', '2020-12-06 07:45:32'),
-(12, 'MentalHealth', '35', '2020-12-06 07:47:47');
+(12, 'MentalHealth', '35', '2020-12-06 07:47:47'),
+(13, 'MentalHealth', '45', '2020-12-18 04:11:23'),
+(14, 'Rwot', '46', '2020-12-18 04:11:38'),
+(15, 'Rwot', '50', '2020-12-18 04:24:30'),
+(16, 'Rwot', '51', '2020-12-18 04:26:20');
 
 -- --------------------------------------------------------
 
@@ -4470,9 +4496,23 @@ INSERT INTO `tweets` (`tweet_id`, `status`, `tweetBy`, `retweet_id`, `retweet_by
 (39, 'nice', 1, 0, 0, '', '', 0, 0, '2020-12-07 19:48:59', ''),
 (40, 'gud', 1, 0, 0, '', '', 0, 0, '2020-12-07 20:18:04', ''),
 (41, 'nice', 1, 0, 0, '', '', 0, 0, '2020-12-07 20:18:11', ''),
-(42, 'gud', 1, 0, 0, '', '', 0, 0, '2020-12-07 20:18:48', ''),
+(42, 'gud', 1, 0, 0, '', '', 0, 1, '2020-12-07 20:18:48', ''),
 (43, 'gud', 2, 0, 0, '', '', 0, 0, '2020-12-16 02:36:38', ''),
-(44, 's', 2, 0, 0, '', '', 0, 0, '2020-12-16 02:37:55', '');
+(44, 's', 2, 0, 0, '', '', 0, 0, '2020-12-16 02:37:55', ''),
+(45, '#MentalHealth is the bigest problems', 3, 0, 0, '', '', 0, 0, '2020-12-18 04:11:23', ''),
+(46, '#Rwot ibi mwari mubizi', 3, 0, 0, '', '', 0, 1, '2020-12-18 04:11:38', ''),
+(47, '#Rwot ibi mwari mubizi', 3, 46, 1, '', '', 0, 1, '2020-12-18 04:14:37', 'nice'),
+(48, 'mubona gahunda iteye gute', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:23:43', ''),
+(49, 'ibintu mwe mubibona gute', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:24:02', ''),
+(50, '#Rwot mumeze mute', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:24:30', ''),
+(51, '#Rwot ko mbona mutambuja', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:26:20', ''),
+(52, 'nice work', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:26:43', ''),
+(53, 'namwe nuko mubibona', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:27:21', ''),
+(54, 'nice work', 4, 0, 0, '', '', 0, 1, '2020-12-18 04:30:31', ''),
+(55, 'nice work', 4, 54, 1, '', '', 0, 1, '2020-12-18 04:44:02', 'nice'),
+(56, 'ibi nabyo kbs', 5, 0, 0, '', '', 0, 1, '2020-12-19 11:15:25', ''),
+(57, 'ibi nabyo kbs', 5, 56, 2, '', '', 0, 1, '2020-12-19 11:16:08', 'nice'),
+(58, 'gud', 1, 42, 4, '', '', 0, 1, '2021-01-06 22:25:00', 'bite');
 
 -- --------------------------------------------------------
 
@@ -4543,8 +4583,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `username`, `email`, `password`, `gender`, `chat`, `job_user`, `career`, `country`, `date_birth`, `date_registry`, `last_login`, `last_profile_edit`, `counts_login`, `forgotUsernameCounts`, `forgotUsernameCountsTimesHeCreates`, `forgotUsernameCountsTimesHeCreatespassword`, `profile_img`, `profile_img_crop`, `cover_img`, `background`, `language`, `color`, `education`, `diploma`, `skills`, `location`, `hobbys`, `followers`, `following`, `approval`, `countViewin_profile`, `company_education`, `type_of_business`, `address`, `size_of_people`, `companyname`, `overview`, `history`, `team`, `legal_structure`, `location_facilities`, `mission_statement`, `website`, `unemployment`, `categories_fields`, `phone`, `about`, `years`, `field`, `age`, `status_career`, `course`) VALUES
-(1, 'irangiro', 'social', 'irangiro', 'irangiroltd@gmail.com', 'fafa', 'Male', 'on', 'SME', 'Professional', 'RW', '1999-08-03', '2020-12-06', '2020-12-16 22:11:02', '2020-12-10 04:18:36', 29, 0, 0, 0, '116vect.png', '', '529port.jpg', '', '', 'black', 'lyccee', 'Certificate', 'design', 'kigali', 'foot', 1, 1, 'on', 22, 'Public', 'builder', 'KG 513 st', '50', 'irangiro', 'it is a good company', 'yaangiye cyera', 'ifite abantu benshi', 'ibyo dukora', 'mu mujyi', 'tukomeza gukora', 'irangiro.com', 'no', 'management', '0786577676', '&lt;p&gt;Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.&lt;/p&gt;', 2, 'management', '26', 'Single', 'finance,management,computer,science'),
-(2, 'Tips', 'Mindseet', 'Tips', 'admin@irangiro.com', 'fafa', 'Male', 'off', '', '', 'RW', '1999-08-03', '2020-12-07', '2020-12-16 02:18:12', '0000-00-00 00:00:00', 4, 0, 0, 0, '784port.jpg', '', '153img6.jpg', '', '', 'black', '', '', '', '', '', 1, 1, 'off', 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '');
+(1, 'irangiro', 'social', 'irangiro', 'irangiroltd@gmail.com', 'fafa', 'Male', 'on', 'individual', 'Professional', 'RW', '1999-08-03', '2020-12-06', '2021-01-06 21:56:03', '2020-12-10 04:18:36', 47, 0, 0, 0, '116vect.png', '', '529port.jpg', '', '', 'black', 'lyccee', 'Certificate', 'design', 'kigali', 'foot', 2, 3, 'on', 45, 'Public', 'builder', 'KG 513 st', '50', 'irangiro', 'it is a good company', 'yaangiye cyera', 'ifite abantu benshi', 'ibyo dukora', 'mu mujyi', 'tukomeza gukora', 'irangiro.com', 'no', 'management', '0786577676', '&lt;p&gt;Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.&lt;/p&gt;', 2, 'management', '26', 'Single', 'finance,management,computer,science'),
+(2, 'Tips', 'Mindseet', 'Tips', 'admin@irangiro.com', 'fafa', 'Male', 'off', '', '', 'RW', '1999-08-03', '2020-12-07', '2020-12-21 04:29:20', '0000-00-00 00:00:00', 8, 0, 0, 0, '784port.jpg', '', '153img6.jpg', '', '', 'black', '', '', '', '', '', 1, 2, 'off', 13, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(3, 'jean', 'jean', 'jean', 'jean@gmail.com', 'jean', 'Male', 'off', '', '', 'RW', '2002-04-04', '2020-12-18', '2020-12-18 04:15:11', '0000-00-00 00:00:00', 2, 0, 0, 0, '', '', '', '', '', 'black', '', '', '', '', '', 1, 0, 'off', 3, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(4, 'muhire', 'muhire', 'muhire', 'muhire@gmail.com', 'muhire', 'Male', 'on', 'SME', '', 'RW', '2001-05-04', '2020-12-18', '2021-01-06 21:58:40', '0000-00-00 00:00:00', 7, 0, 0, 0, '3896459.jpg', '', '', '', '', 'black', '', '', '', '', '', 1, 1, 'off', 23, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(5, 'claude', 'claude', 'claude', 'claude@yahoo.com', 'claude', 'Male', 'off', '', '', 'RW', '1996-05-06', '2020-12-19', '2020-12-21 03:52:03', '0000-00-00 00:00:00', 2, 0, 0, 0, '', '', '', '', '', 'black', '', '', '', '', '', 1, 0, 'off', 6, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -17388,7 +17431,7 @@ ALTER TABLE `car`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `comment_crowfunding`
@@ -17454,7 +17497,7 @@ ALTER TABLE `events_like`
 -- AUTO_INCREMENT for table `follow`
 --
 ALTER TABLE `follow`
-  MODIFY `follow_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `follow_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `food`
@@ -17514,13 +17557,13 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `post_comment`
@@ -17562,19 +17605,19 @@ ALTER TABLE `trash`
 -- AUTO_INCREMENT for table `trends`
 --
 ALTER TABLE `trends`
-  MODIFY `trend_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `trend_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tweets`
 --
 ALTER TABLE `tweets`
-  MODIFY `tweet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `tweet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
