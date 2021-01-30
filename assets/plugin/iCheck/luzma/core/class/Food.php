@@ -464,7 +464,7 @@ class Food extends home {
       public function foodReadmore($food_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN food F ON F. user_id3 = u. user_id WHERE F. food_id = '$food_id' ");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN food F ON F. user_id3 = U. user_id WHERE F. food_id = '$food_id' ");
         $row= $query->fetch_array();
         return $row;
     }
@@ -517,7 +517,7 @@ class Food extends home {
     public function food_getPopupTweet($user_id,$food_id,$food_user_id)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN food B ON B. user_id3 = u. user_id WHERE B. food_id = $food_id AND B. user_id3 = $food_user_id ");
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN food B ON B. user_id3 = U. user_id WHERE B. food_id = $food_id AND B. user_id3 = $food_user_id ");
         // var_dump('ERROR: Could not able to execute'. $query.mysqli_error($mysqli));
         while ($row= $result->fetch_array()) {
             # code...

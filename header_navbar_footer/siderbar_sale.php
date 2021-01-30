@@ -6,7 +6,7 @@
         </div>
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4">
-          <?php if (isset($_SESSION['key'])) { ?>
+          <?php if (isset($_SESSION['key']) && $_SESSION['approval'] === 'on') { ?>
             <button type="button" class="btn btn-light" id="add_sale" data-sale="<?php echo $_SESSION['key']; ?>" > + Add sale </button>
            <?php } ?>
           </div>

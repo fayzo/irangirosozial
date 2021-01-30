@@ -407,7 +407,16 @@ a:focus {
 
 @media (max-width: 767px){
   .hidden-xs {
-      display: none!important;
+      display: none !important;
+  }
+
+  .img_size > img {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 10% !important;
+}
+  .user-block > .text_size{
+    font-size: 11px;
   }
 }
 
@@ -1073,6 +1082,7 @@ a:focus {
   text-overflow: ellipsis;
   padding: 10px;
 }
+
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .ion {
@@ -1082,7 +1092,7 @@ a:focus {
   margin: 0;
   padding: 10px 10px;
 }
-.navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a > div > img {
+.navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a > div > .img {
   margin: auto 10px auto auto;
   width: 40px;
   height: 40px;
@@ -2133,7 +2143,8 @@ a:focus {
 
 @media only screen and (min-width: 992px) and (min-width: 1200px) {
     .timeline-item > .card-img-left  {
-      height: 100px;
+      height: 130px;
+      /* height: auto; */
       width: 400px;
   }
 }
@@ -2850,7 +2861,7 @@ nav.tabs>li>a {
 .widget-user .widget-user-desc {
   margin-top: 0;
 }
-.widget-user .widget-user-image {
+/* .widget-user .widget-user-image {
   position: absolute;
   top: 65px;
   left: 50%;
@@ -2860,7 +2871,7 @@ nav.tabs>li>a {
   width: 90px;
   height: auto;
   border: 3px solid #fff;
-}
+} */
 .widget-user .box-footer {
   padding-top: 30px;
 }

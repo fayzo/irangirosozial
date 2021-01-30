@@ -96,12 +96,27 @@ class House extends Home {
                                <!-- <span class="float-right"> < ?php echo $house['price']; ?> Frw</span> -->
                             </div> 
                             <div class="text-muted clear-float">
-                                <span class="float-left"><i class="fa fa-home" aria-hidden="true"></i> <?php echo $categories; ?></span>
+                                <span class="float-left"><i class="fa fa-home" aria-hidden="true"></i> 
+                                <?php 
+                                        $subect = $categories;
+                                        $replace = " ";
+                                        $searching = "_";
+                                        echo str_replace($searching,$replace, $subect);
+                                        ?>
+                                <!-- < ?php echo $categories; ?> -->
+                                </span>
                                 <span class="float-right mr-5"><i class="fa fa-heart" aria-hidden="true"></i></span></div>
                             <div class="text-muted clear-float">
                                 <span><i class="fa fa-clock-o" aria-hidden="true"></i> Created on <?php echo $this->timeAgo($house['created_on3'])." By ".$house['authors']; ?></span>
                             </div>
-                            <p class="card-text clear-float">200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame... Continue reading... </p>
+                            <p class="card-text clear-float">
+                                <?php if (strlen($house["text"]) > 98) {
+                                            echo $house["text"] = substr($house["text"],0,98).'...
+                                            <span class="mb-0"><a href="javascript:void(0)" id="house-readmore" data-house="'.$house['house_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Read more...</a></span>';
+                                            }else{
+                                            echo $house["text"];
+                                            } ?> 
+                            </p>
 
                         </div><!-- card-body -->
                         </div><!-- card -->
@@ -176,7 +191,7 @@ class House extends Home {
       public function houseReadmore($house_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN house H ON H. user_id3 = u. user_id 
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN house H ON H. user_id3 = U. user_id 
             Left JOIN provinces P ON H. province = P. provincecode
             Left JOIN districts M ON H. districts = M. districtcode
             Left JOIN sectors T ON H. sector = T. sectorcode
@@ -234,7 +249,7 @@ class House extends Home {
     public function house_getPopupTweet($user_id,$house_id,$house_user_id)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN house H ON H. user_id3 = u. user_id 
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN house H ON H. user_id3 = U. user_id 
         Left JOIN provinces P ON H. province = P. provincecode
             Left JOIN districts M ON H. districts = M. districtcode
             Left JOIN sectors T ON H. sector = T. sectorcode
@@ -326,7 +341,7 @@ class House extends Home {
     
     public function EditdeletePost($user_id,$house_id3){
         
-        if($user_id == $house_id3 ){ 
+        if(isset($_SESSION['key']) && $user_id == $house_id3 ){ 
             $mysqli= $this->database;
             $query= $mysqli->query("SELECT * FROM house WHERE house_id ='$house_id3'");
             $house= $query->fetch_array();

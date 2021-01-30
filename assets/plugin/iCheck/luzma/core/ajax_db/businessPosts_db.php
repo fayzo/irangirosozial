@@ -172,6 +172,7 @@ if (isset($_POST['key'])) {
 			// 'qualifications_skills'=> $qualifications_skills, 
 			// 'conditions'=> $conditions,
 			'location'=> 'RW',
+			'job_user_'=> $_SESSION['job_user'], 
 			'deadline'=> $deadline, 
             'website'=> $website,
 			'business_id'=> $businessID,

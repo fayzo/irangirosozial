@@ -8,7 +8,7 @@ if (isset($_POST['school_id']) && !empty($_POST['school_id'])) {
         $user_id= $_SESSION['key'];
     }else {
         # code...
-        $username= $users->test_input('jojo');
+        $username= $users->test_input('irangiro');
         $uprofileId= $home->usersNameId($username);
         $profileData= $home->userData($uprofileId['user_id']);
         $user_id= $profileData['user_id'];
@@ -99,22 +99,25 @@ if (isset($_POST['school_id']) && !empty($_POST['school_id'])) {
                             </div>  
                         
                             <h4 class="mt-2"><i>
-                                authors: <?php echo $user['author_']; ?>
+                                <?php echo $user['author_']; ?>
                             </i></h4>
-                            <div class="mt-2">
-                                <?php echo $user['text_']; ?>
-                            </div>
+                            <!-- <div class="mt-2">
+                                < ?php echo $user['text_']; ?>
+                            </div> -->
                        </div> <!-- col-md-6  -->
                        <div class="col-md-6">
                             <h4 class="mt-2"><i>Details of school</i></h4>
-                            <ul>
+                            <div class="mt-2">
+                                <?php echo $user['text_']; ?>
+                            </div>
+                            <!-- <ul>
                                 <li>200 m square feet Garden,</li>
                                 <li>4 bedroom,</li>
                                 <li>2 bathroom, </li>
                                 <li>kitchen and cabinet,</li>
                                 <li>car parking ,</li>
                                 <li>dapibuseget quame</li>
-                            </ul>      
+                            </ul>       -->
                        </div><!-- /.col -->
                        <?php 
                         $file = $user['photo_']."=".$user['other_photo_'];

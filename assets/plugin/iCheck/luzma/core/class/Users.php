@@ -837,6 +837,8 @@ class Users{
              $i++;
          }
         $query= $mysqli->query($sql);
+        // var_dump('ERROR: Could not able to execute'. $query.mysqli_error($mysqli));
+
         $row = $query->fetch_assoc();
 
             // if($row){
@@ -1338,7 +1340,7 @@ class Users{
             $datetime2 = new DateTime($now);
             $interval = $datetime1->diff($datetime2);
             return ($Date > $now )? 
-            ' Remain('.$interval->format('%R%a').'days)':'';
+            ' ('.$interval->format('%R%a').'days Remain)':'';
     }
 
     public function timeDeadiline($datetime){

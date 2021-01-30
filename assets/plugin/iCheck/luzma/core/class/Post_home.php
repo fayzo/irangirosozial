@@ -504,7 +504,7 @@ class Posts_home extends Gurisha {
                        <?php if($user_id != $tweet['user_id']) { ?> 
                             <ul><li>
                                 <a href="<?php echo BASE_URL_PUBLIC.$tweet['username'] ;?>" ><?php echo $tweet['username'] ;?></a>
-                                <ul><li><?php echo Follow::tooltipProfile($tweet['user_id'],$user_id,$tweet['user_id']); ?></li></ul>
+                                <!-- <ul><li>< ?php echo Follow::tooltipProfile($tweet['user_id'],$user_id,$tweet['user_id']); ?></li></ul> -->
                                 </li>
                             </ul>
                             <?php }else{ ?>
@@ -1022,6 +1022,7 @@ class Posts_home extends Gurisha {
           <?php }?>
 
           <ul class="mt-2 list-inline" style="list-style-type: none; margin-bottom:10px;">  
+                    <?php if(isset($_SESSION['key']) && $_SESSION['approval'] === 'on'){ ?>
                     <?php if($tweet['tweet_id'] == $retweet['retweet_id']){ ?>
                      <li class=" list-inline-item"><button <?php echo (isset($_SESSION['key']))?'class="share-btn retweeted text-sm mr-2"':'class=" text-sm mr-2" id="login-please" data-login="1"' ;?>  data-tweet="<?php echo $tweet['tweet_id']; ?>"  data-user="<?php echo $tweet['tweetBy']; ?>">
                      <i class="fa fa-share green mr-1" style="color: green"> <span class="retweetcounter"><?php echo $retweet["retweet_counts"];?></span></i>
@@ -1032,7 +1033,7 @@ class Posts_home extends Gurisha {
                             <?php if($retweet["retweet_counts"] > 0){ echo '<i class="fa fa-share mr-1" style="color: green"> <span class="retweetcounter">'.$retweet["retweet_counts"].'</span></i>' ; }else{ echo '<i class="fa fa-share mr-1"> <span class="retweetcounter">'.$retweet["retweet_counts"].'</span></i>';} ?>
                                Share</button></li>
 
-                     <?php } ?>
+                     <?php } } ?>
                         <?php if($likes['like_on'] == $tweet['tweet_id']){ ?>
                             <li  class=" list-inline-item"><button <?php echo (isset($_SESSION['key']))?'class="unlike-btn text-sm"':'class="text-sm" id="login-please" data-login="1"' ;?> data-tweet="<?php echo $tweet['tweet_id']; ?>"  data-user="<?php echo $tweet['tweetBy']; ?>">
                             <i class="fa fa-thumbs-up mr-1" style="color: red"> <span class="likescounter"><?php echo $tweet['likes_counts'] ;?></span></i>

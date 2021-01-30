@@ -95,7 +95,7 @@
                             <li>
                                 <i class="fa fa-envelope bg-primary text-light"></i>
 
-                                <div class="timeline-item card shadow-lg">
+                                <div class="timeline-item card shadow-sm">
                                   <div class="card-body">
                                     <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
 
@@ -124,7 +124,7 @@
                             <li>
                                 <i class="fa fa-user bg-info text-light"></i>
 
-                                <div class="timeline-item card shadow-lg">
+                                <div class="timeline-item card shadow-sm">
                                   <div class="card-body">
                                      <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['follow_on']) ;?></span>
                                     <div class="user-block">
@@ -162,7 +162,7 @@
                             <li>
                                 <i class="fa fa-heart bg-danger text-light"></i>
 
-                                <div class="timeline-item card shadow-lg">
+                                <div class="timeline-item card shadow-sm">
                                     <div class="card-header ">
                                         <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['posted_on']) ;?></span>
                                         <div class="user-block">
@@ -915,7 +915,7 @@
                             <li>
                                 <i class="fa fa-retweet bg-success text-light"></i>
 
-                                <div class="timeline-item card shadow-lg">
+                                <div class="timeline-item card shadow-sm">
                                     <div class="card-header ">
                                         <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['posted_on']) ;?></span>
                                         <div class="user-block">
@@ -1672,7 +1672,7 @@
                             <li>
                                 <i class="fa fa-at bg-purple text-dark "></i>
                                 <!-- <i class="fa fa-at bg-warning text-light">@</i> -->
-                              <div class="timeline-item card shadow-lg">
+                              <div class="timeline-item card shadow-sm">
                                 <div class="card-header ">
                                         <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['posted_on']) ;?></span>
                                         <div class="user-block">

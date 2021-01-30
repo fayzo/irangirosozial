@@ -179,36 +179,36 @@ class Sale extends Home{
                                 # code...
                                 echo '
                                 <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                    ';
+                                ';
+                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                 break;
                             case $categories == 'clothes':
                                 # code...
                                 echo '
                                 <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                    ';
+                                ';
+                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                 break;
                             case $categories == 'sports':
                                 # code...
                                 echo '
                                 <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                    ';
+                                ';
+                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                 break;
                             case $categories == 'health_beauty':
                                 # code...
                                 echo '
                                 <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                    ';
+                                ';
+                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                 break;
                             case $categories == 'home_garden':
                                 # code...
                                 echo '
                                 <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                    ';
+                                ';
+                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
                                 break;
                         } ?>
                         </div>
@@ -260,7 +260,7 @@ class Sale extends Home{
                                     echo $row["title"];
                                     } ?>
 
-                                    <?php if($user_id == $row['user_id01']){ ?>
+                                    <?php if(isset($_SESSION['key']) && $user_id == $row['user_id01']){ ?>
                                     <ul class="list-inline ml-2  float-right" style="list-style-type: none;">  
 
                                             <li  class=" list-inline-item">
@@ -606,7 +606,7 @@ class Sale extends Home{
       public function sale_getPopupTweet($user_id,$sale_id,$car_user_id)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN sale B ON B. user_id01 = u. user_id WHERE B. sale_id = $sale_id AND B. user_id01 = $car_user_id ");
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN sale B ON B. user_id01 = U. user_id WHERE B. sale_id = $sale_id AND B. user_id01 = $car_user_id ");
         // var_dump('ERROR: Could not able to execute'. $query.mysqli_error($mysqli));
         while ($row= $result->fetch_array()) {
             # code...
@@ -670,7 +670,7 @@ class Sale extends Home{
        public function saleReadmore($sale_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN sale H ON H. user_id01 = u. user_id 
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN sale H ON H. user_id01 = U. user_id 
             Left JOIN provinces P ON H. province = P. provincecode
             Left JOIN districts M ON H. districts = M. districtcode
             Left JOIN sectors T ON H. sector = T. sectorcode

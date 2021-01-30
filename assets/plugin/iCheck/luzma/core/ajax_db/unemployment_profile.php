@@ -51,11 +51,10 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
         </span>
         <div class="wrap6Pophide" onclick="togglePopup( )"></div>
         <div class="img-popup-wrap"  id="popupEnd">
-        	<div class="img-popup-body">
+        	<div class="img-popup-bodys">
 
             <div class="container-fuild">
                 <div class="row">
-                    <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
 
                     <div class="col-12">
                         <div class="card card-widget widget-user" style="height:150px;">
@@ -81,17 +80,17 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
                 <!-- row -->
             </div>
             <!-- container-fuild -->
-
+        <div class="container">
             <div class="row mb-3" style="background:#fff">
-                <div class="col-md-2 ">
+                <div class="col-md-2 unemploy-profile">
                   <?php if (!empty($user['profile_img'])) {?>
-                        <img style="position:absolute; top:-80px;width: 120px; height: auto;border: 3px solid #ffffff;" class="rounded-circle" src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $user['profile_img'];?>" alt="User Avatar">
+                        <img class="rounded-circle " src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $user['profile_img'];?>" alt="User Avatar">
                     <?php  }else{ ?>
-                        <img style="position:absolute; top:-80px;width: 120px; height: auto;border: 3px solid #ffffff;" class="rounded-circle" src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Avatar">
+                        <img class="rounded-circle" src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Avatar">
                     <?php } ?>
                 </div>
                 <div class="col-md-1-3 mr-3 p-2">
-                    <h4><?php echo $user['firstname'].' '.$user['lastname']; ?></h4>
+                    <div><?php echo $user['firstname'].' '.$user['lastname']; ?></div>
                     <!-- <h4>Elizabeth Pierce</h4> -->
                     <div><?php echo $user['country']; ?>
                     <i class="flag-icon flag-icon-<?php echo strtolower($user["country"]) ;?> h4 mb-0"
@@ -100,34 +99,48 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
                     <!-- <div>Rwanda</div> -->
                 </div>
                 <div class="col-md-1-3 border-left mr-4 p-2">
-                    <h4><?php echo $user['career']; ?></h4>
+                    <div><?php echo $user['career']; ?></div>
                     <!-- Unemployment -->
                     <div><?php echo $user['years']; ?> years</div>
                 </div>
-                <div class="col-md-1-3 border-left mr-4 p-2">
-                    <h4>Resume</h4>
-                    <div>Cover letter || CV</div>
+
+                <div class="col-md-1-3 border-left p-2">
+                    <div>Resume || CV</div>
+                    <div>Cover letter</div>
                 </div>
+               
+                <?php if (isset($_SESSION['key']) && $_SESSION['approval'] === 'on') { ?>
                 <div class="col-md-1-3 border-left mr-4 p-2">
-                    <h4>Age</h4>
+                    <div>Age</div>
                     <div><?php echo $user['age']; ?> years</div>
                 </div>
                 <div class="col-md-1-3 border-left mr-4 p-2">
-                    <h4>Status</h4>
+                    <div>Status</div>
                     <div><?php echo $user['status_career']; ?></div>
                 </div>
+                <?php  } ?>
+
+                <div class="col-md-1-3 p-2"> 
+                    <button class="btn btn-success btn-sm d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
+                </div>
+
             </div>
+        </div>
 
             <section class="content-header container" style="background:#e8e1e1">
                 <div class="row mb-2">
                     <div class="col-sm-12">
-                        <div class="float-sm-right text-right ml-4  pt-3">
+                        <div class="float-right text-right pt-3">
                             <ul class="list-inline mb-0">
                                 <!-- <li class="list-inline-item h4 btn btn-outline-primary"><i><i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Request</i></li> -->
-                                <li class="list-inline-item h4 btn btn-outline-primary emailSent" data-user="<?php echo $user['user_id'];?>"> <i><?php echo $user['email']; ?></i></li>
-                                <li class="list-inline-item h4 people-message btn btn-primary" data-user="<?php echo $user['user_id'];?>" ><i style="font-size: 14px;" class="fa fa-envelope-o"> Message </i></li>
+                                <!-- <li class="list-inline-item h4 btn btn-outline-primary emailSent" data-user="< ?php echo $user['user_id'];?>"> <i>< ?php echo $user['email']; ?></i></li> -->
+                                <li class="list-inline-item h4" ><a href="javascript:vois(0)" <?php if(isset($_SESSION['key'])){ echo 'class="people-message btn btn-primary"'; }else{ echo 'class="btn btn-primary" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $user['user_id'];?>" > <i style="font-size: 14px;" class="fa fa-envelope-o"> Message </i></a></li>
                             </ul>
+                            <div class="h4 btn btn-outline-primary emailSent"  data-user="<?php echo $user['user_id'];?>"> <i><?php echo $user['email']; ?></i></div>
+                            <?php if (isset($_SESSION['key']) && $_SESSION['approval'] === 'on') { ?>
                             <div class="h4 btn btn-outline-primary" ><i class="fa fa-phone" aria-hidden="true"></i> <i><?php echo $user['phone']; ?> </i></div>
+                             <?php  } ?>
+                        
                         </div>
 
                         <div class="text-left pt-3">
@@ -135,15 +148,18 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
                             <?php
                              $course = $user['course'];
                              $expode = explode(",",$course);
-                             for ($i=0; $i < count($expode); ++$i) { ?>
+                            for ($i=0; $i < 3; ++$i) { ?>
                                 <li class="list-inline-item h4 btn btn-outline-primary"><i><?php echo $expode[$i] ;?></i></li>
+                            <?php } 
+                            for ($i=4; $i < count($expode); ++$i) { ?>
+                                <li class="list-inline-item h4 btn btn-outline-primary d-none d-md-inline"><i><?php echo $expode[$i] ;?></i></li>
                             <?php } ?>
-                                <li class="list-inline-item h4 btn btn-outline-primary"><i> project management</i></li>
+                                <!-- <li class="list-inline-item h4 btn btn-outline-primary"><i> project management</i></li>
                                 <li class="list-inline-item h4 btn btn-outline-primary"><i> Account</i></li>
                                 <li class="list-inline-item h4 btn btn-outline-primary"><i> Business management</i></li>
                                 <li class="list-inline-item h4 btn btn-outline-primary"><i> Finance</i></li>
                                 <li class="list-inline-item h4 btn btn-outline-primary"><i> Banking</i></li>
-                                <li class="list-inline-item h4 btn btn-outline-primary"><i> purchase & sale</i></li>
+                                <li class="list-inline-item h4 btn btn-outline-primary"><i> purchase & sale</i></li> -->
                             </ul>
                         </div>
 
@@ -175,7 +191,7 @@ if (isset($_POST['key']) && $_POST['key'] == 'edit') {
         'categories_fields'=> 'categories_fields', 
         'diploma'=> 'diploma', 
         'age'=> 'age', 
-        'status'=> 'status', 
+        'status_career'=> 'status_career', 
         'phone' => 'phone',
         'course'=> 'course', 
         'unemployment'=> 'unemployment', 
@@ -192,7 +208,7 @@ if (isset($_POST['key']) && $_POST['key'] == 'edit') {
         'categories_fields' => $data['categories_fields'],
         'diploma' => $data['diploma'],
         'age' => $data['age'],
-        'status_career' => $data['status'],
+        'status' => $data['status_career'],
         'phone' => $data['phone'],
         'course' => $data['course'],
         'unemployment' => $data['unemployment'],

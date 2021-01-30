@@ -1,6 +1,8 @@
 <?php 
 include('../init.php');
 $users->preventUsersAccess($_SERVER['REQUEST_METHOD'],realpath(__FILE__),realpath($_SERVER['SCRIPT_FILENAME']));
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
 
 if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
     if (isset($_SESSION['key'])) {
@@ -8,7 +10,7 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
         $user_id= $_SESSION['key'];
     }else {
         # code...
-        $username= $users->test_input('jojo');
+        $username= $users->test_input('irangiro');
         $uprofileId= $home->usersNameId($username);
         $profileData= $home->userData($uprofileId['user_id']);
         $user_id= $profileData['user_id'];
@@ -75,7 +77,13 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
 
                    <div class="row reusercolor p-2">
                        <div class="col-md-12">
-                            <h5 class="text-center black-bg h4 mb-2"><?php echo $user['categories_house']." in ".$user['provincename']." Location ".$user['namedistrict']."/".$user['namesector']." at ".number_format($user['price'])." Frw"; ?></h5>
+                            <h5 class="text-center black-bg h4 mb-2">
+                            <?php 
+                            $subect = $user['categories_house'];
+                            $replace = " ";
+                            $searching = "_";
+                            echo str_replace($searching,$replace, $subect)
+                                ." in ".$user['provincename']." Location ".$user['namedistrict']."/".$user['namesector']." at ".number_format($user['price'])." Frw"; ?></h5>
                              <!-- < ?php echo $house['provincename']; ?> /  -->
                                 <!-- < ?php echo $house['namedistrict']; ?> District/  -->
                                 <!-- < ?php echo $house['namesector']; ?> Sector/  -->
@@ -99,22 +107,25 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
                             </div>  
                         
                             <h4 class="mt-2"><i>
-                                authors: <?php echo $user['authors']; ?>
+                                Seller: <?php echo $user['authors']; ?>
                             </i></h4>
                             <div class="mt-2">
-                                <?php echo $user['text']; ?>
+                                <span>Phone: <?php echo $user['phone']; ?></span><br>
                             </div>
                        </div> <!-- col-md-6  -->
                        <div class="col-md-6">
                             <h4 class="mt-2"><i>Details of house</i></h4>
-                            <ul>
+                            <div class="mt-2">
+                                <?php echo $user['text']; ?>
+                            </div>
+                            <!-- <ul>
                                 <li>200 m square feet Garden,</li>
                                 <li>4 bedroom,</li>
                                 <li>2 bathroom, </li>
                                 <li>kitchen and cabinet,</li>
                                 <li>car parking ,</li>
                                 <li>dapibuseget quame</li>
-                            </ul>      
+                            </ul>       -->
                        </div><!-- /.col -->
                        <?php 
                         $file = $user['photo']."=".$user['other_photo'];

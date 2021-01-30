@@ -61,7 +61,7 @@ class Home extends Comment {
                    </div>
                    </div>
                    <span class="username">
-                       <a style="padding-right:3px;" href="#">Job Title: <?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></a> 
+                       <a style="padding-right:3px;" href="#"> <!-- Job Title: --> <?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></a> 
                    </span>
                    <span class="description"><?php echo $this->htmlspecialcharss($jobs['companyname']); ?> || <i class="flag-icon flag-icon-<?php echo strtolower( $jobs['location']) ;?> h4 mb-0"
                             id="<?php echo strtolower( $jobs['location']) ;?>" title="us"></i></span>
@@ -222,7 +222,7 @@ class Home extends Comment {
                            <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
                          <?php } ?>
                    </div>
-                   <span><a href="#">Job Title: <?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></a></span><br>
+                   <span><a href="#"> <!-- Job Title: --> <?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></a></span><br>
                    <span><?php echo $this->htmlspecialcharss($jobs['companyname']); ?></span> || 
                        <i style="font-size:12px" class="flag-icon flag-icon-<?php echo strtolower( $jobs['location']) ;?> h4 mb-0"
                             id="<?php echo strtolower( $jobs['location']) ;?>" title="us"></i><br>
@@ -244,7 +244,7 @@ class Home extends Comment {
                     </div>
                 </div>
                 <span class="username">
-                    <a style="padding-right:3px;" href="#">Job Title: < ?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></a>
+                    <a style="padding-right:3px;" href="#"> Job Title: < ?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></a>
                 </span>
                 <span class="description">Shared public - < ?php echo $this->timeAgo($jobs['created_on']); ?></span>
                 <span class="description">Deadline - < ?php echo $this->htmlspecialcharss($jobs['deadline']); ?></span>
@@ -346,7 +346,7 @@ class Home extends Comment {
                    </div>
               </div>
               <div class="col-10 pl-4">
-                   <span>Job Title: <?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></span><br>
+                   <span> <!-- Job Title: --> <?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></span><br>
                    <span><?php echo $this->htmlspecialcharss($jobs['companyname']); ?></span> || 
                        <i class="flag-icon flag-icon-<?php echo strtolower( $jobs['location']) ;?> h4 mb-0"
                             id="<?php echo strtolower( $jobs['location']) ;?>" title="us"></i><br>
@@ -488,12 +488,12 @@ class Home extends Comment {
                 <li><a href="career_profession"><i class="fa fa-circle-o text-aqua"></i>Professional</a></li>
                 <li><a href="unemployment"><i class="fa fa-circle-o text-aqua"></i>unemployment</a></li>
                 <li><a href="icyamunara"><i class="fa fa-shopping-basket "></i>Marketplace</a></li>
-                <li><a href="blog"><i class="fa fa-circle-o text-red"></i>Blog</a></li>
-                <li><a href="events"><i class="fa fa-circle-o text-red"></i>Events</a></li>
+                <!-- <li><a href="blog"><i class="fa fa-circle-o text-red"></i>Blog</a></li> -->
+                <!-- <li><a href="events"><i class="fa fa-circle-o text-red"></i>Events</a></li> -->
                 <li><a href="crowfund"><i class="fa fa-money "></i> gushoraStartUp</a></li>
                 <li><a href="fundraising"><i class="fa fa-heartbeat"></i>Fundraising</a></li>
                 <!-- <li><a href="food"><i class="fa fa-cutlery"></i>Foodzana</a></li> -->
-                <li><a href="sale"><i class="fa fa-shopping-cart"></i>Sale</a></li>
+                <!-- <li><a href="sale"><i class="fa fa-shopping-cart"></i>Sale</a></li> -->
                 <li><a href="icyamunara"><i class="fa fa-shopping-basket"></i>Cyamunara</a></li>
                 <li><a href="house"><i class="fa fa-home"></i>House</a></li>
                 <li><a href="car"><i class="fa fa-car"></i>Car</a></li>
@@ -505,12 +505,12 @@ class Home extends Comment {
                 <li><a href="irangiro.career_profession"><i class="fa fa-circle-o text-aqua"></i>Professional</a></li>
                 <li><a href="irangiro.unemployment"><i class="fa fa-circle-o text-aqua"></i>unemployment</a></li>
                 <li><a href="irangiro.icyamunara"><i class="fa fa-shopping-basket text-red"></i>Marketplace</a></li>
-                <li><a href="irangiro.blog"><i class="fas fa-edit text-aqua"></i>Blog</a></li>
-                <li><a href="irangiro.events"><i class="fa fa-circle-o text-red"></i>Events</a></li>
+                <!-- <li><a href="irangiro.blog"><i class="fas fa-edit text-aqua"></i>Blog</a></li> -->
+                <!-- <li><a href="irangiro.events"><i class="fa fa-circle-o text-red"></i>Events</a></li> -->
                 <li><a href="irangiro.crowfund"><i class="fa fa-money text-aqua"></i> gushoraStartUp</a></li>
                 <li><a href="irangiro.fundraising"><i class="fa fa-heartbeat text-red"></i>Fundraising</a></li>
                 <!-- <li><a href="irangiro.food"><i class="fa fa-cutlery"></i>Foodzana</a></li> -->
-                <li><a href="irangiro.sale"><i class="fa fa-shopping-cart text-red"></i>Sale</a></li>
+                <!-- <li><a href="irangiro.sale"><i class="fa fa-shopping-cart text-red"></i>Sale</a></li> -->
                 <li><a href="irangiro.icyamunara"><i class="fa fa-shopping-basket"></i>Cyamunara</a></li>
                 <li><a href="irangiro.house"><i class="fa fa-home"></i>House</a></li>
                 <li><a href="irangiro.car"><i class="fa fa-car "></i>Car</a></li>
@@ -537,14 +537,15 @@ class Home extends Comment {
                 <?php if($_SESSION['approval'] === 'on'){ ?>
                 <li><h5><a class="alink" href="unemployment"> unemployment</a></h5> </li>
                 <?php } ?>
-                <li><h5><a class="alink" href="blog">Blog</a></h5></li>
-                <li><h5><a class="alink" href="sale">Sale</a></h5></li>
-                <li><h5><a class="alink" href="events">Events</a></h5></li>
+                <!-- <li><h5><a class="alink" href="blog">Blog</a></h5></li> -->
+                <!-- <li><h5><a class="alink" href="sale">Sale</a></h5></li> -->
+                <!-- <li><h5><a class="alink" href="events">Events</a></h5></li> -->
                 <li><h5><a class="alink" href="house">House</a></h5></li>
                 <li><h5><a class="alink" href="car">Car</a></h5></li>
                 <li><h5><a class="alink" href="icyamunara">Cyamunara</a></h5></li>
                 <!-- <li><h5><a class="alink" href="food">Foodzana</a></h5></li> -->
                 <li><h5><a class="alink" href="school">school</a></h5> </li>
+                <li><h5><a class="alink" href="icyamunara">Marketplace</a></h5></li>
             </ul>
         
         <?php }else { ?>
@@ -553,14 +554,16 @@ class Home extends Comment {
                 <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.career_profession"> Professional</a></h5> </li>
                 <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.crowfund">GushoraStartUp</a></h5> </li>
                 <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.fundraising"> Fundraising</a></h5></li>
-                <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.blog">Blog</a></h5>
-                <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.events">Events</a></h5>
+                <!-- <li><h5><a class="alink" href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.blog">Blog</a></h5> -->
+                <!-- <li><h5><a class="alink" href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.events">Events</a></h5> -->
                 <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.house">House</a></h5>
                 <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.car">Car</a></h5>
                 <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.icyamunara">icyamunara</a></h5>
-                <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.sale">Sale</a></h5></li>
+                <!-- <li><h5><a class="alink" href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.sale">Sale</a></h5></li> -->
                 <!-- <li><h5><a class="alink" href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.food">Foodzana</a></h5> -->
                 <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.school">school</a></h5> </li>
+                <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.icyamunara">Marketplace</a></h5>
+            
             </ul>
             <?php } ?>
         </div>
@@ -578,30 +581,34 @@ public function links(){ ?>
       <li class="list-inline-item"><a href="unemployment"><i class="fa fa-briefcase"></i> unemployment</a></li>
             <?php } ?>
       <li class="list-inline-item"><a href="career_profession"><i class="fa fa-briefcase"></i>  Professional</a></li>
-      <li class="list-inline-item"><a href="sale"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Sale</a></li>
-      <li class="list-inline-item"><a href="blog"><i class="fas fa-edit"></i> Blog</a></li>
+      <!-- <li class="list-inline-item"><a href="sale"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Sale</a></li> -->
+      <!-- <li class="list-inline-item"><a href="blog"><i class="fas fa-edit"></i> Blog</a></li> -->
       <li class="list-inline-item"><a href="jobs"><i class="fas fa-newspaper    "></i> Jobs</a></li>
-      <li class="list-inline-item"><a href="events"><i class="fas fa-envelope-open-text    "></i> Events</a></li>
+      <!-- <li class="list-inline-item"><a href="events"><i class="fas fa-envelope-open-text    "></i> Events</a></li> -->
       <li class="list-inline-item"><a href="house"><i class="fas fa-house-damage    "></i> House</a></li>
       <li class="list-inline-item"><a href="car"><i class="fa fa-car" aria-hidden="true"></i> Car</a></li>
       <li class="list-inline-item"><a href="icyamunara"><i class="fa fa-car" aria-hidden="true"></i> Cyamunara</a></li>
       <!-- <li class="list-inline-item"><a href="food"><i class="fa fa-cutlery" aria-hidden="true"></i> Foodzana</a></li> -->
       <li class="list-inline-item"><a href="school"><i class="fas fa-school    "></i> school</a></li>
+      <li class="list-inline-item"><a href="icyamunara"><i class="fa fa-car" aria-hidden="true"></i> Marketplace</a></li>
+
     </ul>
     <?php }else { ?>
     <ul  class="list-inline link-view">
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.crowfund">GushoraStartUp</a> </li>
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.fundraising"> Fundraising</a></li>
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.career_profession"> Career Professional</a> </li>
-        <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.sale">Sale</a></li>
-        <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.blog">Blog</a></li>
+        <!-- <li class="list-inline-item"><a href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.sale">Sale</a></li> -->
+        <!-- <li class="list-inline-item"><a href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.blog">Blog</a></li> -->
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.jobs">Jobs</a></li>
-        <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.events">Events</a></li>
+        <!-- <li class="list-inline-item"><a href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.events">Events</a></li> -->
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.house">House</a></li>
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.car">Car</a></li>
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.icyamunara">Cyamunara</a></li>
         <!-- <li class="list-inline-item"><a href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.food">Foodzana</a></li> -->
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.school">school</a> </li>
+        <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.icyamunara">Marketplace</a></li>
+
     </ul>
 <?php } ?>
 
@@ -619,7 +626,7 @@ public function links(){ ?>
         public function fundraisingsActivities($user_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = u. user_id WHERE F. user_id2 = '$user_id'  ORDER BY created_on2 Desc ");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = U. user_id WHERE F. user_id2 = '$user_id'  ORDER BY created_on2 Desc ");
         ?>
         <div class="card card-primary mb-3 ">
         <div class="card-header main-active p-1">
@@ -3012,7 +3019,9 @@ public function links(){ ?>
                                     
                               <?php }?>
 
-                              <ul class="mt-2 list-inline" style="list-style-type: none; margin-bottom:10px;">  
+                              <ul class="mt-2 list-inline" style="list-style-type: none; margin-bottom:10px;"> 
+                                        <?php if(isset($_SESSION['key']) && $_SESSION['approval'] === 'on'){ ?>
+
                                         <?php if($tweet['tweet_id'] == $retweet['retweet_id'] || $user_id == $retweet['retweet_by']){ ?>
                                          <li class=" list-inline-item"><button <?php echo (isset($_SESSION['key']))?'class="share-btn retweeted text-sm mr-2"':'class=" text-sm mr-2" id="login-please" data-login="1"' ;?>  data-tweet="<?php echo $tweet['tweet_id']; ?>"  data-user="<?php echo $tweet['tweetBy']; ?>">
                                          <i class="fa fa-share green mr-1" style="color: green"> <span class="retweetcounter"><?php echo $retweet["retweet_counts"];?></span></i>
@@ -3023,7 +3032,8 @@ public function links(){ ?>
                                                 <?php if($retweet["retweet_counts"] > 0){ echo '<i class="fa fa-share mr-1" style="color: green"> <span class="retweetcounter">'.$retweet["retweet_counts"].'</span></i>' ; }else{ echo '<i class="fa fa-share mr-1"> <span class="retweetcounter">'.$retweet["retweet_counts"].'</span></i>';} ?>
                                                    Share</button></li>
 
-                                         <?php } ?>
+                                         <?php } } ?>
+
                                             <?php if($likes['like_on'] == $tweet['tweet_id']){ ?>
                                                 <li  class=" list-inline-item"><button <?php echo (isset($_SESSION['key']))?'class="unlike-btn text-sm"':'class="text-sm" id="login-please" data-login="1"' ;?> data-tweet="<?php echo $tweet['tweet_id']; ?>"  data-user="<?php echo $tweet['tweetBy']; ?>">
                                                 <i class="fa fa-thumbs-up mr-1" style="color: red"> <span class="likescounter"><?php echo $tweet['likes_counts'] ;?></span></i>

@@ -51,6 +51,7 @@ $(document).ready(function () {
         var photo = $('#photo');
         var other_photo = $('#other-photo');
         var phone = $('#phone');
+        var price3 = $('#price');
         var authors = $('#author');
         var province = $('.provincecode');
         var districts = $('.districtcode');
@@ -68,7 +69,7 @@ $(document).ready(function () {
 
         if (isEmpty(province) && isEmpty(districts) &&
             isEmpty(sector) && isEmpty(cell) && isEmpty(village) && isEmpty(additioninformation)  && 
-            isEmpty(authors) && isEmpty(phone) && isEmpty(photo) &&
+            isEmpty(authors) && isEmpty(price3) && isEmpty(phone) && isEmpty(photo) &&
             isEmpty(other_photo) && isEmpty(photo_Titleo0) && isEmpty(photo_Title0) && isEmpty(photo_Title1) &&
             isEmpty(photo_Title2) && isEmpty(photo_Title3) && isEmpty(photo_Title4) && isEmpty(photo_Title5)) {
 

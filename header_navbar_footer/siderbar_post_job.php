@@ -15,6 +15,7 @@
 
     <div class="col-8 col-md-10 col-lg-10 ">
       <div class="tab-content" id="nav-tabContent">
+         <?php if ($users->jobloggedin() == 'SME' && $users->loggedin() == true) { ?>
 
         <div class="tab-pane fade show active" id="list-Live_Blog" role="tabpanel" aria-labelledby="list-settings-list">
            <?php include "siderbar_jobs_post/pages.php"?>
@@ -24,7 +25,13 @@
             <?php include "siderbar_jobs_post/posts_jobs.php"?>
         </div> 
         <!-- END-OF A LINK OF add_post ID=#  -->
+        <?php }else{ ?>
 
+        <div class="tab-pane fade show active" id="list-Add_Post" role="tabpanel" aria-labelledby="list-profile-list">
+            <?php include "siderbar_jobs_post/posts_jobs.php"?>
+        </div> 
+        <!-- END-OF A LINK OF add_post ID=#  -->
+        <?php } ?>
 
         <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-settings-list">
            <?php include "siderbar_jobs_post/profile.php"?>

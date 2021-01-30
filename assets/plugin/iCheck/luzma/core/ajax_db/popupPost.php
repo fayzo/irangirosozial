@@ -579,7 +579,7 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
         echo '
             <li class="list-inline-item mx-4 ">
 							<div class="d-inline-block ">
-								<h3>Shared </h3> 
+								<div>Shared </div> 
 									 '.(($tweet['tweet_id'] == $Retweet["retweet_id"])? 
 									 '<button class="share-btn retweeted" data-tweet="'.$tweet["tweet_id"].'"  data-user="'.$tweet["tweetBy"].'" >
 									    <i class="fa fa-share green " aria-hidden="true"></i><span class="retweetcounter" > '.$Retweet["retweet_counts"].'</span></button>'
@@ -591,7 +591,7 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
 						
             <li class="list-inline-item mx-4">
 								<div class="d-inline-block ">
-									 <h3>LIKES</h3> 
+									 <div>LIKES</div> 
 										'.(($tweet_likes["like_on"] == $tweet["tweet_id"])? 
 										'<button class="unlike-btn" data-tweet="'.$tweet["tweet_id"].'"  data-user="'.$tweet["tweetBy"].'">
 										   <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="likescounter" > '.$tweet["likes_counts"].'</span></button> ' 
@@ -603,18 +603,18 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
 
             <li class="list-inline-item mx-4">
 								<div class="d-inline-block ">
-							   	<h3>	Viewers </h3> 2,030
+							   	<div>	Viewers </div> 2,030
 						  	</div>
 						</li>
             <li class="list-inline-item mx-4">
 							<div class="d-inline-block ">
-							   	<h3>Posted on</h3>'.$home->timeAgo($tweet['posted_on']).' 
+							   	<div>Posted on</div>'.$home->timeAgo($tweet['posted_on']).' 
 						  	</div>
 							 </li>
 				 '.(($tweet["tweetBy"] === $user_id)?'
 						<li class="list-inline-item mx-4">
 							<div class="d-inline-block ">
-									 <h3>Delete</h3> 
+									 <div>Delete</div> 
 												<label class="deleteTweet more" data-tweet="'.$tweet["tweet_id"].'"  data-user="'.$tweet["tweetBy"].'" ><i class="fa fa-trash" aria-hidden="true"></i></label>
 						  	</div>
 						</li> ' :'').'
@@ -622,21 +622,21 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
 						 }else {?>
                         <li class="list-inline-item mx-4 ">
                             <div class="d-inline-block ">
-                                <h3>Shared </h3>
+                                <div>Shared </div>
                                 <?php echo $tweet["retweet_counts"] ;?>
                             </div>
                         </li>
 
                         <li class="list-inline-item mx-4 ">
                             <div class="d-inline-block ">
-                                <h3>LIKES</h3>
+                                <div>LIKES</div>
                                 <?php echo $tweet["likes_counts"] ;?>
                             </div>
                         </li>
 
                         <li class="list-inline-item mx-4">
                             <div class="d-inline-block ">
-                                <h3>Posted on</h3> <?php echo $home->timeAgo($tweet['posted_on']);?>
+                                <div>Posted on</div> <?php echo $home->timeAgo($tweet['posted_on']);?>
                             </div>
                         </li>
 

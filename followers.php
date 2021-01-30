@@ -75,10 +75,10 @@
       <section class="content-header">
         <div class="row">
             <div class="col-3">
-                <h1><i>Followers</i></h1>
+                <h5><i>Followers</i></h5>
             </div>
             <div class="col-9">
-                <ol class="breadcrumb float-sm-right">
+                <ol class="breadcrumb float-right">
                     <li class="breadcrumb-item"><a href="<?php if (isset($_SESSION['key'])){ echo HOME ; }else{ echo LOGIN; } ?>">Home</a></li>
                     <li class="breadcrumb-item"><a href="<?php if (isset($_SESSION['key'])){ echo BASE_URL_PUBLIC.$profileData['username'].'.album' ; }else{ echo LOGIN; } ?>">Photo</i></a></li>
                     <?php if (isset($_SESSION['key'])){ ?>

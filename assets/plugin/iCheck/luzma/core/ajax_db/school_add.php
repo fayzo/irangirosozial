@@ -153,7 +153,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                       </div>
 
                       <div class="form-group mt-2">
-                        <textarea class="form-control" name="additioninformation" id="addition-information" placeholder="tell us is products in good shape is it original or not and add more details and Try to summarize People can understand what products you try to sale" rows="3"></textarea>
+                        <textarea class="form-control" name="additioninformation" id="addition-information" placeholder="Tell us more details" rows="3"></textarea>
                       </div>
 
                       <div class="form-row mt-2">
@@ -192,7 +192,8 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                       <span onclick="fundAddmoreVideo()" id="add-more" class="btn btn-primary btn-md d-none ">+ add more</span>
 
                     <div id="add-videohelp">
-                      
+                    </div>
+                    <div id="add-photo0" class="row">
                     </div>
                     <!-- collapse addmore-->
 

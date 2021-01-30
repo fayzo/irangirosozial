@@ -454,3 +454,26 @@
     border-radius: 4px;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .message-head-img {
+        width: 100% ;
+        margin: 0px 50px ;
+    }
+    .message-send {
+        width: 100%;
+        position: initial;
+        right: 0%;
+    }
+    .message-send2 {
+        width: 100%;
+        position: initial;
+        right: 0%;
+    }
+    .back {
+        top: 0;
+        width: 100%;
+        position: absolute;
+        right: 0%;
+    }
+  }

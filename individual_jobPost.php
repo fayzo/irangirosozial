@@ -3,7 +3,7 @@ include "core/init.php";
 
 if ($users->jobloggedin() == 'individual' && $users->loggedin() == true) {
     $user= $home->userData($_SESSION['key']);
-    // $jobs= $home->jobsData($_SESSION['key']);
+    $jobs= $home->jobsData($_SESSION['key']);
     // $fundraisingV= $home->fundraisingData($_SESSION['key']);
     // $eventV= $home->eventsData($_SESSION['key']);
     // $blogV= $home->blogData($_SESSION['key']);
@@ -46,8 +46,7 @@ if ($users->jobloggedin() == 'individual' && $users->loggedin() == true) {
 
       <!-- Main content -->
     <div class="container-fluid mb-5">
-      <?php include "header_navbar_footer/siderbar_jobs.php"?>
+      <?php include "header_navbar_footer/siderbar_post_job.php"?>
     </div>
-
 
 <?php include "header_navbar_footer/footer.php"?>

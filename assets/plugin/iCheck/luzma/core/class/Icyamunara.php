@@ -92,7 +92,7 @@ class Icyamunara extends House {
                                 <!-- < ?php echo $icyamunara['nameCell']; ?> Cell  -->
                                </a>
                                 
-                                <?php if($user_id == $icyamunara['user_id3']){ ?>
+                                <?php if(isset($_SESSION['key']) && $user_id == $icyamunara['user_id3']){ ?>
                                     <ul class="list-inline ml-2  float-right" style="list-style-type: none;">  
 
                                             <li  class=" list-inline-item">
@@ -173,7 +173,9 @@ class Icyamunara extends House {
                                             </li>
                                     </ul>
                                 <?php } ?>
-
+                                <span class="float-right"> 
+                                     <?php if($icyamunara['discount'] != 0){ ?><span class="mr-2 text-danger " style="text-decoration: line-through;"><?php echo number_format($icyamunara['discount']); ?> Frw</span> <?php } ?><span class="text-primary" > <?php echo number_format($icyamunara['price']); ?> Frw</span>
+                               </span>
                                <!-- <span class="float-right"> < ?php echo $icyamunara['price']; ?> Frw</span> -->
                             </div> 
                             <div class="text-muted clear-float">
@@ -182,7 +184,15 @@ class Icyamunara extends House {
                             <div class="text-muted clear-float">
                                 <span><i class="fa fa-clock-o" aria-hidden="true"></i> Created on <?php echo $this->timeAgo($icyamunara['created_on3'])." By ".$icyamunara['authors']; ?></span>
                             </div>
-                            <p class="card-text clear-float">200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame... Continue reading... </p>
+                            <p class="card-text clear-float">
+                                <?php if (strlen($icyamunara["text"]) > 98) {
+                                            echo $icyamunara["text"] = substr($icyamunara["text"],0,98).'...
+                                            <span class="mb-0"><a href="javascript:void(0)" id="icyamunara-readmore" data-icyamunara="'.$icyamunara['house_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Read more...</a></span>';
+                                            }else{
+                                            echo $icyamunara["text"];
+                                            } ?> 
+                                <!-- 200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame... Continue reading...  -->
+                            </p>
 
                         </div><!-- card-body -->
                         </div><!-- card -->
@@ -226,7 +236,7 @@ class Icyamunara extends House {
       public function icyamunaraReadmore($house_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN icyamunara H ON H. user_id3 = u. user_id 
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN icyamunara H ON H. user_id3 = U. user_id 
             Left JOIN provinces P ON H. province = P. provincecode
             Left JOIN districts M ON H. districts = M. districtcode
             Left JOIN sectors T ON H. sector = T. sectorcode
@@ -241,7 +251,7 @@ class Icyamunara extends House {
     public function cyamunara_getPopupTweet($user_id,$house_id,$house_user_id)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN icyamunara H ON H. user_id3 = u. user_id
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN icyamunara H ON H. user_id3 = U. user_id
             Left JOIN provinces P ON H. province = P. provincecode
             Left JOIN districts M ON H. districts = M. districtcode
             Left JOIN sectors T ON H. sector = T. sectorcode

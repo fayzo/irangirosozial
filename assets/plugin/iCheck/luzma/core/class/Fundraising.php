@@ -84,7 +84,7 @@ class Fundraising extends Follow
 
         <?php } 
 
-        $query1= $mysqli->query("SELECT COUNT(*) FROM users U Left JOIN fundraising F ON F. user_id2 = u. user_id WHERE F. categories_fundraising ='$categories'  ORDER BY created_on2 Desc ");
+        $query1= $mysqli->query("SELECT COUNT(*) FROM users U Left JOIN fundraising F ON F. user_id2 = U. user_id WHERE F. categories_fundraising ='$categories'  ORDER BY created_on2 Desc ");
         $row_Paginaion = $query1->fetch_array();
         $total_Paginaion = array_shift($row_Paginaion);
         $post_Perpages = $total_Paginaion/8;
@@ -115,7 +115,7 @@ class Fundraising extends Follow
     public function fundFecthReadmore($fund_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = u. user_id Left JOIN fund_like L ON L. like_on= F. fund_id WHERE F. fund_id = '$fund_id' ");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = U. user_id Left JOIN fund_like L ON L. like_on= F. fund_id WHERE F. fund_id = '$fund_id' ");
         $row= $query->fetch_array();
         return $row;
     }
@@ -232,7 +232,7 @@ class Fundraising extends Follow
     public function fund_getPopupTweet($user_id,$tweet_id,$tweet_by)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = u. user_id Left JOIN fund_like L ON L. like_on = F. fund_id WHERE F. fund_id = $tweet_id AND F. user_id2 = $tweet_by ");
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = U. user_id Left JOIN fund_like L ON L. like_on = F. fund_id WHERE F. fund_id = $tweet_id AND F. user_id2 = $tweet_by ");
         // var_dump('ERROR: Could not able to execute'. $query.mysqli_error($mysqli));
         while ($row= $result->fetch_array()) {
             # code...

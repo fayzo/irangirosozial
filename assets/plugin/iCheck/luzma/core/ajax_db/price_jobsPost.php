@@ -2,7 +2,8 @@
 include('../init.php');
 $users->preventUsersAccess($_SERVER['REQUEST_METHOD'],realpath(__FILE__),realpath($_SERVER['SCRIPT_FILENAME']));
 
-if (isset($_POST['key']) && $_POST['key'] == 'individual'|| $_POST['key'] == 'SME') {
+if (isset($_POST['key'])) {
+    if($_POST['key'] == 'individual'|| $_POST['key'] == 'SME') {
   $conn = $db;
   $job_user = $conn->real_escape_string($_POST['key']);
   $username = $conn->real_escape_string($_POST['username']);
@@ -12,6 +13,7 @@ if (isset($_POST['key']) && $_POST['key'] == 'individual'|| $_POST['key'] == 'SM
 
   $users->jobsPosterlogin($job_user,$username,$email,$password,$datetime);
 
+  } 
 } 
 
 if (isset($_POST['post_as']) && !empty($_POST['post_as'])) {
@@ -34,8 +36,9 @@ if (isset($_POST['post_as']) && !empty($_POST['post_as'])) {
 
                       <div class="col-md-6">
                           <div class="card borders-tops text-center shadow-lg more  loginTerms">
-                            <div><i class="fa fa-building-o" style="width:200px;" aria-hidden="true"></i>
-                            <!-- <img class="img-fluid mt-3 rounded-circle" src="http://localhost:80/Blog_nyarwanda_CMS/assets/image/img/avatar2.png" width="200px" heght="200px"> -->
+                            <div>
+                              <!-- <i class="fa fa-building-o" style="width:200px;" aria-hidden="true"></i> -->
+                            <img class="img-fluid mt-3 rounded-circle" src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/business_.png" width="200px" heght="200px">
                             </div>
                             <div class="card-body">
                               <a href="javascript:void(0);" class="h4  loginTerms">SME</a>

@@ -43,33 +43,29 @@ if (isset($_POST['job_id']) && !empty($_POST['job_id'])) {
                     </div> <!-- card-header -->
                     <div class="card-body">
 
+                    <?php if (!empty($user['overview']) && $user['job_user_'] == 'SME') {?>
+
                       <div class="card mt-2 mb-2 retweetcolor">
                         <div class="card-body">
-                           <div class="row">
-                             <div class="col-md-2">
-                                 <div class="user-jobImgall">
-                                       <?php if (!empty($user['profile_img'])) {?>
-                                       <img src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $user['profile_img'] ;?>" alt="User Image">
-                                       <?php  }else{ ?>
-                                         <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
-                                       <?php } ?>
-                                 </div>
-                             </div> <!-- col-md-3 -->
-                             <div class="col-md-10">
+                            <div class="user-jobImgall img_size">
+                                    <?php if (!empty($user['profile_img'])) {?>
+                                    <img src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $user['profile_img'] ;?>" alt="User Image">
+                                    <?php  }else{ ?>
+                                      <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
+                                    <?php } ?>
+                              </div>
                                <span><?php echo $user['companyname']; ?></span>
                                <h5>Company Overview</h5>
                                <span><?php echo $user['overview']; ?></span>
-                             </div> <!-- col-md-9 -->
                            </div>
-                        </div>
                       </div>
+                      <?php } ?>
 
                         <!-- <p class="card-text">job-id -< ?php echo $job_id ;?></p>
                         <p class="card-text">business-id -< ?php echo $business_id ;?></p> -->
                         <h4 >Job Title: <?php echo $user['job_title'] ;?> </h4>
                           <hr>
-                      
-                             <h4 >Job Summary: </h4>
+                             <!-- <h4 >Job Summary: </h4> -->
                              <div><?php echo htmlspecialchars_decode($user['job_summary']) ;?></div>
                            <hr>
                       

@@ -218,7 +218,7 @@ if (isset($_POST['key']) == 'lockscreen') {
 
 <body id=white>
     <div class="container" id="container">
-        <h1 class="mb-3">Menya.com</h1>
+        <h1 class="mb-3">Irangiro</h1>
         <div id="response"></div>
 
         <div class="form-container">
@@ -280,7 +280,7 @@ if (isset($_POST['key']) == 'lockscreen') {
                     console.log(response);
                     if (response.indexOf('Success') >= 0) {
                         setInterval(() => {
-                            window.location = '../home.php';
+                            window.location = '../';
                         }, 1000);
                     } else {
                         isEmptys(password);

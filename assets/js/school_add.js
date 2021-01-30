@@ -106,7 +106,7 @@ $(document).on('click', '#form-school', function (e) {
                         $("#responseSubmitschool").fadeOut();
                     }, 2000);
                     setInterval(function () {
-                        // location.reload();
+                        location.reload();
                     }, 2400);
                 }, error: function (response) {
                     $("#responseSubmitschool").html(response).fadeIn();

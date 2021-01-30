@@ -8,13 +8,13 @@
       <!-- Main content -->
       <section class="content-header">
       <div class="row">
-          <div class="col-6">
-                <h1><i> Your Post</i></h1>
+          <div class="col-4">
+                <h5><i> Your Post</i></h5>
           </div>
-          <div class="col-6">
+          <div class="col-8">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?php if (isset($_SESSION['key'])){ echo HOME ; }else{ echo LOGIN; } ?>">Home</a></li>
-                    <li class="breadcrumb-item"><a href="<?php if (isset($_SESSION['key'])){ echo BASE_URL_PUBLIC.$profileData['username'].'.album' ; }else{ echo LOGIN; } ?>">Photo</i></a></li>
+                    <!-- <li class="breadcrumb-item"><a href="< ?php if (isset($_SESSION['key'])){ echo BASE_URL_PUBLIC.$profileData['username'].'.album' ; }else{ echo LOGIN; } ?>">Photo</i></a></li> -->
                     <?php if (isset($_SESSION['key'])){ ?>
                       <?php if ($profileData['user_id'] != $_SESSION['key']) { ?>
                     <li class="breadcrumb-item"><span class="people-message more" data-user="<?php echo $profileData['user_id'];?>"><a href="javascript:void(0);" ><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </a></span></li>

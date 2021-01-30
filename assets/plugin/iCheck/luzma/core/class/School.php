@@ -17,6 +17,18 @@ class School extends Home {
 
         $mysqli= $this->database;
         // $query= $mysqli->query("SELECT * FROM school WHERE type_of_school= '{$categories}' ORDER BY created_on_ Desc , rand() Limit $showpages,5");
+        if($categories == 'Featured'){
+
+        $query= $mysqli->query("SELECT * FROM school S 
+						Left JOIN provinces P ON S. location_province = P. provincecode
+						Left JOIN districts D ON S. location_districts = D. districtcode
+						Left JOIN sectors T ON S. location_Sector = T. sectorcode
+						Left JOIN cells C ON S. location_cell = C. codecell
+						Left JOIN vilages V ON S. location_village = V. CodeVillage
+        ORDER BY created_on_ Desc , rand() Limit $showpages,5 ");
+
+        }else {
+            
         $query= $mysqli->query("SELECT * FROM school S 
 						Left JOIN provinces P ON S. location_province = P. provincecode
 						Left JOIN districts D ON S. location_districts = D. districtcode
@@ -24,8 +36,10 @@ class School extends Home {
 						Left JOIN cells C ON S. location_cell = C. codecell
 						Left JOIN vilages V ON S. location_village = V. CodeVillage
         WHERE type_of_school= '{$categories}' ORDER BY created_on_ Desc , rand() Limit $showpages,5 ");
+        }
 
         $query1= $mysqli->query("SELECT COUNT(*) FROM school WHERE type_of_school= '{$categories}' ");
+
         $get_province = mysqli_query($mysqli,"SELECT * FROM provinces");   
         ?>
         <div class="card card-primary mb-1 ">
@@ -73,7 +87,7 @@ class School extends Home {
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="form" id="form" >
         <input type="hidden" name="type_of_school" id="type_of_school" value="<?php echo $categories;?>">
         <div class="form-row mb-3 bg-getcell">
-            <div class="col">
+            <div class="col-sm-12 col-md-3">
                 <label for="">Province</label>
                  <div class="input-group">
                     <div class="input-group-prepend">
@@ -87,7 +101,7 @@ class School extends Home {
                     </select>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-sm-12 col-md-3">
                 <label for=""> District</label>
                  <div class="input-group">
                     <div class="input-group-prepend">
@@ -99,7 +113,7 @@ class School extends Home {
                     </select>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-sm-12 col-md-3">
                 <label for="Sector">Sector</label>
                  <div class="input-group">
                     <div class="input-group-prepend">
@@ -111,7 +125,7 @@ class School extends Home {
                     </select>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-sm-12 col-md-3">
                 <label for="Cell">Cell</label>
                  <div class="input-group">
                     <div class="input-group-prepend">
@@ -134,12 +148,19 @@ class School extends Home {
                     <img class="card-img-left flex-auto" height="150px" width="150px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
                 <div class="card-body d-flex flex-column align-items-start pt-0">
                     <h5 class="text-primary mb-0">
-                    <a class="text-primary" href="javascript:void(0)"  id="school-readmore" data-school="<?php echo $row['school_id'] ;?>"><?php echo $row['title_'] ;?></a>
+                    <a class="text-primary;" style="text-transform: capitalize;" href="javascript:void(0)"  id="school-readmore" data-school="<?php echo $row['school_id'] ;?>"><?php echo $row['title_'] ;?></a>
                     </h5>
-                    <div class="text-muted">Created on <?php echo $this->timeAgo($row['created_on_']) ;?> By <?php echo $row['author_'] ;?> </div>
+                    <!-- <div class="text-muted">Created on < ?php echo $this->timeAgo($row['created_on_']) ;?> By < ?php echo $row['author_'] ;?> </div> -->
                     <div class="text-muted"><?php 	echo ''.$row['provincename'].'/ '.$row['namedistrict'].' district/ '.$row['namesector'].' Sector' ;?></div>
                     <div class="text-muted"><?php 	echo ''.$row['nameCell'].' Cell/ '.$row['VillageName'].' Village' ;?></div>
-                   <p class="card-text mb-1">vIEW Different Landscapes of <?php echo $row['location_districts'] ;?> Districts</p>
+                   <p class="card-text mt-2 mb-1">
+                        <?php if (strlen($row["text_"]) > 98) {
+                                    echo $row["text_"] = substr($row["text_"],0,98).'...
+                                    <span class="mb-0"><a href="javascript:void(0)" id="school-readmore" data-school="'.$row['school_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Read more...</a></span>';
+                                    }else{
+                                    echo $row["text_"];
+                                    } ?>    
+                    </p>
                 </div><!-- card-body -->
             </div><!-- card -->
           <hr class="bg-info mt-0 mb-1" style="width:95%;">
@@ -150,7 +171,13 @@ class School extends Home {
        </div> <!-- /.card -->
 
           <?php
-        $query2= $mysqli->query("SELECT COUNT(*) FROM school WHERE type_of_school= '{$categories}' ");
+        if($categories == 'Featured'){
+            # code...
+            $query2= $mysqli->query("SELECT COUNT(*) FROM school ");
+        }else {
+            # code...
+            $query2= $mysqli->query("SELECT COUNT(*) FROM school WHERE type_of_school= '{$categories}' ");
+        }
         $row_Paginaion = $query2->fetch_array();
         $total_Paginaion = array_shift($row_Paginaion);
         $post_Perpages = $total_Paginaion/5;
@@ -191,7 +218,8 @@ class School extends Home {
 
         $mysqli= $this->database;
         // $query= $mysqli->query("SELECT * FROM school WHERE location_province= '{$categories}' ORDER BY created_on_ Desc , rand() Limit $showpages,5");
-        $query= $mysqli->query("SELECT * FROM school S 
+      
+      $query= $mysqli->query("SELECT * FROM school S 
 						Left JOIN provinces P ON S. location_province = P. provincecode
 						Left JOIN districts D ON S. location_districts = D. districtcode
 						Left JOIN sectors T ON S. location_Sector = T. sectorcode
@@ -249,7 +277,7 @@ class School extends Home {
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="form" id="form" >
             <input type="hidden" name="location_province" id="location_province" value="<?php echo $categories;?>">
             <div class="form-row mb-3 bg-getcell">
-                <div class="col">
+                <div class="col-sm-12 col-md-3">
                     <label for="">Province</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -263,7 +291,7 @@ class School extends Home {
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-12 col-md-3">
                     <label for=""> District</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -274,7 +302,7 @@ class School extends Home {
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-12 col-md-3">
                     <label for="Sector">Sector</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -285,7 +313,7 @@ class School extends Home {
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-12 col-md-3">
                     <label for="Cell">Cell</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -304,7 +332,8 @@ class School extends Home {
           <?php while($row= $query->fetch_array()) { ?>
 
             <div class="card flex-md-row shadow-sm h-md-100 border-0 mb-3">
-                    <img class="card-img-left flex-auto d-none d-lg-block" height="150px" width="150px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
+                    <img class="card-img-left flex-auto" height="150px" width="150px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
+                    <!-- d-none d-lg-block -->
                 <div class="card-body d-flex flex-column align-items-start pt-0">
                     <h5 class="text-primary mb-0">
                     <a class="text-primary" href="javascript:void(0)"  id="school-readmore" data-school="<?php echo $row['school_id'] ;?>"><?php echo $row['title_'] ;?></a>
@@ -356,7 +385,7 @@ class School extends Home {
       public function schoolReadmore($school_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN school S ON S. user_id_ = u. user_id 
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN school S ON S. user_id_ = U. user_id 
             	Left JOIN provinces P ON S. location_province = P. provincecode
                 Left JOIN districts D ON S. location_districts = D. districtcode
                 Left JOIN sectors T ON S. location_Sector = T. sectorcode

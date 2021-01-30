@@ -23,7 +23,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#house-readmore', function () {
+    $(document).on('click','#house-readmore', function () {
         // e.stopPropagation();
         var house_id = $(this).data('house');
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
         var video = $('#video');
         var youtube = $('#youtube');
         var categories_house = $('#categories_house');
-        var price = $('#price');
+        var price = $('#price_house');
         var phone = $('#phone');
         var province = $('.provincecode');
         var districts = $('.districtcode');
@@ -126,7 +126,7 @@ $(document).ready(function () {
                             $("#responseSubmithouse").fadeOut();
                         }, 2000);
                         setInterval(function () {
-                            // location.reload();
+                            location.reload();
                         }, 2400);
                     }, error: function (response) {
                         $("#responseSubmithouse").html(response).fadeIn();

@@ -47,7 +47,7 @@
       <div class="pull-right hidden-xs">
         <b>Version</b> 1.0.01
       </div>
-      <strong>Copyright &copy; <script>document.write(new Date().getFullYear());</script> <a href="https://iragiro.com">Irangiro LTD</a>.</strong> All rights
+      <strong>Copyright &copy; <script>document.write(new Date().getFullYear());</script> <a href="https://irangiro.com">Irangiro LTD</a>.</strong> All rights
       reserved.
     </footer>
 
@@ -158,6 +158,8 @@
    <script src="<?php echo BASE_URL_LINK ;?>js/businessPostView.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/businessApplyJobs.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/businessApplyRead_inbox.js"></script>
+
+   <script src="<?php echo BASE_URL_LINK ;?>js/email_notifiacation.js"></script>
 
    <script src="<?php echo BASE_URL_LINK ;?>js/unemplyoment_message.js"></script>
 

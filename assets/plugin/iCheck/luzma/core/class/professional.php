@@ -71,29 +71,29 @@ class Employment extends Home {
 
             <div class="col-12 px-0 py-2 jobHover more" data-user="<?php echo $row['user_id'];?>" >
             <div class="user-block mb-2" >
-                   <div class="user-jobImgall" id="unemployment" data-user="<?php echo $row['user_id'];?>">
+                   <div class="user-jobImgall img_size" id="unemployment" data-user="<?php echo $row['user_id'];?>">
                          <?php if (!empty($row['profile_img'])) {?>
                          <img src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $row['profile_img'] ;?>" alt="User Image">
                          <?php  }else{ ?>
                            <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
                          <?php } ?>
                    </div>
-                    <div class='float-left' style='display: flow-root;'>
-                        <div class="clear-float">
-                            <span class='float-left'>Names: <?php echo $row['firstname']." ".$row['lastname']; ?> </span>
-                            <span <?php if(isset($_SESSION['key'])){ echo 'class="float-right people-message more"'; }else{ echo 'class="float-right more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $row['user_id'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </span>
+                    <div style="display: flow-root;" class="text_size">
+                        <div class='float-left'>
+                            <span>Names: <?php echo $row['firstname']." ".$row['lastname']; ?> </span><br>
+                            <span>education: <?php echo $row['education']; ?> </span><br>
+                            <span>diploma: <?php echo $row['diploma']; ?> </span><br>
+                            <span >Fields study: <?php echo $row['categories_fields']; ?> </span>
                         </div>
-                        <div class="clear-float">
-                            <span class='float-left'>education: <?php echo $row['education']; ?> </span>
-                            <span  <?php if(isset($_SESSION['key'])){ echo 'class="float-right emailSent more"'; }else{ echo 'class="float-right more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $row['user_id'];?>"><?php echo $row['email']; ?></span>
-                        </div>
-                        <div class="clear-float">
-                            <span class='float-left'>diploma: <?php echo $row['diploma']; ?> </span>
-                            <span class='float-right'><?php echo $row['phone']; ?> </span>
-                            </div>
-                        <div class="clear-float">
-                            <span class='float-left'>Fields study: <?php echo $row['categories_fields']; ?> </span>
-                            <span class='float-right'>Unemployment: <?php echo $row['unemployment']; ?> </span>
+                        <div class="float-right text-right hidden-xs">
+                            <span <?php if(isset($_SESSION['key'])){ echo 'class="people-message more"'; }else{ echo 'class="more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $row['user_id'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </span><br>
+                            <span  <?php if(isset($_SESSION['key'])){ echo 'class=emailSent more"'; }else{ echo 'class="more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $row['user_id'];?>"><?php echo $row['email']; ?></span><br>
+                            <?php if (isset($_SESSION['key']) && $_SESSION['approval'] === 'on') { ?>
+                                <span><?php echo $row['phone']; ?> </span><br>
+                            <?php  }else{ ?>
+                                <div>RW <i class="flag-icon flag-icon-rw h4 mb-0" id="rw" title="us"></i></div>
+                            <?php  } ?>
+                            <span>Unemployment: <?php echo $row['unemployment']; ?> </span>
                         </div>
                     </div>
           </div> <!-- user-block -->

@@ -269,7 +269,7 @@ class Events extends Home{
     public function EventsReadmore($events_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN events B ON B. user_id3 = u. user_id WHERE B. events_id = '$events_id' ");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN events B ON B. user_id3 = U. user_id WHERE B. events_id = '$events_id' ");
         $row= $query->fetch_array();
         return $row;
     }
@@ -289,7 +289,7 @@ class Events extends Home{
     public function getPopupEventsTweet($user_id,$events_id,$events_by)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN events B ON B. user_id3 = u. user_id Left JOIN events_like L ON L. like_on = B. events_id Left JOIN events_comment C ON C. comment_on = B. events_id WHERE B. user_id3 =$events_by AND B. events_id = $events_id ");
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN events B ON B. user_id3 = U. user_id Left JOIN events_like L ON L. like_on = B. events_id Left JOIN events_comment C ON C. comment_on = B. events_id WHERE B. user_id3 =$events_by AND B. events_id = $events_id ");
         while ($row= $result->fetch_array()) {
             # code...
             return $row;
@@ -499,7 +499,7 @@ class Events extends Home{
       public function events_getPopupTweet($user_id,$tweet_id,$tweet_by)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN events B ON B. user_id3 = u. user_id Left JOIN events_like L ON L. like_on = B. events_id WHERE B. events_id = $tweet_id AND B. user_id3 = $tweet_by ");
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN events B ON B. user_id3 = U. user_id Left JOIN events_like L ON L. like_on = B. events_id WHERE B. events_id = $tweet_id AND B. user_id3 = $tweet_by ");
         // var_dump('ERROR: Could not able to execute'. $query.mysqli_error($mysqli));
         while ($row= $result->fetch_array()) {
             # code...

@@ -96,7 +96,7 @@ if (isset($_POST['icyamunara_view']) && !empty($_POST['icyamunara_view'])) {
                       </div>
 
                       <div class="form-group mt-2">
-                        <textarea class="form-control" name="additioninformation" id="addition-information" placeholder="tell us is products in good shape is it original or not and add more details and Try to summarize People can understand what products you try to sale" rows="3"></textarea>
+                        <textarea class="form-control" name="additioninformation" id="addition-information" placeholder="Tell us more details and Try to summarize People can understand what products you try to sale" rows="3"></textarea>
                       </div>
 
                       <div class="form-row mt-2">
@@ -110,6 +110,14 @@ if (isset($_POST['icyamunara_view']) && !empty($_POST['icyamunara_view'])) {
                           </div>
                         </div>
 
+                        <div class="col">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">Frw</span>
+                            </div>
+                            <input type="text" class="form-control" name="price" id="price" placeholder="Price ">
+                          </div>
+                        </div>
                       
                         <div class="col">
                           <div class="input-group">
@@ -238,6 +246,7 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 
   
     $authors = $users->test_input($_POST['author']);
+    $price_ = $users->test_input($_POST['price']);
     $additioninformation = $users->test_input($_POST['additioninformation']);
     $phone = $users->test_input($_POST['phone']);
     $province =  $users->test_input($_POST['provincecode']);
@@ -264,6 +273,7 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 
 	$users->Postsjobscreates('icyamunara',array( 
 	'authors'=> $authors,
+	'price'=> $price_, 
 	'photo'=> $photo_, 
 	'other_photo'=> $other_photo_, 
 	'video'=> $video_, 

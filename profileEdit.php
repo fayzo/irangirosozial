@@ -124,11 +124,11 @@
 
       <section class="content-header">
         <div class="row">
-            <div class="col-6">
-                <h1><i> Profile Edit</i></h1>
+            <div class="col-4">
+                <h5><i> Profile Edit</i></h5>
             </div>
-            <div class="col-6">
-                <ol class="breadcrumb float-sm-right">
+            <div class="col-8">
+                <ol class="breadcrumb float-right">
                     <li class="breadcrumb-item"><a href="<?php if (isset($_SESSION['key'])){ echo HOME ; }else{ echo LOGIN; } ?>">Home</a></li>
                     <li class="breadcrumb-item active"><i>
                     <button type="button" class="btn btn-primary btn-sm" onclick="location.href='<?php echo BASE_URL_PUBLIC.$user['username'] ;?>'">Profile</button>

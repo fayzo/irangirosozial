@@ -595,7 +595,7 @@ class Gurisha extends Home {
       public function sale_gurisha_getPopupTweet($user_id,$sale_id,$car_user_id)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN sale_gurisha B ON B. user_id01 = u. user_id WHERE B. sale_id = $sale_id AND B. user_id01 = $car_user_id ");
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN sale_gurisha B ON B. user_id01 = U. user_id WHERE B. sale_id = $sale_id AND B. user_id01 = $car_user_id ");
         // var_dump('ERROR: Could not able to execute'. $query.mysqli_error($mysqli));
         while ($row= $result->fetch_array()) {
             # code...
@@ -658,7 +658,7 @@ class Gurisha extends Home {
        public function gurishaReadmore($sale_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN sale_gurisha H ON H. user_id01 = u. user_id 
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN sale_gurisha H ON H. user_id01 = U. user_id 
             Left JOIN provinces P ON H. province = P. provincecode
             Left JOIN districts M ON H. districts = M. districtcode
             Left JOIN sectors T ON H. sector = T. sectorcode

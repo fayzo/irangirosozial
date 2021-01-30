@@ -54,7 +54,7 @@ $(document).ready(function () {
         var video = $('#video');
         var youtube = $('#youtube');
         var categories_car = $('#categories_car');
-        var price = $('#price');
+        var price_ = $('#price_');
         var phone = $('#phone');
         var province = $('.provincecode');
         var districts = $('.districtcode');
@@ -72,7 +72,7 @@ $(document).ready(function () {
         
         if (isEmpty(province) && isEmpty(districts) &&
             isEmpty(sector) && isEmpty(cell) && isEmpty(village) && isEmpty(authors) && isEmpty(phone) &&
-            isEmpty(categories_car) && isEmpty(price) && isEmpty(additioninformation) && isEmpty(photo) &&
+            isEmpty(categories_car) && isEmpty(price_) && isEmpty(additioninformation) && isEmpty(photo) &&
             isEmpty(other_photo) && isEmpty(photo_Titleo0) && isEmpty(photo_Title0) && isEmpty(photo_Title1) &&
             isEmpty(photo_Title2) && isEmpty(photo_Title3) && isEmpty(photo_Title4) && isEmpty(photo_Title5)) {
             
@@ -126,7 +126,7 @@ $(document).ready(function () {
                             $("#responseSubmitcar").fadeOut();
                         }, 2000);
                         setInterval(function () {
-                            // location.reload();
+                            location.reload();
                         }, 2400);
                     }, error: function (response) {
                         $("#responseSubmitcar").html(response).fadeIn();

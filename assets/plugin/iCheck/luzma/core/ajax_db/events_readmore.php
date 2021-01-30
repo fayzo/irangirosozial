@@ -9,7 +9,7 @@ if (isset($_POST['events_id']) && !empty($_POST['events_id'])) {
         $user_id= $_SESSION['key'];
     }else {
         # code...
-        $username= $users->test_input($_REQUEST['username']);
+        $username= $users->test_input('irangiro');
         $uprofileId= $home->usersNameId($username);
         $profileData= $home->userData($uprofileId['user_id']);
         $user_id= $profileData['user_id'];

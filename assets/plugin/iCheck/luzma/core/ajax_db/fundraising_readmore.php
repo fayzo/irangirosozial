@@ -1,6 +1,8 @@
 <?php 
 include('../init.php');
 $users->preventUsersAccess($_SERVER['REQUEST_METHOD'],realpath(__FILE__),realpath($_SERVER['SCRIPT_FILENAME']));
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
 
 if (isset($_POST['fund_id']) && !empty($_POST['fund_id'])) {
     if (isset($_SESSION['key'])) {
@@ -8,7 +10,8 @@ if (isset($_POST['fund_id']) && !empty($_POST['fund_id'])) {
         $user_id= $_SESSION['key'];
     }else {
         # code...
-        $username= $users->test_input($_REQUEST['username']);
+        $username= $users->test_input('irangiro');
+        // $username= $users->test_input('$_REQUEST['username']');
         $uprofileId= $home->usersNameId($username);
         $profileData= $home->userData($uprofileId['user_id']);
         $user_id= $profileData['user_id'];

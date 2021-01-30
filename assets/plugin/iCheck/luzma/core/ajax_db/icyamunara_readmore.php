@@ -75,7 +75,7 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
 
                    <div class="row reusercolor p-2">
                        <div class="col-md-12">
-                            <h5 class="text-center black-bg h4 mb-2"><?php echo " in ".$user['provincename']." Location ".$user['namedistrict']." district/".$user['namesector']." sector/".$user['nameCell']." cell"; ?></h5>
+                            <h5 class="text-center black-bg h4 mb-2"><?php echo "Marketplace in ".$user['provincename']." Location ".$user['namedistrict']." district/".$user['namesector']." sector/".$user['nameCell']." cell"; ?></h5>
                              <!-- < ?php echo $house['provincename']; ?> /  -->
                                 <!-- < ?php echo $house['namedistrict']; ?> District/  -->
                                 <!-- < ?php echo $house['namesector']; ?> Sector/  -->
@@ -99,12 +99,15 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
                             </div>  
                         
                             <h4 class="mt-2"><i>
-                                authors: <?php echo $user['authors']; ?>
+                                Seller: <?php echo $user['authors']; ?>
                             </i></h4>
-                           
+                            <div class="mt-2">
+                                <span>Phone: <?php echo $user['phone']; ?></span><br>
+                                <span>Price: <?php echo number_format($user['price'])." Frw"; ?></span><br>
+                            </div>
                        </div> <!-- col-md-6  -->
                        <div class="col-md-6">
-                            <h4 class="mt-2"><i>Details of icyamunara</i></h4>
+                            <h4 class="mt-2"><i>Details of cyamunara</i></h4>
                             <div> <?php echo $user['text']; ?></div>
                        </div><!-- /.col -->
                        <?php 

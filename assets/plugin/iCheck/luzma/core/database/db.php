@@ -20,6 +20,12 @@ class Db
         $dbPassword = "";
         $dbName = "irangiro_social";
         $dbport = "3306";
+
+        // $dbHost = "localhost";
+        // $dbUsername = "irageeyt_rootdsd";
+        // $dbPassword = "shemafa1@ada";
+        // $dbName = "irageeyt_irangiro_social";
+        // $dbport = "3306";
         // $conn = new mysqli( 'localhost','fayzo','fayzo123','retrieve_data','3306');
         $this->connection = new Mysqli($dbHost, $dbUsername, $dbPassword, $dbName,$dbport);
 

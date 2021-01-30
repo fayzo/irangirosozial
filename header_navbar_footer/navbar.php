@@ -34,7 +34,7 @@
         </a>
          <?php }else if (isset($_SESSION['job_user']) && $_SESSION['job_user'] === 'individual'){ ?>
         
-        <a class="sidebar-toggle_" href="<?php echo INDIVIDUAL_POST_JOBS; ?>">
+        <a class="sidebar-toggle_ " href="<?php echo INDIVIDUAL_POST_JOBS; ?>">
           <i class="fa fa-star"> </i>
           <span class="hidden-xs">Post Jobs</span>
         </a>

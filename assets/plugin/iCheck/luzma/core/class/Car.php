@@ -93,12 +93,28 @@ class Car extends House {
                                <span class="float-right"> <?php if($car['price_discount'] != 0){ ?><span class="mr-2 text-danger " style="text-decoration: line-through;"><?php echo number_format($car['price_discount']); ?> Frw</span> <?php } ?><span class="text-primary" > <?php echo number_format($car['price']); ?> Frw</span></span>
                             </div> 
                             <div class="text-muted clear-float">
-                                <span class="float-left"><i class="fa fa-car" aria-hidden="true"></i>  <?php echo $categories; ?></span>
+                                <span class="float-left"><i class="fa fa-car" aria-hidden="true"></i>  
+                                <?php 
+                                        $subect = $categories;
+                                        $replace = " ";
+                                        $searching = "_";
+                                        echo str_replace($searching,$replace, $subect);
+                                        ?>
+                                <!-- < ?php echo $categories; ?> -->
+                                </span>
                                 <span class="float-right mr-5"><i class="fa fa-heart" aria-hidden="true"></i></span></div>
                             <div class="text-muted clear-float">
                                 <span><i class="fa fa-clock-o" aria-hidden="true"></i> Created on <?php echo $this->timeAgo($car['created_on3'])." By ".$car['authors']; ?></span>
                             </div>
-                            <p class="card-text clear-float">200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame... Continue reading... </p>
+                            <p class="card-text clear-float">
+                                <?php if (strlen($car["text"]) > 98) {
+                                            echo $car["text"] = substr($car["text"],0,98).'...
+                                            <span class="mb-0"><a href="javascript:void(0)" id="car-readmore" data-car="'.$car['car_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Read more...</a></span>';
+                                            }else{
+                                            echo $car["text"];
+                                            } ?> 
+                                <!-- 200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame... Continue reading...  -->
+                            </p>
 
                         </div><!-- card-body -->
                         </div><!-- card -->
@@ -155,7 +171,7 @@ class Car extends House {
       public function carReadmore($car_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN car C ON C. user_id3 = u. user_id 
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN car C ON C. user_id3 = U. user_id 
             Left JOIN provinces P ON C. province = P. provincecode
             Left JOIN districts M ON C. districts = M. districtcode
             Left JOIN sectors T ON C. sector = T. sectorcode
@@ -170,7 +186,7 @@ class Car extends House {
     public function car_getPopupTweet($user_id,$car_id,$car_user_id)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN car B ON B. user_id3 = u. user_id WHERE B. car_id = $car_id AND B. user_id3 = $car_user_id ");
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN car B ON B. user_id3 = U. user_id WHERE B. car_id = $car_id AND B. user_id3 = $car_user_id ");
         // var_dump('ERROR: Could not able to execute'. $query.mysqli_error($mysqli));
         while ($row= $result->fetch_array()) {
             # code...
@@ -259,7 +275,7 @@ class Car extends House {
 
     public function EditdeletePostcar($user_id,$car_id3){
         
-        if($user_id == $car_id3 ){ 
+        if(isset($_SESSION['key']) && $user_id == $car_id3 ){ 
             $mysqli= $this->database;
             $query= $mysqli->query("SELECT * FROM car WHERE car_id ='$car_id3'");
             $car= $query->fetch_array();

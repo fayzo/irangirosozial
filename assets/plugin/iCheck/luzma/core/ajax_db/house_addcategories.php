@@ -131,13 +131,13 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2">Frw</span>
                             </div>
-                            <input type="text" class="form-control" name="price" id="price" placeholder="Price ">
+                            <input type="text" class="form-control" name="price" id="price_house" placeholder="Price ">
                           </div>
                         </div>
                       </div>
 
                       <div class="form-group mt-2">
-                        <textarea class="form-control" name="additioninformation" id="addition-information" placeholder="tell us who are you and what help you need and Try to summarize People can understand what helps you need" rows="3"></textarea>
+                        <textarea class="form-control" name="additioninformation" id="addition-information" placeholder="tell us more details of the house" rows="3"></textarea>
                       </div>
 
                       <div class="form-row mt-2">

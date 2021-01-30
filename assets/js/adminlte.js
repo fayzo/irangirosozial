@@ -10,7 +10,25 @@
 * @repository git://github.com/ColorlibHQ/AdminLTE.git
 * @license MIT <http://opensource.org/licenses/MIT>
 */
+(function($) {
+  $.fn.serializefiles = function() {
+      var obj = $(this);
 
+      var form_data = new FormData(this[0]);
+      $.each($(obj).find('input[type="file[]"]'), function(i, tag) {
+          $.each($(tag)[0].files, function(i, file) {
+              form_data.append(tag.name, file);
+          });
+      });
+
+      var params = $(obj).serializeArray();
+      $.each(params, function (i, val) {
+          form_data.append(val.name, val.value);
+      });
+
+      return form_data;
+  };
+  })(jQuery);
 // Make sure jQuery has been loaded
 if (typeof jQuery === 'undefined') {
 throw new Error('AdminLTE requires jQuery')

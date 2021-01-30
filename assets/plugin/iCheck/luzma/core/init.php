@@ -25,13 +25,14 @@ include('class/House.php');
 include('class/Icyamunara.php');
 include('class/Car.php');
 include('class/School.php');
+include('class/Email_notification.php');
 
 define('BASE_URL_PUBLIC', 'http://localhost/irangiro_social_site/');
 define('BASE_URL_LINK', 'http://localhost/irangiro_social_site/assets/');
 
-// define('BASE_URL','http://irangiro.com/');
-// define('BASE_URL_PUBLIC', 'http://irangiro.com/');
-// define('BASE_URL_LINK', 'http://irangiro.com/assets/');
+// define('BASE_URL','https://irangiro.com/');
+// define('BASE_URL_PUBLIC', 'https://irangiro.com/');
+// define('BASE_URL_LINK', 'https://irangiro.com/assets/');
 
 
 define('F_INDEX', BASE_URL_PUBLIC.'irangiro.home');

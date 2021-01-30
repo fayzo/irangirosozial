@@ -98,7 +98,9 @@ if (isset($_POST['showMessage']) && !empty($_POST['showMessage'])) {
         	<div class="back large-2">
 				<div class="card  border-bottom-0">
 					<div class="card-body main-active py-2">
-					    <span class="float-left "><h2> Direct message </h2></span>
+					    <span class="float-left ">
+							<div class="h4 pt-3"> Direct message </div>
+						</span>
         			    <span class="float-right">
         			    	<label for="mass"  class="btn btn-primary  mr-2 py-2 new-message-btn">New messages</label>
         			    	<label for="popup-message-tweet"><i class="fa fa-times" aria-hidden="true"></i></label>

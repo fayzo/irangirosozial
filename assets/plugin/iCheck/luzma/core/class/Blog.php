@@ -96,7 +96,7 @@ class Blog extends Crowfund{
 
         <?php } 
 
-        $query1= $mysqli->query("SELECT COUNT(*) FROM users U Left JOIN blog B  ON B. user_id3 = u. user_id WHERE B. categories_blog ='$categories' AND B. blog_post != 'posted' ORDER BY created_on3 Desc ");
+        $query1= $mysqli->query("SELECT COUNT(*) FROM users U Left JOIN blog B  ON B. user_id3 = U. user_id WHERE B. categories_blog ='$categories' AND B. blog_post != 'posted' ORDER BY created_on3 Desc ");
         $row_Paginaion = $query1->fetch_array();
         $total_Paginaion = array_shift($row_Paginaion);
         $post_Perpages = $total_Paginaion/6;
@@ -129,7 +129,7 @@ class Blog extends Crowfund{
     public function BlogReadmore($blog_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = u. user_id WHERE B. blog_id = '$blog_id' ");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = U. user_id WHERE B. blog_id = '$blog_id' ");
         $row= $query->fetch_array();
         return $row;
     }
@@ -137,8 +137,8 @@ class Blog extends Crowfund{
     public function Blogcarousel($categories)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = u. user_id WHERE B. categories_blog ='$categories' AND B. blog_post != 'posted' ORDER BY created_on3 Desc Limit 1,3");
-        $query1= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = u. user_id WHERE B. categories_blog ='$categories' AND B. blog_post != 'posted' ORDER BY created_on3 Desc Limit 0,1");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = U. user_id WHERE B. categories_blog ='$categories' AND B. blog_post != 'posted' ORDER BY created_on3 Desc Limit 1,3");
+        $query1= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = U. user_id WHERE B. categories_blog ='$categories' AND B. blog_post != 'posted' ORDER BY created_on3 Desc Limit 0,1");
         $countRow= $mysqli->query("SELECT categories_blog FROM blog WHERE categories_blog ='$categories' AND blog_post != 'posted'  ORDER BY created_on3 Desc Limit 0,4");
         $row1= $query1->fetch_array()
         ?>
@@ -209,7 +209,7 @@ class Blog extends Crowfund{
     public function BlogRecent_Articles($categories,$user_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = u. user_id WHERE B. categories_blog ='$categories' and B. created_on3  > DATE_SUB(NOW(), INTERVAL 1 MONTH) and B. blog_post != 'posted' ORDER BY B. created_on3 Desc , rand() Limit 5");
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = U. user_id WHERE B. categories_blog ='$categories' and B. created_on3  > DATE_SUB(NOW(), INTERVAL 1 MONTH) and B. blog_post != 'posted' ORDER BY B. created_on3 Desc , rand() Limit 5");
             //  SECOND	, MINUTE, HOUR, DAY, WEEK	, MONTH	, QUARTER	, YEAR,
        
           if($query->num_rows != 0){
@@ -364,7 +364,7 @@ class Blog extends Crowfund{
     public function getPopupBlogTweet($user_id,$blog_id,$blog_by)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = u. user_id Left JOIN blog_like L ON L. like_on = B. blog_id Left JOIN blog_comment C ON C. comment_on = B. blog_id WHERE B. user_id3 =$blog_by AND B. blog_id = $blog_id ");
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = U. user_id Left JOIN blog_like L ON L. like_on = B. blog_id Left JOIN blog_comment C ON C. comment_on = B. blog_id WHERE B. user_id3 =$blog_by AND B. blog_id = $blog_id ");
         while ($row= $result->fetch_array()) {
             # code...
             return $row;
@@ -462,7 +462,7 @@ class Blog extends Crowfund{
        public function blog_getPopupTweet($user_id,$tweet_id,$tweet_by)
     {
         $mysqli= $this->database;
-        $result= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = u. user_id Left JOIN blog_like L ON L. like_on = B. blog_id WHERE B. blog_id = $tweet_id AND B. user_id3 = $tweet_by ");
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = U. user_id Left JOIN blog_like L ON L. like_on = B. blog_id WHERE B. blog_id = $tweet_id AND B. user_id3 = $tweet_by ");
         // var_dump('ERROR: Could not able to execute'. $query.mysqli_error($mysqli));
         while ($row= $result->fetch_array()) {
             # code...
@@ -623,7 +623,7 @@ class Blog extends Crowfund{
     public function Post_Blog($user_id)
     { 
       $mysqli= $this->database;
-      $query= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = u. user_id WHERE B. created_on3  > DATE_SUB(NOW(), INTERVAL 1 MONTH) and B. blog_post != 'posted' ORDER BY B. created_on3 Desc , rand() Limit 5");
+      $query= $mysqli->query("SELECT * FROM users U Left JOIN blog B ON B. user_id3 = U. user_id WHERE B. created_on3  > DATE_SUB(NOW(), INTERVAL 1 MONTH) and B. blog_post != 'posted' ORDER BY B. created_on3 Desc , rand() Limit 5");
           //  SECOND	, MINUTE, HOUR, DAY, WEEK	, MONTH	, QUARTER	, YEAR,
       
         if($query->num_rows != 0){

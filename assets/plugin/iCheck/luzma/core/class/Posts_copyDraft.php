@@ -1029,6 +1029,7 @@ class Posts_copyDraft extends  Gurisha {
                              <?php } ?>
 
                               <ul class="mt-2 list-inline" style="list-style-type: none; margin-bottom:10px;">  
+                                        <?php if(isset($_SESSION['key']) && $_SESSION['approval'] === 'on'){ ?>
                                         
                                         <?php if($tweet['tweet_id'] == $retweet['retweet_id']){ ?>
                                          <li class=" list-inline-item"><button  <?php echo (isset($_SESSION['key']))?'class="share-btn retweeted text-sm mr-2"':'class=" text-sm mr-2" id="login-please" data-login="1"' ;?>  data-tweet="<?php echo $tweet['tweet_id']; ?>"  data-user="<?php echo $tweet['tweetBy']; ?>">
@@ -1038,7 +1039,7 @@ class Posts_copyDraft extends  Gurisha {
                                                <li  class=" list-inline-item"> <button  <?php echo (isset($_SESSION['key']))?'class="share-btn retweet text-sm mr-2"':'class=" text-sm mr-2" id="login-please" data-login="1"' ;?>  data-tweet="<?php echo $tweet['tweet_id']; ?>"  data-user="<?php echo $tweet['tweetBy']; ?>">
                                                 <?php if($retweet["retweet_counts"] > 0){ echo '<i class="fa fa-share mr-1" style="color: green"> <span class="retweetcounter">'.$retweet["retweet_counts"].'</span></i>' ; }else{ echo '<i class="fa fa-share mr-1"> <span class="retweetcounter">'.$retweet["retweet_counts"].'</span></i>';} ?>
                                                    Share</button></li>
-                                         <?php } ?>
+                                         <?php } } ?>
 
                                         <?php if($likes['like_on'] == $tweet['tweet_id']){ ?>
                                             <li  class="list-inline-item"><button <?php echo (isset($_SESSION['key']))?'class="unlike-btn text-sm"':'class="text-sm" id="login-please" data-login="1"' ;?> data-tweet="<?php echo $tweet['tweet_id']; ?>"  data-user="<?php echo $tweet['tweetBy']; ?>">
