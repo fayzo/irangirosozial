@@ -69,14 +69,15 @@ class House extends Home {
 
                         <div class="timeline-item card flex-md-row shadow-sm h-md-100 border-0">
                         <!-- <img class="card-img-left flex-auto d-none d-lg-block" height="100px" width="100px" src="< ?php echo BASE_URL_PUBLIC.'uploads/house/'.$house['photo'] ;?>" alt="Card image cap"> -->
-                        <div class="card-img-left" style="background: url('<?php echo BASE_URL_PUBLIC.'uploads/house/'.$house['photo']; ?>')no-repeat;background-size:cover;">
-                         
+                        <div class="col-md-4 px-0 card-img-left">
+                        <!-- <div class="card-img-left" style="background: url('< ?php echo BASE_URL_PUBLIC.'uploads/house/'.$house['photo']; ?>')no-repeat;background-size:cover;"> -->
+                        <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC.'uploads/house/'.$house['photo']; ?>">
                         <!-- banner -->
                          <?php echo $this->bannerDiscount($house['banner']); ?>
                          <!-- banner -->
                           
                         </div>
-                        <div class="card-body pt-0">
+                        <div class="col-md-8 card-body pt-0">
                         <span id="response<?php echo $house['house_id']; ?>"></span>
                            <div class="text-primary mb-0">
                               <a class="text-primary float-left" href="javascript:void(0)" id="house-readmore" data-house="<?php echo $house['house_id']; ?>" ><i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -462,16 +463,16 @@ class House extends Home {
         // $banner = $car['banner'];
         switch ($banner) {
             case $banner == 'new':
-                # code...
-                echo '<img style="margin-left: -10px;" src="'.BASE_URL_LINK.'image/banner/new.png" height="100px" width="100px">';
+                # code...    margin-left: -10px;
+                echo '<img style="margin-left: -10px;position: absolute; left: 0;" src="'.BASE_URL_LINK.'image/banner/new.png" width="80px">';
                 break;
             case $banner == 'great_deal':
                 # code...
-                echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/great-deal.png" height="100px" width="100px">';
+                echo '<img style="margin-right: -10px;position: absolute; right: 0;" src="'.BASE_URL_LINK.'image/banner/great-deal.png" width="80px">';
                 break;
             case $banner == 'new_arrival':
                 # code...
-                echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png" height="100px" width="100px">';
+                echo '<img style="margin-right: -10px;position: absolute; left: 0;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png" width="80px">';
                 break;
             default:
                 # code...

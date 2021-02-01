@@ -25,12 +25,10 @@
       <div class="col-md-3 d-none d-md-block">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Title</h4>
-                    <p class="card-text">Text</p>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">Title</h4>
-                    <p class="card-text">Text</p>
+                    <div class="single-howit-works">
+                        <img src="<?php echo  BASE_URL_LINK ;?>image/img/howit-works/howit-works-1.png" alt="">
+                        <h4>Search &amp; Find School</h4>
+                    </div>
                 </div>
             </div> <!-- card -->
       </div>
@@ -46,12 +44,10 @@
         <div id="responseSubmitcartiterm">
           <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Title</h4>
-                    <p class="card-text">Text</p>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">Title</h4>
-                    <p class="card-text">Text</p>
+                <div class="single-howit-works">
+                        <img src="<?php echo  BASE_URL_LINK ;?>image/img/howit-works/howit-works-2.png" alt="">
+                        <h4>Search &amp; Find School</h4>
+                    </div>
                 </div>
             </div> <!-- card -->
         </div>

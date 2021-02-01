@@ -10,10 +10,12 @@
         <div class="row">
           <div class="col-md-3 mb-3 d-none d-md-block">
 
-            <?php echo $home->userProfile($user_id); ?>
+          <?php if (isset($_SESSION['key'])){
+                    echo $home->userProfile($user_id);
+                 } ?>
+
             <?php echo $trending->trends(); ?>
             <!-- Profile Image -->
-            
             
             <div class="sticky-top" style="top: 52px;z-index:1000;">
               <?php echo $home->jobsfetch() ;?>

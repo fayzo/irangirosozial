@@ -9,16 +9,18 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
      ?>
 
 <div class="school-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrap">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+           <div class="img-popup-wrap"  id="popupEnd">
         	<div class="img-popup-body">
 
             <div class="card">
                 <span id="responseSubmitschool"></span>
                 <div class="card-header">
+                    <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
                     <h5 class="card-text">Rwanda school</h5>
                     <p class="card-text">Do you want to add rwanda school ? Please fill details below.</p>
                 </div>
@@ -29,7 +31,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                       
                       <div class="form-row mt-2">
                         
-                        <div class="col">
+                        <div class="col-md-4 col-sm-12 mb-2">
                           <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2"><i class="material-icons">school</i></span>
@@ -38,7 +40,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                           </div>
                         </div>
                         
-                        <div class="col">
+                        <div class="col-md-4 col-sm-12 mb-2">
                           <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2">Director</span>
@@ -48,7 +50,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                         </div>
 
                       
-                        <div class="col">
+                        <div class="col-md-4 col-sm-12 mb-2">
                           <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2">phone</span>
@@ -61,7 +63,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
 
                       <div class="form-row mt-2">
 
-                        <div class="col">
+                        <div class="col-md-3 col-sm-12">
                             <label for="">Province</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -75,7 +77,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                                 </select>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-md-3 col-sm-12">
                             <label for=""> District</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -86,7 +88,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                                 </select>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-md-3 col-sm-12">
                             <label for="Sector">Sector</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -97,7 +99,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                                 </select>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-md-3 col-sm-12">
                             <label for="Cell">Cell</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -112,7 +114,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                     
                     <div class="form-row mt-2">
 
-                        <div class="col">
+                        <div class="col-md-4 col-sm-12">
                               <label for="Village">Village</label>
                               <div class="input-group">
                                   <div class="input-group-prepend">
@@ -124,7 +126,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                               </div>
                         </div>
 
-                        <div class="col">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-group">
                               <label for="Village">Is it public or private</label>
                               <select class="form-control" name="categories_of_school" id="categories_of_school">
@@ -136,7 +138,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                             </div>
                         </div>
 
-                        <div class="col">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-group">
                               <label for="Village">types of school</label>
                               <select class="form-control" name="type_of_school" id="type_of_school">

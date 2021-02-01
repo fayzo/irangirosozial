@@ -576,6 +576,26 @@
 		}		
     }
 
+    function showResultCell_province(){
+        var province = document.getElementById('provincecode').value;
+        var district = document.getElementById('districtcode').value;
+        var sector = document.getElementById('sectorcode').value;
+        var cell = document.getElementById('codecell').value;
+        var location_province = document.getElementById('location_province').value;
+        var params = '&location_province='+location_province+'&province='+province+'&district='+district+'&sector='+sector+'&cell='+cell,
+		http=new XMLHttpRequest();
+		http.open("POST","core/ajax_db/getcell_district.php",true);
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		http.send(params);
+		http.onreadystatechange = function() 
+		{
+            // Call a function when the cell changes.
+			
+		document.getElementById("cell-hide").innerHTML=http.responseText;
+				
+		}		
+    }
+
     function schoolCategories0(categories,id) {
         var xhr = new XMLHttpRequest();
         // Add any event handlers here...
@@ -768,7 +788,14 @@
 
 </script>
 </head>
-<?php if (isset($_SESSION['key'])){ ?>
+
+<?php 
+$self= basename($_SERVER['PHP_SELF']); 
+$paths=basename($_SERVER['REQUEST_URI']);
+$path=$_SERVER['REQUEST_URI'];
+$result = substr(strrchr($path,'/'),1);
+
+if (isset($_SESSION['key']) && $result === '' || isset($_SESSION['key']) && $self === 'profile.php'){ ?>
   
   <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
   <body class="hold-transition skin-blue fixed sidebar-mini-expand-feature sidebar-mini">

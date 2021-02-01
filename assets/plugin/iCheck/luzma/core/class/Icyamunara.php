@@ -52,37 +52,13 @@ class Icyamunara extends House {
 
                         <div class="timeline-item card flex-md-row shadow-sm h-md-100 border-0">
                         <!-- <img class="card-img-left flex-auto d-none d-lg-block" height="100px" width="100px" src="< ?php echo BASE_URL_PUBLIC.'uploads/icyamunara/'.$icyamunara['photo'] ;?>" alt="Card image cap"> -->
-                        <div class='card-img-left' style="background: url('<?php echo BASE_URL_PUBLIC.'uploads/icyamunara/'.$icyamunara['photo']; ?>')no-repeat;background-size:cover;">
-                        <?php $banner = $icyamunara['banner'];
-                        switch ($banner) {
-                            case $banner == 'new':
-                                # code...
-                                echo '<img style="margin-left: -10px;" src="'.BASE_URL_LINK.'image/banner/new.png" height="100px" width="100px">';
-                                break;
-                            case $banner == 'great_deal':
-                                # code...
-                                echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/great-deal.png" height="100px" width="100px">';
-                                break;
-                            case $banner == 'new_arrival':
-                                # code...
-                                echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png" height="100px" width="100px">';
-                                break;
-                            case $banner == 'vegetables':
-                                # code...
-                                echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/new-arrival5.png" height="100px" width="100px">';
-                                break;
-                            case $banner == 'macedone':
-                                # code...
-                                echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/new-arrival5.png" height="100px" width="100px">';
-                                break;
-                             default:
-                                # code...
-                                echo '';
-                                break;
-                        } ?>
-                          
+                        <div class='col-md-4 px-0 card-img-left'>
+                        <!-- <div class='card-img-left' style="background: url('< ?php echo BASE_URL_PUBLIC.'uploads/icyamunara/'.$icyamunara['photo']; ?>')no-repeat;background-size:cover;"> -->
+                            <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC.'uploads/icyamunara/'.$icyamunara['photo']; ?>">
+                        
+                            <?php echo $this->bannerDiscount($icyamunara['banner']); ?>
                         </div>
-                        <div class="card-body pt-0">
+                        <div class="col-md-8 card-body pt-0">
                         <span id="response<?php echo $icyamunara['house_id']; ?>"></span>
                            <div class="text-primary mb-0">
                               <a class="text-primary float-left" href="javascript:void(0)" id="icyamunara-readmore" data-icyamunara="<?php echo $icyamunara['house_id']; ?>" ><i class="fa fa-map-marker" aria-hidden="true"></i>

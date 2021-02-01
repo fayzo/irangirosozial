@@ -9,17 +9,20 @@ if (isset($_POST['fund_view']) && !empty($_POST['fund_view'])) {
      ?>
 
 <div class="fund-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrap">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+           <div class="img-popup-wrap"  id="popupEnd">
         	<div class="img-popup-body">
+
                 <script src="<?php echo BASE_URL_LINK ;?>dist/js/country_login_ajax-db.js"></script>
 
             <div class="card">
                 <span id="responseSubmithelp"></span>
                 <div class="card-header">
+                     <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
                     <h5 class="card-text">Fundraiser</h5>
                     <p class="card-text">Do you want helps Or to helps someone ? Please fill details below.</p>
                 </div>

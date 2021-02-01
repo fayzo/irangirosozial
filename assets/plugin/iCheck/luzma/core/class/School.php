@@ -145,8 +145,10 @@ class School extends Home {
           <?php while($row= $query->fetch_array()) { ?>
 
             <div class="card flex-md-row shadow-sm h-md-100 border-0 mb-3">
-                    <img class="card-img-left flex-auto" height="150px" width="150px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
-                <div class="card-body d-flex flex-column align-items-start pt-0">
+                <div class="col-md-4 px-0 card-img-left">
+                    <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
+                </div><!-- col -->
+                <div class="col-md-8 card-body d-flex flex-column align-items-start pt-0">
                     <h5 class="text-primary mb-0">
                     <a class="text-primary;" style="text-transform: capitalize;" href="javascript:void(0)"  id="school-readmore" data-school="<?php echo $row['school_id'] ;?>"><?php echo $row['title_'] ;?></a>
                     </h5>
@@ -332,16 +334,24 @@ class School extends Home {
           <?php while($row= $query->fetch_array()) { ?>
 
             <div class="card flex-md-row shadow-sm h-md-100 border-0 mb-3">
-                    <img class="card-img-left flex-auto" height="150px" width="150px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
-                    <!-- d-none d-lg-block -->
-                <div class="card-body d-flex flex-column align-items-start pt-0">
+                <div class="col-md-4 px-0 card-img-left">
+                    <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
+                </div><!-- col -->
+                <div class="col-md-8 card-body d-flex flex-column align-items-start pt-0">
                     <h5 class="text-primary mb-0">
                     <a class="text-primary" href="javascript:void(0)"  id="school-readmore" data-school="<?php echo $row['school_id'] ;?>"><?php echo $row['title_'] ;?></a>
                     </h5>
-                    <div class="text-muted">Created on <?php echo $this->timeAgo($row['created_on_']) ;?> By <?php echo $row['author_'] ;?> </div>
+                    <!-- <div class="text-muted">Created on < ?php echo $this->timeAgo($row['created_on_']) ;?> By < ?php echo $row['author_'] ;?> </div> -->
                     <div class="text-muted"><?php 	echo ''.$row['provincename'].'/ '.$row['namedistrict'].' district/ '.$row['namesector'].' Sector' ;?></div>
                     <div class="text-muted"><?php 	echo ''.$row['nameCell'].' Cell/ '.$row['VillageName'].' Village' ;?></div>
-                    <p class="card-text mb-1">vIEW Different Landscapes of <?php echo $row['location_districts'] ;?> Districts</p>
+                    <p class="card-text mt-2 mb-1">
+                        <?php if (strlen($row["text_"]) > 98) {
+                                    echo $row["text_"] = substr($row["text_"],0,98).'...
+                                    <span class="mb-0"><a href="javascript:void(0)" id="school-readmore" data-school="'.$row['school_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Read more...</a></span>';
+                                    }else{
+                                    echo $row["text_"];
+                                    } ?>    
+                    </p>
                 </div><!-- card-body -->
             </div><!-- card -->
           <hr class="bg-info mt-0 mb-1" style="width:95%;">

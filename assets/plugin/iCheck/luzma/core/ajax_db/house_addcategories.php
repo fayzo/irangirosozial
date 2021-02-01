@@ -8,16 +8,18 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
      ?>
 
 <div class="house-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrap">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+           <div class="img-popup-wrap"  id="popupEnd">
         	<div class="img-popup-body">
 
             <div class="card">
                 <span id="responseSubmithouse"></span>
                 <div class="card-header">
+                  <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
                     <h5 class="card-text">House</h5>
                     <p class="card-text">Add house ? Please fill details below.</p>
                 </div>
@@ -32,7 +34,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                             <div id="myCountry"></div>
                             <div id="myDiv"></div>
                         </div> -->
-                          <div class="col">
+                          <div class="col-md-4 col-sm-12">
                                 <label for="" class="text-dark">Province</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -46,7 +48,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-12">
                                 <label for="" class="text-dark"> District</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -57,7 +59,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-sm-12">
                                 <label for="Sector" class="text-dark">Sector</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -71,7 +73,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                       </div>
 
                       <div class="form-row mt-2">
-                            <div class="col">
+                            <div class="col-md-3 col-sm-12">
                                 <label for="Cell" class="text-dark">Cell</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -83,7 +85,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                                 </div>
                             </div>
 
-                             <div class="col">
+                             <div class="col-md-3 col-sm-12">
                                 <label for="Village">Village</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -94,13 +96,13 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                                       </select>
                                 </div>
                             </div>
-
-                        ` <div class="col">
+                            
+                          <div class="col-md-3 col-sm-12">
                             <label for="authors">Seller name</label>
                             <input type="text" class="form-control" name="authors"  id="authors" placeholder="name">
                           </div>
 
-                        <div class="col">
+                        <div class="col-md-3 col-sm-12">
                             <label for="authors">Phone</label>
                           <div class="input-group">
                             <div class="input-group-prepend">
@@ -113,7 +115,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
 
                       <div class="form-row mt-2">
 
-                        <div class="col">
+                        <div class="col-md-6 col-sm-12 mb-2">
                             <div class="form-group">
                               <select class="form-control" name="categories_house" id="categories_house">
                                 <option value="">Select what types of categories</option>
@@ -126,7 +128,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
                               </select>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-md-6 col-sm-12">
                           <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2">Frw</span>

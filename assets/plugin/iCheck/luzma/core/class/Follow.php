@@ -308,7 +308,7 @@ class Follow extends Events
                                 <li>'.((!empty($whoTofollow['career'])?'
                                 <small class="my-0 ml-2" style="font-size: 12px;">'.$whoTofollow['career'].'</small>
                                 ':'
-                                <small class="my-0 ml-2" style="font-size: 12px;">no career</small>
+                                <small class="my-0 ml-2" style="font-size: 12px;">Member</small>
                                 ')).'</li>
                             </ul>
                             <div class="whoTofollow-btn">

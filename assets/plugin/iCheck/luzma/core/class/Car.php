@@ -68,15 +68,17 @@ class Car extends House {
 
                         <div class="timeline-item card flex-md-row shadow-sm h-md-100 border-0">
                         <!-- <img class="card-img-left flex-auto d-none d-lg-block" height="100px" width="100px" src="< ?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo'] ;?>" alt="Card image cap"> -->
-                        <div class='card-img-left' style="background: url('<?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo']; ?>')no-repeat;background-size:contain;">
-                        <!-- height:100px;width:100px -->
-                         
+                        <div class='col-md-4 px-0 card-img-left' >
+                            <!-- <div class='card-img-left' style="background: url('< ?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo']; ?>')no-repeat;background-size:contain;"> -->
+                            <!-- height:100px;width:100px -->
+                            <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo']; ?>">
+                            
                         <!-- banner -->
                          <?php echo $this->bannerDiscount($car['banner']); ?>
                          <!-- banner -->
                           
                         </div>
-                        <div class="card-body pt-0">
+                        <div class="col-md-8 card-body pt-0">
                         <span id="response<?php echo $car['car_id']; ?>"></span>
                            <div class="text-primary mb-0">
                               <a class="text-primary float-left" href="javascript:void(0)" id="car-readmore" data-car="<?php echo $car['car_id']; ?>" ><i class="fa fa-map-marker" aria-hidden="true"></i>

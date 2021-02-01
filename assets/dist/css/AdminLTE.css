@@ -2134,18 +2134,23 @@ a:focus {
   border-bottom-color: #ddd;
 }
 
+.card-img-left > .pic-responsive  {
+  min-width: 100%;min-height: 100%;width: 20%;
+}
+
 @media only screen and (max-width: 767px){
   .timeline-item > .card-img-left  {
-      height: auto;
-      min-height: 200px
+    height: auto;
+    /* min-height: 200px */
   }
 }
 
 @media only screen and (min-width: 992px) and (min-width: 1200px) {
     .timeline-item > .card-img-left  {
-      height: 130px;
-      /* height: auto; */
-      width: 400px;
+      /* height: 130px;
+      width: 400px; */
+      width: 150px;
+      /* height: 110px; */
   }
 }
 
@@ -3441,4 +3446,28 @@ nav.tabs>li>a {
   background: -o-linear-gradient(#e73f7c, #D81B60) !important;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e73f7c', endColorstr='#D81B60', GradientType=0) !important;
   color: #fff;
+}
+
+
+.single-howit-works {
+	text-align: center;
+    margin-bottom: 20px;
+}
+.single-howit-works h4 {
+	color: #19191a;
+	font-weight: 600;
+	margin-top: 12px;
+}
+.single-howit-works img {
+	width: 70px;
+}
+.section-title span {
+    font-size: 14px;
+    color: #6a6a77;
+    text-transform: uppercase;
+	  letter-spacing: 4px;
+}
+.section-title {
+    margin-bottom: 45px;
+	text-align: center;
 }

@@ -63,17 +63,20 @@ if (isset($_REQUEST['user_id']) && !empty($_REQUEST['user_id'])) {
     $user0 = $home->userData($sentby_user_id);
 ?>
 <div class="donate-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrapLogin">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+           <div class="img-popup-wrap"  id="popupEnd">
         	<div class="img-popup-body">
 
-                <div class="container">
+
+                <div class="container-fuild">
 
                     <div class="card">
                         <div class="card-header text-center">
+                            <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
                             <h4 class="card-title">Donate to Mr(s)</h4>
                         </div>
                         <div class="card-body">
@@ -130,7 +133,7 @@ if (isset($_REQUEST['user_id']) && !empty($_REQUEST['user_id'])) {
                                                 </span>
                                             </div>
                                             <input type="text" class="form-control" name="number" id="number"
-                                                aria-describedby="helpId" value="MTN:(+250) 0783566367 OR TIGO:(+250) 074925262672" readonly>
+                                                aria-describedby="helpId" value="MTN:*182*1*1*0782822402*amount#" readonly>
                                         </div>
                                     </div>
                                 </div>
