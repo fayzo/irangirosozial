@@ -6,10 +6,12 @@ if (isset($_POST['key']) == 'textarea'){
 
 	$user_id= $users->test_input($_POST['id']);
 	$status= $users->test_input($_POST['status']);
+    $title_name= $users->test_input($_POST['title_name']);
 
-	if (!empty($status)) {
 
-		if (strlen($status) > 200) {
+    if (!empty($status)) {
+
+		if (strlen($status) > 1000) {
 			exit('<div class="alert alert-danger alert-dismissible fade show text-center">
                     <button class="close" data-dismiss="alert" type="button">
                         <span>&times;</span>
@@ -21,6 +23,7 @@ if (isset($_POST['key']) == 'textarea'){
 		
 		 $tweet_id= $users->creates('tweets',array(
                         'status' => $status, 
+                        'title_name' => $title_name, 
                         'tweetBy' => $user_id, 
                         'posted_on' => date('Y-m-d H-i-s'),
                     ));
@@ -51,8 +54,45 @@ if (isset($_POST['key']) == 'textarea'){
 }else{
 	# code...
 	$user_id= $users->test_input($_POST['id_posts']);
+	$title_name= $users->test_input($_POST['title_name']);
 	$status= $users->test_input($_POST['status']);
-	$files= $_FILES['files'];
+    $files= $_FILES['files'];
+
+if (!empty($_POST['photo-Titleo0'])) {
+        $photo_Titleo=  $users->test_input($_POST['photo-Titleo0']);
+}else {
+         $photo_Titleo='';
+}
+if (!empty($_POST['photo-Title0'])) {
+        $photo_Title0=  $users->test_input($_POST['photo-Title0']);
+}else {
+         $photo_Title0='';
+}
+if (!empty($_POST['photo-Title1'])) {
+        $photo_Title1=  $users->test_input($_POST['photo-Title1']);
+}else {
+         $photo_Title1='';
+}
+if (!empty($_POST['photo-Title2'])) {
+        $photo_Title2=  $users->test_input($_POST['photo-Title2']);
+}else {
+         $photo_Title2='';
+}
+if (!empty($_POST['photo-Title3'])) {
+        $photo_Title3=  $users->test_input($_POST['photo-Title3']);
+}else {
+         $photo_Title3='';
+}
+if (!empty($_POST['photo-Title4'])) {
+       $photo_Title4=  $users->test_input($_POST['photo-Title4']);
+}else {
+         $photo_Title4='';
+}
+if (!empty($_POST['photo-Title5'])) {
+       $photo_Title5=  $users->test_input($_POST['photo-Title5']);
+}else {
+         $photo_Title5='';
+}
 
 	if (!empty($status) || !empty(array_filter($files['name'])) ) {
 		if (!empty($files['name'][0])) {
@@ -60,7 +100,7 @@ if (isset($_POST['key']) == 'textarea'){
 			$tweetimages = $home->uploadPostsImage($files);
 		}
 
-		if (strlen($status) > 200) {
+		if (strlen($status) > 1000) {
 			exit('<div class="alert alert-danger alert-dismissible fade show text-center">
                     <button class="close" data-dismiss="alert" type="button">
                         <span>&times;</span>
@@ -71,7 +111,10 @@ if (isset($_POST['key']) == 'textarea'){
 		
 	 $tweet_id= $users->creates('tweets',array(
                         'status' => $status, 
+                        'title_name' => $title_name, 
                         'tweetBy' => $user_id, 
+                        'photo_Title_main'=> $photo_Titleo,
+                        'photo_Title'=> $photo_Title0.'='.$photo_Title1.'='.$photo_Title2.'='.$photo_Title3.'='.$photo_Title4.'='.$photo_Title5,
                         'tweet_image' => $tweetimages, 
                         'posted_on' => date('Y-m-d H-i-s')
                     ));

@@ -44,11 +44,12 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#form-fund', function (e) {
+    $(document).on('click', '#submit-help-fund', function (e) {
         // event.preventDefault();
         e.stopPropagation();
+        var formdatas = $('#form-fund');
         var firstname = $('#first-name');
-        var middlename = $('#middle-name');
+        // var middlename = $('#middle-name');
         var lastname = $('#last-name');
         var email = $('#email');
         var telephone = $('#telephone');
@@ -70,6 +71,7 @@ $(document).ready(function () {
         var other_photo = $('#other-photo');
         var video = $('#video');
         var youtube = $('#youtube');
+        var money_raising = $('#money_raising');
         var categories_fundraising = $('#categories_fundraising');
           var photo_Titleo0 = $('#photo-Titleo0');
         var photo_Title0 = $('#photo-Title0');
@@ -79,9 +81,9 @@ $(document).ready(function () {
         var photo_Title4 = $('#photo-Title4');
         var photo_Title5 = $('#photo-Title5');
 
-        if (isEmpty(firstname) && isEmpty(middlename) && isEmpty(lastname) && isEmpty(email) && isEmpty(address) &&
+        if (isEmpty(firstname) && isEmpty(lastname) && isEmpty(email) && isEmpty(address) &&
             isEmpty(telephone) && isEmpty(country) && isEmpty(city) && isEmpty(province) && isEmpty(districts) &&
-            isEmpty(sector) && isEmpty(cell) && isEmpty(village) && isEmpty(categories_fundraising) && isEmpty(additioninformation) && 
+            isEmpty(sector) && isEmpty(cell) && isEmpty(village) && isEmpty(categories_fundraising) && isEmpty(money_raising) && isEmpty(additioninformation) && 
             isEmpty(photo) && isEmpty(other_photo) && isEmpty(video) && isEmpty(youtube) && isEmpty(photo_Titleo0) && isEmpty(photo_Title0) && isEmpty(photo_Title1) && isEmpty(photo_Title2) &&
             isEmpty(photo_Title3) && isEmpty(photo_Title4) && isEmpty(photo_Title5)) {
             
@@ -106,7 +108,8 @@ $(document).ready(function () {
                 $.ajax({
                     url: 'core/ajax_db/fundraising_addhelp',
                     method: "POST",
-                    data: new FormData(this),
+                    // data: new FormData(this),
+                    data: formdatas.serializefiles(),
                     contentType: false,
                     processData: false,
                     xhr: function () {

@@ -43,9 +43,10 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#form-house', function (e) {
+    $(document).on('click', '#submit-form-house', function (e) {
         // event.preventDefault();
         e.stopPropagation();
+        var formdatas = $('#form-house');
         var title = $('#title');
         var authors = $('#authors');
         var additioninformation = $('#addition-information');
@@ -97,7 +98,8 @@ $(document).ready(function () {
                 $.ajax({
                     url: 'core/ajax_db/house_addcategories',
                     method: "POST",
-                    data: new FormData(this),
+                    // data: new FormData(this),
+                    data: formdatas.serializefiles(),
                     contentType: false,
                     processData: false,
                     xhr: function () {

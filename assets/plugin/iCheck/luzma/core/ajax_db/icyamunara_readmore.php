@@ -100,6 +100,7 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
                         
                             <h4 class="mt-2"><i>
                                 Seller: <?php echo $user['authors']; ?>
+                                <span <?php if(isset($_SESSION['key'])){ echo 'class="people-message more"'; }else{ echo 'class="more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $user['user_id'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </span><br>
                             </i></h4>
                             <div class="mt-2">
                                 <span>Phone: <?php echo $user['phone']; ?></span><br>

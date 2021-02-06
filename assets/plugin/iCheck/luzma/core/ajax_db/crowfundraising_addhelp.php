@@ -215,7 +215,7 @@ if (isset($_POST['crowfund_view']) && !empty($_POST['crowfund_view'])) {
 
                  </div><!-- card-body end-->
                 <div class="card-footer text-center">
-                    <button type="button" id="submit-help" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
+                    <button type="button" id="submit-help-crowfund" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
                 </div><!-- card-footer -->
                </form>
             </div><!-- card end-->

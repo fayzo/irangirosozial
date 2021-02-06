@@ -556,6 +556,26 @@
     
        
     // Get Villages list
+    function showResultCSector(){
+        var province = document.getElementById('provincecode').value;
+        var district = document.getElementById('districtcode').value;
+        var sector = document.getElementById('sectorcode').value;
+        // var cell = document.getElementById('codecell').value;
+        var type_of_school = document.getElementById('type_of_school').value;
+        var params = '&type_of_school='+type_of_school+'&province='+province+'&district='+district+'&sectorResult='+sector,
+		http=new XMLHttpRequest();
+		http.open("POST","core/ajax_db/getcell.php",true);
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		http.send(params);
+		http.onreadystatechange = function() 
+		{
+            // Call a function when the cell changes.
+			
+		document.getElementById("cell-hide").innerHTML=http.responseText;
+				
+		}		
+    }
+
     function showResultCell(){
         var province = document.getElementById('provincecode').value;
         var district = document.getElementById('districtcode').value;
@@ -565,6 +585,26 @@
         var params = '&type_of_school='+type_of_school+'&province='+province+'&district='+district+'&sector='+sector+'&cell='+cell,
 		http=new XMLHttpRequest();
 		http.open("POST","core/ajax_db/getcell.php",true);
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		http.send(params);
+		http.onreadystatechange = function() 
+		{
+            // Call a function when the cell changes.
+			
+		document.getElementById("cell-hide").innerHTML=http.responseText;
+				
+		}		
+    }
+
+    function showResultSector_province(){
+        var province = document.getElementById('provincecode').value;
+        var district = document.getElementById('districtcode').value;
+        var sector = document.getElementById('sectorcode').value;
+        // var cell = document.getElementById('codecell').value;
+        var location_province = document.getElementById('location_province').value;
+        var params = '&location_province='+location_province+'&province='+province+'&district='+district+'&sector_province='+sector,
+		http=new XMLHttpRequest();
+		http.open("POST","core/ajax_db/getcell_district.php",true);
 		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 		http.send(params);
 		http.onreadystatechange = function() 
@@ -785,6 +825,7 @@
         }, false);
     }
 
+    
 
 </script>
 </head>

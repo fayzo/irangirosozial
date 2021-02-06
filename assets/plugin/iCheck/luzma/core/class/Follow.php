@@ -306,9 +306,9 @@ class Follow extends Events
                                 <li><a href="'.BASE_URL_PUBLIC.$whoTofollow['username'].'" id="'.$whoTofollow["user_id"].'" >'.$whoTofollow['username'].'</a>
                                 </li>
                                 <li>'.((!empty($whoTofollow['career'])?'
-                                <small class="my-0 ml-2" style="font-size: 12px;">'.$whoTofollow['career'].'</small>
+                                <small class="my-0" style="font-size: 12px;">'.$whoTofollow['career'].'</small>
                                 ':'
-                                <small class="my-0 ml-2" style="font-size: 12px;">Member</small>
+                                <small class="my-0" style="font-size: 12px;">Member</small>
                                 ')).'</li>
                             </ul>
                             <div class="whoTofollow-btn">

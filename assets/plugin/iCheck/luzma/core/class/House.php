@@ -22,7 +22,8 @@ class House extends Home {
             Left JOIN sectors T ON H. sector = T. sectorcode
             Left JOIN cells C ON H. cell = C. codecell
             Left JOIN vilages V ON H. village = V. CodeVillage 
-        WHERE H. categories_house ='$categories' ORDER BY H. buy='sold' ,rand() Desc Limit $showpages,10");
+        WHERE H. categories_house ='$categories' ORDER BY rand() , H. created_on3 Desc Limit $showpages,10");
+        // WHERE H. categories_house ='$categories' ORDER BY H. buy='sold' ,rand() Desc Limit $showpages,10");
         ?>
         <div class="card card-primary mb-3 ">
          <div class="card-header main-active p-1">
@@ -82,13 +83,19 @@ class House extends Home {
                            <div class="text-primary mb-0">
                               <a class="text-primary float-left" href="javascript:void(0)" id="house-readmore" data-house="<?php echo $house['house_id']; ?>" ><i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <!-- < ?php echo $house['provincename']; ?> /  -->
-                                <?php echo $house['namedistrict']; ?> District/ 
-                                <?php echo $house['namesector']; ?> Sector
+                                <?php echo $house['namedistrict']; ?> / 
+                                <?php echo $house['namesector']; ?> /
+                                <?php echo $house['nameCell']; ?>
                                 <!-- < ?php echo $house['nameCell']; ?> Cell  -->
                                </a>
 
                                 <!-- delete -->
-                                 <?php echo $this->EditdeletePost($user_id,$house['user_id3']); ?>
+                                <?php 
+                                if(isset($_SESSION['key']) && $user_id == $house['user_id3'] ){ 
+                                 
+                                     echo $this->EditdeletePost($user_id,$house['user_id3'],$house); 
+                                 
+                                 } ?>
                                 <!-- delete -->
 
                                 <span class="float-right"> 
@@ -340,13 +347,14 @@ class House extends Home {
     }
 
     
-    public function EditdeletePost($user_id,$house_id3){
+    public function EditdeletePost($user_id,$house_id3,$house){
         
-        if(isset($_SESSION['key']) && $user_id == $house_id3 ){ 
-            $mysqli= $this->database;
-            $query= $mysqli->query("SELECT * FROM house WHERE house_id ='$house_id3'");
-            $house= $query->fetch_array();
-            
+            // $mysqli= $this->database;
+            // $query= $mysqli->query("SELECT * FROM house WHERE house_id ='{$house_id3}' and user_id3 = '{$user_id}' ");
+            // $house= $query->fetch_array();
+            // var_dump($house);
+            // var_dump('ERROR: Could not able to execute'.$query.mysqli_error($mysqli));
+
             ?>
 
             <ul class="list-inline ml-2  float-right" style="list-style-type: none;">  
@@ -454,7 +462,7 @@ class House extends Home {
                         </ul>
                     </li>
             </ul>
-        <?php }
+        <?php 
     }
 
     public function bannerDiscount($banners){
@@ -464,15 +472,15 @@ class House extends Home {
         switch ($banner) {
             case $banner == 'new':
                 # code...    margin-left: -10px;
-                echo '<img style="margin-left: -10px;position: absolute; left: 0;" src="'.BASE_URL_LINK.'image/banner/new.png" width="80px">';
+                echo '<img style="margin-left: -10px;position: absolute; left: 0;top: 0;" src="'.BASE_URL_LINK.'image/banner/new.png" width="80px">';
                 break;
             case $banner == 'great_deal':
                 # code...
-                echo '<img style="margin-right: -10px;position: absolute; right: 0;" src="'.BASE_URL_LINK.'image/banner/great-deal.png" width="80px">';
+                echo '<img style="position: absolute; right: 0;top: 0;" src="'.BASE_URL_LINK.'image/banner/great-deal.png" width="80px">';
                 break;
             case $banner == 'new_arrival':
                 # code...
-                echo '<img style="margin-right: -10px;position: absolute; left: 0;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png" width="80px">';
+                echo '<img style="margin-right: -10px;position: absolute; left: 0;top: 0;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png" width="80px">';
                 break;
             default:
                 # code...
@@ -550,6 +558,125 @@ class House extends Home {
                     break;
             } 
     }
+
+    public function houseData($user_id)
+    {
+        $mysqli= $this->database;
+        $query= $mysqli->query("SELECT * FROM house WHERE user_id3 ='$user_id' ");
+        $row= $query->fetch_array();
+        return $row;
+    }
+
+    public function houseListActivities($user_id)
+    {
+        $mysqli= $this->database;
+        $query= $mysqli->query("SELECT * FROM house H
+        Left JOIN provinces P ON H. province = P. provincecode
+        Left JOIN districts M ON H. districts = M. districtcode
+        Left JOIN sectors T ON H. sector = T. sectorcode
+        Left JOIN cells C ON H. cell = C. codecell
+        Left JOIN vilages V ON H. village = V. CodeVillage 
+        
+        WHERE H. user_id3 ='$user_id' ORDER BY H. created_on3 Desc");
+        ?>
+        <div class="card card-primary mb-3 ">
+        <div class="card-header main-active p-1">
+            <h5 class="card-title text-center"><i> House </i></h5>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <div class="row">
+          <ul class="timeline timeline-inverse">  
+               <li class="time-label" style="margin-bottom: 0px;">
+                        <span style="margin-left: -10px;"> <img src="<?php echo BASE_URL_LINK.'image/banner/discount.png' ;?>" width="80px"> </span>
+                       
+                        <?php echo $this->bannerPublishhouse('House_For_sale'); ?>
+                </li>
+                <?php while($house= $query->fetch_array()) { ?>
+                    <li class="time-label">
+                        <?php echo $this->buychangesColor($house['buy']); ?>
+                     
+                         <?php if($house['discount'] != 0){ ?>
+                            <?php echo $this->PercentageDiscount($house['discount']); ?>
+                        <?php }else { echo ''; ?>
+                            <!-- <span class="bg-info text-light" style="position: absolute;font-size: 11px; padding: 2px;margin-left: 10px;margin-top: 40px;"> 0% </span>  -->
+                        <?php } ?>
+
+                        <div class="timeline-item card flex-md-row shadow-sm h-md-100 border-0">
+                        <!-- <img class="card-img-left flex-auto d-none d-lg-block" height="100px" width="100px" src="< ?php echo BASE_URL_PUBLIC.'uploads/house/'.$house['photo'] ;?>" alt="Card image cap"> -->
+                        <div class="col-md-4 px-0 card-img-left">
+                        <!-- <div class="card-img-left" style="background: url('< ?php echo BASE_URL_PUBLIC.'uploads/house/'.$house['photo']; ?>')no-repeat;background-size:cover;"> -->
+                        <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC.'uploads/house/'.$house['photo']; ?>">
+                        <!-- banner -->
+                         <?php echo $this->bannerDiscount($house['banner']); ?>
+                         <!-- banner -->
+                          
+                        </div>
+                        <div class="col-md-8 card-body pt-0">
+                        <span id="response<?php echo $house['house_id']; ?>"></span>
+                           <div class="text-primary mb-0">
+                              <a class="text-primary float-left" href="javascript:void(0)" id="house-readmore" data-house="<?php echo $house['house_id']; ?>" ><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <!-- < ?php echo $house['provincename']; ?> /  -->
+                                <?php echo $house['namedistrict']; ?> / 
+                                <?php echo $house['namesector']; ?> /
+                                <?php echo $house['nameCell']; ?>
+
+                                <!-- < ?php echo $house['nameCell']; ?> Cell  -->
+                               </a>
+
+                                <!-- delete -->
+                                <?php 
+                                if(isset($_SESSION['key']) && $user_id == $house['user_id3'] ){ 
+                                 
+                                     echo $this->EditdeletePost($user_id,$house['user_id3'],$house); 
+                                 
+                                 } ?>
+                                <!-- delete -->
+
+                                <span class="float-right"> 
+                                     <?php if($house['price_discount'] != 0){ ?><span class="mr-2 text-danger " style="text-decoration: line-through;"><?php echo number_format($house['price_discount']); ?> Frw</span> <?php } ?><span class="text-primary" > <?php echo number_format($house['price']); ?> Frw</span>
+                               </span>
+                               <!-- <span class="float-right"> < ?php echo $house['price']; ?> Frw</span> -->
+                            </div> 
+                            <div class="text-muted clear-float">
+                                <span class="float-left"><i class="fa fa-home" aria-hidden="true"></i> 
+                                <?php 
+                                        $subect = $house['categories_house'];
+                                        $replace = " ";
+                                        $searching = "_";
+                                        echo str_replace($searching,$replace, $subect);
+                                        ?>
+                                <!-- < ?php echo $categories; ?> -->
+                                </span>
+                                <span class="float-right mr-5"><i class="fa fa-heart" aria-hidden="true"></i></span></div>
+                            <div class="text-muted clear-float">
+                                <span><i class="fa fa-clock-o" aria-hidden="true"></i> Created on <?php echo $this->timeAgo($house['created_on3'])." By ".$house['authors']; ?></span>
+                            </div>
+                            <p class="card-text clear-float">
+                                <?php if (strlen($house["text"]) > 98) {
+                                            echo $house["text"] = substr($house["text"],0,98).'...
+                                            <span class="mb-0"><a href="javascript:void(0)" id="house-readmore" data-house="'.$house['house_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Read more...</a></span>';
+                                            }else{
+                                            echo $house["text"];
+                                            } ?> 
+                            </p>
+
+                        </div><!-- card-body -->
+                        </div><!-- card -->
+                    </li>
+                    <!-- END timeline item -->
+                    <?php }
+                    
+                    ?>    
+                    <li>
+                        <i class="fa fa-clock-o bg-info text-light"></i>
+                    </li>
+                  </ul>
+            </div> <!-- row -->
+           </div> <!-- card-body -->
+        </div> <!-- card -->
+     
+    <?php }
 
 
 }

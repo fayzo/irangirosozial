@@ -52,7 +52,7 @@
                     <div class="t-fo-left">
 
                       <ul>
-                        <input type="file" name="files[]" id="file" multiple="">
+                        <input type="file" name="files[]" id="file" multiple="" onChange="displayImage(this)">
                         <?php if(isset($_SESSION['approval']) && $_SESSION['approval'] === 'on'){ ?>
                         <li><label for="file"><i class="fa fa-camera" aria-hidden="true"></i></label>
                           <span class="tweet-error">
@@ -64,10 +64,12 @@
 
                     </div>
                     <div class="t-fo-right">
-                      <span id="count">400</span>
+                      <span id="count">1000</span>
                       <input <?php echo (isset($_SESSION['key']))?'type="submit"':'type="button" id="login-please" data-login="1"';?> class="btn main-active" name="tweet" value="Post">
                     </div>
                     <!--  progress-xs -->
+                    <div id="add-photo0" class="row">
+                    </div>
                     <span class="progress progress-hide" style="display: none;">
                       <span class="progress-bar bg-danger" role="progressbar" style="width:0%;" id="pro"
                         aria-valuenow="" aria-valuemin="0" aria-valuemax="100"><span> completed <span

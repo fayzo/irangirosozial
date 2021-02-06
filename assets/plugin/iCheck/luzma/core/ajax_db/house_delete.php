@@ -8,10 +8,22 @@ if (isset($_POST['available']) && !empty($_POST['available'])) {
 	$user_id= $_POST['user_id'];
     $available= $_POST['available'];
     $discount_change= $_POST['discount_change'];
-	$discount_price= $_POST['discount_price'];
+	$price_discount= $_POST['discount_price'];
 	$price= $_POST['price'];
-	$banner= $_POST['banner'];
-    $house->update_house($banner,$available,$discount_change,$discount_price,$price,$house_id);
+    $banner= $_POST['banner'];
+    
+    $house->updateReal('house',array(
+        
+        'banner' => $banner, 
+        'buy' => $available, 
+        'discount' => $discount_change, 
+        'price_discount' => $price_discount, 
+        'price' => $price,
+
+    ),array(
+        'house_id' => $house_id
+    ));
+    // $house->update_house($banner,$available,$discount_change,$discount_price,$price,$house_id);
 }
 
 if (isset($_POST['deleteTweetHome']) && !empty($_POST['deleteTweetHome'])) {

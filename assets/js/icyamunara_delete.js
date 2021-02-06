@@ -50,6 +50,8 @@ $(document).ready(function () {
         var available = $('#available' + house_id).val();
         var discount_change = $('#discount_change' + house_id).val();
         var banner = $('#banner' + house_id).val();
+        var price = $('#price' + house_id).val();
+        var price_discount = $('#discount_price' + house_id).val();
 
         $.ajax({
             url: 'core/ajax_db/icyamunara_delete',
@@ -60,6 +62,8 @@ $(document).ready(function () {
                 user_id: user_id,
                 available: available,
                 discount_change: discount_change,
+                price :price,
+                price_discount :price_discount,
                 banner: banner,
             }, success: function (response) {
                 $("#response" + house_id).html(response);
@@ -67,7 +71,7 @@ $(document).ready(function () {
                     $("#response" + house_id).fadeOut();
                 }, 1000);
                 setInterval(function () {
-                    location.reload();
+                    // location.reload();
                 }, 1100);
                 // console.log(response);
             }

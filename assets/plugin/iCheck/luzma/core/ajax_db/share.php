@@ -60,7 +60,31 @@ if (isset($_POST['showpopretweet']) && !empty($_POST['showpopretweet'])) {
                                             <!-- //Jonathan Burke Jr. -->
                                            <span class="description">Shared public - <?php echo $home->timeAgo($retweet['posted_on']); ?></span>
                                         </span>
-                                        <span class="description"><?php echo ''.$home->getTweetLink($retweet['status']).''; ?></span>
+                                        <span class="description">
+                                        <div class="title-name-black"><?php echo $retweet['title_name']; ?></div>
+                                        <div id="link_" class="show-read-more">
+                                        <?php 
+
+                                            if (strlen($retweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                            $tweettext = substr($retweet['status'], 0, 200);
+                                            $tweetstatus = substr($retweet['status'], 0, strrpos($tweettext, ' ')).'
+                                            <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmores" data-tweettext="'.$retweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                                            echo $home->getTweetLink($tweetstatus);
+                                            }else{
+                                            echo $home->getTweetLink($retweet['status']);
+                                            }  
+                                            if (strlen($retweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                                $tweettext = substr($retweet['status'], 0, 200);
+                                                $tweetstatus = substr($retweet['status'], strrpos($tweettext, ' '));
+                                                echo '<span style="display: none;" class="more-text view-more-text'.$retweet["tweet_id"].'">'.$home->getTweetLink($tweetstatus).'</span>';
+                                            }  
+                                            ?>
+                                        </div>
+
+                                            <!-- < ?php echo ''.$home->getTweetLink($retweet['status']).''; ?> -->
+                                        </span>
                                     </div>
                                  
                             <?php   if(empty($retweet["tweet_image"]) == 1){

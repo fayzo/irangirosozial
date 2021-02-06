@@ -11,7 +11,8 @@ class Posts_home extends Gurisha {
         $mysqli= $this->database;
         // $sql="SELECT * FROM tweets T LEFT JOIN users U ON T. tweetBy= U. user_id LEFT JOIN blog B ON B. tweet_blog_by = U. user_id WHERE T. tweetBy = $user_id AND T. retweet_id='0' AND B. blog_post = 'posted' OR T. tweetBy= U. user_id AND T. retweet_by != $user_id AND B. blog_post= 'posted' AND T. tweetBy IN (SELECT receiver FROM follow WHERE sender= $user_id) ORDER BY T. tweet_id DESC LIMIT $limit ";
         // $sql="SELECT * FROM tweets T LEFT JOIN users U ON (T. retweet_by = U. user_id OR T. tweetBy= U. user_id) WHERE T. tweetBy = $user_id AND T. retweet_id='0' OR T. retweet_by != $user_id ORDER BY T. tweet_id DESC LIMIT $limit";
-        $sql="SELECT * FROM tweets T LEFT JOIN users U ON T. tweetBy= U. user_id WHERE T. tweetBy = $user_id AND T. retweet_id='0' OR T. tweetBy= U. user_id AND T. retweet_by != $user_id AND T. tweetBy IN (SELECT receiver FROM follow WHERE sender= $user_id) ORDER BY T. tweet_id DESC LIMIT $limit";
+        // $sql="SELECT * FROM tweets T LEFT JOIN users U ON T. tweetBy= U. user_id WHERE T. tweetBy = $user_id AND T. retweet_id='0' OR T. tweetBy= U. user_id AND T. retweet_by != $user_id AND T. tweetBy IN (SELECT receiver FROM follow WHERE sender= $user_id) ORDER BY T. tweet_id DESC LIMIT $limit";
+        $sql="SELECT * FROM tweets T LEFT JOIN users U ON T. tweetBy= U. user_id WHERE T. tweetBy = $user_id AND T. retweet_id='0' OR T. tweetBy= U. user_id AND T. tweetBy IN (SELECT receiver FROM follow WHERE sender= $user_id) ORDER BY T. tweet_id DESC LIMIT $limit";
         $query= $mysqli->query($sql);
         $tweets=array();
         while ($row= $query->fetch_assoc()) {
@@ -22,7 +23,8 @@ class Posts_home extends Gurisha {
         foreach ($tweets as $tweet) {
             $likes= $this->likes($user_id,$tweet['tweet_id']);
             $likes0= $this->Like_second($user_id,$tweet['tweet_id']);
-            $retweet= $this->checkRetweet($tweet['tweet_id'],$user_id);
+            // $retweet= $this->checkRetweet($tweet['tweet_id'],$user_id);
+            $retweet= $this->checkRetweet($tweet['tweet_id'],$tweet['retweet_by']);
             $user= $this->userData($retweet['retweet_by']);
             $comment= $this->comments($tweet['tweet_id']);
             
@@ -79,7 +81,7 @@ class Posts_home extends Gurisha {
              $pdf= array('jpg','jpeg','peg','png','gif');
              $image= array('pdf','doc','ocx','lsx'); ?>
             
-            <?php if(array_diff($fileActualExt,$image)) { ?>
+             <?php if(array_diff($fileActualExt,$image)) { ?>
 
                       <div class="row">
                           <div class="col-6 ">
@@ -140,22 +142,28 @@ class Posts_home extends Gurisha {
 
                                     <div class="col-12" style="clear:both">
                                            <!-- STATUS -->
-                                         <span><?php 
-                                         $tatus= $this->getTweetLink($tweet['status']);
-                                         if(!empty($tatus)){
-                                         $post = (strlen($tatus) > 140)? 
-                                                       strtolower(substr($tatus,0,strlen($tatus)-140).' ...
-                                                              <span class="btn btn-primary btn-sm float-right" >
-                                                            View More >>></span>
-                                                       '): $tatus;
-                                         echo $post;
-                                        }else{
+                                        <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
+                                        <div id="link_" class="show-read-more">
+                                        <?php 
 
-                                        echo '<div class="text-center p-0 m-0 imageViewPopup mailbox-attachment-icon"  data-tweet="'.$tweet["tweet_id"].'" ><span style="text-decoration:none;" 
-                                                ><i class="fa fa-photo" style="font-size:50px;"></i></span></div>'; 
-                                        
-                                        } ?>
-                                         </span>
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                            $tweettext = substr($tweet['status'], 0, 200);
+                                            $tweetstatus = substr($tweet['status'], 0, strrpos($tweettext, ' ')).'
+                                            <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                                            echo $this->getTweetLink($tweetstatus);
+                                            }else{
+                                            echo $this->getTweetLink($tweet['status']);
+                                            }  
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                                $tweettext = substr($tweet['status'], 0, 200);
+                                                $tweetstatus = substr($tweet['status'], strrpos($tweettext, ' '));
+                                                echo '<span style="display: none;" class="more-text view-more-text'.$tweet["tweet_id"].'">'.$this->getTweetLink($tweetstatus).'</span>';
+                                            }  
+                                        ?>
+                                        <span class="btn btn-primary btn-sm float-right" >View More >>></span>
+                                        </div>
                                     </div><!-- col -->
                                     
                                 </div><!-- row -->
@@ -206,22 +214,29 @@ class Posts_home extends Gurisha {
                                     </div> <!-- col -->
 
                                     <div class="col-12" style="clear:both">
-                                            <!-- STATUS -->
-                                            <span><?php 
-                                            $tatus= $this->getTweetLink($tweet['status']);
-                                            if(!empty($tatus)){
-                                            $post = (strlen($tatus) > 140)? 
-                                                        strtolower(substr($tatus,0,strlen($tatus)-140).' ...
-                                                                <span class="btn btn-primary btn-sm float-right" >
-                                                            View More >>></span>
-                                                        '): $tatus;
-                                            echo $post;
-                                        //  <i class="fa fa-camera-retro" aria-hidden="true"></i>
-                                        }else{
-                                            echo '<div class="text-center p-0 m-0 imageViewPopup mailbox-attachment-icon"  data-tweet="'.$tweet["tweet_id"].'" ><span style="text-decoration:none;" 
-                                                            ><i class="fa fa-file-word-o" style="font-size:50px;"></i></span></div>'; 
-                                        } ?>
-                                            </span>
+                                             <!-- STATUS -->
+                                        <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
+                                        <div id="link_" class="show-read-more">
+                                        <?php 
+
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                            $tweettext = substr($tweet['status'], 0, 200);
+                                            $tweetstatus = substr($tweet['status'], 0, strrpos($tweettext, ' ')).'
+                                            <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                                            echo $this->getTweetLink($tweetstatus);
+                                            }else{
+                                            echo $this->getTweetLink($tweet['status']);
+                                            }  
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                                $tweettext = substr($tweet['status'], 0, 200);
+                                                $tweetstatus = substr($tweet['status'], strrpos($tweettext, ' '));
+                                                echo '<span style="display: none;" class="more-text view-more-text'.$tweet["tweet_id"].'">'.$this->getTweetLink($tweetstatus).'</span>';
+                                            }  
+                                        ?>
+                                        <span class="btn btn-primary btn-sm float-right" >View More >>></span>
+                                        </div>
                                     </div><!-- col -->
                                     
                                 </div><!-- row -->
@@ -271,22 +286,29 @@ class Posts_home extends Gurisha {
                                     </div> <!-- col -->
 
                                     <div class="col-12" style="clear:both">
-                                            <!-- STATUS -->
-                                            <span><?php 
-                                            $tatus= $this->getTweetLink($tweet['status']);
-                                            if(!empty($tatus)){
-                                            $post = (strlen($tatus) > 140)? 
-                                                        strtolower(substr($tatus,0,strlen($tatus)-140).' ...
-                                                                <span class="btn btn-primary btn-sm float-right" >
-                                                            View More >>></span>
-                                                        '): $tatus;
-                                            echo $post;
-                                        //  <i class="fa fa-camera-retro" aria-hidden="true"></i>
-                                        }else{
-                                            echo '<div class="text-center p-0 m-0 imageViewPopup mailbox-attachment-icon"  data-tweet="'.$tweet["tweet_id"].'" ><span style="text-decoration:none;" 
-                                                            ><i class="fa fa-file-pdf-o" style="font-size:50px;"></i></span></div>'; 
-                                        } ?>
-                                         </span>
+                                              <!-- STATUS -->
+                                        <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
+                                        <div id="link_" class="show-read-more">
+                                        <?php 
+
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                            $tweettext = substr($tweet['status'], 0, 200);
+                                            $tweetstatus = substr($tweet['status'], 0, strrpos($tweettext, ' ')).'
+                                            <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                                            echo $this->getTweetLink($tweetstatus);
+                                            }else{
+                                            echo $this->getTweetLink($tweet['status']);
+                                            }  
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                                $tweettext = substr($tweet['status'], 0, 200);
+                                                $tweetstatus = substr($tweet['status'], strrpos($tweettext, ' '));
+                                                echo '<span style="display: none;" class="more-text view-more-text'.$tweet["tweet_id"].'">'.$this->getTweetLink($tweetstatus).'</span>';
+                                            }  
+                                        ?>
+                                        <span class="btn btn-primary btn-sm float-right" >View More >>></span>
+                                        </div>
                                     </div><!-- col -->
                                     
                                 </div><!-- row -->
@@ -327,21 +349,29 @@ class Posts_home extends Gurisha {
                                     </div> <!-- col -->
 
                                     <div class="col-12" style="clear:both">
-                                           <!-- STATUS -->
-                                         <span><?php 
-                                         $tatus= $this->getTweetLink($tweet['status']);
-                                         if(!empty($tatus)){
-                                         $post = (strlen($tatus) > 140)? 
-                                                       strtolower(substr($tatus,0,strlen($tatus)-140).' ...
-                                                              <span class="btn btn-primary btn-sm float-right" >
-                                                            View More >>></span>
-                                                       '): $tatus;
-                                         echo $post;
-                                        //  <i class="fa fa-camera-retro" aria-hidden="true"></i>
-                                        }else{
-                                          echo '<div class="text-center p-0 m-0 imageViewPopup"  data-tweet="'.$tweet["tweet_id"].'" ><span style="text-decoration:none;color:#333333;" 
-                                                            ><i class="fa fa-camera-retro main-active" style="font-size:50px;"></i></span></div>';                                                             } ?>
-                                         </span>
+                                          <!-- STATUS -->
+                                          <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
+                                        <div id="link_" class="show-read-more">
+                                        <?php 
+
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                            $tweettext = substr($tweet['status'], 0, 200);
+                                            $tweetstatus = substr($tweet['status'], 0, strrpos($tweettext, ' ')).'
+                                            <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                                            echo $this->getTweetLink($tweetstatus);
+                                            }else{
+                                            echo $this->getTweetLink($tweet['status']);
+                                            }  
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                                $tweettext = substr($tweet['status'], 0, 200);
+                                                $tweetstatus = substr($tweet['status'], strrpos($tweettext, ' '));
+                                                echo '<span style="display: none;" class="more-text view-more-text'.$tweet["tweet_id"].'">'.$this->getTweetLink($tweetstatus).'</span>';
+                                            }  
+                                        ?>
+                                        <span class="btn btn-primary btn-sm float-right" >View More >>></span>
+                                        </div>
                                     </div><!-- col -->
                                     
                                 </div><!-- row -->
@@ -379,21 +409,29 @@ class Posts_home extends Gurisha {
                                     </div> <!-- col -->
 
                                     <div class="col-12" style="clear:both">
-                                           <!-- STATUS -->
-                                         <span><?php 
-                                         $tatus= $this->getTweetLink($tweet['status']);
-                                         if(!empty($tatus)){
-                                         $post = (strlen($tatus) > 140)? 
-                                                       strtolower(substr($tatus,0,strlen($tatus)-140).' ...
-                                                              <span class="btn btn-primary btn-sm float-right" >
-                                                            View More >>></span>
-                                                       '): $tatus;
-                                         echo $post;
-                                        }else{
-                                        
-                                          echo '<div class="text-center p-0 m-0 imageViewPopup"  data-tweet="'.$tweet["tweet_id"].'" ><span style="text-decoration:none;color:#333333;" 
-                                                            ><i class="fa fa-photo" style="font-size:50px;"></i></span></div>';                                                             } ?>
-                                         </span>
+                                          <!-- STATUS -->
+                                          <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
+                                        <div id="link_" class="show-read-more">
+                                        <?php 
+
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                            $tweettext = substr($tweet['status'], 0, 200);
+                                            $tweetstatus = substr($tweet['status'], 0, strrpos($tweettext, ' ')).'
+                                            <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                                            echo $this->getTweetLink($tweetstatus);
+                                            }else{
+                                            echo $this->getTweetLink($tweet['status']);
+                                            }  
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                                $tweettext = substr($tweet['status'], 0, 200);
+                                                $tweetstatus = substr($tweet['status'], strrpos($tweettext, ' '));
+                                                echo '<span style="display: none;" class="more-text view-more-text'.$tweet["tweet_id"].'">'.$this->getTweetLink($tweetstatus).'</span>';
+                                            }  
+                                        ?>
+                                        <span class="btn btn-primary btn-sm float-right" >View More >>></span>
+                                        </div>
                                     </div><!-- col -->
                                     
                                 </div><!-- row -->
@@ -431,21 +469,29 @@ class Posts_home extends Gurisha {
                                     </div> <!-- col -->
 
                                     <div class="col-12" style="clear:both">
-                                           <!-- STATUS -->
-                                         <span><?php 
-                                         $tatus= $this->getTweetLink($tweet['status']);
-                                         if(!empty($tatus)){
-                                         $post = (strlen($tatus) > 140)? 
-                                                       strtolower(substr($tatus,0,strlen($tatus)-140).' ...
-                                                              <span class="btn btn-primary btn-sm float-right" >
-                                                            View More >>></span>
-                                                       '): $tatus;
-                                         echo $post;
-                                        }else{
-                                        
-                                          echo '<div class="text-center p-0 m-0 imageViewPopup"  data-tweet="'.$tweet["tweet_id"].'" ><span style="text-decoration:none;color:#333333;" 
-                                                            ><i class="fa fa-photo" style="font-size:50px;"></i></span></div>';                                                             } ?>
-                                         </span>
+                                          <!-- STATUS -->
+                                          <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
+                                        <div id="link_" class="show-read-more">
+                                        <?php 
+
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                            $tweettext = substr($tweet['status'], 0, 200);
+                                            $tweetstatus = substr($tweet['status'], 0, strrpos($tweettext, ' ')).'
+                                            <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                                            echo $this->getTweetLink($tweetstatus);
+                                            }else{
+                                            echo $this->getTweetLink($tweet['status']);
+                                            }  
+                                            if (strlen($tweet['status']) > 200) {
+                                                // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                                $tweettext = substr($tweet['status'], 0, 200);
+                                                $tweetstatus = substr($tweet['status'], strrpos($tweettext, ' '));
+                                                echo '<span style="display: none;" class="more-text view-more-text'.$tweet["tweet_id"].'">'.$this->getTweetLink($tweetstatus).'</span>';
+                                            }  
+                                        ?>
+                                        <span class="btn btn-primary btn-sm float-right" >View More >>></span>
+                                        </div>
                                     </div><!-- col -->
                                     
                                 </div><!-- row -->
@@ -476,7 +522,29 @@ class Posts_home extends Gurisha {
                                                    <!-- //Jonathan Burke Jr. -->
                                                    <span class="description">Shared publicly - <?php echo $this->timeAgo($tweet['posted_on']); ?></span>
                                                </span>
-                                               <span class="description"><?php echo $this->getTweetLink($tweet['status']); ?></span>
+                                               <span class="description">
+                                                    <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
+                                                    <div id="link_" class="show-read-more">
+                                                    <?php 
+
+                                                        if (strlen($tweet['status']) > 200) {
+                                                            // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                                        $tweettext = substr($tweet['status'], 0, 200);
+                                                        $tweetstatus = substr($tweet['status'], 0, strrpos($tweettext, ' ')).'
+                                                        <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                                                        echo $this->getTweetLink($tweetstatus);
+                                                        }else{
+                                                        echo $this->getTweetLink($tweet['status']);
+                                                        }  
+                                                        if (strlen($tweet['status']) > 200) {
+                                                            // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                                                            $tweettext = substr($tweet['status'], 0, 200);
+                                                            $tweetstatus = substr($tweet['status'], strrpos($tweettext, ' '));
+                                                            echo '<span style="display: none;" class="more-text view-more-text'.$tweet["tweet_id"].'">'.$this->getTweetLink($tweetstatus).'</span>';
+                                                        }  
+                                                    ?>
+                                                    </div>
+                                                </span>
                                            </div>
 
                                     </div><!-- col -->
@@ -515,8 +583,31 @@ class Posts_home extends Gurisha {
                     <span class="description">Shared publicly - <?php echo $this->timeAgo($tweet['posted_on']); ?></span>
                 </div>
                 <!-- /.user-block -->
+
+                <!-- TEXT -->
+                <!-- TEXT -->
+                <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
+
+                <div id="link_" class="show-read-more">
+                <?php 
+
+                    if (strlen($tweet['status']) > 200) {
+                        // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                    $tweettext = substr($tweet['status'], 0, 200);
+                    $tweetstatus = substr($tweet['status'], 0, strrpos($tweettext, ' ')).'
+                    <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                    echo $this->getTweetLink($tweetstatus);
+                    }else{
+                    echo $this->getTweetLink($tweet['status']);
+                    }  
+                ?>
+
+                <!-- TEXT -->
+                <!-- TEXT -->
                 <?php 
                 $expodefile = explode("=",$tweet['tweet_image']);
+                $title= $tweet["photo_Title"];
+                $photo_title=  explode("=",$title);
                 $fileActualExt= array();
                 for ($i=0; $i < count($expodefile); ++$i) { 
                      $fileActualExt[]= strtolower(substr($expodefile[$i],-3));
@@ -542,6 +633,9 @@ class Posts_home extends Gurisha {
                         <img class="img-fluid imagePopup"
                             src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>"
                             alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
+                        
+                            <div><i><?php echo $photo_title[0]; ?></i></div>
+                    
                     </div>
                  </div>
 
@@ -556,6 +650,9 @@ class Posts_home extends Gurisha {
                             <img class="img-fluid mb-2 imagePopup"
                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
+
+                            <div><i><?php echo $photo_title[$i]; ?></i></div>
+
                         </div>
                             <?php }?>
                     </div>
@@ -569,6 +666,9 @@ class Posts_home extends Gurisha {
                         <img class="img-fluid mb-2 imagePopup"
                             src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[0] ;?>"
                             alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
+
+                            <div><i><?php echo $photo_title[0]; ?></i></div>
+
                     </div>
                     <!-- /.col -->
 
@@ -584,6 +684,9 @@ class Posts_home extends Gurisha {
                                 <img class="img-fluid mb-2 imagePopup"
                                     src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                     alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
+
+                                 <div><i><?php echo $photo_title[$i]; ?></i></div>
+
                             </div>
                                 <?php }?>
 
@@ -598,6 +701,9 @@ class Posts_home extends Gurisha {
                                 <img class="img-fluid mb-2 imagePopup"
                                     src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                     alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
+                                
+                                <div><i><?php echo $photo_title[$i]; ?></i></div>
+
                             </div>
                                 <?php }?>
 
@@ -1015,9 +1121,18 @@ class Posts_home extends Gurisha {
                  </audio>
           <?php }?>
 
-                <p id="link_">
-                    <?php echo $this->getTweetLink($tweet['status']) ;?>
-                </p>
+                <?php 
+                if (strlen($tweet['status']) > 200) {
+                    // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
+                    $tweettext = substr($tweet['status'], 0, 200);
+                    $tweetstatus = substr($tweet['status'], strrpos($tweettext, ' '));
+                    echo '<span style="display: none;" class="more-text view-more-text'.$tweet["tweet_id"].'">'.$this->getTweetLink($tweetstatus).'</span>';
+                }  
+            ?>
+            </div>
+              <!--   <p id="link_">
+                    < ?php echo $this->getTweetLink($tweet['status']) ;?>
+                </p> -->
                 
           <?php }?>
 

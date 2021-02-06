@@ -43,9 +43,10 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#form-icyamunara', function (e) {
+    $(document).on('click', '#submit-form-icyamunara', function (e) {
         // event.preventDefault();
         e.stopPropagation();
+        var formdatas = $('#form-icyamunara');
         var authors = $('#authors');
         var additioninformation = $('#addition-information');
         var photo = $('#photo');
@@ -94,7 +95,8 @@ $(document).ready(function () {
                 $.ajax({
                     url: 'core/ajax_db/icyamunara_addcategories',
                     method: "POST",
-                    data: new FormData(this),
+                    // data: new FormData(this),
+                    data: formdatas.serializefiles(),
                     contentType: false,
                     processData: false,
                     xhr: function () {

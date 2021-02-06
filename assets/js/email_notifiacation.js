@@ -121,6 +121,10 @@ $(document).ready(function () {
             } else if ($('#sendx').attr("value") == "send") {
                 //do button 1 thing
                 var FormDatas = $('#email-composer-new');
+                // var inbox = 'inbox';
+                // '&' + $.param({'send':'inbox'});  
+                var param =$('<input type="hidden" name="send">').val('inbox');
+                FormDatas.append(param);
                 // new FormData(this),
                 
                 $.ajax({
@@ -228,6 +232,8 @@ $(document).ready(function () {
             } else if ($('#send').attr("value") == "sendx") {
                 //do button 1 thing
                 var FormDatas = $('#email-composer-new');
+                var param =$('<input type="hidden" name="send">').val('draft');
+                FormDatas.append(param);
                 // new FormData(this),
 
                 $.ajax({

@@ -8,8 +8,24 @@ if (isset($_POST['available']) && !empty($_POST['available'])) {
 	$user_id= $_POST['user_id'];
     $available= $_POST['available'];
     $discount_change= $_POST['discount_change'];
-	$banner= $_POST['banner'];
-    $icyamunara->update_cyamunara($banner,$available,$discount_change,$house_id);
+    $price_discount= $_POST['price_discount'];
+	$price= $_POST['price'];
+    $banner= $_POST['banner'];
+    
+    $icyamunara->updateReal('icyamunara',array(
+        
+        'banner' => $banner, 
+        'buy' => $available, 
+        'discount' => $discount_change, 
+        'price_discount' => $price_discount, 
+        'price' => $price,
+        'house_id' => $house_id
+
+    ),array(
+        'house_id' => $house_id
+    ));
+    
+    // $icyamunara->update_cyamunara($banner,$available,$discount_change,$user_id, $price_discount,$price,$house_id);
 }
 
 if (isset($_POST['deleteTweetHome']) && !empty($_POST['deleteTweetHome'])) {

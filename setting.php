@@ -3,6 +3,27 @@
 <!-- < ?php include "header_navbar_footer/Get_usernameProfile.php"?> -->
 <title><?php echo $user['username'].' your setting'; ?></title>
 <?php include "header_navbar_footer/header.php"?>
+    
+    <header class="blog-header py-2 bg-light">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-12 text-center">
+           <?php echo $home->links(); ?>
+          </div>
+        </div>
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+           <!-- < ?php if (isset($_SESSION['job_user'])) { ?>
+            <button type="button" class="btn btn-light" id="addPostsjobs" > + Add jobs </button>
+           < ?php } ?> -->
+          </div>
+          <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" href="#">Setting</a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+
+          </div>
+        </div>
+    </header>
 
 
       <section class="content-header">

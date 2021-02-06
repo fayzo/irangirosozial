@@ -43,9 +43,10 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#form-car', function (e) {
+    $(document).on('click', '#submit-form-car', function (e) {
         // event.preventDefault();
         e.stopPropagation();
+        var formdatas = $('#form-car');
         var title = $('#title');
         var authors = $('#authors');
         var additioninformation = $('#addition-information');
@@ -76,20 +77,20 @@ $(document).ready(function () {
             isEmpty(other_photo) && isEmpty(photo_Titleo0) && isEmpty(photo_Title0) && isEmpty(photo_Title1) &&
             isEmpty(photo_Title2) && isEmpty(photo_Title3) && isEmpty(photo_Title4) && isEmpty(photo_Title5)) {
             
-            var extensions3 = $('#photo').val().split('.').pop().toLowerCase();
-            var extensions4 = $('#other-photo').val().split('.').pop().toLowerCase();
-
-            if (jQuery.inArray(extensions3, ['gif', 'png', 'jpg', 'mp4', 'mp3', 'jpeg', 'bmp', 'pdf', 'doc', 'ppt', 'docx', 'xlsx', 'xls', 'zip']) == -1) {
-                $("#responseSubmitcar").html('Invalid Image File').fadeIn();
+            var extensions1 = $('#photo').val().split('.').pop().toLowerCase();
+            var extensions2 = $('#other-photo').val().split('.').pop().toLowerCase();
+            
+            if (jQuery.inArray(extensions1, ['gif', 'png', 'jpg', 'mp4', 'mp3', 'jpeg', 'bmp', 'pdf', 'doc', 'ppt', 'docx', 'xlsx', 'xls', 'zip']) == -1) {
+                $("#responseSubmithelp").html('Invalid Image File').fadeIn();
                 setInterval(function () {
-                    $("#responseSubmitcar").fadeOut();
+                    $("#responseSubmithelp").fadeOut();
                 }, 4000);
                 $('#photo').val('');
                 return false;
-            } else if (jQuery.inArray(extensions4, ['gif', 'png', 'jpg', 'mp4', 'mp3', 'jpeg', 'bmp', 'pdf', 'doc', 'ppt', 'docx', 'xlsx', 'xls', 'zip']) == -1) {
-                $("#responseSubmitcar").html('Invalid Image File').fadeIn();
+            } else if (jQuery.inArray(extensions2, ['gif', 'png', 'jpg', 'mp4', 'mp3', 'jpeg', 'bmp', 'pdf', 'doc', 'ppt', 'docx', 'xlsx', 'xls', 'zip']) == -1) {
+                $("#responseSubmithelp").html('Invalid Image File').fadeIn();
                 setInterval(function () {
-                    $("#responseSubmitcar").fadeOut();
+                    $("#responseSubmithelp").fadeOut();
                 }, 4000);
                 $('#other-photo').val('');
                 return false;
@@ -97,7 +98,8 @@ $(document).ready(function () {
                 $.ajax({
                     url: 'core/ajax_db/car_addcategories',
                     method: "POST",
-                    data: new FormData(this),
+                    // data: new FormData(this),
+                    data: formdatas.serializefiles(),
                     contentType: false,
                     processData: false,
                     xhr: function () {

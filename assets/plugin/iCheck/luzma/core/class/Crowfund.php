@@ -129,7 +129,16 @@ class Crowfund extends Fundraising {
     public function crowfundFecthReadmore($fund_id,$user_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN crowfundraising C ON C. user_id2 = U. user_id WHERE C. fund_id = '$fund_id' ");
+        $query= $mysqli->query("SELECT * FROM  crowfundraising C
+        Left JOIN users U ON C. user_id2 = U. user_id 
+        
+        Left JOIN provinces P ON C. province = P. provincecode
+        Left JOIN districts M ON C. districts = M. districtcode
+        Left JOIN sectors T ON C. sector = T. sectorcode
+        Left JOIN cells S ON C. cell = S. codecell
+        Left JOIN vilages V ON C. village = V. CodeVillage 
+        
+        WHERE C. fund_id = '$fund_id' ");
         $row= $query->fetch_array();
         return $row;
     }
@@ -444,6 +453,113 @@ class Crowfund extends Fundraising {
     </div>
 
    <?php  }
+
+
+public function crowfundraisingData($user_id)
+{
+    $mysqli= $this->database;
+    $query= $mysqli->query("SELECT * FROM crowfundraising WHERE user_id2 = '$user_id' ");
+    $row= $query->fetch_array();
+    return $row;
+}
+
+    public function crowfundraisingsActivities($user_id)
+{
+    $mysqli= $this->database;
+    $query= $mysqli->query("SELECT * FROM users U Left JOIN crowfundraising F ON F. user_id2 = U. user_id WHERE F. user_id2 = '$user_id'  ORDER BY created_on2 Desc ");
+    ?>
+    <div class="card card-primary mb-3 ">
+    <div class="card-header main-active p-1">
+        <h5 class="card-title text-center"><i> CrowFundraising</i></h5>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="row">
+    <?php while($row= $query->fetch_array()) { 
+        $likes= $this->Crowfundraisinglikes($user_id,$row['fund_id']); ?>
+    
+        <div class="col-md-6 col-sm-12 mb-3" >
+            <div class="card borders-bottoms more" >
+            <img class="card-img-top" width="242px" id="crowfund-readmore" data-crowfund="<?php echo $row['fund_id'] ;?>" height="160px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/crowfund/<?php echo $row['photo'] ;?>" >
+            <div class="card-body">
+                <div class="p-0 font-weight-bold">Funding 
+
+                    <?php if(isset($_SESSION['key']) && $user_id == $row['user_id2']){ ?>
+                     <ul class="list-inline mb-0  float-right" style="list-style-type: none;">  
+
+                            <li  class=" list-inline-item">
+                                <ul class="deleteButt" style="list-style-type: none; margin:0px;" >
+                                    <li>
+                                        <a href="javascript:void(0)" class="more"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                                        <ul style="list-style-type: none; margin:0px;" >
+                                            <li style="list-style-type: none; margin:0px;"> 
+                                              <label class="deleteCrowfund"  data-fund="<?php echo $row["fund_id"];?>"  data-user="<?php echo $row["user_id2"];?>">Delete </label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                    </ul>
+                    <?php } ?>
+
+                    <?php if($likes['like_on'] == $row['fund_id']){ ?>
+                        <span <?php if(isset($_SESSION['key'])){ echo 'class="unlike-crowfundraising-btn more float-right text-sm  mr-2"'; }else{ echo 'id="login-please" class="more float-right" data-login="1"'; } ?> data-fund="<?php echo $row['fund_id']; ?>"  data-user="<?php echo $row['user_id']; ?>"><span class="likescounter "><?php echo $row['likes_counts'] ;?></span> <i class="fa fa-heart"  ></i></span>
+                    <?php }else{ ?>
+                        <span <?php if(isset($_SESSION['key'])){ echo 'class="like-crowfundraising-btn more float-right text-sm mr-2"'; }else{ echo 'id="login-please" class="more float-right"  data-login="1"'; } ?> data-fund="<?php echo $row['fund_id']; ?>"  data-user="<?php echo $row['user_id']; ?>" ><span class="likescounter"> <?php if ($row['likes_counts'] > 0){ echo $row['likes_counts'];}else{ echo '';} ?></span> <i class="fa fa-heart-o" ></i> </span>
+                    <?php } ?>
+                 
+                </div>
+
+                <hr>
+                 <div style="height:115px;">
+                    <a href="javascript:void(0);"  id="crowfund-readmore" data-crowfund="<?php echo $row['fund_id'] ;?>" class="card-text h5"><?php echo $row['photo_Title_main'] ;?></a>
+                    <!-- Kogera umusaruro muguhinga -->
+                    <p class="mt-2">
+                   <?php if (strlen($row["text"]) > 80) {
+                            echo $row["text"] = substr($row["text"],0,80).'...
+                            <br><span class="mb-0"><a href="javascript:void(0)" id="crowfund-readmore" data-crowfund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Continue reading...</a></span>';
+                            }else{
+                            echo $row["text"];
+                            } ?> 
+                    </p>
+                    <!-- 117 -->
+                    <!-- turashaka kongera umusaruro mu buhinzi tukabona ubufasha buhagije no kubona imbuto -->
+                </div>                      
+                <div class="text-muted mb-1"><?php echo $row['categories_crowfundraising']; ?>
+                    <span class="text-success px-1 float-right" style="border-radius:3px;font-size:11px;"><i class="fa fa-check-circle" aria-hidden="true"></i> Verified</span>
+                </div>
+                <div class="card-text">
+                <!-- 40,000 -->
+                    <span class="font-weight-bold"><?php echo number_format($row['money_raising']); ?> Frw</span>
+                     Raised
+                    <span class="float-right"><?php echo $this->donationPercetangeMoneyRaimaing($row['money_raising'],$row['money_to_target']); ?> %</span>
+                    <!-- 40 -->
+                </div>
+                 <div class="progress clear-float " style="height: 10px;">
+                    <?php echo $this->Users_donationMoneyRaising($row['money_raising'],$row['money_to_target']); ?>
+                </div>
+                
+                <div class="clear-float">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <span class="text-muted"><?php echo $this->timeAgo($row['created_on2']); ?></span>
+                    <span class="text-muted float-right text-right">out of <?php echo number_format($row['money_to_target']).' Frw'; ?></span>
+                    <!-- 13 days Left -->
+                </div>
+            </div>
+        </div> <!-- card -->
+             
+    </div> <!-- col -->
+
+
+    <?php } ?>
+         </div> <!-- row -->
+       </div> <!-- card-body -->
+    </div> <!-- card -->
+<?php }
+
+
+   
+
 }
 
 $crowfund = new Crowfund;

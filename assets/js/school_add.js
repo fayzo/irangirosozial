@@ -30,10 +30,11 @@ $(document).on('click', '#add_school', function (e) {
     });
 });
 
-$(document).on('click', '#form-school', function (e) {
+$(document).on('click', '#school-help-add', function (e) {
     // event.preventDefault();
 
     e.stopPropagation();
+    var formdatas = $('#form-school');
     var title = $('#title');
     var author = $('#author');
     var phone = $('#phone');
@@ -77,7 +78,8 @@ $(document).on('click', '#form-school', function (e) {
             $.ajax({
                 url: 'core/ajax_db/school_add.php',
                 method: "POST",
-                data: new FormData(this),
+                // data: new FormData(this),
+                data: formdatas.serializefiles(),
                 contentType: false,
                 processData: false,
                 xhr: function () {

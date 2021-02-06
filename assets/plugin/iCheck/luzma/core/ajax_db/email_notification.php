@@ -127,13 +127,13 @@ if (isset($_POST['key']) == 'textarea'){
     $subjectcomposer = $users->test_input($_POST['subjectcomposer']);
     $textcomposer =  $users->test_input($_POST['textcomposer']);
 	// $type_of_email =  'sent';
-	if (!empty($_POST['send'])) {
+	// if (!empty($_POST['send'])) {
 		# code...
     	$type_of_email = $users->test_input($_POST['send']);
-	}else {
-		# code...
-    	$type_of_email = $users->test_input($_POST['draft']);
-	}
+	// }else {
+	// 	# code...
+    // 	$type_of_email = $users->test_input($_POST['draft']);
+	// }
 
 	if (!empty($emailcomposer) ) {
 
@@ -169,13 +169,13 @@ if (isset($_POST['key']) == 'textarea'){
     $subjectcomposer = $users->test_input($_POST['subjectcomposer']);
     $textcomposer =  $users->test_input($_POST['textcomposer']);
 	// $type_of_email =  'sent';
-	if (!empty($_POST['send'])) {
+	// if (!empty($_POST['send'])) {
 		# code...
     	$type_of_email = $users->test_input($_POST['send']);
-	}else {
-		# code...
-    	$type_of_email = $users->test_input($_POST['draft']);
-	}
+	// }else {
+	// 	# code...
+    // 	$type_of_email = $users->test_input($_POST['draft']);
+	// }
 
 	if (!empty($emailcomposer) || !empty(array_filter($photo['name'])) ) {
 		if (!empty($photo['name'][0])) {

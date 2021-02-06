@@ -45,6 +45,20 @@
           <span class="hidden-xs">Network</span>
          </a>
 
+         <?php if(isset($_SESSION['key']) && $_SESSION['key'] === $jobs['business_id'] ||
+          $_SESSION['key'] === $fundraisingV['user_id2'] ||
+          $_SESSION['key'] === $crowfundV['user_id2'] || 
+          $_SESSION['key'] === $houseV['user_id3'] || 
+          $_SESSION['key'] === $carV['user_id3'] || 
+          $_SESSION['key'] === $icyamunaraV['user_id3'])
+          { ?>
+          <a class="sidebar-toggle_" href="<?php echo ACTIVITIES ;?>">
+              <i class="fa fa-briefcase"></i>
+            <span class="hidden-xs"> Activities</span>
+          </a>
+
+        <?php  } ?>
+
         <div class="navbar-custom-menu ml-auto">
           <ul class="nav navbar-nav">
             <!-- JOBS : style can be found in dropdown.less-->

@@ -40,13 +40,17 @@ $user = $home->userData($_SESSION['key']);
                                 <ul>
                                 </ul>
                             </div>
+                            <div class="form-group">
+                                <input type="text"
+                                class="form-control" name="title_name" id="title_name" placeholder="Ask question or Title of your post">
+                            </div>
                         </span>
                     </div>
 
                         <div class="message-footer text-muted">
                             <div class="t-fo-left">
                                 <ul>
-                                    <input type="file" name="files[]" id="file" multiple>
+                                    <input type="file" name="files[]" id="file" multiple  onChange="displayImage(this)">
                                       <?php if(isset($_SESSION['approval']) && $_SESSION['approval'] === 'on'){ ?>
 
                                     <li><label for="file"><i class="fa fa-camera"
@@ -59,8 +63,10 @@ $user = $home->userData($_SESSION['key']);
                                 </ul>
                             </div>
                             <div class="t-fo-right">
-                                <span id="count">400</span>
+                                <span id="count">1000</span>
                                 <input type="submit" class="btn main-active"  id="addpost" name="addpost" value="Post">
+                            </div>
+                            <div id="add-photo0" class="row">
                             </div>
                              <span class="progress progress-xs progress-hided">
                                 <span class="progress-bar bg-info" role="progressbar"

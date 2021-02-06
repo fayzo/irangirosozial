@@ -4,6 +4,7 @@ $(document).ready(function () {
         $('.status').removeClass().addClass('status-remove');
         $('.hash-box').removeClass().addClass('hash-remove');
         $('#count').attr('id', 'count-remove');
+        $('#add-photo0').attr('id', 'add-photo0-remove');
         $('#file').attr('id', 'files');
         $('.progress').removeClass().addClass('progress-xss');
 
@@ -18,6 +19,7 @@ $(document).ready(function () {
                     $('.status-remove').removeClass().addClass('status');
                     $('.hash-remove').removeClass().addClass('hash-box');
                     $('#count-remove').attr('id', 'count');
+                    $('#add-photo0-remove').attr('id', 'add-photo0');
                     $(".popup-tweet-wrap").hide();
                 });
 
@@ -31,6 +33,7 @@ $(document).ready(function () {
         var id = $('#id_posts').val();
         var image_name = $('#file').val();
         var textarea = $('.status').val();
+        var title_name = $('#title_name').val();
 
          if (image_name == '') {
 
@@ -42,6 +45,7 @@ $(document).ready(function () {
                         key: 'textarea',
                         id: id,
                         status: textarea,
+                        title_name: title_name,
                     },
                     success: function (response) {
                         $("#response-PostMessage").html(response);

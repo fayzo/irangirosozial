@@ -10,8 +10,21 @@ if (isset($_POST['available']) && !empty($_POST['available'])) {
     $discount_change= $_POST['discount_change'];
 	$discount_price= $_POST['discount_price'];
 	$price= $_POST['price'];
-	$banner= $_POST['banner'];
-    $car->update_car($banner,$available,$discount_change,$discount_price,$price,$car_id);
+    $banner= $_POST['banner'];
+    
+    $car->updateReal('car',array(
+        
+        'banner' => $banner, 
+        'buy' => $available, 
+        'discount' => $discount_change, 
+        'price_discount' => $discount_price, 
+        'price' => $price,
+
+    ),array(
+        'car_id' => $car_id
+    ));
+
+    // $car->update_car($banner,$available,$discount_change,$discount_price,$price,$car_id);
 }
 
 if (isset($_POST['deleteTweetHome']) && !empty($_POST['deleteTweetHome'])) {

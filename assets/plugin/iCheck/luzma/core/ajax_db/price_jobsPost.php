@@ -20,21 +20,20 @@ if (isset($_POST['post_as']) && !empty($_POST['post_as'])) {
     // $user_id= $_SESSION['key'];
      ?>
 <div class="jobs-popup">
-    <div class="wrap6">
-        <span class="colose">
-        	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
-        </span>
-        <div class="img-popup-wrap">
+    <div class="wrap6" id="disabler">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+        <div class="img-popup-wrapLogin"  id="popupEnd">
         	<div class="img-popup-bodys">
 
           <div class="card borders-bottoms">
               <div class="card-header text-center">
+                  <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
                   <h5><i>Are you as ?</i> </h5>
               </div>
               <div class="card-body">
                 <div class="row">
 
-                      <div class="col-md-6">
+                      <div class="col-6">
                           <div class="card borders-tops text-center shadow-lg more  loginTerms">
                             <div>
                               <!-- <i class="fa fa-building-o" style="width:200px;" aria-hidden="true"></i> -->
@@ -47,7 +46,7 @@ if (isset($_POST['post_as']) && !empty($_POST['post_as'])) {
                           </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-6">
                           <div class="card borders-tops text-center shadow-lg more loginTerms0">
                             <div><img class="img-fluid mt-3 rounded-circle" src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/empty-profile.png" width="200px" heght="200px"></div>
                             <div class="card-body">

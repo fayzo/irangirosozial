@@ -369,7 +369,7 @@ if (isset($_POST['showMessage1']) && !empty($_POST['showMessage1'])) {
 			 ?>
 					<!--Direct Messages-->
 				
-				<li class="hovernotication" id="messageID<?php echo $Message['user_id'];?>" > <!-- start message -->
+				<li class="hovernotication people-message" id="messageID<?php echo $Message['user_id'];?>" > <!-- start message -->
                     <a href="#">
                       <div class="pull-left" style="position:relative;">
 						  	<?php if (!empty($Message['profile_img'])) { ?>
@@ -399,8 +399,8 @@ if (isset($_POST['showMessage1']) && !empty($_POST['showMessage1'])) {
          <?php foreach ($Msg as $Message ) {?>
 					<!--Direct Messages-->
 				
-				<!-- <li id="messageID< ?php echo $Message['user_id'];?>" class="people-message" data-user="< ?php echo $Message['user_id'];?>">  -->
-				<li id="messageID<?php echo $Message['user_id'];?>" class="people-messageResponsive1" data-user="<?php echo $Message['user_id'];?>"> 
+				<!-- <li id="messageID< ?php echo $Message['user_id'];?>" class="people-messageResponsive1" data-user="< ?php echo $Message['user_id'];?>">  -->
+				<li id="messageID<?php echo $Message['user_id'];?>" class="people-message" data-user="<?php echo $Message['user_id'];?>"> 
 				<!-- start message -->
                     <a href="#">
                       <div class="pull-left" style="position:relative;">

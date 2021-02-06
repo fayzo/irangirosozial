@@ -106,12 +106,12 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
                            <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
                          <?php } ?>
                    </div>
+                   <span><a href="#"><?php echo htmlspecialchars($jobs['job_title']); ?></a></span><br>
                    <span>
                        <a style="padding-right:3px;" href="<?php echo BASE_URL_PUBLIC ;?>"><?php echo htmlspecialchars($jobs['companyname']); ?></a> || 
                        <i style="font-size:12px" class="flag-icon flag-icon-<?php echo strtolower($jobs['location']) ;?> h4 mb-0"
                             id="<?php echo strtolower($jobs['location']) ;?>" title="us"></i>
                    </span><br>
-                   <span>Job Title: <?php echo htmlspecialchars($jobs['job_title']); ?></span><br>
                    <span>Shared public -<?php echo $home->timeAgo($jobs['created_on']); ?></span><br>
                    <span>Deadline to submit - <?php echo htmlspecialchars($jobs['deadline']); ?></span>
                </div>

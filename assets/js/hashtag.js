@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(document).on('keyup', '.status', function () {
         var content = $.trim($(this).val());
         var text = content.match(regex);
-        var max = 400;
+        var max = 1000;
         if (text !== null) {
             var datastring = '' + text;
 

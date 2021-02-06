@@ -54,12 +54,13 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
                             <a href="<?php echo BASE_URL_PUBLIC.$tweet['username'] ;?>"><?php echo $tweet['username'] ;?></a>
                             <!-- //Jonathan Burke Jr. -->
                         </span>
-                        <span class="description">Shared publicly - <?php echo $home->getTweetLink($tweet['status']); ?></span>
+                        <span class="description">Shared publicly - <?php echo $home->timeAgo($tweet['posted_on']); ?></span>
                     </div> <!-- /.user-block -->
 
                 </div> <!-- /.card-headed -->
 
                 <div class="card-body">
+                    <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
                     <p> <?php echo $home->getTweetLink($tweet['status']);?></p>
                  <?php 
                                     $expodefile = explode("=",$tweet['tweet_image']);

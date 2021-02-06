@@ -163,7 +163,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                           <div class="form-group">
                                <div class="btn btn-defaults btn-file" >
                                    <i class="fa fa-paperclip"></i> Attachment
-                                   <input type="file" name="photo[]" id="photo" multiple>
+                                   <input type="file" onChange="displayImage0(this)" name="photo[]" id="photo" multiple>
                                 </div>
                                 <span>Upload one photo of proof</span><br>
                                 <span class="progress progress-hidex mt-1">
@@ -178,7 +178,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
                              <div class="form-group">
                                <div class="btn btn-defaults btn-file" >
                                    <i class="fa fa-paperclip"></i> Attachment
-                                   <input type="file" name="otherphoto[]" id="other-photo"  multiple>
+                                   <input type="file" onChange="displayImage(this)" name="otherphoto[]" id="other-photo"  multiple>
                                </div>
                                <span>Other photo</span>
                                <small class="help-block">(e.g show us many photo.) </small><br>
@@ -201,7 +201,7 @@ if (isset($_POST['school_view']) && !empty($_POST['school_view'])) {
 
                  </div><!-- card-body end-->
                 <div class="card-footer text-center">
-                    <button type="button" id="submit-sale" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
+                    <button type="button" id="school-help-add" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
                 </div><!-- card-footer -->
                </form>
             </div><!-- card end-->
@@ -246,6 +246,41 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
     $location_Sector=  $users->test_input($_POST['sectorcode']);
     $location_cell=  $users->test_input($_POST['codecell']);
     $location_village=  $users->test_input($_POST['CodeVillage']);
+if (!empty($_POST['photo-Titleo0'])) {
+  $photo_Titleo=  $users->test_input($_POST['photo-Titleo0']);
+}else {
+       $photo_Titleo='';
+}
+if (!empty($_POST['photo-Title0'])) {
+      $photo_Title0=  $users->test_input($_POST['photo-Title0']);
+}else {
+       $photo_Title0='';
+}
+if (!empty($_POST['photo-Title1'])) {
+      $photo_Title1=  $users->test_input($_POST['photo-Title1']);
+}else {
+       $photo_Title1='';
+}
+if (!empty($_POST['photo-Title2'])) {
+      $photo_Title2=  $users->test_input($_POST['photo-Title2']);
+}else {
+       $photo_Title2='';
+}
+if (!empty($_POST['photo-Title3'])) {
+      $photo_Title3=  $users->test_input($_POST['photo-Title3']);
+}else {
+       $photo_Title3='';
+}
+if (!empty($_POST['photo-Title4'])) {
+     $photo_Title4=  $users->test_input($_POST['photo-Title4']);
+}else {
+       $photo_Title4='';
+}
+if (!empty($_POST['photo-Title5'])) {
+     $photo_Title5=  $users->test_input($_POST['photo-Title5']);
+}else {
+       $photo_Title5='';
+}
 
 
 	if (!empty($phone) || !empty(array_filter($photo['name'])) || !empty(array_filter($other_photo['name'])) ) {
@@ -280,6 +315,8 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
     'location_Sector'=> $location_Sector,
     'location_cell'=> $location_cell,
     'location_village'=> $location_village,
+    'photo_Title_main'=> $photo_Titleo,
+  'photo_Title'=> $photo_Title0.'='.$photo_Title1.'='.$photo_Title2.'='.$photo_Title3.'='.$photo_Title4.'='.$photo_Title5,
     'user_id_'=> $user_id,
     'created_on_'=> $datetime ));
 

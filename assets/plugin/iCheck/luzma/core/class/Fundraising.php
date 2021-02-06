@@ -25,9 +25,9 @@ class Fundraising extends Follow
                 <div class="col-md-3 mb-3" >
                     <div class="card" style="border-bottom-left-radius: 0px !important;border-bottom-right-radius: 0px !important;">
                         <img class="card-img-top" height="244px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/fundraising/<?php echo $row['photo'] ;?>" >
-                        <div style="position: absolute; top: 0px; right: 0;padding: 1rem;">
+                        <!-- <div style="position: absolute; top: 0px; right: 0;padding: 1rem;">
                             <span class="btn btn-light"><span style="font-size: 14px" class="material-icons p-0 m-0"> trending_up</span> trending</span>
-                        </div>
+                        </div> -->
                         <div style="position: absolute;bottom: 0px; right: 0;left:0px;background-color: #cfd3d6a1">
                             
                                     <?php if(isset($_SESSION['key']) && $user_id == $row['user_id2']){ ?>          
@@ -62,15 +62,15 @@ class Fundraising extends Follow
                         </div>
                     </div>
                     <div class="card borders-bottoms" style="border-top-left-radius: 0px !important;border-top-right-radius: 0px !important;">
-                            <div class="card-body pl-1 pt-0 pb-1">
+                            <div class="card-body pl-1 pt-0 pb-1 more" id="fund-readmore" data-fund="<?php echo $row['fund_id'] ;?>">
                               <span class="h5 text-danger"><?php echo number_format($row['money_raising']); ?> Frw </span>
                               <span class="text-muted">raised Out of </span>
                               <span class="text-success"><?php echo number_format($row['money_to_target']).' Frw'; ?></span>
                               <!-- <p class="mt-2">< ?php echo $row['text'] ;?></p> -->
-                              <p class="mt-2">
-                                <?php if (strlen($row["text"]) > 80) {
-                                            echo $row["text"] = substr($row["text"],0,80).'...
-                                            <br><span class="mb-0"><a href="javascript:void(0)" id="crowfund-readmore" data-crowfund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Continue reading...</a></span>';
+                              <p class="mt-4" style="height: 100px;">
+                                <?php if (strlen($row["text"]) > 90) {
+                                            echo $row["text"] = substr($row["text"],0,90).'...
+                                            <span class="mb-0"><a href="javascript:void(0)" id="fund-readmore" data-fund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Continue reading...</a></span>';
                                             }else{
                                             echo $row["text"];
                                             } ?> 
@@ -115,7 +115,17 @@ class Fundraising extends Follow
     public function fundFecthReadmore($fund_id)
     {
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = U. user_id Left JOIN fund_like L ON L. like_on= F. fund_id WHERE F. fund_id = '$fund_id' ");
+        $query= $mysqli->query("SELECT * FROM users U 
+        Left JOIN fundraising F ON F. user_id2 = U. user_id 
+        Left JOIN fund_like L ON L. like_on= F. fund_id 
+        
+        Left JOIN provinces P ON F. province = P. provincecode
+        Left JOIN districts M ON F. districts = M. districtcode
+        Left JOIN sectors T ON F. sector = T. sectorcode
+        Left JOIN cells S ON F. cell = S. codecell
+        Left JOIN vilages V ON F. village = V. CodeVillage 
+
+        WHERE F. fund_id = '$fund_id' ");
         $row= $query->fetch_array();
         return $row;
     }
@@ -326,6 +336,97 @@ class Fundraising extends Follow
       $total_Comment= array_sum($array);
       echo $total_Comment;
     }
+
+    
+
+    public function fundraisingData($user_id)
+    {
+        $mysqli= $this->database;
+        $query= $mysqli->query("SELECT * FROM fundraising WHERE user_id2 = '$user_id' ");
+        $row= $query->fetch_array();
+        return $row;
+    }
+
+        public function fundraisingsActivities($user_id)
+    {
+        $mysqli= $this->database;
+        $query= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = U. user_id WHERE F. user_id2 = '$user_id'  ORDER BY created_on2 Desc ");
+        ?>
+        <div class="card card-primary mb-3 ">
+        <div class="card-header main-active p-1">
+            <h5 class="card-title text-center"><i> Fundraising</i></h5>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+        <div class="row mt-3">
+        <?php while($row= $query->fetch_array()) { 
+              $likes= $this->Fundraisinglikes($user_id,$row['fund_id']); ?>
+        
+                <div class="col-md-6 col-sm-12 mb-3" >
+                    <div class="card" style="border-bottom-left-radius: 0px !important;border-bottom-right-radius: 0px !important;">
+                        <img class="card-img-top" height="244px" src="<?php echo BASE_URL_PUBLIC ;?>uploads/fundraising/<?php echo $row['photo'] ;?>" >
+                        <!-- <div style="position: absolute; top: 0px; right: 0;padding: 1rem;">
+                            <span class="btn btn-light"><span style="font-size: 14px" class="material-icons p-0 m-0"> trending_up</span> trending</span>
+                        </div> -->
+                        <div style="position: absolute;bottom: 0px; right: 0;left:0px;background-color: #cfd3d6a1">
+                            
+                                    <?php if(isset($_SESSION['key']) && $user_id == $row['user_id2']){ ?>          
+                                    <ul class="list-inline mb-0 float-right mt-2 ml-1 mr-2" style="list-style-type: none;">  
+
+                                            <li  class=" list-inline-item">
+                                                <ul class="deleteButt" style="list-style-type: none; margin:0px;" >
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="more"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                                                        <ul style="list-style-type: none; margin:0px;" >
+                                                            <li style="list-style-type: none; margin:0px;"> 
+                                                            <label class="deleteFundraising"  data-fund="<?php echo $row["fund_id"];?>"  data-user="<?php echo $row["user_id2"];?>">Delete </label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                    </ul>
+                                    <?php } ?>
+
+                                <?php if($likes['like_on'] == $row['fund_id']){ ?>
+                                            <span <?php if(isset($_SESSION['key'])){ echo 'class="unlike-fundraising-btn more float-right text-sm  mt-1 mr-1 text-dark"'; }else{ echo 'id="login-please" class="more float-right  mt-1 mr-1 text-dark" data-login="1" '; } ?> style="font-size:16px;" data-fund="<?php echo $row['fund_id']; ?>"  data-user="<?php echo $row['user_id']; ?>"><span class="likescounter "><?php echo $row['likes_counts'] ;?></span> <i class="fa fa-heart"  ></i></span>
+                                <?php }else{ ?>
+                                    <span <?php if(isset($_SESSION['key'])){ echo 'class="like-fundraising-btn more float-right text-sm  mt-1 mr-1 text-dark"'; }else{ echo 'id="login-please" class="more float-right mt-1 mr-1 text-dark"  data-login="1" '; } ?> style="font-size:16px;" data-fund="<?php echo $row['fund_id']; ?>"  data-user="<?php echo $row['user_id']; ?>" ><span class="likescounter"> <?php if ($row['likes_counts'] > 0){ echo $row['likes_counts'];}else{ echo '';} ?></span> <i class="fa fa-heart-o" ></i> </span>
+                                <?php } ?>
+
+                               <h5 class="card-title text-dark m-1 pb-1 pl-2">Helps <?php echo $row['lastname'] ;?> </h5>
+                              <div class="progress " style="height: 10px;">
+                                  <?php echo $this->Users_donationMoneyRaising($row['money_raising'],$row['money_to_target']); ?>
+                                <!-- <div class="progress-bar  bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+                              </div>
+                        </div>
+                    </div>
+                    <div class="card borders-bottoms" style="border-top-left-radius: 0px !important;border-top-right-radius: 0px !important;">
+                            <div class="card-body pl-1 pt-0 pb-1 more" id="fund-readmore" data-fund="<?php echo $row['fund_id'] ;?>">
+                              <span class="h5 text-danger"><?php echo number_format($row['money_raising']); ?> Frw </span>
+                              <span class="text-muted">raised Out of </span>
+                              <span class="text-success"><?php echo number_format($row['money_to_target']).' Frw'; ?></span>
+                              <!-- <p class="mt-2">< ?php echo $row['text'] ;?></p> -->
+                              <p class="mt-2">
+                                <?php if (strlen($row["text"]) > 80) {
+                                            echo $row["text"] = substr($row["text"],0,80).'...
+                                            <br><span class="mb-0"><a href="javascript:void(0)" id="fund-readmore" data-fund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Continue reading...</a></span>';
+                                            }else{
+                                            echo $row["text"];
+                                            } ?> 
+                                    </p>
+                              <div>
+                                <span class="text-success float-left ml-2"><i class="fa fa-check-circle" style='font-size:15px;' aria-hidden="true"></i> Verified</span>
+                                <button type="button" id="fund-readmore" data-fund="<?php echo $row['fund_id'] ;?>" class="btn btn-primary float-right" >+ Read more</button></div>
+                              </div>
+                    </div>
+                </div>
+
+        <?php } ?>
+             </div> <!-- row -->
+           </div> <!-- card-body -->
+        </div> <!-- card -->
+   <?php }
 
 
 

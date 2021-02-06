@@ -202,7 +202,7 @@
                                     <span id="response"></span>
                                 </div>
                             </div>
-                            <a href="javascript:void(0);" data-user="<?php echo $_SESSION['key']; ?>" class="profile-edit-more float-right">Edit more</a>
+                            <a href="javascript:void(0);" data-user="<?php echo $_SESSION['key']; ?>" class="profile-edit-more float-right d-none">Edit more</a>
                             <button type="button" onclick="careers('career');" class="btn main-active btn-block"><b>Submit</b></button>
                             <span id="respone-success"></span>
                     </form>

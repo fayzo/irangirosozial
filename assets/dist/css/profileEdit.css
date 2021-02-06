@@ -44,7 +44,7 @@
 .widget-user .widget-user-image > img {
   /* width: 180px; */
   width: 100px;
-  height: auto;
+  height: 100px;
   border: 3px solid #ffffff;
 }
 
@@ -262,7 +262,7 @@
 
   .widget-user .widget-user-image > img {
     width: 69px;
-    height: auto;
+    height: 69px;
   }
   .widget-user .card-footer .description {
     display: inline-block;

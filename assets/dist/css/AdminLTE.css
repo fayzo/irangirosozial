@@ -26,6 +26,11 @@ body {
   /* text-align: justify; */
   word-spacing: normal;
 }
+
+/* .show-read-more > .more-text{
+    display: none;
+} */
+
 .nav-tabs>li {
 width: 33%;
 text-align: center;
@@ -2134,19 +2139,24 @@ a:focus {
   border-bottom-color: #ddd;
 }
 
+.card-img-left {
+  position: relative;
+}
 .card-img-left > .pic-responsive  {
   min-width: 100%;min-height: 100%;width: 20%;
 }
 
 @media only screen and (max-width: 767px){
-  .timeline-item > .card-img-left  {
+  .timeline-item > .card-img-left > .pic-responsive {
+    min-width: 100%;
+    min-height: 100%;
     height: auto;
     /* min-height: 200px */
   }
 }
 
 @media only screen and (min-width: 992px) and (min-width: 1200px) {
-    .timeline-item > .card-img-left  {
+    .timeline-item > .card-img-left > .pic-responsive {
       /* height: 130px;
       width: 400px; */
       width: 150px;

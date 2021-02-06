@@ -19,7 +19,28 @@ if (isset($_POST['car_id']) && !empty($_POST['car_id'])) {
     $car_id = $_POST['car_id'];
     $user= $car->carReadmore($car_id);
      ?>
-
+<style>
+    	ul{
+			list-style: none outside none;
+		    padding-left: 0;
+            margin: 0;
+		}
+        .demo .item{
+            margin-bottom: 60px;
+        }
+		.content-slider li{
+		    background-color: #ed3020;
+		    text-align: center;
+		    color: #FFF;
+		}
+		.content-slider h3 {
+		    margin: 0;
+		    padding: 70px 0;
+		}
+		.demo{
+			width: 800px;
+		}
+</style>
 <div class="car-popup">
     <div class="wrap6" id="disabler">
         <span class="colose">
@@ -65,53 +86,24 @@ if (isset($_POST['car_id']) && !empty($_POST['car_id'])) {
                             ." in ".$user['provincename']." Location ".$user['namedistrict']." district/".$user['namesector']." sector at ".number_format($user['price'])." Frw"; ?></h5>
 
                        </div>
-                       <div class="col-md-12 ">
-                           <div id="jssor_3" style="position:relative;margin:0;top:0px;left:0px;width:840px;height:380px;overflow:hidden;visibility:hidden;">
-                                <!-- Loading Screen -->
-                                <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-                                    <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="<?php echo BASE_URL_LINK;?>image/img/spin.svg" />
-                                </div>
-                                <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:840px;height:380px;overflow:hidden;">
-                                        <?php 
-                                            $file = $user['photo']."=".$user['other_photo'];
-                                            $title = $user['photo_Title_main']."=".$user['photo_Title'];
-                                            $titles = explode("=",$title);
-                                            $expode = explode("=",$file);
-                                            $splice= array_splice($expode,0,10);
-                                            for ($i=0; $i < count($splice); ++$i) { 
-                                                ?>
-                                                <div class="imagecarViewPopup more"  data-car="<?php echo $user["car_id"] ;?>">
-                                                    <img data-u="image" src="<?php echo BASE_URL_PUBLIC."uploads/car/".$splice[$i] ;?>" />
-                                                    <div class="h5" u="thumb"><?php echo $titles[$i] ;?></div>
-                                                </div>
-                                        <?php } ?>
-                                    
-                                    </div>
-                                <!-- Thumbnail Navigator -->
-                                <div u="thumbnavigator" style="position:absolute;bottom:0px;left:0px;width:840px;height:50px;color:#FFF;overflow:hidden;cursor:default;background-color:rgba(0,0,0,.5);">
-                                    <div u="slides">
-                                        <div u="prototype" style="position:absolute;top:0;left:0;width:840px;height:50px;">
-                                            <div u="thumbnailtemplate" style="position:absolute;top:0;left:0;width:100%;height:100%;font-family:arial,helvetica,verdana;font-weight:normal;line-height:50px;font-size:16px;padding-left:10px;box-sizing:border-box;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Arrow Navigator -->
-                                <div data-u="arrowleft" class="jssora061" style="width:55px;height:55px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
-                                    <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                                        <path class="a" d="M11949,1919L5964.9,7771.7c-127.9,125.5-127.9,329.1,0,454.9L11949,14079"></path>
-                                    </svg>
-                                </div>
-                                <div data-u="arrowright" class="jssora061" style="width:55px;height:55px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
-                                    <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                                        <path class="a" d="M5869,1919l5984.1,5852.7c127.9,125.5,127.9,329.1,0,454.9L5869,14079"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <script type="text/javascript">jssor_3_slider_init();</script>
-                        </div>
-                        <div class="col-md-6">
+                       <div class="col-md-6">
+                            <div class="clearfix" style="max-width:474px;">
+                                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                <?php 
+                                        $file = $user['photo']."=".$user['other_photo'];
+                                        $expode = explode("=",$file);
+                                        // $splice = array_expode ($expode,0,10);
+                                        for ($i=0; $i < count($expode); ++$i) { 
+                                            ?>
+                                            <li data-thumb="<?php echo BASE_URL_PUBLIC.'uploads/car/'.$expode [$i]; ?>" > 
+                                               <img src="<?php echo BASE_URL_PUBLIC.'uploads/car/'.$expode [$i]; ?>" />
+                                            </li>
+                                      <?php } ?>
+                                </ul>
+                            </div>  
                             <h4 class="mt-2"><i>
                                 Seller: <?php echo $user['authors']; ?>
+                                <span <?php if(isset($_SESSION['key'])){ echo 'class="people-message more"'; }else{ echo 'class="more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $user['user_id'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </span><br>
                             </i></h4>
                             <div class="mt-2">
                                 <span>Phone: <?php echo $user['phone']; ?></span><br>
@@ -202,5 +194,24 @@ if (isset($_POST['car_id']) && !empty($_POST['car_id'])) {
         </div><!-- user-show-popup-box -->
     </div> <!-- Wrp4 -->
 </div> <!-- apply-popup" -->
-
+<script>
+    	 $(document).ready(function() {
+			$("#content-slider").lightSlider({
+                loop:true,
+                keyPress:true
+            });
+            $('#image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                thumbItem:9,
+                slideMargin: 0,
+                speed:1500,
+                auto:true,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }  
+            });
+		});
+</script>
 <?php } 

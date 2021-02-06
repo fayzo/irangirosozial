@@ -37,6 +37,20 @@
                     </div>
                 </div>
             </div> <!-- card -->
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="single-howit-works">
+                        <img src="<?php echo  BASE_URL_LINK ;?>image/img/howit-works/howit-works-3.png" alt="">
+                        <h4>Talk To Agent</h4>
+                    </div>
+                </div>
+                <!-- <div class="card-body">
+                    <div class="section-title">
+                        <span>Find Your Dream House</span>
+                    </div>
+                </div> -->
+            </div> <!-- card -->
          </div> <!-- col -->
 
          <div class="col-md-6 " id="house-hides">

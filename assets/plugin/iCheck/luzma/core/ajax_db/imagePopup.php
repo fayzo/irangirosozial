@@ -104,7 +104,10 @@ if (array_diff($fileActualExt,$allower_ext) == false) { ?>
                                 <!-- //Jonathan Burke Jr. -->
                                 <span class="description">Shared publicly - 7:30 PM today</span>
                             </span>
-                            <span class="description"><?php echo $home->getTweetLink($tweet['status']); ?></span>
+                            <span class="description">
+                                <div class="title-name-black"><?php echo $tweet['title_name']; ?></div>
+                                <?php echo $home->getTweetLink($tweet['status']); ?>
+                            </span>
                         </div> <!-- user-block -->
 
             </div><!-- card-body -->

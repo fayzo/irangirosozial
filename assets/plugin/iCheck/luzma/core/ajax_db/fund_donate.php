@@ -113,7 +113,7 @@ if (isset($_REQUEST['user_id']) && !empty($_REQUEST['user_id'])) {
                                 </div>
 
                                 <div class="form-row mt-2">
-                                    <div class="col">
+                                    <div class="col-md-6 col-sm-12">
                                         <label for="donate">How much you will donate :</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
@@ -125,7 +125,7 @@ if (isset($_REQUEST['user_id']) && !empty($_REQUEST['user_id'])) {
                                         </div>
                                     </div>
 
-                                    <div class="col">
+                                    <div class="col-md-6 col-sm-12">
                                         <label for="lastname">Send Mobile money to This number :</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">

@@ -26,14 +26,14 @@
     <div class="col-4 col-md-2 col-lg-2 py-3 px-2" >
       <div class="list-group sticky-top" id="list-tab" role="tablist">
         <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="tab" href="#list-Agriculture" role="tab" aria-controls="list-home">Agriculture</a>
-        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-ubworonzi" role="tab" aria-controls="list-profile">ubworonzi</a>
-        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-electronics" role="tab" aria-controls="list-profile">electronics</a>
-        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-web_apps" role="tab" aria-controls="list-profile">web apps</a>
-        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="tab" href="#list-phone_app" role="tab" aria-controls="list-messages">phone app</a>
+        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-ubworonzi" role="tab" aria-controls="list-profile">Ubworonzi</a>
         <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-Arts" role="tab" aria-controls="list-profile">Arts</a>
         <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="tab" href="#list-Film" role="tab" aria-controls="list-settings">Film</a>
         <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="tab" href="#list-Music" role="tab" aria-controls="list-settings">Music</a>
         <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="tab" href="#list-Fashion" role="tab" aria-controls="list-settings">Fashion</a>
+        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-electronics" role="tab" aria-controls="list-profile">Electronics</a>
+        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-web_apps" role="tab" aria-controls="list-profile">Web apps</a>
+        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="tab" href="#list-phone_app" role="tab" aria-controls="list-messages">Phone apps</a>
       </div>
     </div>
 
@@ -48,17 +48,6 @@
             <?php include "siderbar_crowfund/ubworonzi.php"?>
         </div> <!-- END-OF A LINK OF add_post ID=#  -->
 
-        <div class="tab-pane fade" id="list-electronics" role="tabpanel" aria-labelledby="list-messages-list">
-            <?php include "siderbar_crowfund/electronics.php"?>
-         </div> <!-- END-OF A LINK OF Comment ID=#  -->
-
-        <div class="tab-pane fade" id="list-web_apps" role="tabpanel" aria-labelledby="list-settings-list">
-           <?php include "siderbar_crowfund/web_apps.php"?>
-        </div> <!-- END-OF A LINK OF Comment ID=#  -->
-
-        <div class="tab-pane fade" id="list-phone_app" role="tabpanel" aria-labelledby="list-settings-list">
-           <?php include "siderbar_crowfund/phone_app.php"?>
-        </div> <!-- END-OF A LINK OF profile ID=#  -->
 
         <div class="tab-pane fade" id="list-Arts" role="tabpanel" aria-labelledby="list-settings-list">
            <?php include "siderbar_crowfund/Arts.php"?>
@@ -72,11 +61,24 @@
         <div class="tab-pane fade" id="list-Music" role="tabpanel" aria-labelledby="list-settings-list">
            <?php include "siderbar_crowfund/Music.php"?>
         </div> 
+
         <!-- END-OF A LINK OF setting ID=#  -->
 
         <div class="tab-pane fade" id="list-Fashion" role="tabpanel" aria-labelledby="list-settings-list">
            <?php include "siderbar_crowfund/Fashion.php"?>
         </div> 
+        
+        <div class="tab-pane fade" id="list-electronics" role="tabpanel" aria-labelledby="list-messages-list">
+            <?php include "siderbar_crowfund/electronics.php"?>
+         </div> <!-- END-OF A LINK OF Comment ID=#  -->
+
+        <div class="tab-pane fade" id="list-web_apps" role="tabpanel" aria-labelledby="list-settings-list">
+           <?php include "siderbar_crowfund/web_apps.php"?>
+        </div> <!-- END-OF A LINK OF Comment ID=#  -->
+
+        <div class="tab-pane fade" id="list-phone_app" role="tabpanel" aria-labelledby="list-settings-list">
+           <?php include "siderbar_crowfund/phone_app.php"?>
+        </div> <!-- END-OF A LINK OF profile ID=#  -->
         <!-- END-OF A LINK OF setting ID=#  -->
       </div>
       

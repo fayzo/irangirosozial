@@ -1,6 +1,8 @@
 <?php 
 include('../init.php');
 $users->preventUsersAccess($_SERVER['REQUEST_METHOD'],realpath(__FILE__),realpath($_SERVER['SCRIPT_FILENAME']));
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
 
 if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
     $user_id= $_SESSION['key'];
@@ -186,7 +188,7 @@ if (isset($_POST['house_view']) && !empty($_POST['house_view'])) {
 
                  </div><!-- card-body end-->
                 <div class="card-footer text-center">
-                    <button type="button" id="submit-blog" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
+                    <button type="button" id="submit-form-house" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
                 </div><!-- card-footer -->
                </form>
             </div><!-- card end-->

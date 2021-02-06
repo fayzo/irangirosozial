@@ -176,7 +176,7 @@ if (isset($_POST['icyamunara_view']) && !empty($_POST['icyamunara_view'])) {
 
                  </div><!-- card-body end-->
                 <div class="card-footer text-center">
-                    <button type="button" id="submit-sale" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
+                    <button type="button" id="submit-form-icyamunara" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
                 </div><!-- card-footer -->
                </form>
             </div><!-- card end-->

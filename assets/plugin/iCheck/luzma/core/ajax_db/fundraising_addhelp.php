@@ -145,6 +145,11 @@ if (isset($_POST['fund_view']) && !empty($_POST['fund_view'])) {
                               </select>
                             </div>
                         </div>
+
+                        <div class="col">
+                          <label for="">Goal to raised money</label>
+                            <input type="text" class="form-control" name="money_raising" id="money_raising" placeholder="money raising">
+                        </div>
                       </div>
 
                       <div class="form-group mt-2">
@@ -194,7 +199,7 @@ if (isset($_POST['fund_view']) && !empty($_POST['fund_view'])) {
 
                  </div><!-- card-body end-->
                 <div class="card-footer text-center">
-                    <button type="button" id="submit-help" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
+                    <button type="button" id="submit-help-fund" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
                 </div><!-- card-footer -->
                </form>
             </div><!-- card end-->
@@ -281,6 +286,7 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
     $cell = $users->test_input($_POST['codecell']);
     $sector =  $users->test_input($_POST['sectorcode']);
     $village =  $users->test_input($_POST['CodeVillage']);
+    $price =  $users->test_input($_POST['money_raising']);
     $additioninformation = $users->test_input($_POST['additioninformation']);
     $categories_fundraising=  $users->test_input($_POST['categories_fundraising']);
     // $deadline = $users->test_input($_POST['deadline']);
@@ -316,6 +322,7 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 	'village'=> $village,
   'telephone1'=> $telephone, 
 	'photo'=> $photo_, 
+	'money_to_target'=> $price, 
 	'other_photo'=> $other_photo_, 
 	'video'=> $video_, 
 	'youtube'=> $youtube, 

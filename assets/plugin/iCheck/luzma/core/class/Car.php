@@ -3,7 +3,7 @@
        header('Location: ../../404.html');
  }
 
-class Car extends House {
+class Car extends Icyamunara {
 
      public function carList($categories,$pages,$user_id)
     {
@@ -22,7 +22,7 @@ class Car extends House {
             Left JOIN sectors T ON H. sector = T. sectorcode
             Left JOIN cells C ON H. cell = C. codecell
             Left JOIN vilages V ON H. village = V. CodeVillage 
-        WHERE H. categories_car ='$categories' ORDER BY H. buy='sold' ,rand() Desc Limit $showpages,10");
+        WHERE H. categories_car ='$categories' ORDER BY rand(), H. created_on3 Desc Limit $showpages,10");
         ?>
         <div class="card card-primary mb-3 ">
          <div class="card-header main-active p-1">
@@ -83,13 +83,20 @@ class Car extends House {
                            <div class="text-primary mb-0">
                               <a class="text-primary float-left" href="javascript:void(0)" id="car-readmore" data-car="<?php echo $car['car_id']; ?>" ><i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <!-- < ?php echo $house['provincename']; ?> /  -->
-                                <?php echo $car['namedistrict']; ?> District/ 
-                                <?php echo $car['namesector']; ?> Sector
+                                <?php echo $car['namedistrict']; ?> / 
+                                <?php echo $car['namesector']; ?> /
+                                <?php echo $car['nameCell']; ?> 
                                 <!-- < ?php echo $house['nameCell']; ?> Cell  -->
                                
                                </a>
                                 <!-- delete -->
-                                <?php echo $this->EditdeletePostcar($user_id,$car['user_id3']); ?>
+
+                                <?php
+                                if(isset($_SESSION['key']) && $user_id == $car['user_id3'] ){ 
+                                    
+                                    echo $this->EditdeletePostcar($user_id,$car['user_id3'],$car); 
+                                    
+                                } ?>
                                 <!-- delete -->
 
                                <span class="float-right"> <?php if($car['price_discount'] != 0){ ?><span class="mr-2 text-danger " style="text-decoration: line-through;"><?php echo number_format($car['price_discount']); ?> Frw</span> <?php } ?><span class="text-primary" > <?php echo number_format($car['price']); ?> Frw</span></span>
@@ -275,12 +282,11 @@ class Car extends House {
         }
     }
 
-    public function EditdeletePostcar($user_id,$car_id3){
+    public function EditdeletePostcar($user_id,$car_id3,$car){
         
-        if(isset($_SESSION['key']) && $user_id == $car_id3 ){ 
-            $mysqli= $this->database;
-            $query= $mysqli->query("SELECT * FROM car WHERE car_id ='$car_id3'");
-            $car= $query->fetch_array();
+            // $mysqli= $this->database;
+            // $query= $mysqli->query("SELECT * FROM car WHERE car_id ='$car_id3'");
+            // $car= $query->fetch_array();
             ?>
 
             <ul class="list-inline ml-2  float-right" style="list-style-type: none;">  
@@ -388,9 +394,128 @@ class Car extends House {
                         </ul>
                     </li>
             </ul>
-        <?php } 
+        <?php 
 
     }
+
+    public function carData($user_id)
+    {
+        $mysqli= $this->database;
+        $query= $mysqli->query("SELECT * FROM car WHERE user_id3 ='$user_id' ");
+        $row= $query->fetch_array();
+        return $row;
+    }
+
+    public function carListActivities($user_id)
+    {
+        $mysqli= $this->database;
+        $query= $mysqli->query("SELECT * FROM car H
+        Left JOIN provinces P ON H. province = P. provincecode
+        Left JOIN districts M ON H. districts = M. districtcode
+        Left JOIN sectors T ON H. sector = T. sectorcode
+        Left JOIN cells C ON H. cell = C. codecell
+        Left JOIN vilages V ON H. village = V. CodeVillage 
+        
+        WHERE H. user_id3 ='$user_id' ORDER BY H. created_on3 Desc");
+        
+        $categories = "car_For_sale"; ?>
+        <div class="card card-primary mb-3 ">
+        <div class="card-header main-active p-1">
+            <h5 class="card-title text-center"><i> Car </i></h5>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <div class="row">
+          <ul class="timeline timeline-inverse">  
+                <li class="time-label" style="margin-bottom: 0px;">
+                        <span style="margin-left: -10px;"> <img src="<?php echo BASE_URL_LINK.'image/banner/discount.png' ;?>" width="80px"> </span>
+                      
+                        <?php echo $this->bannerPublishcar('car_For_sale'); ?>
+                </li>
+          <?php while($car= $query->fetch_array()) { ?>
+                    <li class="time-label">
+                        <?php echo $this->buychangesColor($car['buy']); ?>
+                        
+                         <?php if($car['discount'] != 0){ ?>
+                            <?php echo $this->PercentageDiscount($car['discount']); ?>
+                        <?php }else {  echo '';?>
+                            <!-- <span class="bg-info text-light" style="position: absolute;font-size: 11px; padding: 2px;margin-left: 10px;margin-top: 40px;"> 0% </span>  -->
+                        <?php } ?>
+
+                        <div class="timeline-item card flex-md-row shadow-sm h-md-100 border-0">
+                        <!-- <img class="card-img-left flex-auto d-none d-lg-block" height="100px" width="100px" src="< ?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo'] ;?>" alt="Card image cap"> -->
+                        <div class='col-md-4 px-0 card-img-left' >
+                            <!-- <div class='card-img-left' style="background: url('< ?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo']; ?>')no-repeat;background-size:contain;"> -->
+                            <!-- height:100px;width:100px -->
+                            <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo']; ?>">
+                            
+                        <!-- banner -->
+                         <?php echo $this->bannerDiscount($car['banner']); ?>
+                         <!-- banner -->
+                          
+                        </div>
+                        <div class="col-md-8 card-body pt-0">
+                        <span id="response<?php echo $car['car_id']; ?>"></span>
+                           <div class="text-primary mb-0">
+                              <a class="text-primary float-left" href="javascript:void(0)" id="car-readmore" data-car="<?php echo $car['car_id']; ?>" ><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <!-- < ?php echo $house['provincename']; ?> /  -->
+                                <?php echo $car['namedistrict']; ?> / 
+                                <?php echo $car['namesector']; ?>
+                                <!-- < ?php echo $house['nameCell']; ?> Cell  -->
+                               
+                               </a>
+                                <!-- delete -->
+                                <?php
+                                if(isset($_SESSION['key']) && $user_id == $car['user_id3'] ){ 
+                                    
+                                    echo $this->EditdeletePostcar($user_id,$car['user_id3'],$car); 
+                                    
+                                } ?>
+                                <!-- delete -->
+
+                               <span class="float-right"> <?php if($car['price_discount'] != 0){ ?><span class="mr-2 text-danger " style="text-decoration: line-through;"><?php echo number_format($car['price_discount']); ?> Frw</span> <?php } ?><span class="text-primary" > <?php echo number_format($car['price']); ?> Frw</span></span>
+                            </div> 
+                            <div class="text-muted clear-float">
+                                <span class="float-left"><i class="fa fa-car" aria-hidden="true"></i>  
+                                <?php 
+                                        $subect = $car['categories_car'];
+                                        $replace = " ";
+                                        $searching = "_";
+                                        echo str_replace($searching,$replace, $subect);
+                                        ?>
+                                <!-- < ?php echo $categories; ?> -->
+                                </span>
+                                <span class="float-right mr-5"><i class="fa fa-heart" aria-hidden="true"></i></span></div>
+                            <div class="text-muted clear-float">
+                                <span><i class="fa fa-clock-o" aria-hidden="true"></i> Created on <?php echo $this->timeAgo($car['created_on3'])." By ".$car['authors']; ?></span>
+                            </div>
+                            <p class="card-text clear-float">
+                                <?php if (strlen($car["text"]) > 98) {
+                                            echo $car["text"] = substr($car["text"],0,98).'...
+                                            <span class="mb-0"><a href="javascript:void(0)" id="car-readmore" data-car="'.$car['car_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Read more...</a></span>';
+                                            }else{
+                                            echo $car["text"];
+                                            } ?> 
+                                <!-- 200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame... Continue reading...  -->
+                            </p>
+
+                        </div><!-- card-body -->
+                        </div><!-- card -->
+                    </li>
+                    <!-- END timeline item -->
+                    <?php }
+                    
+                    ?>    
+                    <li>
+                        <i class="fa fa-clock-o bg-info text-light"></i>
+                    </li>
+                  </ul>
+            </div> <!-- row -->
+           </div> <!-- card-body -->
+        </div> <!-- card -->
+     
+    <?php }
+
 
 
 }

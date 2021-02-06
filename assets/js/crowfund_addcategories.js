@@ -44,11 +44,12 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#form-crowfund', function (e) {
+    $(document).on('click', '#submit-help-crowfund', function (e) {
         // event.preventDefault();
         e.stopPropagation();
+        var formdatas = $('#form-crowfund');
         var firstname = $('#first-name');
-        var middlename = $('#middle-name');
+        // var middlename = $('#middle-name');
         var lastname = $('#last-name');
         var email = $('#email');
         var telephone = $('#telephone');
@@ -81,7 +82,7 @@ $(document).ready(function () {
         var photo_Title4 = $('#photo-Title4');
         var photo_Title5 = $('#photo-Title5');
 
-        if (isEmpty(firstname) && isEmpty(middlename) && isEmpty(lastname) && isEmpty(email) && isEmpty(address) &&
+        if (isEmpty(firstname) && isEmpty(lastname) && isEmpty(email) && isEmpty(address) &&
             isEmpty(telephone) && isEmpty(country) && isEmpty(city) && isEmpty(province) && isEmpty(districts) &&
             isEmpty(sector) && isEmpty(cell) && isEmpty(village) && isEmpty(categories_crowfundraising) && isEmpty(money_raising) && isEmpty(additioninformation) && 
             isEmpty(photo) && isEmpty(other_photo) && isEmpty(video) && isEmpty(youtube) && isEmpty(photo_Titleo0) && isEmpty(photo_Title0) && isEmpty(photo_Title1) && isEmpty(photo_Title2) &&
@@ -108,7 +109,8 @@ $(document).ready(function () {
                 $.ajax({
                     url: 'core/ajax_db/crowfundraising_addhelp',
                     method: "POST",
-                    data: new FormData(this),
+                    // data: new FormData(this),
+                    data: formdatas.serializefiles(),
                     contentType: false,
                     processData: false,
                     xhr: function () {
@@ -137,7 +139,7 @@ $(document).ready(function () {
                             $("#responseSubmithelp").fadeOut();
                         }, 2000);
                         setInterval(function () {
-                            // location.reload();
+                            location.reload();
                         }, 2400);
                     }, error: function (response) {
                         $("#responseSubmithelp").html(response).fadeIn();

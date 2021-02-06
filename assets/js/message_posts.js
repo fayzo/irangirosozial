@@ -1,5 +1,24 @@
 
+$(document).ready(function () {
+    // THIS FUNCTION IS TO SHOW REAMORE IN POST TEXT
+    $(".readtext-tweet-readmore").click(function(){
+		// $(".more-text").contents().unwrap();
+		$(this).siblings(".more-text").contents().unwrap();
+		$(this).remove();
+	});
+
+    $(document).on('click','#readtext-tweet-readmores',function () {
+
+        var tweetText = $(this).data('tweettext');
+		$(".view-more-text"+tweetText).contents().unwrap();
+		// $(".view-more-text"+tweetText).show();
+		$(this).remove();
+        console.log(tweetText);
+	});
+});
+
 $(document).ready(function (e) {
+
     $('.progress-hide').hide();
     $('.progress-navbar').hide();
 
@@ -28,11 +47,13 @@ $(document).ready(function (e) {
                         // setInterval(function () {
                         //     location.reload();
                         // }, 1100);
+                        clearInterval(this);
                     }, error: function (response) {
                         $("#response-posts").html(response);
                         setInterval(function () {
                             $("#response-posts").fadeOut();
                         }, 3000);
+                        clearInterval(this);
                     }
                 });
 

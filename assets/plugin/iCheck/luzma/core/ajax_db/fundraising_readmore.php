@@ -224,7 +224,7 @@ if (isset($_POST['fund_id']) && !empty($_POST['fund_id'])) {
                                     <!-- //Jonathan Burke Jr. -->
                                 </span>
                                 <span class="description" ><span <?php if(isset($_SESSION['key'])){ echo 'class="people-message more"'; }else{ echo 'id="login-please" class="more" data-login="1"'; } ?>  data-user="<?php echo $user['user_id2'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </span> | <i class="fa fa-tag mr-1"></i><?php echo $user['categories_fundraising'] ;?></span>
-                                <span class="description"><i class="fa fa-map-marker mr-1"></i> <?php echo $user['country1'] ;?> | <?php echo $user['city'] ;?> | <?php echo $user['districts'] ;?>  </span>
+                                <span class="description"><i class="fa fa-map-marker mr-1"></i> <?php echo $user['country1'] ;?> | <?php echo $user['city'] ;?> | <?php echo $user['namedistrict'] ;?>  </span>
                             </div> <!-- /.user-block -->
 
                             <h5 class="mt-3"> Recent Donation (<?php echo $fundraising->CountFundraisingRaising($user['fund_id']); ?>)</h5>
