@@ -19,7 +19,7 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
     ?>
 
 <div class="tweet-show-popup-wrap">
-    <input type="checkbox" id="tweet-show-popup-wrap">
+    <!-- <input type="checkbox" id="tweet-show-popup-wrap"> -->
       <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>

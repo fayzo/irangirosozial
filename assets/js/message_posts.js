@@ -44,9 +44,9 @@ $(document).ready(function (e) {
                         setInterval(function () {
                             $("#response-posts").fadeOut();
                         }, 1000);
-                        // setInterval(function () {
-                        //     location.reload();
-                        // }, 1100);
+                        setInterval(function () {
+                            location.reload();
+                        }, 1100);
                         clearInterval(this);
                     }, error: function (response) {
                         $("#response-posts").html(response);
@@ -99,7 +99,7 @@ $(document).ready(function (e) {
                             $("#response-posts").fadeOut();
                         }, 1000);
                         setInterval(function () {
-                            // location.reload();
+                            location.reload();
                         }, 1100);
                     }, error: function (response) {
                         $("#response-posts").html(response).fadeIn();

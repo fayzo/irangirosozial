@@ -83,5 +83,25 @@ if (isset($_POST['sectorResult']) && !empty($_POST['sectorResult'])) {
 
 }
 
+if (isset($_POST['sector']) && !empty($_POST['sector'])) {
+	$categories = $_POST['categories'];
+	$province= $_POST['province'];
+	$district = $_POST['district'];
+	$sector = $_POST['sector'];
+	$pages = $_POST['pages'];
+	$user_id = $_POST['user_id'];
+
+	$mysqli= $db;
+	$query= $mysqli->query("SELECT * FROM house H,provinces P,districts M ,sectors T 
+	WHERE  P. provincecode = '{$province}' and
+	M. districtcode= '{$district}'and T. sectorcode = '{$sector}' ");
+	$houses = $query->fetch_array();
+	
+	// echo $house->propertyView_SeachSectorNavbar($categories,$province,$district,$sector,$pages,$user_id);
+	echo "<div class='text-center h5 text-success'>$houses[provincename] / $houses[namedistrict] district / $houses[namesector] sector </div>";
+	echo $house->propertyView_SeachSectorList($categories,$province,$district,$sector,$user_id,$pages);
+} 
+
+
 	?>
 	

@@ -30,12 +30,12 @@
                         <h4>Search &amp; Find House</h4>
                     </div>
                 </div>
-                <div class="card-body">
+                <!-- <div class="card-body">
                     <div class="single-howit-works">
-                        <img src="<?php echo  BASE_URL_LINK ;?>image/img/howit-works/howit-works-1.png" alt="">
+                        <img src="< ?php echo  BASE_URL_LINK ;?>image/img/howit-works/howit-works-1.png" alt="">
                         <h4>Find Your Property</h4>
                     </div>
-                </div>
+                </div> -->
             </div> <!-- card -->
 
             <div class="card">
@@ -58,21 +58,8 @@
          </div> <!-- col -->
 
          <div class="col-md-3 d-none d-md-block">
-
-           <div class="card">
-                <div class="card-header">
-                    <div class="single-howit-works">
-                        <img src="<?php echo  BASE_URL_LINK ;?>image/img/howit-works/howit-works-3.png" alt="">
-                        <h4>Talk To Agent</h4>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="section-title">
-                        <span>Find Your Dream House</span>
-                    </div>
-                </div>
-            </div> <!-- card -->
-             
+            <?php echo $house->Property_City_search($user_id);?>
+            <!-- card -->
          </div> <!-- col -->
          
      </div>

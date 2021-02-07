@@ -306,6 +306,34 @@
         }, false);
     }
 
+     // THIS IS FOR FOOTER SEARCH SECTOR HOUSE
+
+     function houseCategoriesFooter_SeachSector(categories,province,district,sector,user_id,pages){
+        // $('#loader').show();
+        var params = '&pages='+pages+'&categories='+categories+'&province='+province+'&district='+district+'&sector='+sector+'&user_id='+user_id;
+		http=new XMLHttpRequest();
+		http.open("POST","core/ajax_db/getcell.php",true);
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		http.send(params);
+		http.onreadystatechange = function() {
+            //Call a function when the sector changes.
+		// document.getElementById("codecell").innerHTML=http.responseText;
+		// if(document.getElementById('codecell').value!=="No Cell Available")
+        // $('html,body').animate({scrollTop:0},0);
+        // $('html,body').animate({scrollTop:0},'slow');
+                // setTimeout(() => {
+                //     $('#loader').fadeOut();
+                // }, 1000);
+                // $(window).scrollTop(0);
+                $('html,body').animate({scrollTop:100},'slow');
+                var pagination = document.getElementById('house-hides');
+                pagination.innerHTML = http.responseText;
+		        // document.form.name.disabled=false;
+		
+		}		
+	}
+  
+
     function carCategories(categories,id,user_id) {
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'core/ajax_db/carView_FecthPaginat.php?pages=' + id + '&categories=' + categories+ '&user_id=' + user_id, true);
@@ -839,7 +867,8 @@ $result = substr(strrchr($path,'/'),1);
 if (isset($_SESSION['key']) && $result === '' || isset($_SESSION['key']) && $self === 'profile.php'){ ?>
   
   <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
-  <body class="hold-transition skin-blue fixed sidebar-mini-expand-feature sidebar-mini">
+  <!-- <body class="hold-transition skin-blue fixed sidebar-mini-expand-feature sidebar-mini"> -->
+  <body class="hold-transition skin-blue fixed sidebar-collapse sidebar-mini ">
   <!-- Site wrapper skin-blue -->
 <?php }else{ ?>
 

@@ -211,7 +211,10 @@ class Home extends Comment {
         <div class="card-body">
         <span class="job-show"></span>
         <div class="job-hide">
-          <?php while($jobs= $query->fetch_array()) { ?>
+        <?php
+        if ($query->num_rows > 0) { 
+        
+         while($jobs= $query->fetch_array()) { ?>
 
             <div class="col-12 px-0 py-2 jobHover jobHovers more" data-job="<?php echo $jobs['job_id'];?>" data-business="<?php echo $jobs['business_id'];?>">
             <div class="user-block mb-2" >
@@ -231,26 +234,16 @@ class Home extends Comment {
           </div> <!-- user-block -->
           </div> <!-- col-12 -->
           <hr class="bg-info mt-0 mb-1" style="width:95%;">
-          
-          <!-- <div class="col-12 px-0 border-bottom jobHover jobHovers more" data-job="< ?php echo $jobs['job_id'];?>" data-business=" < ?php echo $jobs['business_id'];?>">
-                <div class="user-block mb-2 jobHover">
-                <div class="user-jobImgBorder">
-                    <div class="user-jobImg">
-                        < ?php if (!empty($jobs['profile_img'])) {?>
-                        <img src="< ?php echo BASE_URL_LINK ;?>image/users_profile_cover/< ?php echo $jobs['profile_img'] ;?>" alt="User Image">
-                        < ?php  }else{ ?>
-                        <img src="< ?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
-                        < ?php } ?>
-                    </div>
-                </div>
-                <span class="username">
-                    <a style="padding-right:3px;" href="#"> Job Title: < ?php echo $this->htmlspecialcharss($jobs['job_title']) ;?></a>
-                </span>
-                <span class="description">Shared public - < ?php echo $this->timeAgo($jobs['created_on']); ?></span>
-                <span class="description">Deadline - < ?php echo $this->htmlspecialcharss($jobs['deadline']); ?></span>
-                </div>
-            </div> col-10 -->
         <?php }
+
+        }else{
+            echo ' <div class="col-md-12 col-lg-12"><div class="alert alert-danger alert-dismissible fade show text-center">
+                    <button class="close" data-dismiss="alert" type="button">
+                        <span>&times;</span>
+                    </button>
+                    <strong>No Record</strong>
+                </div></div>'; 
+        } 
 
         $query1= $mysqli->query("SELECT COUNT(*) FROM jobs WHERE categories_jobs ='$categories' AND turn = 'on' ");
         $row_Paginaion = $query1->fetch_array();
@@ -331,7 +324,10 @@ class Home extends Comment {
         <span class="job-show"></span>
         <div class="job-hide row">
             <div class="col-md-6 large-2 ">
-          <?php while($jobs= $query->fetch_array()) { ?>
+            <?php 
+            if ($query->num_rows > 0) { 
+
+            while($jobs= $query->fetch_array()) { ?>
 
             <div class="px-0 py-2 jobHover jobHovers0 more" data-job="<?php echo $jobs['job_id'];?>" data-business="<?php echo $jobs['business_id'];?>">
             <div class="user-block mb-2" >
@@ -351,13 +347,23 @@ class Home extends Comment {
           </div> <!-- user-block -->
           </div> <!-- col-12 -->
           <hr class="bg-info mt-0 mb-1" style="width:95%;">
-        <?php }
+        <?php } 
+
+        }else{
+            echo ' <div class="col-md-12 col-lg-12"><div class="alert alert-danger alert-dismissible fade show text-center">
+                    <button class="close" data-dismiss="alert" type="button">
+                        <span>&times;</span>
+                    </button>
+                    <strong>No Record</strong>
+                </div></div>'; 
+        } 
 
         $query1= $mysqli->query("SELECT COUNT(*) FROM jobs WHERE categories_jobs ='$categories' AND turn = 'on' ");
         $row_Paginaion = $query1->fetch_array();
         $total_Paginaion = array_shift($row_Paginaion);
         $post_Perpages = $total_Paginaion/10;
         $post_Perpage = ceil($post_Perpages); ?>
+
             </div>
             <div class="col-md-6 large-2 jobslarge">
                 
@@ -1974,7 +1980,8 @@ public function links(){ ?>
         if(!empty($data)){
                              foreach ($data as $tweet) {
                                 $likes= $this->likes($user_id,$tweet['tweet_id']);
-                                $retweet= $this->checkRetweet($tweet['tweet_id'],$user_id);
+                                // $retweet= $this->checkRetweet($tweet['tweet_id'],$user_id);
+                                $retweet= $this->checkRetweet($tweet['tweet_id'],$tweet['retweet_by']);
                                 $user= $this->userData($tweet['retweet_by']);
                                 $comment= $this->comments($tweet['tweet_id']);
                                      # code... 

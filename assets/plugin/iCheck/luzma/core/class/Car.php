@@ -50,13 +50,18 @@ class Car extends Icyamunara {
         <div class="card-body">
         <span class="job-show"></span>
         <div class="job-hide">
+        
+        <?php 
+            if ($query->num_rows > 0) { ?>
+
             <ul class="timeline timeline-inverse">  
                 <li class="time-label" style="margin-bottom: 0px;">
                         <span style="margin-left: -10px;"> <img src="<?php echo BASE_URL_LINK.'image/banner/discount.png' ;?>" width="80px"> </span>
                       
                         <?php echo $this->bannerPublishcar($categories); ?>
                 </li>
-          <?php while($car= $query->fetch_array()) { ?>
+                <?php while($car= $query->fetch_array()) { ?>
+                
                     <li class="time-label">
                         <?php echo $this->buychangesColor($car['buy']); ?>
                         
@@ -68,7 +73,7 @@ class Car extends Icyamunara {
 
                         <div class="timeline-item card flex-md-row shadow-sm h-md-100 border-0">
                         <!-- <img class="card-img-left flex-auto d-none d-lg-block" height="100px" width="100px" src="< ?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo'] ;?>" alt="Card image cap"> -->
-                        <div class='col-md-4 px-0 card-img-left' >
+                        <div class='col-md-4 px-0 card-img-left more' id="car-readmore" data-car="<?php echo $car['car_id']; ?>">
                             <!-- <div class='card-img-left' style="background: url('< ?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo']; ?>')no-repeat;background-size:contain;"> -->
                             <!-- height:100px;width:100px -->
                             <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC.'uploads/car/'.$car['photo']; ?>">
@@ -131,20 +136,31 @@ class Car extends Icyamunara {
                     <!-- END timeline item -->
                     <?php }
                     
-                    $query1= $mysqli->query("SELECT COUNT(*) FROM car WHERE categories_car ='$categories' ");
-                    $row_Paginaion = $query1->fetch_array();
-                    $total_Paginaion = array_shift($row_Paginaion);
-                    $post_Perpages = $total_Paginaion/10;
-                    $post_Perpage = ceil($post_Perpages); ?>    
+                   ?>    
                     <li>
                         <i class="fa fa-clock-o bg-info text-light"></i>
                     </li>
                   </ul>
+                  <?php }else{
+                     echo ' <div class="col-md-12 col-lg-12"><div class="alert alert-danger alert-dismissible fade show text-center">
+                                <button class="close" data-dismiss="alert" type="button">
+                                    <span>&times;</span>
+                                </button>
+                                <strong>No Record</strong>
+                            </div></div>'; 
+                }?>
            </div>
           </div> <!-- /.card-body -->
        </div> <!-- /.card -->
 
-        <?php if($post_Perpage > 1){ ?>
+        <?php 
+         $query1= $mysqli->query("SELECT COUNT(*) FROM car WHERE categories_car ='$categories' ");
+         $row_Paginaion = $query1->fetch_array();
+         $total_Paginaion = array_shift($row_Paginaion);
+         $post_Perpages = $total_Paginaion/10;
+         $post_Perpage = ceil($post_Perpages); 
+        
+        if($post_Perpage > 1){ ?>
          <nav>
              <ul class="pagination justify-content-center mt-3">
                  <?php if ($pages > 1) { ?>

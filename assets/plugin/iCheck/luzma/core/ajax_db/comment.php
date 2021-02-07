@@ -32,7 +32,7 @@ if (isset($_POST['comments']) && !empty($_POST['comments'])) {
                   </div>
                   </div>
                 ')).'
-               <span class="username"> <a href="'.PROFILE.'" style="float:left;padding-right:3px;">'.$tweet['firstname']   ." ".$tweet['lastname'].'</a>
+               <span class="username"> <a href="'.PROFILE.'" style="float:left;padding-right:3px;">'.$comments['firstname']   ." ".$comments['lastname'].'</a>
                     <!-- //Jonathan Burke Jr. -->
                 </span>
                  <span class="description"> Shared publicly - '.$home->timeAgo($comments["comment_at"]).' today

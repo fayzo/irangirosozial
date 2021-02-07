@@ -140,11 +140,13 @@ class School extends Home {
         </form>
 
         <div id="cell-hide">
-         
+        <?php 
+            if ($query->num_rows > 0) { ?>
+
           <?php while($row= $query->fetch_array()) { ?>
 
             <div class="card flex-md-row shadow-sm h-md-100 border-0 mb-3">
-                <div class="col-md-4 px-0 card-img-left">
+                <div class="col-md-4 px-0 card-img-left more"   id="school-readmore" data-school="<?php echo $row['school_id'] ;?>">
                     <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
                 </div><!-- col -->
                 <div class="col-md-8 card-body d-flex flex-column align-items-start pt-0">
@@ -166,6 +168,15 @@ class School extends Home {
             </div><!-- card -->
           <hr class="bg-info mt-0 mb-1" style="width:95%;">
         <?php } ?>
+        
+        <?php }else{
+                     echo ' <div class="col-md-12 col-lg-12"><div class="alert alert-danger alert-dismissible fade show text-center">
+                                <button class="close" data-dismiss="alert" type="button">
+                                    <span>&times;</span>
+                                </button>
+                                <strong>No Record</strong>
+                            </div></div>'; 
+                } ?>
         </div>
            </div>
           </div> <!-- /.card-body -->
@@ -329,11 +340,13 @@ class School extends Home {
             </form>
 
         <div id="cell-hide">
-        
+        <?php 
+            if ($query->num_rows > 0) { ?>
+
           <?php while($row= $query->fetch_array()) { ?>
 
             <div class="card flex-md-row shadow-sm h-md-100 border-0 mb-3">
-                <div class="col-md-4 px-0 card-img-left">
+                <div class="col-md-4 px-0 card-img-left more" id="school-readmore" data-school="<?php echo $row['school_id'] ;?>">
                     <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
                 </div><!-- col -->
                 <div class="col-md-8 card-body d-flex flex-column align-items-start pt-0">
@@ -355,6 +368,15 @@ class School extends Home {
             </div><!-- card -->
           <hr class="bg-info mt-0 mb-1" style="width:95%;">
         <?php } ?>
+        <?php }else{
+                     echo ' <div class="col-md-12 col-lg-12"><div class="alert alert-danger alert-dismissible fade show text-center">
+                                <button class="close" data-dismiss="alert" type="button">
+                                    <span>&times;</span>
+                                </button>
+                                <strong>No Record</strong>
+                            </div></div>'; 
+                } ?>
+                
            </div><!-- cell-hide -->
            </div>
           </div> <!-- /.card-body -->

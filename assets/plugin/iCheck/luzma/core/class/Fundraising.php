@@ -19,6 +19,9 @@ class Fundraising extends Follow
         $query= $mysqli->query("SELECT * FROM users U Left JOIN fundraising F ON F. user_id2 = U. user_id WHERE F. categories_fundraising ='$categories'  ORDER BY created_on2 Desc Limit $showpages,8");
         ?>
             <div class="row mt-3">
+          <?php
+            if ($query->num_rows > 0) { ?>
+
         <?php while($row= $query->fetch_array()) { 
               $likes= $this->Fundraisinglikes($user_id,$row['fund_id']); ?>
         
@@ -83,6 +86,15 @@ class Fundraising extends Follow
                 </div>
 
         <?php } 
+        
+        }else{
+            echo ' <div class="col-md-12 col-lg-12"><div class="alert alert-danger alert-dismissible fade show text-center">
+                    <button class="close" data-dismiss="alert" type="button">
+                        <span>&times;</span>
+                    </button>
+                    <strong>No Record</strong>
+                </div></div>'; 
+        } 
 
         $query1= $mysqli->query("SELECT COUNT(*) FROM users U Left JOIN fundraising F ON F. user_id2 = U. user_id WHERE F. categories_fundraising ='$categories'  ORDER BY created_on2 Desc ");
         $row_Paginaion = $query1->fetch_array();
