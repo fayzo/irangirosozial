@@ -1215,7 +1215,20 @@ class Posts_copyDraft extends  Gurisha {
                                                     </li>
                                                 </ul>
                                             </li>
-                                         <?php }else{ echo '';}?>
+                                            <?php }else if (isset($_SESSION['key']) && $tweet["retweet_by"] == $user_id){ ?>
+                                                <li  class=" list-inline-item">
+                                                    <ul class="deleteButt text-sm" style="list-style-type: none; margin:0px;" >
+                                                        <li>
+                                                        <a href="javascript:void(0)" class="more" ><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                                                            <ul style="list-style-type: none; margin:0px;" >
+                                                                <li style="list-style-type: none; margin:0px;"> 
+                                                                    <label class="delete_retweet_by" data-tweet="<?php echo  $tweet["tweet_id"];?>"  data-user="<?php echo $tweet["retweet_by"];?>" >Delete </label>
+                                                            </li>
+                                                        </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            <?php }else{ echo '';}?>
                                          </span>
                                 </ul>
 

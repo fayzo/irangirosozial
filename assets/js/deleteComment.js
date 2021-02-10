@@ -43,6 +43,50 @@ $(document).ready(function (e) {
 
         });
     });
+    
+    $(document).on('click', '.delete_retweet_by', function (e) {
+        e.preventDefault();
+        var tweet_id = $(this).data('tweet');
+        var comment_by = $(this).data('user');
+
+        $.ajax({
+            url: 'core/ajax_db/deletePost_retweet_by',
+            method: 'POST',
+            dataType: 'text',
+            data: {
+                deleteTweet: comment_by,
+                showpopupdelete: tweet_id,
+            }, success: function (response) {
+                $(".popupTweet").html(response);
+                $(".close-retweet-popup,.cancel-it").click(function () {
+                    $(".retweet-popup").hide();
+                });
+                $(".delete-it").click(function () {
+                    $.ajax({
+                        url: 'core/ajax_db/deletePost_retweet_by',
+                        method: 'POST',
+                        dataType: 'text',
+                        data: {
+                            deleteTweetHome: tweet_id,
+                        }, success: function (response) {
+                            $("#userComment_" + tweet_id).html('');
+                            $("#responseDeletePost").html(response);
+                            setInterval(function() {
+                                $("#responseDeletePost").fadeOut();
+                            }, 1000);
+                            setInterval(function() {
+                                location.reload();
+                            }, 1100);
+                            // console.log(response);
+                        }
+
+                    });
+                });
+                // console.log(response);
+            }
+
+        });
+    });
 
         $(document).on('click', '.deleteComment', function (e) {
         e.preventDefault();

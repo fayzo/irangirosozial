@@ -867,8 +867,8 @@ $result = substr(strrchr($path,'/'),1);
 if (isset($_SESSION['key']) && $result === '' || isset($_SESSION['key']) && $self === 'profile.php'){ ?>
   
   <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
-  <!-- <body class="hold-transition skin-blue fixed sidebar-mini-expand-feature sidebar-mini"> -->
-  <body class="hold-transition skin-blue fixed sidebar-collapse sidebar-mini ">
+  <body class="hold-transition skin-blue fixed sidebar-mini-expand-feature sidebar-mini">
+  <!-- <body class="hold-transition skin-blue fixed sidebar-collapse sidebar-mini "> -->
   <!-- Site wrapper skin-blue -->
 <?php }else{ ?>
 
