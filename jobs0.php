@@ -76,11 +76,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-2">
                 <h1><i>Jobs</i></h1>
             </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
+            <div class="col-10">
+                <ol class="breadcrumb float-right">
                     <li class="breadcrumb-item"><a href="<?php echo HOME ;?>">Home</a></li>
                       <?php if (isset($_SESSION['key'])){ ?>
                       <?php if ($user['user_id'] === $_SESSION['key']) { ?>

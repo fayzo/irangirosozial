@@ -12,7 +12,7 @@
                         <h3>Network</h3>
                     </div>
                     <div class="col-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-right">
                             <li class="breadcrumb-item"><a href="<?php echo HOME ;?>">Home</a></li>
                             <?php if (isset($_SESSION['key'])){ ?>
                             <?php if ($profileData['user_id'] != $_SESSION['key']) { ?>

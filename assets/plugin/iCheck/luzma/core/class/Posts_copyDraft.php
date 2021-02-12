@@ -87,7 +87,7 @@ class Posts_copyDraft extends  Gurisha {
                                                <?php if ($count === 1) { ?>
                                                     <div class="row mb-1">
                                                            <?php $expode = explode("=",$tweet['tweet_image']); ?>
-                                                       <div class="col-sm-12">
+                                                       <div class="col-12">
                                                            <img class="img-fluid"
                                                                src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>"
                                                                alt="Photo">
@@ -101,7 +101,7 @@ class Posts_copyDraft extends  Gurisha {
                                                              $splice= array_splice($expode,0,2);
                                                              for ($i=0; $i < count($splice); ++$i) { 
                                                              ?>
-                                                       <div class="col-sm-6">
+                                                       <div class="col-6">
                                                            <img class="img-fluid mb-2"
                                                                src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                                alt="Photo">
@@ -109,7 +109,7 @@ class Posts_copyDraft extends  Gurisha {
                                                            <?php } ?>
                                                     </div>
                                                     <div class="row">
-                                                       <div class="col-sm-12">
+                                                       <div class="col-12">
                                                               <span class="btn btn-primary btn-sm float-right" >View More photo  <i class="fa fa-picture-o"></i> >>></span>
                                                         </div>
                                                     </div>
@@ -657,7 +657,7 @@ class Posts_copyDraft extends  Gurisha {
 
                                      <div class="row mb-1">
                                             <?php $expode = explode("=",$tweet['tweet_image']); ?>
-                                        <div class="col-sm-12 more">
+                                        <div class="col-12 more">
                                             <img class="img-fluid imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -674,7 +674,7 @@ class Posts_copyDraft extends  Gurisha {
                                                   $splice= array_splice($expode,0,2);
                                                   for ($i=0; $i < count($splice); ++$i) { 
                                                   ?>
-                                            <div class="col-sm-6">
+                                            <div class="col-6">
                                                 <img class="img-fluid mb-2 imagePopup"
                                                     src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                     alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -690,7 +690,7 @@ class Posts_copyDraft extends  Gurisha {
                                             <?php $expode = explode("=",$tweet['tweet_image']);
                                               $splice= array_splice($expode,0,1);
                                               ?>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <img class="img-fluid mb-2 imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[0] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -700,7 +700,7 @@ class Posts_copyDraft extends  Gurisha {
                                         </div>
                                         <!-- /.col -->
 
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <div class="row mb-2 more">
                                                     <?php 
                                                     $expode = explode("=",$tweet['tweet_image']);
@@ -708,7 +708,7 @@ class Posts_copyDraft extends  Gurisha {
                                                     $splice= array_splice($expode,1,2);
                                                     // var_dump($splice);
                                                      for ($i=0; $i < count($splice); ++$i) { ?>
-                                                <div class="col-sm-6">
+                                                <div class="col-6">
                                                     <img class="img-fluid mb-2 imagePopup"
                                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -725,7 +725,7 @@ class Posts_copyDraft extends  Gurisha {
                                                     $expode = explode("=",$tweet['tweet_image']);
                                                     $splice= array_splice($expode,3,2);
                                                      for ($i=0; $i < count($splice); ++$i) { ?>
-                                                <div class="col-sm-6">
+                                                <div class="col-6">
                                                     <img class="img-fluid mb-2 imagePopup"
                                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -744,7 +744,7 @@ class Posts_copyDraft extends  Gurisha {
                                   
                                      <!-- /.row -->
                                     <div class="row">
-                                       <div class="col-sm-12">
+                                       <div class="col-12">
                                            <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                         </div>
                                     </div>
@@ -925,7 +925,7 @@ class Posts_copyDraft extends  Gurisha {
                                         } ?>
                                         </div> 
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-12">
                                                 <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                             </div>
                                         </div>
@@ -1101,7 +1101,7 @@ class Posts_copyDraft extends  Gurisha {
                                         } ?>
                                         </div> 
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-12">
                                                 <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                             </div>
                                         </div>

@@ -38,6 +38,34 @@ $(document).ready(function () {
         });
     });
 
+    $(window).bind('load',function () {
+        // var jobHovers0 = document.getElementsByClassName('jobHovers0')[0]; 
+        // var jobHovers0 = document.querySelector('.jobHovers0')[0]; 
+        var get= $('.jobHovers0').get(0); // $('jobHovers0').eq(0); // $('jobHovers0').first();
+        var job_id = $(get).data('job');
+        // console.log(Number.isInteger($(get).data('job')));
+        if (Number.isInteger($(get).data('job')) === true) {
+            
+            var business_id = $(get).data('business');
+            // console.log(get,$(get).data('job'));
+            
+            $.ajax({
+                url: 'core/ajax_db/businessPostView0',
+                method: 'POST',
+                dataType: 'text',
+                data: {
+                    job_id: job_id,
+                    business_id: business_id
+                }, success: function (response) {
+                    $(".jobslarge").html(response);
+                    // console.log(response);
+                }
+            });
+
+        }
+
+    });
+
     $(document).on('click', '.inbox-view', function () {
         // e.stopPropagation();
         var cv_id = $(this).data('cv_id');

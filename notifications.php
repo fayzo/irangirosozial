@@ -6,11 +6,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-6">
                 <h1><i>Notification</i></h1>
             </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
+            <div class="col-6">
+                <ol class="breadcrumb float-right">
                     <li class="breadcrumb-item"><a href="<?php echo HOME ;?>">Home</a></li>
                     <li class="breadcrumb-item active"><a href="javascript:void(0);" onclick="location.href='<?php echo BASE_URL_PUBLIC.$user['username'] ;?>'"> User Profile</a></i></li>
                 </ol>
@@ -32,13 +32,13 @@
             <!-- /.col -->
 
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header borders-tops text-center p-2">
+                <div class="cards">
+                    <div class="card-header borders-tops text-center p-2 message-color">
                         <h3><i> Notification</i></h3>
                     </div><!-- /.card-header -->
-                    <div class="card-body mb-2 message-color">
+                    <div class="card-body mb-2">
                         <!-- The timeline -->
-                        <ul class="timeline timeline-inverse message-color">
+                        <ul class="timeline timeline-inverse">
                             <!-- timeline time label -->
                     
                             <li class="time-label">
@@ -58,7 +58,7 @@
                             <li>
                                 <i class="fa fa-envelope bg-primary text-light"></i>
 
-                                <div class="timeline-item card shadow-sm" >
+                                <div class="timeline-item card shadow-sm" style="background:white;">
                                   <div class="card-body">
                                     <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
 
@@ -87,7 +87,7 @@
                             <li>
                                 <i class="fa fa-user bg-info text-light"></i>
 
-                                <div class="timeline-item card shadow-sm" >
+                                <div class="timeline-item card shadow-sm" style="background:white;">
                                   <div class="card-body">
                                      <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['follow_on']) ;?></span>
                                     <div class="user-block">
@@ -105,7 +105,7 @@
                                                 href="<?php echo PROFILE ;?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
                                             <!-- //Jonathan Burke Jr. -->
                                         </span>
-                                        <span class="description"> <h3 >Followed you on <!-- accepted your friend request --> </h3></span>
+                                        <span class="description"> <div >Followed you on <!-- accepted your friend request --> </div></span>
                                     </div><!-- /.user-block -->
                                    
                                   </div>
@@ -126,7 +126,7 @@
                             <li>
                                 <i class="fa fa-heart bg-danger text-light"></i>
 
-                                <div class="timeline-item card shadow-sm" >
+                                <div class="timeline-item card shadow-sm" style="background:white;">
                                     <div class="card-header ">
                                         <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['posted_on']) ;?></span>
                                         <div class="user-block">
@@ -144,7 +144,7 @@
                                                     href="<?php echo PROFILE ;?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
                                                 <!-- //Jonathan Burke Jr. -->
                                             </span>
-                                            <span class="description"> <h3>Likes your Post <!-- accepted your friend request --> </h3></span>
+                                            <span class="description"> <div>Likes your Post <!-- accepted your friend request --> </div></span>
                                         </div><!-- /.user-block -->
                                   </div><!-- /.card-header -->
                                   <div class="card-body">
@@ -194,7 +194,7 @@
 
                                     <div class="row mb-1">
                                             <?php $expode = explode("=",$tweet['tweet_image']); ?>
-                                        <div class="col-sm-12 more">
+                                        <div class="col-12 more">
                                             <img class="img-fluid imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -211,7 +211,7 @@
                                                 $splice= array_splice($expode,0,2);
                                                 for ($i=0; $i < count($splice); ++$i) { 
                                                 ?>
-                                            <div class="col-sm-6">
+                                            <div class="col-6">
                                                 <img class="img-fluid mb-2 imagePopup"
                                                     src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                     alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -227,7 +227,7 @@
                                             <?php $expode = explode("=",$tweet['tweet_image']);
                                             $splice= array_splice($expode,0,1);
                                             ?>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <img class="img-fluid mb-2 imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[0] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -237,7 +237,7 @@
                                         </div>
                                         <!-- /.col -->
 
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <div class="row mb-2 more">
                                                     <?php 
                                                     $expode = explode("=",$tweet['tweet_image']);
@@ -245,7 +245,7 @@
                                                     $splice= array_splice($expode,1,2);
                                                     // var_dump($splice);
                                                     for ($i=0; $i < count($splice); ++$i) { ?>
-                                                <div class="col-sm-6">
+                                                <div class="col-6">
                                                     <img class="img-fluid mb-2 imagePopup"
                                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -262,7 +262,7 @@
                                                     $expode = explode("=",$tweet['tweet_image']);
                                                     $splice= array_splice($expode,3,2);
                                                     for ($i=0; $i < count($splice); ++$i) { ?>
-                                                <div class="col-sm-6">
+                                                <div class="col-6">
                                                     <img class="img-fluid mb-2 imagePopup"
                                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -281,7 +281,7 @@
 
                                     <!-- /.row -->
                                     <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-12">
                                         <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                         </div>
                                     </div>
@@ -462,7 +462,7 @@
                                         } ?>
                                         </div> 
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-12">
                                                 <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                             </div>
                                         </div>
@@ -638,7 +638,7 @@
                                         } ?>
                                         </div> 
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-12">
                                                 <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                             </div>
                                         </div>
@@ -923,7 +923,7 @@
                             <li>
                                 <i class="fa fa-retweet bg-success text-light"></i>
 
-                                <div class="timeline-item card shadow-sm" >
+                                <div class="timeline-item card shadow-sm" style="background:white;">
                                     <div class="card-header ">
                                         <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['posted_on']) ;?></span>
                                         <div class="user-block">
@@ -940,7 +940,7 @@
                                                 <a href="<?php echo PROFILE ;?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
                                                 <!-- //Jonathan Burke Jr. -->
                                             </span>
-                                            <span class="description"> <h3>Shares your Post <!-- accepted your friend request --> </h3></span>
+                                            <span class="description"> <div>Shares your Post <!-- accepted your friend request --> </div></span>
                                         </div><!-- /.user-block -->
                                     </div><!-- /.card-header -->
 
@@ -991,7 +991,7 @@
 
                             <div class="row mb-1">
                                     <?php $expode = explode("=",$tweet['tweet_image']); ?>
-                                <div class="col-sm-12 more">
+                                <div class="col-12 more">
                                     <img class="img-fluid imagePopup"
                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>"
                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1008,7 +1008,7 @@
                                         $splice= array_splice($expode,0,2);
                                         for ($i=0; $i < count($splice); ++$i) { 
                                         ?>
-                                    <div class="col-sm-6">
+                                    <div class="col-6">
                                         <img class="img-fluid mb-2 imagePopup"
                                             src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                             alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1024,7 +1024,7 @@
                                     <?php $expode = explode("=",$tweet['tweet_image']);
                                     $splice= array_splice($expode,0,1);
                                     ?>
-                                <div class="col-sm-6">
+                                <div class="col-6">
                                     <img class="img-fluid mb-2 imagePopup"
                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[0] ;?>"
                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1034,7 +1034,7 @@
                                 </div>
                                 <!-- /.col -->
 
-                                <div class="col-sm-6">
+                                <div class="col-6">
                                     <div class="row mb-2 more">
                                             <?php 
                                             $expode = explode("=",$tweet['tweet_image']);
@@ -1042,7 +1042,7 @@
                                             $splice= array_splice($expode,1,2);
                                             // var_dump($splice);
                                             for ($i=0; $i < count($splice); ++$i) { ?>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <img class="img-fluid mb-2 imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1059,7 +1059,7 @@
                                             $expode = explode("=",$tweet['tweet_image']);
                                             $splice= array_splice($expode,3,2);
                                             for ($i=0; $i < count($splice); ++$i) { ?>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <img class="img-fluid mb-2 imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1078,7 +1078,7 @@
 
                             <!-- /.row -->
                             <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-12">
                                 <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                 </div>
                             </div>
@@ -1259,7 +1259,7 @@
                                 } ?>
                                 </div> 
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-12">
                                         <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                     </div>
                                 </div>
@@ -1435,7 +1435,7 @@
                                 } ?>
                                 </div> 
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-12">
                                         <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                     </div>
                                 </div>
@@ -1723,7 +1723,7 @@
                             <li>
                                 <i class="fa fa-at bg-purple text-dark "></i>
                                 <!-- <i class="fa fa-at bg-warning text-light">@</i> -->
-                              <div class="timeline-item card shadow-sm" >
+                              <div class="timeline-item card shadow-sm" style="background:white;">
                                 <div class="card-header ">
                                         <span class="time float-right mt-3"><i class=" fa fa-clock-o"></i> <?php echo $users->timeAgo($data['posted_on']) ;?></span>
                                         <div class="user-block">
@@ -1741,7 +1741,7 @@
                                                     href="<?php echo PROFILE ;?>"><?php echo $data['firstname']." ".$data['lastname'] ;?></a>
                                                 <!-- //Jonathan Burke Jr. -->
                                             </span>
-                                            <span class="description"> <h3>Mention Your name <!-- accepted your friend request --> </h3></span>
+                                            <span class="description"> <div>Mention Your name <!-- accepted your friend request --> </div></span>
                                         </div><!-- /.user-block -->
                                   </div><!-- /.card-header -->
                                   <div class="card-body">
@@ -1790,7 +1790,7 @@
 
                                     <div class="row mb-1">
                                             <?php $expode = explode("=",$tweet['tweet_image']); ?>
-                                        <div class="col-sm-12 more">
+                                        <div class="col-12 more">
                                             <img class="img-fluid imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1807,7 +1807,7 @@
                                                 $splice= array_splice($expode,0,2);
                                                 for ($i=0; $i < count($splice); ++$i) { 
                                                 ?>
-                                            <div class="col-sm-6">
+                                            <div class="col-6">
                                                 <img class="img-fluid mb-2 imagePopup"
                                                     src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                     alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1823,7 +1823,7 @@
                                             <?php $expode = explode("=",$tweet['tweet_image']);
                                             $splice= array_splice($expode,0,1);
                                             ?>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <img class="img-fluid mb-2 imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[0] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1833,7 +1833,7 @@
                                         </div>
                                         <!-- /.col -->
 
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <div class="row mb-2 more">
                                                     <?php 
                                                     $expode = explode("=",$tweet['tweet_image']);
@@ -1841,7 +1841,7 @@
                                                     $splice= array_splice($expode,1,2);
                                                     // var_dump($splice);
                                                     for ($i=0; $i < count($splice); ++$i) { ?>
-                                                <div class="col-sm-6">
+                                                <div class="col-6">
                                                     <img class="img-fluid mb-2 imagePopup"
                                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1858,7 +1858,7 @@
                                                     $expode = explode("=",$tweet['tweet_image']);
                                                     $splice= array_splice($expode,3,2);
                                                     for ($i=0; $i < count($splice); ++$i) { ?>
-                                                <div class="col-sm-6">
+                                                <div class="col-6">
                                                     <img class="img-fluid mb-2 imagePopup"
                                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -1877,7 +1877,7 @@
 
                                     <!-- /.row -->
                                     <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-12">
                                         <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                         </div>
                                     </div>
@@ -2058,7 +2058,7 @@
                                         } ?>
                                         </div> 
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-12">
                                                 <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                             </div>
                                         </div>
@@ -2234,7 +2234,7 @@
                                         } ?>
                                         </div> 
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-12">
                                                 <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                             </div>
                                         </div>

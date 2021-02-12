@@ -12,7 +12,7 @@
                 <h5><i> Your Post</i></h5>
           </div>
           <div class="col-8">
-                <ol class="breadcrumb float-sm-right">
+                <ol class="breadcrumb float-right">
                     <li class="breadcrumb-item"><a href="<?php if (isset($_SESSION['key'])){ echo HOME ; }else{ echo LOGIN; } ?>">Home</a></li>
                     <!-- <li class="breadcrumb-item"><a href="< ?php if (isset($_SESSION['key'])){ echo BASE_URL_PUBLIC.$profileData['username'].'.album' ; }else{ echo LOGIN; } ?>">Photo</i></a></li> -->
                     <?php if (isset($_SESSION['key'])){ ?>

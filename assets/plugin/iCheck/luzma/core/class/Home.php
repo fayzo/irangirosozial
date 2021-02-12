@@ -2047,7 +2047,7 @@ public function links(){ ?>
                                                <?php if ($count === 1) { ?>
                                                     <div class="row mb-1">
                                                            <?php $expode = explode("=",$tweet['tweet_image']); ?>
-                                                       <div class="col-sm-12">
+                                                       <div class="col-12">
                                                            <img class="img-fluid"
                                                                src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>"
                                                                alt="Photo">
@@ -2061,7 +2061,7 @@ public function links(){ ?>
                                                              $splice= array_splice($expode,0,2);
                                                              for ($i=0; $i < count($splice); ++$i) { 
                                                              ?>
-                                                       <div class="col-sm-6">
+                                                       <div class="col-6">
                                                            <img class="img-fluid mb-2"
                                                                src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                                alt="Photo">
@@ -2069,7 +2069,7 @@ public function links(){ ?>
                                                            <?php } ?>
                                                     </div>
                                                     <div class="row">
-                                                       <div class="col-sm-12">
+                                                       <div class="col-12">
                                                               <span class="btn btn-primary btn-sm float-right" >View More photo  <i class="fa fa-picture-o"></i> >>></span>
                                                         </div>
                                                     </div>
@@ -2583,7 +2583,7 @@ public function links(){ ?>
 
                                      <div class="row mb-1">
                                             <?php $expode = explode("=",$tweet['tweet_image']); ?>
-                                        <div class="col-sm-12 more">
+                                        <div class="col-12 more">
                                             <img class="img-fluid imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -2600,7 +2600,7 @@ public function links(){ ?>
                                                   $splice= array_splice($expode,0,2);
                                                   for ($i=0; $i < count($splice); ++$i) { 
                                                   ?>
-                                            <div class="col-sm-6">
+                                            <div class="col-6">
                                                 <img class="img-fluid mb-2 imagePopup"
                                                     src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                     alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -2616,7 +2616,7 @@ public function links(){ ?>
                                             <?php $expode = explode("=",$tweet['tweet_image']);
                                               $splice= array_splice($expode,0,1);
                                               ?>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <img class="img-fluid mb-2 imagePopup"
                                                 src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[0] ;?>"
                                                 alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -2626,7 +2626,7 @@ public function links(){ ?>
                                         </div>
                                         <!-- /.col -->
 
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <div class="row mb-2 more">
                                                     <?php 
                                                     $expode = explode("=",$tweet['tweet_image']);
@@ -2634,7 +2634,7 @@ public function links(){ ?>
                                                     $splice= array_splice($expode,1,2);
                                                     // var_dump($splice);
                                                      for ($i=0; $i < count($splice); ++$i) { ?>
-                                                <div class="col-sm-6">
+                                                <div class="col-6">
                                                     <img class="img-fluid mb-2 imagePopup"
                                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -2651,7 +2651,7 @@ public function links(){ ?>
                                                     $expode = explode("=",$tweet['tweet_image']);
                                                     $splice= array_splice($expode,3,2);
                                                      for ($i=0; $i < count($splice); ++$i) { ?>
-                                                <div class="col-sm-6">
+                                                <div class="col-6">
                                                     <img class="img-fluid mb-2 imagePopup"
                                                         src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$splice[$i] ;?>"
                                                         alt="Photo"  data-tweet="<?php echo $tweet["tweet_id"] ;?>">
@@ -2670,7 +2670,7 @@ public function links(){ ?>
                                   
                                      <!-- /.row -->
                                     <div class="row">
-                                       <div class="col-sm-12">
+                                       <div class="col-12">
                                            <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                         </div>
                                     </div>
@@ -2851,7 +2851,7 @@ public function links(){ ?>
                                         } ?>
                                         </div> 
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-12">
                                                 <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                             </div>
                                         </div>
@@ -3027,7 +3027,7 @@ public function links(){ ?>
                                         } ?>
                                         </div> 
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-12">
                                                 <span class="btn btn-primary btn-sm float-right imageViewPopup more"  data-tweet="<?php echo $tweet["tweet_id"] ;?>" >View More photo <i class="fa fa-picture-o"></i>  >>></span>
                                             </div>
                                         </div>
@@ -3343,14 +3343,14 @@ public function links(){ ?>
                          </div>
                          <!-- /.user-block -->
                          <div class="row mb-3">
-                             <div class="col-sm-6">
+                             <div class="col-6">
                                  <img class="img-fluid"
                                      src="<?php echo BASE_URL_LINK ;?>image/img/photo1.png" alt="Photo">
                              </div>
                              <!-- /.col -->
-                             <div class="col-sm-6">
+                             <div class="col-6">
                                  <div class="row">
-                                     <div class="col-sm-6">
+                                     <div class="col-6">
                                          <img class="img-fluid mb-3"
                                              src="<?php echo BASE_URL_LINK ;?>image/img/photo2.png"
                                              alt="Photo">
@@ -3359,7 +3359,7 @@ public function links(){ ?>
                                              alt="Photo">
                                      </div>
                                      <!-- /.col -->
-                                     <div class="col-sm-6">
+                                     <div class="col-6">
                                          <img class="img-fluid mb-3"
                                              src="<?php echo BASE_URL_LINK ;?>image/img/photo4.jpg"
                                              alt="Photo">
@@ -3435,7 +3435,7 @@ public function links(){ ?>
 
             if(pathinfo($expode[$i])['extension'] == 'jpg' || pathinfo($expode[$i])['extension'] == 'jpeg'|| pathinfo($expode[$i])['extension'] == 'png') { 
              ?>
-               <div class="col-sm-3 more">
+               <div class="col-3 more">
                    <img class="img-fluid imagePopup"
                        src="<?php echo BASE_URL_PUBLIC."uploads/album/".$expode[$i] ;?>"
                        alt="Photo"  data-album="<?php echo $rowx[0]['album_id'] ;?>">
@@ -3443,7 +3443,7 @@ public function links(){ ?>
 
          <?php }else if(pathinfo($expode[$i])['extension'] == 'docx'|| pathinfo($expode[$i])['extension'] == 'xls'||
                 pathinfo($expode[$i])['extension'] == 'doc'|| pathinfo($expode[$i])['extension'] == 'xlsx') { ?>
-             <div class="col-sm-3 more">
+             <div class="col-3 more">
                  <span class="mailbox-attachment-icon"><i class="fa fa-file-word-o"></i></span>
                   <div class="mailbox-attachment-info main-active">
                      <a class='colorlightLINK' href="<?php echo BASE_URL_PUBLIC."uploads/album/".pathinfo($expode[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
@@ -3456,7 +3456,7 @@ public function links(){ ?>
                  </div>
              </div>
         <?php }else if(pathinfo($expode[$i])['extension'] == 'pdf' ) { ?>
-        <div class="col-sm-3 more">
+        <div class="col-3 more">
            <span class="mailbox-attachment-icon"><i class="fa fa-file-pdf-o"></i></span>
            <div class="mailbox-attachment-info main-active">
                <a class='colorlightLINK' href="<?php echo BASE_URL_PUBLIC."uploads/album/".pathinfo($expode[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>

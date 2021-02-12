@@ -834,7 +834,29 @@
                     case categories:
                          var pagination = document.getElementById('jobs-hides');
                          pagination.innerHTML = xhr.responseText;
+
+                        // Add any event handlers here...
+                        // var get= $(xhr.responseText).find('div.px-0.py-2.jobHover.jobHovers0.more'); 
+                        // var job_id = $(get).data('job');
+                        // var business_id = $(get).data('business');
+                        // xhr.open('POST', 'core/ajax_db/businessPostView0?job_id=' + job_id + '&business_id=' + business_id , true);
+                        // xhr.send();
+                        // xhr.onreadystatechange = function () {
+                        //     if (xhr.readyState == 4 && xhr.status == 200) {
+
+                        //         switch (categories) {
+                        //             case categories:
+                        //                 var pagination = document.getElementsByClassName('.jobslarge');
+                        //                 pagination.innerHTML = xhr.responseText;
+                        //                 break;
+                        //                 console.log(get,business_id);
+
+                                    
+                        //         }
+                        //     }
+                        // };
                         break;
+                    
                 }
             }
         };
