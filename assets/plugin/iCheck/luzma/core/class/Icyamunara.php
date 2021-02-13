@@ -68,8 +68,8 @@ class Icyamunara extends House {
                            <div class="text-primary mb-0">
                               <a class="text-primary float-left" href="javascript:void(0)" id="icyamunara-readmore" data-icyamunara="<?php echo $icyamunara['house_id']; ?>" ><i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <!-- < ?php echo $icyamunara['provincename']; ?> /  -->
-                                <?php echo $icyamunara['namedistrict']; ?> District/ 
-                                <?php echo $icyamunara['namesector']; ?> Sector
+                                <?php echo $icyamunara['namedistrict']; ?> / 
+                                <?php echo $icyamunara['namesector']; ?> 
                                 <!-- < ?php echo $icyamunara['nameCell']; ?> Cell  -->
                                </a>
                                 

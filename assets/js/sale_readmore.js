@@ -43,11 +43,12 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#form-sale', function (e) {
+    $(document).on('click', '#submit-form-sale', function (e) {
         // event.preventDefault();
         e.stopPropagation();
+        var formdatas = $('#form-sale');
         var title = $('#title');
-        var code = $('#code');
+        var seller_name = $('#seller_name');
         var price = $('#price');
         var phone = $('#phone');
         var additioninformation = $('#addition-information');
@@ -71,7 +72,7 @@ $(document).ready(function () {
 
         if (isEmpty(province) && isEmpty(districts) &&
             isEmpty(sector) && isEmpty(cell) && isEmpty(village) && isEmpty(categories_sale) && 
-            isEmpty(additioninformation) && isEmpty(title) && isEmpty(code) && isEmpty(price) && isEmpty(phone) &&
+            isEmpty(additioninformation) && isEmpty(title) && isEmpty(price) && isEmpty(seller_name) && isEmpty(phone) &&
             isEmpty(photo) && isEmpty(other_photo) && isEmpty(video) && isEmpty(youtube) && isEmpty(photo_Titleo0) && isEmpty(photo_Title0) && isEmpty(photo_Title1) && isEmpty(photo_Title2) &&
             isEmpty(photo_Title3) && isEmpty(photo_Title4) && isEmpty(photo_Title5)) {
             
@@ -96,7 +97,8 @@ $(document).ready(function () {
                 $.ajax({
                     url: 'core/ajax_db/sale_add',
                     method: "POST",
-                    data: new FormData(this),
+                    // data: new FormData(this),
+                    data: formdatas.serializefiles(),
                     contentType: false,
                     processData: false,
                     xhr: function () {
@@ -125,7 +127,7 @@ $(document).ready(function () {
                             $("#responseSubmitsale").fadeOut();
                         }, 2000);
                         setInterval(function () {
-                            // location.reload();
+                            location.reload();
                         }, 2400);
                     }, error: function (response) {
                         $("#responseSubmitsale").html(response).fadeIn();

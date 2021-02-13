@@ -8,7 +8,7 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
         $user_id= $_SESSION['key'];
     }else {
         # code...
-        $username= $users->test_input('jojo');
+        $username= $users->test_input('irangiro');
         $uprofileId= $home->usersNameId($username);
         $profileData= $home->userData($uprofileId['user_id']);
         $user_id= $profileData['user_id'];

@@ -63,6 +63,7 @@ define('PROFILE_EDIT', BASE_URL_PUBLIC.'profileEdit');
 define('JOBS', BASE_URL_PUBLIC.'jobs');
 define('NOTIFICATION', BASE_URL_PUBLIC.'NOTIFICATION');
 define('EVENTS', BASE_URL_PUBLIC.'events');
+define('SALE', BASE_URL_PUBLIC.'sale');
 define('SPORTS', BASE_URL_PUBLIC.'sports');
 define('SETTINGS', BASE_URL_PUBLIC.'setting');
 define('BUSINESS_POST_JOBS', BASE_URL_PUBLIC.'business_jobPost');

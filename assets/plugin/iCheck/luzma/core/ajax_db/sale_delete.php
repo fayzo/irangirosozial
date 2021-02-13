@@ -123,7 +123,7 @@ if(!empty($_FILES['update-form-sale']['name'])){
 
     $id= $_POST['sale_id'];
     $files = $_FILES['update-form-sale'];
-    $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/Blog_nyarwanda_CMS/uploads/sale/';
+    $uploadDir = DOCUMENT_ROOT.'/uploads/sale/';
     // $fileName = time().'_'.basename($_FILES['form']['name']);
     $fileNames= basename($files['name']);
     $fileExt = explode('.', $fileNames);
@@ -157,15 +157,16 @@ if(!empty($_FILES['update-form-sale']['name'])){
         //Update status
         if($update){
             $result = $id ;
+            header('location: '.SALE.'');
             // $result = 2;
         }
         
     //  var_dump($update);
     //  var_dump($_FILES['form']);
     //Load JavaScript function to show the upload status
-    $path= $_SERVER['DOCUMENT_ROOT'].'/Blog_nyarwanda_CMS/uploads/sale/'.$fileName.'';
-    $strpos_countsTo = strpos($path, 'uploads/sale/'.$fileName.'');
-    $path_replace= substr_replace($path,'', 0,$strpos_countsTo);
-    echo '<script type="text/javascript">window.top.window.saleuploadz(' . $result . ',\'' .$path_replace. '\');</script>  ';
+    // $path= DOCUMENT_ROOT.'/uploads/sale/'.$fileName.'';
+    // $strpos_countsTo = strpos($path, 'uploads/sale/'.$fileName.'');
+    // $path_replace= substr_replace($path,'', 0,$strpos_countsTo);
+    // echo '<script type="text/javascript">window.top.window.saleuploadz(' . $result . ',\'' .$path_replace. '\');</script>  ';
 }
 ?>

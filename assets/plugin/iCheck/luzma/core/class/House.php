@@ -139,14 +139,14 @@ class House extends Home {
                         <i class="fa fa-clock-o bg-info text-light"></i>
                     </li>
                   </ul>
-                  <?php }else{
+                <?php }else{
                      echo ' <div class="col-md-12 col-lg-12"><div class="alert alert-danger alert-dismissible fade show text-center">
                                 <button class="close" data-dismiss="alert" type="button">
                                     <span>&times;</span>
                                 </button>
                                 <strong>No Record</strong>
                             </div></div>'; 
-                }?>
+                } ?>
            </div>
           </div> <!-- /.card-body -->
        </div> <!-- /.card -->

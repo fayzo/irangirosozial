@@ -7,16 +7,18 @@ if (isset($_POST['sale_view']) && !empty($_POST['sale_view'])) {
     $get_province = mysqli_query($db,"SELECT * FROM provinces"); ?>
 
 <div class="sale-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrap">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+           <div class="img-popup-wrap"  id="popupEnd">
         	<div class="img-popup-body">
 
             <div class="card">
                 <span id="responseSubmitsale"></span>
                 <div class="card-header">
+                    <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
                     <h5 class="card-text">Sale</h5>
                     <p class="card-text">Do you want to sale a products ? Please fill details below.</p>
                 </div>
@@ -94,11 +96,12 @@ if (isset($_POST['sale_view']) && !empty($_POST['sale_view'])) {
                             </div>
 
                         <div class="col">
-                                <label for="Village">categories sale</label>
+                                <label for="Village">Categories sale</label>
                             <div class="form-group">
                               <select class="form-control" name="categories_sale" id="categories_sale">
                                 <option value="">Select what types of sale</option>
                                 <option value="electronics">Electronics</option>
+                                <option value="arts">Arts</option>
                                 <option value="clothes">Clothes</option>
                                 <option value="sports">Sports</option>
                                 <option value="health_beauty">Health & beauty</option>
@@ -114,28 +117,16 @@ if (isset($_POST['sale_view']) && !empty($_POST['sale_view'])) {
 
                       <div class="form-row mt-2">
                         
-                        <div class="col">
+                        <div class="col-md-6 col-sm-12 mb-2">
                           <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2">name</span>
                             </div>
-                            <input type="text" class="form-control" name="title" id="title" placeholder="name of products Example Samsung v8">
+                            <input type="text" class="form-control" name="title" id="title" placeholder="name of products ">
                           </div>
                         </div>
 
-                        <div class="col">
-                          <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2">code</span>
-                            </div>
-                            <input type="text" class="form-control" name="code" id="code" placeholder="code of products Example nokia x94">
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-row mt-2">
-
-                        <div class="col">
+                        <div class="col-md-6 col-sm-12 mb-2">
                           <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2">Frw</span>
@@ -143,8 +134,20 @@ if (isset($_POST['sale_view']) && !empty($_POST['sale_view'])) {
                             <input type="text" class="form-control" name="price" id="price" placeholder="Price ">
                           </div>
                         </div>
+                      </div>
 
-                        <div class="col">
+                      <div class="form-row mt-2">
+
+                        <div class="col-md-6 col-sm-12 mb-2">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">seller name</span>
+                            </div>
+                            <input type="text" class="form-control" name="seller_name" id="seller_name" placeholder="name">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 mb-2">
                           <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2">phone</span>
@@ -199,7 +202,7 @@ if (isset($_POST['sale_view']) && !empty($_POST['sale_view'])) {
 
                  </div><!-- card-body end-->
                 <div class="card-footer text-center">
-                    <button type="button" id="submit-sale" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
+                    <button type="button" id="submit-form-sale" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
                 </div><!-- card-footer -->
                </form>
             </div><!-- card end-->
@@ -268,8 +271,9 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
            $photo_Title5='';
   }
 
+    $seller_name = $users->test_input($_POST['seller_name']);
     $title = $users->test_input($_POST['title']);
-    $code = $users->test_input($_POST['code']);
+    $code = $users->test_input($_POST['title']).rand(10,100);
     $price = $users->test_input($_POST['price']);
     $phone = $users->test_input($_POST['phone']);
     $province =  $users->test_input($_POST['provincecode']);
@@ -299,6 +303,7 @@ if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 	$users->Postsjobscreates('sale',array( 
 	'title'=> $title,
 	'code'=> $code,
+	'seller_name'=> $seller_name,
 	'price'=> $price,
 	'phone'=> $phone,
 	'province'=> $province,

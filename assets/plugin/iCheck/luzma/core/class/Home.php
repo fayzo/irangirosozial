@@ -487,7 +487,7 @@ class Home extends Comment {
                 <li><a href="jobs"><i class="fa fa-circle-o text-yellow"></i> Job</a></li>
                 <li><a href="career_profession"><i class="fa fa-circle-o text-aqua"></i>Professional</a></li>
                 <li><a href="unemployment"><i class="fa fa-circle-o text-aqua"></i>unemployment</a></li>
-                <li><a href="icyamunara"><i class="fa fa-shopping-basket "></i>Marketplace</a></li>
+                <li><a href="sale"><i class="fa fa-shopping-basket "></i>Marketplace</a></li>
                 <!-- <li><a href="blog"><i class="fa fa-circle-o text-red"></i>Blog</a></li> -->
                 <!-- <li><a href="events"><i class="fa fa-circle-o text-red"></i>Events</a></li> -->
                 <li><a href="crowfund"><i class="fa fa-money "></i> gushoraStartUp</a></li>
@@ -504,7 +504,7 @@ class Home extends Comment {
                 <li><a href="irangiro.jobs"><i class="fa fa-circle-o text-yellow"></i> Job</a></li>
                 <li><a href="irangiro.career_profession"><i class="fa fa-circle-o text-aqua"></i>Professional</a></li>
                 <li><a href="irangiro.unemployment"><i class="fa fa-circle-o text-aqua"></i>unemployment</a></li>
-                <li><a href="irangiro.icyamunara"><i class="fa fa-shopping-basket text-red"></i>Marketplace</a></li>
+                <li><a href="irangiro.sale"><i class="fa fa-shopping-basket text-red"></i>Marketplace</a></li>
                 <!-- <li><a href="irangiro.blog"><i class="fas fa-edit text-aqua"></i>Blog</a></li> -->
                 <!-- <li><a href="irangiro.events"><i class="fa fa-circle-o text-red"></i>Events</a></li> -->
                 <li><a href="irangiro.crowfund"><i class="fa fa-money text-aqua"></i> gushoraStartUp</a></li>
@@ -546,7 +546,7 @@ class Home extends Comment {
                 <li><h5><a class="alink" href="icyamunara">Cyamunara</a></h5></li>
                 <!-- <li><h5><a class="alink" href="food">Foodzana</a></h5></li> -->
                 <li><h5><a class="alink" href="car">Car</a></h5></li>
-                <li><h5><a class="alink" href="icyamunara">Marketplace</a></h5></li>
+                <li><h5><a class="alink" href="sale">Marketplace</a></h5></li>
             </ul>
         
         <?php }else { ?>
@@ -564,7 +564,7 @@ class Home extends Comment {
                 <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.car">Car</a></h5>
                 <!-- <li><h5><a class="alink" href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.sale">Sale</a></h5></li> -->
                 <!-- <li><h5><a class="alink" href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.food">Foodzana</a></h5> -->
-                <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.icyamunara">Marketplace</a></h5>
+                <li><h5><a class="alink" href="<?php echo BASE_URL_PUBLIC; ?>irangiro.sale">Marketplace</a></h5>
             
             </ul>
             <?php } ?>
@@ -592,7 +592,7 @@ public function links(){ ?>
       <li class="list-inline-item"><a href="icyamunara"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Cyamunara</a></li>
       <li class="list-inline-item"><a href="car"><i class="fa fa-car" aria-hidden="true"></i> Car</a></li>
       <!-- <li class="list-inline-item"><a href="food"><i class="fa fa-cutlery" aria-hidden="true"></i> Foodzana</a></li> -->
-      <li class="list-inline-item"><a href="icyamunara"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Marketplace</a></li>
+      <li class="list-inline-item"><a href="sale"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Marketplace</a></li>
 
     </ul>
     <?php }else { ?>
@@ -609,7 +609,7 @@ public function links(){ ?>
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.icyamunara">Cyamunara</a></li>
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.car">Car</a></li>
         <!-- <li class="list-inline-item"><a href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.food">Foodzana</a></li> -->
-        <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.icyamunara">Marketplace</a></li>
+        <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.sale">Marketplace</a></li>
 
     </ul>
 <?php } ?>

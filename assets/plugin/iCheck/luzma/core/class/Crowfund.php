@@ -67,7 +67,7 @@ class Crowfund extends Fundraising {
                         <p class="mt-2">
                        <?php if (strlen($row["text"]) > 80) {
                                 echo $row["text"] = substr($row["text"],0,80).'...
-                                <br><span class="mb-0"><a href="javascript:void(0)" id="crowfund-readmore" data-crowfund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Continue reading...</a></span>';
+                                <br><span class="mb-0"><a href="javascript:void(0)" id="crowfund-readmore" data-crowfund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">read more...</a></span>';
                                 }else{
                                 echo $row["text"];
                                 } ?> 
@@ -530,7 +530,7 @@ public function crowfundraisingData($user_id)
                     <p class="mt-2">
                    <?php if (strlen($row["text"]) > 80) {
                             echo $row["text"] = substr($row["text"],0,80).'...
-                            <br><span class="mb-0"><a href="javascript:void(0)" id="crowfund-readmore" data-crowfund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">Continue reading...</a></span>';
+                            <br><span class="mb-0"><a href="javascript:void(0)" id="crowfund-readmore" data-crowfund="'.$row['fund_id'].'" class="text-muted" style"font-weight: 500 !important;font-size:8px">read more...</a></span>';
                             }else{
                             echo $row["text"];
                             } ?> 

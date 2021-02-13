@@ -14,7 +14,7 @@ class Sale extends Home{
         	case "add":
         		if(!empty($_REQUEST["quantity"])) {
         			$productByCode = $this->runQuery("SELECT * FROM sale WHERE code='" . $_REQUEST["code"] . "'");
-        			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["title"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_REQUEST["quantity"], 'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["photo"]));
+        			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["title"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_REQUEST["quantity"], 'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["photo"] ,'sale_id'=>$productByCode[0]["sale_id"] ,'seller_name'=>$productByCode[0]["seller_name"],'phone'=>$productByCode[0]["phone"],'user_id01'=>$productByCode[0]["user_id01"]));
         			
         			if(!empty($_SESSION["cart_item"])) {    
         				if(in_array($productByCode[0]["code"],array_keys($_SESSION["cart_item"]))) {
@@ -122,12 +122,14 @@ class Sale extends Home{
                 </div><!-- col -->
     <?php }
     }
+
 // background-image:url('../images/bg.png');
 // background-repeat:no-repeat;
 // background-size:contain;
 // background-position:center;
 // background-size: 100%;
 // background-size:cover;
+
      public function cartList($categories,$pages,$user_id)
     {
         $pages= $pages;
@@ -148,23 +150,16 @@ class Sale extends Home{
            ?>
 
          <div class="card-header main-active p-1">
-            <form class="form-inline float-right">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i> </span>
-                    </div>
-                    <input type="text" class="form-control search0"  aria-describedby="helpId" placeholder="Search Accountant, finance ,enginneer">
-                </div>
-            </form>
             <h5 class="card-title text-center"><i> Items to Search</i></h5>
 
             <div class="nav-scroller  py-0" style="clear:right;height:2rem;">
                 <nav class="nav d-flex justify-content-between pb-0">
-                <a class="p-2 text-light active" href="javascript:void(0)" data-toggle="tab" role="tab" onclick="cartItemsCategories('electronics',1);">Electronics<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('electronics');?></span></a>
-                <a class="p-2 text-light" href="javascript:void(0)" onclick="cartItemsCategories('clothes',1);">Clothes<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('clothes');?></span></a>
-                <a class="p-2 text-light" href="javascript:void(0)" onclick="cartItemsCategories('sports',1);">Sports<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('sports');?></span></a>
-                <a class="p-2 text-light" href="javascript:void(0)" onclick="cartItemsCategories('health_beauty',1);">Health Beauty<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('health_beauty');?></span></a>
-                <a class="p-2 text-light" href="javascript:void(0)" onclick="cartItemsCategories('home_garden',1);">Home Garden<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('home_garden');?></span></a>
+                <a class="p-2 text-light active" href="javascript:void(0)" data-toggle="tab" role="tab" onclick="cartItemsCategories('electronics',1,<?php echo $user_id ;?>);">Electronics<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('electronics');?></span></a>
+                <a class="p-2 text-light" href="javascript:void(0)" onclick="cartItemsCategories('arts',1,<?php echo $user_id ;?>);">Arts<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('arts');?></span></a>
+                <a class="p-2 text-light" href="javascript:void(0)" onclick="cartItemsCategories('clothes',1,<?php echo $user_id ;?>);">Clothes<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('clothes');?></span></a>
+                <a class="p-2 text-light" href="javascript:void(0)" onclick="cartItemsCategories('sports',<?php echo $user_id ;?>);">Sports<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('sports');?></span></a>
+                <a class="p-2 text-light" href="javascript:void(0)" onclick="cartItemsCategories('health_beauty',<?php echo $user_id ;?>);">Health Beauty<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('health_beauty');?></span></a>
+                <a class="p-2 text-light" href="javascript:void(0)" onclick="cartItemsCategories('home_garden',<?php echo $user_id ;?>);">Home Garden<span class="badge badge-primary"><?php echo $this->cartcountPOSTS('home_garden');?></span></a>
                 </nav>
             </div> <!-- nav-scroller -->
         </div> <!-- card-header -->
@@ -172,48 +167,24 @@ class Sale extends Home{
         <div>
         <span class="job-show"></span>
         <div class="job-hide">
-                        <div>
-                      <span> <img src="<?php echo BASE_URL_LINK.'image/banner/discount.png' ;?>" width="80px"> </span>
-                        <?php switch ($categories) {
-                            case $categories == 'electronics':
-                                # code...
-                                echo '
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                ';
-                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                break;
-                            case $categories == 'clothes':
-                                # code...
-                                echo '
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                ';
-                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                break;
-                            case $categories == 'sports':
-                                # code...
-                                echo '
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                ';
-                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                break;
-                            case $categories == 'health_beauty':
-                                # code...
-                                echo '
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                ';
-                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                break;
-                            case $categories == 'home_garden':
-                                # code...
-                                echo '
-                                <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                ';
-                                // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
-                                break;
-                        } ?>
-                        </div>
+            
+        <?php if ($query->num_rows > 0) { ?>
 
-                <div class="row">
+                <div>
+                    <span> <img src="<?php echo BASE_URL_LINK.'image/banner/discount.png' ;?>" width="80px"> </span>
+                    <?php switch ($categories) {
+                        case $categories :
+                            # code...
+                            echo '
+                            <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
+                            ';
+                            // <img src="'.BASE_URL_LINK.'image/banner/banners1.png" width="200px">
+                            break;
+                        
+                    } ?>
+                </div>
+
+            <div class="row">
                 <div class="col-md-12 pr-0">
                     
           <?php while($row= $query->fetch_array()) { ?>
@@ -233,15 +204,15 @@ class Sale extends Home{
                                       switch ($banner) {
                                           case $banner == 'new':
                                               # code...
-                                              echo '<img style="margin-left: -12px;" src="'.BASE_URL_LINK.'image/banner/new.png"  width="138px" height="138px"  >';
+                                              echo '<img style="margin-left: -10px;" src="'.BASE_URL_LINK.'image/banner/new.png"  width="80px"  >';
                                               break;
                                           case $banner == 'great_deal':
                                               # code...
-                                              echo '<img style="float:right;" src="'.BASE_URL_LINK.'image/banner/great-deal.png"  width="138px" height="138px" >';
+                                              echo '<img style="float:right;" src="'.BASE_URL_LINK.'image/banner/great-deal.png"  width="120px" >';
                                               break;
                                           case $banner == 'new_arrival':
                                               # code...
-                                              echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png"  width="138px" height="138px" >';
+                                              echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png"  width="120px" >';
                                               break;
                                          default:
                                                 # code...
@@ -418,34 +389,45 @@ class Sale extends Home{
                          </div><!-- float-left -->
                            <!-- </div> -->
 
-                    <?php }
-                    
-                    $query1= $mysqli->query("SELECT COUNT(*) FROM sale WHERE categories_sale ='$categories' ");
-                    $row_Paginaion = $query1->fetch_array();
-                    $total_Paginaion = array_shift($row_Paginaion);
-                    $post_Perpages = $total_Paginaion/9;
-                    $post_Perpage = ceil($post_Perpages); ?>    
+                    <?php } ?>    
                     
                 </div>
                 </div>
+                <?php }else{
+
+                     echo ' <div class="col-md-12 col-lg-12 mt-2"><div class="alert alert-danger alert-dismissible fade show text-center">
+                                <button class="close" data-dismiss="alert" type="button">
+                                    <span>&times;</span>
+                                </button>
+                                <strong>No Record</strong>
+                            </div></div>'; 
+                } ?>
            </div>
           </div> <!-- /.card-body -->
        </div> <!-- /.card -->
 
-        <?php if($post_Perpage > 1){ ?>
+        <?php 
+                    
+        $query1= $mysqli->query("SELECT COUNT(*) FROM sale WHERE categories_sale ='$categories' ");
+        $row_Paginaion = $query1->fetch_array();
+        $total_Paginaion = array_shift($row_Paginaion);
+        $post_Perpages = $total_Paginaion/9;
+        $post_Perpage = ceil($post_Perpages);
+
+        if($post_Perpage > 1){ ?>
          <nav>
              <ul class="pagination justify-content-center mt-3">
                  <?php if ($pages > 1) { ?>
-                     <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="cartItemsCategories('<?php echo $categories; ?>',<?php echo $pages-1; ?>)">Previous</a></li>
+                     <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="cartItemsCategories('<?php echo $categories; ?>',<?php echo $pages-1; ?>,<?php echo $user_id; ?>)">Previous</a></li>
                  <?php } ?>
                  <?php for ($i=1; $i <= $post_Perpage; $i++) { 
                          if ($i == $pages) { ?>
-                      <li class="page-item active"><a href="javascript:void(0)"  class="page-link" onclick="cartItemsCategories('<?php echo $categories; ?>',<?php echo $i; ?>)" ><?php echo $i; ?> </a></li>
+                      <li class="page-item active"><a href="javascript:void(0)"  class="page-link" onclick="cartItemsCategories('<?php echo $categories; ?>',<?php echo $i; ?>,<?php echo $user_id; ?>)" ><?php echo $i; ?> </a></li>
                       <?php }else{ ?>
-                     <li class="page-item"><a href="javascript:void(0)"  class="page-link" onclick="cartItemsCategories('<?php echo $categories; ?>',<?php echo $i; ?>)" ><?php echo $i; ?> </a></li>
+                     <li class="page-item"><a href="javascript:void(0)"  class="page-link" onclick="cartItemsCategories('<?php echo $categories; ?>',<?php echo $i; ?>,<?php echo $user_id; ?>)" ><?php echo $i; ?> </a></li>
                  <?php } } ?>
                  <?php if ($pages+1 <= $post_Perpage) { ?>
-                     <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="cartItemsCategories('<?php echo $categories; ?>',<?php echo $pages+1; ?>)">Next</a></li>
+                     <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="cartItemsCategories('<?php echo $categories; ?>',<?php echo $pages+1; ?>,<?php echo $user_id; ?>)">Next</a></li>
                  <?php } ?>
              </ul>
          </nav>
@@ -473,7 +455,9 @@ class Sale extends Home{
             <thead class="main-active">
             <tr>
             <th style="text-align:left;">Name</th>
-            <th style="text-align:left;">Code</th>
+            <th style="text-align:left;">Items</th>
+            <th style="text-align:left;">view</th>
+            <th style="text-align:left;">Seller Details</th>
             <th style="text-align:right;" width="5%">Quantity</th>
             <th style="text-align:right;" width="10%">Unit Price</th>
             <th style="text-align:right;" width="10%">Price</th>
@@ -489,10 +473,17 @@ class Sale extends Home{
                             <td style="background: url('<?php echo BASE_URL_PUBLIC ;?>uploads/sale/<?php echo $item["image"]; ?>')no-repeat center center;background-size:contain;height:80px;width:80px;position:relative">
                             </td>
             				<!-- <td><img src="< ?php echo BASE_URL_PUBLIC ;?>uploads/sale/< ?php echo $item["image"]; ?>" class="cart-item-image" />< ?php echo $item["name"]; ?></td> -->
-            				<td><?php echo $item["code"]; ?></td>
+            				<td><?php echo $item["name"]; ?></td>
+            				<td><button type="button" class="btn btn-primary offer-price-sale" data-sale="<?php echo $item['sale_id']; ?>">view</button></td>
+            				<td>
+                                <div>Seller: <?php echo $item["seller_name"]; ?></div>
+                                <div>Phone: <?php echo $item["phone"]; ?></div>
+                                <div class="people-message more" data-user="<?php echo $item['user_id01'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </div>
+
+                            </td>
             				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
-            				<td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
-            				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+            				<td  style="text-align:right;"><?php echo "Frw ".number_format($item["price"]); ?></td>
+            				<td  style="text-align:right;"><?php echo "Frw ". number_format($item_price); ?></td>
             				<td style="text-align:center;"><a href="javascript:void(0);" onclick="cart_sale_add('remove','<?php echo $item['code']; ?>');" class="btnRemoveAction"><img src="<?php echo BASE_URL_LINK ;?>image/product-images/icon-delete.png" alt="Remove Item" /></a></td>
             				<!-- <td style="text-align:center;"><a href="sale.php?action=remove&code=< ?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="< ?php echo BASE_URL_LINK ;?>image/product-images/icon-delete.png" alt="Remove Item" /></a></td> -->
             				</tr>
@@ -503,10 +494,10 @@ class Sale extends Home{
             		?>
             
             <tr>
-            <td colspan="2" align="right">Total:</td>
-            <td align="right"><?php echo $total_quantity; ?></td>
-            <td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
-            <td></td>
+            <td colspan="3" align="left">Total:</td>
+            <td colspan="2" align="right"><?php echo $total_quantity; ?></td>
+            <td align="right" colspan="3"><strong><?php echo "Frw ".number_format($total_price); ?></strong></td>
+            <!-- <td></td> -->
             </tr>
             </tbody>
             </table>	
@@ -548,7 +539,7 @@ class Sale extends Home{
                       echo $item["name"];
                     } ?></div>
                     </td>
-            				<td align="right"><?php echo "$ ". number_format($item_price); ?></td>
+            				<td align="right"><?php echo "Frw ". number_format($item_price); ?></td>
             				<td align="center">
                                <form method="post" id="form-cartitem<?php echo $item['code']; ?>remove" >
                                         <input type="hidden" style="width:30px;" name="action" value="remove" />
@@ -566,7 +557,7 @@ class Sale extends Home{
             
             <tr>
             <td>Total:</td>
-            <td align="left" colspan="2" ><strong><?php echo "$ ".number_format($total_price); ?></strong></td>
+            <td align="left" colspan="2" ><strong><?php echo "Frw ".number_format($total_price); ?></strong></td>
             </tr>
             </tbody>
             </table>	

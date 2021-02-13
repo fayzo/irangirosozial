@@ -58,6 +58,13 @@
           </a>
 
         <?php  } ?>
+        
+        <?php if(isset($_SESSION["cart_item"])){ ?>
+          <a class="sidebar-toggle_" href="<?php echo SHOPPING ;?>">
+              <i class="fa fa-shopping-cart"></i>
+            <span class="hidden-xs"> Shopping</span>
+          </a>
+        <?php  } ?>
 
         <div class="navbar-custom-menu ml-auto">
           <ul class="nav navbar-nav">
