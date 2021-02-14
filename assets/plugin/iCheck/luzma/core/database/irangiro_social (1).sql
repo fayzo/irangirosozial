@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2021 at 08:25 PM
+-- Generation Time: Feb 14, 2021 at 07:16 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -91,8 +91,10 @@ INSERT INTO `apply_job` (`cv_id`, `firstname0`, `middlename0`, `lastname0`, `ema
 (16, 'claude', 'muhire', 'claudine', 'claude@vmail.com', 'kigali', '07785778', 'certificate', 'finace', '2021_18cove.docx', '2021_61cove.pdf', 'am hard', 5, 72, 1, 5, 1, 1, '', 'inbox', '2021-01-19 18:27:34'),
 (17, '', '', '', 'claude@yahoo.com', '', '', '', '', 'no file', '', 'uraho', 1, 0, 1, 1, 5, 0, 'amakuru', 'send', '2021-01-19 18:24:00'),
 (18, '', '', '', 'claude@yahoo.com', '', '', '', '', 'no file', '', 'uraho', 1, 0, 1, 1, 5, 0, 'amakuru', 'draft', '2021-01-19 18:24:24'),
-(19, '', '', '', 'irangiroltd@gmail.com', '', '', '', '', '2021_54cove.pdf', '', 'turaburanye', 5, 0, 5, 5, 1, 0, 'uraho', '', '2021-01-19 18:06:17'),
-(20, '', '', '', 'claude@yahoo.com', '', '', '', '', '2021_15cove.pdf', '', 'ubuzeho', 1, 0, 1, 1, 5, 0, 'uraho', '', '2021-01-19 18:23:07');
+(19, '', '', '', 'irangiroltd@gmail.com', '', '', '', '', '2021_54cove.pdf', '', 'turaburanye', 5, 0, 5, 5, 1, 1, 'uraho', '', '2021-01-19 18:06:17'),
+(20, '', '', '', 'claude@yahoo.com', '', '', '', '', '2021_15cove.pdf', '', 'ubuzeho', 1, 0, 1, 1, 5, 0, 'uraho', '', '2021-01-19 18:23:07'),
+(21, '', '', '', 'claude@yahoo.com', '', '', '', '', '2021_131905.jpg', '', 'ndaho', 1, 0, 1, 1, 5, 0, 'uraho', '', '2021-02-02 20:50:24'),
+(22, '', '', '', 'claude@yahoo.com', '', '', '', '', '2021_83abou.jpg', '', 'uraho', 1, 0, 1, 1, 5, 0, 'amakureu', 'inbox', '2021-02-02 20:25:21');
 
 -- --------------------------------------------------------
 
@@ -357,10 +359,11 @@ INSERT INTO `car` (`car_id`, `authors`, `photo`, `other_photo`, `video`, `youtub
 (4, 'shema', '2020_412019.jpg', '2020_362019.jpg', '', '', '4000000', '07878', '', 'ingenda nenza', 'irihuta=====', '', '1', '102', '10203', '1020302', '102030202', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', 'car_For_sale', 0, 0.00, '', 'available', 1, '2020-12-16 01:50:42'),
 (5, 'shema', '2021_77in_g.jpg', '2021_50imag.jpg', '', '', '3000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:52:12'),
 (6, 'shema', '2021_53in_g.jpg', '2021_76imag.jpg', '', '', '44000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:52:13'),
-(7, 'shema', '2021_81in_g.jpg', '2021_12imag.jpg', '', '', '32000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:52:31'),
+(7, 'shema', '2021_81in_g.jpg', '2021_12imag.jpg', '', '', '32000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 50, 33000000.00, 'new_arrival', 'sold', 1, '2021-01-19 18:52:31'),
 (8, 'shema', '2021_42in_g.jpg', '2021_96imag.jpg', '', '', '8000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:53:07'),
 (9, 'shema', '2021_131807.jpg', '2021_231807.jpg', '', '', '80000', '0787867y8', '', 'good', 'good=====', '', '1', '101', '10102', '1010202', '101020202', 'it is in good condition', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:40:04'),
-(10, 'shema', '2021_191905.jpg', '2021_771807.jpg', '', '', '80000', '0786746', '', 'nice cloud', 'nice guarden=====', '', '1', '101', '10104', '1010401', '101040104', 'it is gud', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:06:49');
+(10, 'shema', '2021_191905.jpg', '2021_771807.jpg', '', '', '80000', '0786746', '', 'nice cloud', 'nice guarden=====', '', '1', '101', '10104', '1010401', '101040104', 'it is gud', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:06:49'),
+(11, 'shema', '2021_750_57.jpg', '2021_700_57.jpg', '', '', '900000', '078667587', '', 's', 'ff=====', '', '1', '102', '10204', '1020402', '102040204', 'ir', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-02-02 20:00:54');
 
 -- --------------------------------------------------------
 
@@ -2982,7 +2985,10 @@ INSERT INTO `comment` (`comment_id`, `comment`, `comment_on`, `comment_by`, `com
 (17, 'uraho', 463, 61, '2020-12-01 13:28:43', 0, -2),
 (18, 'nice', 55, 2, '2020-12-18 04:09:42', 0, 0),
 (19, 'gud', 55, 2, '2020-12-18 04:10:00', 0, 0),
-(20, 'nice', 54, 4, '2021-01-06 22:37:35', 0, 0);
+(20, 'nice', 54, 4, '2021-01-06 22:37:35', 0, 0),
+(27, 'gud picture', 65, 5, '2021-02-07 12:54:48', 0, 0),
+(28, 'uraabuze', 68, 5, '2021-02-07 12:54:59', 0, 0),
+(29, 'what', 70, 5, '2021-02-07 12:56:32', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3060,7 +3066,8 @@ CREATE TABLE `crowfundraising` (
 --
 
 INSERT INTO `crowfundraising` (`fund_id`, `firstname1`, `middlename1`, `lastname1`, `address1`, `country1`, `city`, `province`, `districts`, `sector`, `cell`, `village`, `text`, `progress_payment`, `photo`, `other_photo`, `video`, `youtube`, `user_id2`, `likes_counts`, `created_on2`, `total_likes`, `comments`, `email1`, `telephone1`, `categories_crowfundraising`, `photo_Title`, `photo_Title_main`, `money_to_target`, `money_raising`, `donate_counts`, `percentage`) VALUES
-(1, 'shema', 'shema', 'faysal', 'kigali', 'RW', 'kigali', '1', '102', '1020304', '10203', '102030402', 'ubu ndumfite ikibazo cyo kubura amazi yo kuhira umurima wacu dukomeza kogera umusaruro mudufashije tukogera umusaruro', '', '2020_332019.jpg', '2020_142019.jpg', '', '', 1, 0, '2020-12-15 08:19:49', 0, '', 'shema@gmail.com', '0787665768', 'Agriculture', 'ni heza cyane=====', 'ni hanini', 60000000.00, 0.00, 0, 0);
+(1, 'shema', 'shema', 'faysal', 'kigali', 'RW', 'kigali', '1', '102', '1020304', '10203', '102030402', 'ubu ndumfite ikibazo cyo kubura amazi yo kuhira umurima wacu dukomeza kogera umusaruro mudufashije tukogera umusaruro', '', '2020_332019.jpg', '2020_142019.jpg', '', '', 1, 0, '2020-12-15 08:19:49', 0, '', 'shema@gmail.com', '0787665768', 'Agriculture', 'ni heza cyane=====', 'ni hanini', 60000000.00, 0.00, 0, 0),
+(3, 'shema', '', 'fayzo', 'kigali', 'RW', 'kigali', '1', '101', '1010302', '10103', '101030204', 'turasha gutagiza igishora tukakoresha abahinzi mu mirirma', '', '2021_49agri.jpg', '2021_24irri.jpg', '', '', 1, 0, '2021-02-02 20:00:38', 0, '', 'shema@vmail.com', '0786756578', 'Agriculture', 'kuhira=====', 'abahinzi bahinga', 2000000.00, 0.00, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3483,7 +3490,11 @@ INSERT INTO `follow` (`follow_id`, `sender`, `receiver`, `follow_on`) VALUES
 (9, 1, 3, '2020-12-18 04:14:03'),
 (10, 1, 4, '2020-12-18 04:49:38'),
 (11, 4, 1, '2020-12-18 04:27:54'),
-(12, 2, 5, '2020-12-19 11:16:24');
+(12, 2, 5, '2020-12-19 11:16:24'),
+(14, 1, 5, '2021-02-06 14:45:36'),
+(15, 2, 1, '2021-02-06 13:47:11'),
+(16, 5, 2, '2021-02-06 14:44:13'),
+(17, 5, 1, '2021-02-06 14:38:11');
 
 -- --------------------------------------------------------
 
@@ -3658,8 +3669,12 @@ CREATE TABLE `house` (
 --
 
 INSERT INTO `house` (`house_id`, `authors`, `photo`, `other_photo`, `video`, `youtube`, `text`, `categories_house`, `price`, `phone`, `country01`, `province`, `districts`, `sector`, `cell`, `village`, `buy`, `discount`, `price_discount`, `banner`, `photo_Title_main`, `photo_Title`, `user_id3`, `created_on3`) VALUES
-(38, 'shema', '2020_120rwe.jpg', '2020_336262.jpg', '', '', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', 'House_For_sale', 7900000.00, '078675776', '', '1', '102', '10203', '1020303', '102030304', 'available', 0, 0.00, 'new', 'ni nziza', 'irahantu henza=====', 1, '2020-12-16 02:29:20'),
-(39, 'shema', '2021_46gett.jpg', '2021_95home.jpg', '', '', 'it is good condition', 'House_For_sale', 8000.00, '078865743', '', '1', '101', '10102', '1010202', '101020204', 'available', 0, 0.00, '', 'house infront of garden', 'garden=====', 1, '2021-01-19 18:33:49');
+(38, 'shema', '2020_120rwe.jpg', '2020_336262.jpg', '', '', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', 'House_For_sale', 7900000.00, '078675776', '', '1', '102', '10203', '1020303', '102030304', 'available', 50, 8900000.00, 'great_deal', 'ni nziza', 'irahantu henza=====', 1, '2020-12-16 02:29:20'),
+(39, 'shema', '2021_46gett.jpg', '2021_95home.jpg', '', '', 'it is good condition', 'House_For_sale', 8000.00, '078865743', '', '1', '101', '10102', '1010202', '101020204', 'sold', 40, 9000.00, 'great_deal', 'house infront of garden', 'garden=====', 1, '2021-01-19 18:33:49'),
+(40, 'dhema', '2021_18home.jpg', '2021_43images.jpg', '', '', 'it is a good house in good location', 'House_For_sale', 500000.00, '078787834', '', '1', '102', '10205', '1020502', '102050203', 'available', 0, 0.00, 'new', '4bed and 3 bath', 'big garden and parking=====', 1, '2021-02-02 20:11:45'),
+(41, 'shema', '2021_55home.jpg', '2021_41brad.jpg', '', '', 'it is a good house with a good condition', 'House_For_sale', 800000.00, '0787677', '', '1', '102', '10208', '1020803', '102080302', 'available', 0, 0.00, '', 'ni nziza cyane', 'ifite ibyumba byinshi=====', 1, '2021-02-07 12:48:19'),
+(42, 'shema', '2021_541807.jpg', '2021_10home.jpg', '', '', 'it is a good house', 'House_For_sale', 900000.00, '07874543', '', '1', '102', '10213', '1021302', '102130203', 'available', 0, 0.00, '', 'nice house', 'good condition=====', 1, '2021-02-07 12:52:11'),
+(43, 'muhire', '2021_48abou.jpg', '2021_90brad.jpg', '', '', 'it is a good condition', 'House_For_sale', 1000000.00, '07886757', '', '1', '102', '10209', '1020902', '102090203', 'available', 0, 0.00, '', 'Gud condition', 'nice wall=====', 1, '2021-02-07 13:01:54');
 
 -- --------------------------------------------------------
 
@@ -3672,6 +3687,7 @@ CREATE TABLE `icyamunara` (
   `authors` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `discount` int(11) NOT NULL,
   `price` float(10,2) NOT NULL,
+  `price_discount` float(10,2) NOT NULL,
   `photo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `other_photo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `video` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3696,9 +3712,10 @@ CREATE TABLE `icyamunara` (
 -- Dumping data for table `icyamunara`
 --
 
-INSERT INTO `icyamunara` (`house_id`, `authors`, `discount`, `price`, `photo`, `other_photo`, `video`, `youtube`, `text`, `phone`, `country01`, `province`, `districts`, `sector`, `cell`, `village`, `buy`, `banner`, `photo_Title_main`, `photo_Title`, `user_id3`, `created_on3`) VALUES
-(40, 'shema', 0, 660000.00, '2020_422019.jpg', '2020_662019.jpg', '', '', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', '07778434', '', '1', '102', '10202', '1020203', '102020304', 'available', '', 'intebe nziza', 'sale manger=====', 1, '2020-12-16 02:14:16'),
-(41, 'shema', 0, 700000.00, '2021_6089-2.jpg', '2021_61down.jpg', '', '', 'intebe nziza', '07876674546', '', '1', '102', '10205', '1020502', '102050204', 'available', '', 'ni ziza cyane', 'agaseke=====', 1, '2021-01-19 18:26:34');
+INSERT INTO `icyamunara` (`house_id`, `authors`, `discount`, `price`, `price_discount`, `photo`, `other_photo`, `video`, `youtube`, `text`, `phone`, `country01`, `province`, `districts`, `sector`, `cell`, `village`, `buy`, `banner`, `photo_Title_main`, `photo_Title`, `user_id3`, `created_on3`) VALUES
+(40, 'shema', 0, 60000.00, 40.00, '2020_422019.jpg', '2020_662019.jpg', '', '', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', '07778434', '', '1', '102', '10202', '1020203', '102020304', 'available', 'new_arrival', 'intebe nziza', 'sale manger=====', 1, '2020-12-16 02:14:16'),
+(41, 'shema', 20, 870000.00, 200000.00, '2021_6089-2.jpg', '2021_61down.jpg', '', '', 'intebe nziza', '07876674546', '', '1', '102', '10205', '1020502', '102050204', 'available', 'new_arrival', 'ni ziza cyane', 'agaseke=====', 1, '2021-01-19 18:26:34'),
+(42, 'shema', 9, 900000.00, 0.00, '2021_66hard.jpg', '2021_88imag.jpg', '', '', 'nigicoresho kiza', '008976768', '', '1', '102', '10203', '1020302', '102030203', 'available', 'new_arrival', 'ndagurisha ibikoresho', 'ibyo muzu=====', 1, '2021-02-02 20:52:09');
 
 -- --------------------------------------------------------
 
@@ -3743,6 +3760,18 @@ CREATE TABLE `likes` (
   `like_on` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`like_id`, `like_by`, `like_on`) VALUES
+(1, 2, 70),
+(2, 2, 65),
+(3, 2, 64),
+(4, 5, 64),
+(5, 5, 63),
+(6, 5, 61);
+
 -- --------------------------------------------------------
 
 --
@@ -3772,7 +3801,8 @@ INSERT INTO `message` (`message_id`, `message`, `message_to`, `message_from`, `m
 (7, 'uraho', 2, 1, '2020-12-21 04:10:17', 0),
 (8, 'uraho', 2, 1, '2020-12-21 04:10:17', 0),
 (10, 'amakurur yawe', 4, 1, '2020-12-21 04:27:37', 1),
-(11, 'ewan', 4, 1, '2020-12-21 04:27:45', 1);
+(11, 'ewan', 4, 1, '2020-12-21 04:27:45', 1),
+(12, 'amakuru yawe', 1, 5, '2021-02-06 14:38:51', 1);
 
 -- --------------------------------------------------------
 
@@ -3811,7 +3841,23 @@ INSERT INTO `notification` (`notification_id`, `notification_for`, `notification
 (14, 5, 2, 56, 'retweet', '2020-12-19 11:16:08', 1),
 (15, 5, 2, 5, 'follow', '2020-12-19 11:16:24', 1),
 (16, 5, 1, 57, 'retweet', '2020-12-19 11:17:31', 1),
-(17, 1, 4, 42, 'retweet', '2021-01-06 22:25:00', 1);
+(17, 1, 4, 42, 'retweet', '2021-01-06 22:25:00', 1),
+(18, 1, 5, 1, 'follow', '2021-02-06 14:38:07', 1),
+(19, 5, 1, 68, 'retweet', '2021-02-06 14:45:11', 1),
+(20, 5, 1, 5, 'follow', '2021-02-06 14:45:36', 1),
+(21, 1, 2, 1, 'follow', '2021-02-06 13:47:11', 1),
+(22, 2, 5, 2, 'follow', '2021-02-06 14:44:14', 1),
+(23, 1, 1, 65, 'retweet', '2021-02-06 14:37:28', 1),
+(24, 1, 5, 1, 'follow', '2021-02-06 14:38:11', 1),
+(25, 1, 2, 70, 'likes', '2021-02-07 12:31:43', 1),
+(26, 1, 2, 65, 'likes', '2021-02-07 12:31:52', 1),
+(27, 1, 2, 64, 'likes', '2021-02-07 12:31:59', 1),
+(28, 1, 5, 64, 'retweet', '2021-02-07 12:32:47', 1),
+(29, 1, 5, 64, 'likes', '2021-02-07 12:32:52', 1),
+(30, 1, 5, 63, 'likes', '2021-02-07 12:32:53', 1),
+(31, 1, 5, 61, 'retweet', '2021-02-07 12:33:16', 1),
+(32, 1, 5, 61, 'likes', '2021-02-07 12:33:19', 1),
+(33, 5, 1, 75, 'mention', '2021-02-07 13:19:19', 1);
 
 -- --------------------------------------------------------
 
@@ -3882,6 +3928,7 @@ INSERT INTO `provinces` (`provincecode`, `provincename`) VALUES
 CREATE TABLE `sale` (
   `sale_id` int(11) NOT NULL,
   `title` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seller_name` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
   `code` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` double(10,2) NOT NULL,
   `price_discount` int(11) NOT NULL,
@@ -3912,8 +3959,43 @@ CREATE TABLE `sale` (
 -- Dumping data for table `sale`
 --
 
-INSERT INTO `sale` (`sale_id`, `title`, `code`, `price`, `price_discount`, `discount`, `buy`, `quantity`, `phone`, `photo`, `other_photo`, `video`, `youtube`, `text`, `categories_sale`, `photo_Title_main`, `photo_Title`, `user_id01`, `created_on01`, `country01`, `province`, `districts`, `sector`, `cell`, `village`, `banner`) VALUES
-(22, 'Headphone', 'dnm54', 20000.00, 0, 0, '', 0, '078676842', '2020_910_ai.jpeg', '2020_740_wi.jpeg', '', '', 'ni nziza irakora neza', 'electronics', 'ipohne', 'ipohne=====', 1, '2020-12-16 01:49:28', '', '1', '102', '10203', '1020302', '102030203', '');
+INSERT INTO `sale` (`sale_id`, `title`, `seller_name`, `code`, `price`, `price_discount`, `discount`, `buy`, `quantity`, `phone`, `photo`, `other_photo`, `video`, `youtube`, `text`, `categories_sale`, `photo_Title_main`, `photo_Title`, `user_id01`, `created_on01`, `country01`, `province`, `districts`, `sector`, `cell`, `village`, `banner`) VALUES
+(25, 'earphone', 'shema', 'earphone81', 30000.00, 0, 0, '', 0, '0786675457', '2021_830_ai.jpeg', '2021_930_wi.jpeg', '', '', 'it is good condition', 'electronics', 'earphone', 'pochet=====', 1, '2021-02-14 19:26:31', '', '1', '101', '10103', '1010302', '101030204', ''),
+(26, 'speaker', 'shema', 'speaker28', 30000.00, 0, 0, '', 0, '067657678', '2021_206356.jpg', '2021_5961bw.jpg', '', '', 'nice look and it affordable', 'electronics', 'speaker', 'microphone=====', 1, '2021-02-14 19:28:13', '', '1', '101', '10102', '1010203', '101020304', ''),
+(27, 'microphone', 'shema', 'microphone16', 70000.00, 0, 0, '', 0, '07854467', '2021_6761bw.jpg', '2021_2561ks.jpg', '', '', 'microphone', 'electronics', 'microphone-43', 'microphone-m3=====', 1, '2021-02-14 19:29:21', '', '2', '201', '20103', '2010303', '201030303', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sale_watchlist`
+--
+
+CREATE TABLE `sale_watchlist` (
+  `sale_watchlist_id` int(11) NOT NULL,
+  `sale_id_list` int(11) NOT NULL,
+  `user_id3_list` int(11) NOT NULL,
+  `user_id_owner_sale_list` int(11) NOT NULL,
+  `seller_name` varchar(300) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `code_watchlist` char(55) NOT NULL,
+  `status_sale` int(11) NOT NULL,
+  `categories` varchar(100) NOT NULL,
+  `photo_Title_main_list` varchar(300) NOT NULL,
+  `photo_list` varchar(300) NOT NULL,
+  `quantitys` int(11) NOT NULL,
+  `unit_price` float NOT NULL,
+  `price_watchlist` float NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sale_watchlist`
+--
+
+INSERT INTO `sale_watchlist` (`sale_watchlist_id`, `sale_id_list`, `user_id3_list`, `user_id_owner_sale_list`, `seller_name`, `phone`, `code_watchlist`, `status_sale`, `categories`, `photo_Title_main_list`, `photo_list`, `quantitys`, `unit_price`, `price_watchlist`, `modified`) VALUES
+(50, 25, 1, 1, 'shema', '0786675457', 'earphone81', 0, 'electronics', 'earphone', '2021_830_ai.jpeg', 1, 30000, 30000, '2021-02-14 19:44:35'),
+(51, 26, 1, 1, 'shema', '067657678', 'speaker28', 0, 'electronics', 'speaker', '2021_206356.jpg', 1, 30000, 30000, '2021-02-14 19:44:39'),
+(52, 27, 1, 1, 'shema', '07854467', 'microphone16', 0, 'electronics', 'microphone', '2021_6761bw.jpg', 1, 70000, 70000, '2021-02-14 19:44:43');
 
 -- --------------------------------------------------------
 
@@ -3951,7 +4033,8 @@ CREATE TABLE `school` (
 
 INSERT INTO `school` (`school_id`, `title_`, `author_`, `categories_of_school`, `type_of_school`, `text_`, `photo_`, `other_photo_`, `video_`, `youtube_`, `country`, `photo_Title_main`, `photo_Title`, `location_province`, `location_districts`, `location_Sector`, `location_cell`, `location_village`, `phone_`, `user_id_`, `created_on_`) VALUES
 (8, 'lycee de kigali', 'munyeshaka', 'Public School', 'Secondary School', 'it is good school', '2020_862019.png', '2020_392019.png', '', '', 'RW', '', '', '1', '101', '10102', '1010203', '101020303', '078976768', 1, '2020-12-16 01:59:50'),
-(9, 'APE RUGUNGA', 'MASABO', 'Public School', 'Secondary School', 'IT is a private school', '2021_57abou.jpg', '2021_46home.jpg', '', '', 'RW', '', '', '1', '102', '10206', '1020604', '102060403', '078646778', 1, '2021-01-19 18:42:58');
+(9, 'APE RUGUNGA', 'MASABO', 'Public School', 'Secondary School', 'IT is a private school', '2021_57abou.jpg', '2021_46home.jpg', '', '', 'RW', '', '', '1', '102', '10206', '1020604', '102060403', '078646778', 1, '2021-01-19 18:42:58'),
+(10, 'Green Hills', 'mukeshimana', 'Private School', 'Primary School', 'it is a good school', '2021_870000.jpg', '2021_55imag.jpg', '', '', 'RW', '', '=====', '1', '102', '10208', '1020802', '102080204', '078676878', 1, '2021-02-02 20:26:35');
 
 -- --------------------------------------------------------
 
@@ -4493,6 +4576,9 @@ INSERT INTO `trends` (`trend_id`, `hashtag`, `target`, `created_on`) VALUES
 CREATE TABLE `tweets` (
   `tweet_id` int(11) NOT NULL,
   `status` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_name` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo_Title_main` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo_Title` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tweetBy` int(11) NOT NULL,
   `retweet_id` int(11) NOT NULL,
   `retweet_by` int(11) NOT NULL,
@@ -4508,35 +4594,51 @@ CREATE TABLE `tweets` (
 -- Dumping data for table `tweets`
 --
 
-INSERT INTO `tweets` (`tweet_id`, `status`, `tweetBy`, `retweet_id`, `retweet_by`, `tweet_image`, `tweet_image_size`, `likes_counts`, `retweet_counts`, `posted_on`, `retweet_Msg`) VALUES
-(31, '#MentalHealth A mental health disorder characterised by persistently depressed mood or loss of interest in activities, causing significant impairment in daily life.', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:44:07', ''),
-(32, '#MentalHealth Anxiety disorder\nA mental health disorder characterised by feelings of worry, anxiety or fear that are strong enough to interfere with one\'s daily activities.', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:44:45', ''),
-(33, '#Bipolar disorder\nA disorder associated with episodes of mood swings ranging from depressive lows to manic highs.', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:45:11', ''),
-(34, '#Autism\nA serious developmental disorder that impairs the ability to communicate and interact.', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:45:32', ''),
-(35, '#MentalHealth What are some types of mental disorders?\nAnxiety disorders, including panic disorder and  Depression, bipolar disorder, and other mood disorders. Eating disorders.', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:47:47', ''),
-(36, 'want affordable, private online counseling check this site https://www.betterhelp.com/helpme/', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:49:09', ''),
-(37, 'if you want a life easy, just work on hard things', 2, 0, 0, '', '', 0, 0, '2020-12-07 17:46:06', ''),
-(38, 'iragiro', 1, 0, 0, '', '', 0, 0, '2020-12-07 19:44:56', ''),
-(39, 'nice', 1, 0, 0, '', '', 0, 0, '2020-12-07 19:48:59', ''),
-(40, 'gud', 1, 0, 0, '', '', 0, 0, '2020-12-07 20:18:04', ''),
-(41, 'nice', 1, 0, 0, '', '', 0, 0, '2020-12-07 20:18:11', ''),
-(42, 'gud', 1, 0, 0, '', '', 0, 1, '2020-12-07 20:18:48', ''),
-(43, 'gud', 2, 0, 0, '', '', 0, 0, '2020-12-16 02:36:38', ''),
-(44, 's', 2, 0, 0, '', '', 0, 0, '2020-12-16 02:37:55', ''),
-(45, '#MentalHealth is the bigest problems', 3, 0, 0, '', '', 0, 0, '2020-12-18 04:11:23', ''),
-(46, '#Rwot ibi mwari mubizi', 3, 0, 0, '', '', 0, 1, '2020-12-18 04:11:38', ''),
-(47, '#Rwot ibi mwari mubizi', 3, 46, 1, '', '', 0, 1, '2020-12-18 04:14:37', 'nice'),
-(48, 'mubona gahunda iteye gute', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:23:43', ''),
-(49, 'ibintu mwe mubibona gute', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:24:02', ''),
-(50, '#Rwot mumeze mute', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:24:30', ''),
-(51, '#Rwot ko mbona mutambuja', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:26:20', ''),
-(52, 'nice work', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:26:43', ''),
-(53, 'namwe nuko mubibona', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:27:21', ''),
-(54, 'nice work', 4, 0, 0, '', '', 0, 1, '2020-12-18 04:30:31', ''),
-(55, 'nice work', 4, 54, 1, '', '', 0, 1, '2020-12-18 04:44:02', 'nice'),
-(56, 'ibi nabyo kbs', 5, 0, 0, '', '', 0, 1, '2020-12-19 11:15:25', ''),
-(57, 'ibi nabyo kbs', 5, 56, 2, '', '', 0, 1, '2020-12-19 11:16:08', 'nice'),
-(58, 'gud', 1, 42, 4, '', '', 0, 1, '2021-01-06 22:25:00', 'bite');
+INSERT INTO `tweets` (`tweet_id`, `status`, `title_name`, `photo_Title_main`, `photo_Title`, `tweetBy`, `retweet_id`, `retweet_by`, `tweet_image`, `tweet_image_size`, `likes_counts`, `retweet_counts`, `posted_on`, `retweet_Msg`) VALUES
+(31, '#MentalHealth A mental health disorder characterised by persistently depressed mood or loss of interest in activities, causing significant impairment in daily life.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:44:07', ''),
+(32, '#MentalHealth Anxiety disorder\nA mental health disorder characterised by feelings of worry, anxiety or fear that are strong enough to interfere with one\'s daily activities.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:44:45', ''),
+(33, '#Bipolar disorder\nA disorder associated with episodes of mood swings ranging from depressive lows to manic highs.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:45:11', ''),
+(34, '#Autism\nA serious developmental disorder that impairs the ability to communicate and interact.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:45:32', ''),
+(35, '#MentalHealth What are some types of mental disorders?\nAnxiety disorders, including panic disorder and  Depression, bipolar disorder, and other mood disorders. Eating disorders.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:47:47', ''),
+(36, 'want affordable, private online counseling check this site https://www.betterhelp.com/helpme/', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:49:09', ''),
+(37, 'if you want a life easy, just work on hard things', '', '', '', 2, 0, 0, '', '', 0, 0, '2020-12-07 17:46:06', ''),
+(38, 'iragiro', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-07 19:44:56', ''),
+(39, 'nice', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-07 19:48:59', ''),
+(40, 'gud', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-07 20:18:04', ''),
+(41, 'nice', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-07 20:18:11', ''),
+(42, 'gud', '', '', '', 1, 0, 0, '', '', 0, 1, '2020-12-07 20:18:48', ''),
+(43, 'gud', '', '', '', 2, 0, 0, '', '', 0, 0, '2020-12-16 02:36:38', ''),
+(44, 's', '', '', '', 2, 0, 0, '', '', 0, 0, '2020-12-16 02:37:55', ''),
+(45, '#MentalHealth is the bigest problems', '', '', '', 3, 0, 0, '', '', 0, 0, '2020-12-18 04:11:23', ''),
+(46, '#Rwot ibi mwari mubizi', '', '', '', 3, 0, 0, '', '', 0, 1, '2020-12-18 04:11:38', ''),
+(47, '#Rwot ibi mwari mubizi', '', '', '', 3, 46, 1, '', '', 0, 1, '2020-12-18 04:14:37', 'nice'),
+(48, 'mubona gahunda iteye gute', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:23:43', ''),
+(49, 'ibintu mwe mubibona gute', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:24:02', ''),
+(50, '#Rwot mumeze mute', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:24:30', ''),
+(51, '#Rwot ko mbona mutambuja', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:26:20', ''),
+(52, 'nice work', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:26:43', ''),
+(53, 'namwe nuko mubibona', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:27:21', ''),
+(54, 'nice work', '', '', '', 4, 0, 0, '', '', 0, 1, '2020-12-18 04:30:31', ''),
+(55, 'nice work', '', '', '', 4, 54, 1, '', '', 0, 1, '2020-12-18 04:44:02', 'nice'),
+(56, 'ibi nabyo kbs', '', '', '', 5, 0, 0, '', '', 0, 1, '2020-12-19 11:15:25', ''),
+(57, 'ibi nabyo kbs', '', '', '', 5, 56, 2, '', '', 0, 1, '2020-12-19 11:16:08', 'nice'),
+(58, 'gud', '', '', '', 1, 42, 4, '', '', 0, 1, '2021-01-06 22:25:00', 'bite'),
+(59, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.', '', '', '', 1, 0, 0, '', '', 0, 0, '2021-02-05 12:21:14', ''),
+(60, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.', '', '', '', 1, 0, 0, '', '', 0, 0, '2021-02-05 12:31:44', ''),
+(61, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. https://www.w3schools.com/jsref/met_win_settimeout.asp', '', '', '', 1, 0, 0, '', '', 1, 1, '2021-02-06 09:49:45', ''),
+(62, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.https://www.w3schools.com/jsref/met_win_settimeout.aspKeffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.https://www.w3schools.com/jsref/met_win_settimeout.asp', '', '', '', 1, 0, 0, '', '', 0, 0, '2021-02-06 09:52:43', ''),
+(63, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.https://www.w3schools.com/jsref/met_win_settimeout.aspamakururyaweKeffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.https://www.w3schools.com/jsref/met_win_settimeout.asp', '', '', '', 1, 0, 0, '', '', 1, 0, '2021-02-06 11:23:27', ''),
+(64, 'uko watagira business mu Rwanda', 'NI gute natagiza business mu Rwanda', '', 'iyi ni technology ivomera=kuhira imyaka====', 1, 0, 0, '2021_451020.jpg=2021_14agri.jpg', '', 2, 1, '2021-02-06 13:30:26', ''),
+(65, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to:\r\n â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. \r\nâ€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services', 'Why become an ICT Hub?', '', 'niceto be in cover=planet work=cross over===', 1, 0, 0, '2021_2542.jpg=2021_36imag.jpg=2021_59imag.jpg', '', 1, 1, '2021-02-06 14:16:11', ''),
+(66, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to:\n â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. \nâ€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services', 'Why become an ICT Hub?', '', '', 5, 0, 0, '', '', 0, 0, '2021-02-06 13:53:44', ''),
+(67, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to: â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. â€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services', 'Why become an ICT Hub?', '', '', 5, 0, 0, '', '', 0, 0, '2021-02-06 13:54:26', ''),
+(68, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to:\n â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. \nâ€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services.', 'Why become an ICT Hub?', '', '', 5, 0, 0, '', '', 0, 1, '2021-02-06 13:57:55', ''),
+(70, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to:\r\n â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. \r\nâ€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services', 'Why become an ICT Hub?', '', 'niceto be in cover=planet work=cross over===', 1, 65, 1, '2021_2542.jpg=2021_36imag.jpg=2021_59imag.jpg', '', 1, 1, '2021-02-06 14:37:28', 'nice content keep it up'),
+(71, 'uko watagira business mu Rwanda', 'NI gute natagiza business mu Rwanda', '', 'iyi ni technology ivomera=kuhira imyaka====', 1, 64, 5, '2021_451020.jpg=2021_14agri.jpg', '', 1, 1, '2021-02-07 12:32:47', 'iterambere ryiza'),
+(72, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. https://www.w3schools.com/jsref/met_win_settimeout.asp', '', '', '', 1, 61, 5, '', '', 0, 1, '2021-02-07 12:33:15', 'well done'),
+(73, 'amakuru yanyu', '', '', '', 1, 0, 0, '', '', 0, 0, '2021-02-07 13:17:55', ''),
+(74, 'muraho', '', '', 'gud interior=nice home====', 1, 0, 0, '2021_871807.jpg=2021_23abou.jpg', '20765=626833', 0, 0, '2021-02-07 13:18:36', ''),
+(75, '@claude amakuru', '', '', 'gud=work====', 1, 0, 0, '2021_411905.jpg=2021_761807.jpg', '17500=20765', 0, 0, '2021-02-07 13:19:19', '');
 
 -- --------------------------------------------------------
 
@@ -4607,11 +4709,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `username`, `email`, `password`, `gender`, `chat`, `job_user`, `career`, `country`, `date_birth`, `date_registry`, `last_login`, `last_profile_edit`, `counts_login`, `forgotUsernameCounts`, `forgotUsernameCountsTimesHeCreates`, `forgotUsernameCountsTimesHeCreatespassword`, `profile_img`, `profile_img_crop`, `cover_img`, `background`, `language`, `color`, `education`, `diploma`, `skills`, `location`, `hobbys`, `followers`, `following`, `approval`, `countViewin_profile`, `company_education`, `type_of_business`, `address`, `size_of_people`, `companyname`, `overview`, `history`, `team`, `legal_structure`, `location_facilities`, `mission_statement`, `website`, `unemployment`, `categories_fields`, `phone`, `about`, `years`, `field`, `age`, `status_career`, `course`) VALUES
-(1, 'irangiro', 'social', 'irangiro', 'irangiroltd@gmail.com', 'fafa', 'Male', 'off', 'SME', 'Professional', 'RW', '1999-08-03', '2020-12-06', '2021-01-19 18:45:30', '2020-12-10 04:18:36', 61, 0, 0, 0, '116vect.png', '', '529port.jpg', '', '', 'black', 'lyccee', 'Certificate', 'design', 'kigali', 'foot', 2, 3, 'on', 59, 'Public', 'builder', 'KG 513 st', '50', 'irangiro', 'it is a good company', 'yaangiye cyera', 'ifite abantu benshi', 'ibyo dukora', 'mu mujyi', 'tukomeza gukora', 'irangiro.com', 'no', 'management', '0786577676', '&lt;p&gt;Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.&lt;/p&gt;', 2, 'management', '26', 'Single', 'finance,management,computer,science'),
-(2, 'Tips', 'Mindseet', 'Tips', 'admin@irangiro.com', 'fafa', 'Male', 'off', '', '', 'RW', '1999-08-03', '2020-12-07', '2020-12-21 04:29:20', '0000-00-00 00:00:00', 8, 0, 0, 0, '784port.jpg', '', '153img6.jpg', '', '', 'black', '', '', '', '', '', 1, 2, 'off', 13, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(1, 'irangiro', 'social', 'irangiro', 'irangiroltd@gmail.com', 'fafa', 'Male', 'on', 'SME', 'Professional', 'RW', '1999-08-03', '2020-12-06', '2021-02-14 19:18:21', '2020-12-10 04:18:36', 92, 0, 0, 0, '116vect.png', '', '529port.jpg', '', '', 'black', 'lyccee', 'Certificate', 'design', 'kigali', 'foot', 4, 4, 'on', 99, 'Public', 'builder', 'KG 513 st', '50', 'irangiro', 'it is a good company', 'yaangiye cyera', 'ifite abantu benshi', 'ibyo dukora', 'mu mujyi', 'tukomeza gukora', 'irangiro.com', 'no', 'management', '0786577676', '&lt;p&gt;Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.&lt;/p&gt;', 2, 'management', '26', 'Single', 'finance,management,computer,science'),
+(2, 'Tips', 'Mindseet', 'Tips', 'admin@irangiro.com', 'fafa', 'Male', 'off', '', '', 'RW', '1999-08-03', '2020-12-07', '2021-02-07 12:31:37', '0000-00-00 00:00:00', 12, 0, 0, 0, '784port.jpg', '', '153img6.jpg', '', '', 'black', '', '', '', '', '', 2, 3, 'off', 20, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
 (3, 'jean', 'jean', 'jean', 'jean@gmail.com', 'jean', 'Male', 'off', '', '', 'RW', '2002-04-04', '2020-12-18', '2020-12-18 04:15:11', '0000-00-00 00:00:00', 2, 0, 0, 0, '', '', '', '', '', 'black', '', '', '', '', '', 1, 0, 'off', 3, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
-(4, 'muhire', 'muhire', 'muhire', 'muhire@gmail.com', 'muhire', 'Male', 'on', 'SME', '', 'RW', '2001-05-04', '2020-12-18', '2021-01-06 21:58:40', '0000-00-00 00:00:00', 7, 0, 0, 0, '3896459.jpg', '', '', '', '', 'black', '', '', '', '', '', 1, 1, 'off', 23, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
-(5, 'claude', 'claude', 'claude', 'claude@yahoo.com', 'claude', 'Male', 'off', '', '', 'RW', '1996-05-06', '2020-12-19', '2021-01-19 18:25:30', '0000-00-00 00:00:00', 4, 0, 0, 0, '', '', '', '', '', 'black', '', '', '', '', '', 1, 0, 'off', 13, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '');
+(4, 'muhire', 'muhire', 'muhire', 'muhire@gmail.com', 'muhire', 'Male', 'off', 'SME', '', 'RW', '2001-05-04', '2020-12-18', '2021-02-02 20:05:12', '0000-00-00 00:00:00', 8, 0, 0, 0, '3896459.jpg', '', '', '', '', 'black', '', '', '', '', '', 1, 1, 'off', 23, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(5, 'claude', 'claude', 'claude', 'claude@yahoo.com', 'claude', 'Male', 'off', '', '', 'RW', '1996-05-06', '2020-12-19', '2021-02-07 13:19:52', '0000-00-00 00:00:00', 12, 0, 0, 0, '', '', '', '', '', 'black', '', '', '', '', '', 2, 2, 'on', 40, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -17388,6 +17490,12 @@ ALTER TABLE `sale`
   ADD PRIMARY KEY (`sale_id`);
 
 --
+-- Indexes for table `sale_watchlist`
+--
+ALTER TABLE `sale_watchlist`
+  ADD PRIMARY KEY (`sale_watchlist_id`);
+
+--
 -- Indexes for table `school`
 --
 ALTER TABLE `school`
@@ -17443,19 +17551,19 @@ ALTER TABLE `album`
 -- AUTO_INCREMENT for table `apply_job`
 --
 ALTER TABLE `apply_job`
-  MODIFY `cv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `cv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `car`
 --
 ALTER TABLE `car`
-  MODIFY `car_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `car_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `comment_crowfunding`
@@ -17473,7 +17581,7 @@ ALTER TABLE `comment_funding`
 -- AUTO_INCREMENT for table `crowfundraising`
 --
 ALTER TABLE `crowfundraising`
-  MODIFY `fund_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `fund_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `crowfundraising_comment_like`
@@ -17521,7 +17629,7 @@ ALTER TABLE `events_like`
 -- AUTO_INCREMENT for table `follow`
 --
 ALTER TABLE `follow`
-  MODIFY `follow_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `follow_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `food`
@@ -17557,13 +17665,13 @@ ALTER TABLE `fund_like`
 -- AUTO_INCREMENT for table `house`
 --
 ALTER TABLE `house`
-  MODIFY `house_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `house_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `icyamunara`
 --
 ALTER TABLE `icyamunara`
-  MODIFY `house_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `house_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -17575,19 +17683,19 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `like_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `like_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `post_comment`
@@ -17611,13 +17719,19 @@ ALTER TABLE `post_like`
 -- AUTO_INCREMENT for table `sale`
 --
 ALTER TABLE `sale`
-  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `sale_watchlist`
+--
+ALTER TABLE `sale_watchlist`
+  MODIFY `sale_watchlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `trash`
@@ -17635,7 +17749,7 @@ ALTER TABLE `trends`
 -- AUTO_INCREMENT for table `tweets`
 --
 ALTER TABLE `tweets`
-  MODIFY `tweet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `tweet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `users`

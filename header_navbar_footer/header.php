@@ -254,12 +254,12 @@
     }
 
 
-    function cart_add(requests,formx, id) {
+    function cart_add(requests,formx, id,user_id) {
         var xhr = new XMLHttpRequest();
         var form = document.getElementById(formx);
         var formData = new FormData(form);
         // Add any event handlers here...
-        xhr.open('POST', 'sale.php?action=' + requests + '&code=' + id, true);
+        xhr.open('POST', 'sale.php?action=' + requests + '&code=' + id + '&user_id=' + user_id, true);
         xhr.send(formData);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -275,6 +275,28 @@
             }
         };
     }
+
+     
+    function cart_sale_add(requests, id,user_id) {
+        var xhr = new XMLHttpRequest();
+        // Add any event handlers here...
+        xhr.open('POST', 'shopping.php?action0=' + requests + '&code=' + id + '&user_id=' + user_id, true);
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                $("#responseSubmititerm").html('<div class="alert alert-success alert-dismissible fade show text-center">'+
+                     '<button class="close" data-dismiss="alert" type="button">'+
+                         '<span>&times;</span>'+
+                     '</button> <strong>SUCCESS</strong>'+' </div>');
+                var forms = document.getElementById('responseSubmitcartiterm');
+                 setInterval(function () {
+                    $("#responseSubmititerm").fadeOut();
+                            }, 2000);
+                forms.innerHTML = xhr.responseText;
+            }
+        };
+    }
+
 
     function houseCategories(categories,id,user_id) {
         var xhr = new XMLHttpRequest();

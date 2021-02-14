@@ -473,6 +473,24 @@ class Users{
         $query= $mysqli->query($queryl);
     }
 
+    public function delete($table, $conditions){
+        $mysqli= $this->database;
+        $whereSql = '';
+        if(!empty($conditions) && is_array($conditions)){
+            $whereSql .= ' WHERE ';
+            $i = 0;
+            foreach($conditions as $key => $value){
+                $pre = ($i > 0)?' AND ':'';
+                $whereSql .= $pre.$key." = '".$value."'";
+                $i++;
+            }
+        }
+        $query = "DELETE FROM ".$table.$whereSql;
+        $delete = $mysqli->query($query);
+        // return $delete?true:false;
+        // var_dump( $delete );
+    }
+
     public function runQuery($query) {
         $mysqli= $this->database;
 		$result = $mysqli->query($query);
@@ -489,6 +507,91 @@ class Users{
 		$rowcount = $result->num_rows;
 		return $rowcount;	
 	}
+
+      
+    public function updateQuery($table, $data, $conditions){
+        $mysqli= $this->database;
+        $colvalSet = '';
+        $whereSql = '';
+        $i = 0;
+        // if(!array_key_exists('modified',$data)){
+        //     $data['modified'] = date("Y-m-d H:i:s");
+        // }
+        foreach($data as $key=>$val){
+            $pre = ($i > 0)?', ':'';
+            $colvalSet .= $pre.$key."='".$val."'";
+            $i++;
+        }
+        if(!empty($conditions)&& is_array($conditions)){
+            $whereSql .= ' WHERE ';
+            $i = 0;
+            foreach($conditions as $key => $value){
+                $pre = ($i > 0)?' AND ':'';
+                $whereSql .= $pre.$key." = '".$value."'";
+                $i++;
+            }
+        }
+        $query = "UPDATE ".$table." SET ".$colvalSet.$whereSql;
+        $update = $mysqli->query($query);
+        // return $update?$mysqli->affected_rows:false;
+        //  var_dump($update);
+        //  var_dump($query);
+
+        }
+
+        public function insertQuery($table,$fields=array())
+        {
+            $mysqli= $this->database;
+            // function addQuotes__($str){
+            //     return "'$str'";
+            // }
+            $valued = array();
+            # Surround values by quotes
+            if(!array_key_exists('modified',$fields)){
+                $fields['modified'] = date("Y-m-d H:i:s");
+                }
+            foreach ($fields as $key => $value) {
+                // $valued[] =  addQuotes__($value);
+                $valued[] = "'$value'";
+            }
+            
+            # Build the column
+            $columns = implode(",", array_keys($fields));
+            
+            # Build the values
+            $values = implode(",", array_values($valued));
+            # Build the insert query
+            $queryl = "INSERT INTO $table (".$columns.") VALUES (".$values.")";
+            $query= $mysqli->query($queryl);
+            // var_dump( $queryl );
+        }
+
+        public function insertQueryAndUpdate($table,$fields=array(),$anothertable,$table_id,$id)
+        {
+            $mysqli= $this->database;
+            // function addQuote($str){
+            //     return "'$str'";
+            // }
+            $valued = array();
+            # Surround values by quotes
+            if(!array_key_exists('modified',$fields)){
+                $fields['modified'] = date("Y-m-d H:i:s");
+                }
+            foreach ($fields as $key => $value) {
+                // $valued[] = addQuote($value);
+                    $valued[] = "'$value'";
+            }
+            
+            # Build the column
+            $columns = implode(",", array_keys($fields));
+            
+            # Build the values
+            $values = implode(",", array_values($valued));
+            # Build the insert query
+            $queryl = "INSERT INTO $table (".$columns.") SELECT ".$values." FROM ".$anothertable." WHERE ".$table_id = $id."";
+            $query= $mysqli->query($queryl);
+            // var_dump( $queryl );
+        }
 
     public function UserEmailalreadyTookenSettings($table,$arrayselects=array(),$conditions = array())
     {

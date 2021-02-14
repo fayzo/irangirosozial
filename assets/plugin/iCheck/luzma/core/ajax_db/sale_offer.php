@@ -94,7 +94,7 @@ if (isset($_POST['sale']) && !empty($_POST['sale'])) {
                                        
                                         <tr>
                                             <td></td>
-                                            <td><button type="button" class="btn btn-primary float-right" <?php if(isset($_SESSION['key'])){ echo ' onclick="cart_add(\'add\',\'form-cartitem'.$user['code'].'add\',\''.$user['code'].'\');" '; }else{ echo 'id="login-please"  data-login="1"'; } ?> >add to cart</button></td>
+                                            <td><button type="button" class="btn btn-primary float-right" <?php if(isset($_SESSION['key'])){ echo ' onclick="cart_add(\'add\',\'form-cartitem'.$user['code'].'add\',\''.$user['code'].'\',\''.$user_id.'\');" '; }else{ echo 'id="login-please"  data-login="1"'; } ?> >add to cart</button></td>
                                         </tr>
                                     </tbody>
                             </table>
@@ -247,12 +247,13 @@ if (!empty($_REQUEST['payment'])) {
             <div>
                 <span class="font-weight-bold"> Shipping:</span> 
             <ul>
-                <li>it depend your location and agrrement between seller and buyer</li> 
+                <li>it depend your location and agreement between seller and buyer</li> 
                 </ul></div>
             <div><span class="font-weight-bold">By pick your items by yoursef :</span>
-                <ul>
+                <!-- <ul>
                 <li> Gasabo districts</li>
-                </ul></div>
+                </ul> -->
+                </div> 
             <div><span class="font-weight-bold">Payments:</span> 
                 <ul>
                 <li>you pay after receive items </li>
@@ -261,6 +262,7 @@ if (!empty($_REQUEST['payment'])) {
             <div><span class="font-weight-bold">Returns:</span> Sellers accept returns items within 3 days only </div>
 
         </div>
-        <button type="button" name="submit-of-payment" id="submit-of-payment" class="btnRemoveAction btn-primary float-right">submit of payment</button>
+        <a href="<?php echo WATCHLIST ;?>" class="btnRemoveAction btn btn-primary float-right">GO TO Watchlist</a>
+        <!-- <button type="button" name="submit-of-payment" id="submit-of-payment" class="btnRemoveAction btn-primary float-right">submit of payment</button> -->
     </div>
 <?php } 

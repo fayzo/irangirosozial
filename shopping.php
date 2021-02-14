@@ -40,7 +40,7 @@
    
     <div id="shopping-cart" >
        <button type="button" class="btn btn-primary btn-md" onclick="location.href='<?php echo BASE_URL_PUBLIC.'sale'; ?>'">Back to Purchase more</button>
-       <a id="btnEmpty" href="sale.php?action=empty">Empty Cart</a>
+       <a id="btnEmpty" href="javascript:void(0)" onclick="cart_sale_add('empty','sale',<?php echo $user_id; ?>);">Empty Cart</a>
        <span id="responseSubmititerm"> </span>
                 <div id="responseSubmitcartiterm">
                  <?php echo $sale->showCart_item(); ?>

@@ -14,7 +14,9 @@ class Sale extends Home{
         	case "add":
         		if(!empty($_REQUEST["quantity"])) {
         			$productByCode = $this->runQuery("SELECT * FROM sale WHERE code='" . $_REQUEST["code"] . "'");
-        			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["title"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_REQUEST["quantity"], 'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["photo"] ,'sale_id'=>$productByCode[0]["sale_id"] ,'seller_name'=>$productByCode[0]["seller_name"],'phone'=>$productByCode[0]["phone"],'user_id01'=>$productByCode[0]["user_id01"]));
+        			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["title"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_REQUEST["quantity"],
+                     'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["photo"] ,'sale_id'=>$productByCode[0]["sale_id"] ,'seller_name'=>$productByCode[0]["seller_name"],
+                    'phone'=>$productByCode[0]["phone"],'user_id'=>$_REQUEST["user_id"],'user_id01'=>$productByCode[0]["user_id01"],'categories'=>$productByCode[0]["categories_sale"]));
         			
         			if(!empty($_SESSION["cart_item"])) {    
         				if(in_array($productByCode[0]["code"],array_keys($_SESSION["cart_item"]))) {
@@ -27,23 +29,74 @@ class Sale extends Home{
         							}
         					}
         				} else {
+                            foreach($itemArray as $k => $v) {
+                                // var_dump($itemArray[$k]["food_id"],$itemArray[$k]["code"]);
+                                $this->insertQuery('sale_watchlist',array(
+                                    'sale_id_list' => $itemArray[$k]["sale_id"], 
+                                    'user_id_owner_sale_list' => $itemArray[$k]["user_id01"], // owner of sale
+                                    'user_id3_list' => $itemArray[$k]["user_id"],  // user of watchlist
+                                    'code_watchlist' => $itemArray[$k]["code"],  
+                                    'categories'=> $itemArray[$k]["categories"],  
+                                    'phone'=>$itemArray[$k]["phone"],
+                                    'seller_name'=>$itemArray[$k]["seller_name"],
+
+                                    'photo_Title_main_list'=> $itemArray[$k]["name"],  
+                                    'photo_list'=> $itemArray[$k]["image"],  
+                                    'quantitys'=> $itemArray[$k]["quantity"],  
+                                    'unit_price'=> $itemArray[$k]["price"],  
+    
+                                    'price_watchlist'=> $itemArray[$k]["price"],  
+                                    'status_sale' => '0',
+    
+                                ));  
+                            }
         					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
         				}
         			} else {
+                        foreach($itemArray as $k => $v) {
+                            // var_dump($itemArray[$k]["food_id"],$itemArray[$k]["code"]);
+                            $this->insertQuery('sale_watchlist',array(
+                                'sale_id_list' => $itemArray[$k]["sale_id"], 
+                                'user_id_owner_sale_list' => $itemArray[$k]["user_id01"], // owner of sale
+                                'user_id3_list' => $itemArray[$k]["user_id"],  // user of watchlist
+                                'code_watchlist' => $itemArray[$k]["code"],  
+                                'categories'=> $itemArray[$k]["categories"],  
+                                'phone'=>$itemArray[$k]["phone"],
+                                'seller_name'=>$itemArray[$k]["seller_name"],
+                                
+                                'photo_Title_main_list'=> $itemArray[$k]["name"],  
+                                'photo_list'=> $itemArray[$k]["image"],  
+                                'quantitys'=> $itemArray[$k]["quantity"],  
+                                'unit_price'=> $itemArray[$k]["price"],  
+
+                                'price_watchlist'=> $itemArray[$k]["price"],  
+                                'status_sale' => '0',
+
+                            ));  
+                        }
         				$_SESSION["cart_item"] = $itemArray;
+
         			}
             }
              exit($this->showCart_itemSale());
         	break;
         	case "remove":
+                $productByCode = $this->runQuery("SELECT * FROM sale_watchlist WHERE code_watchlist='" . $_REQUEST["code"] . "' AND user_id3_list='" . $_REQUEST["user_id"] . "'");
+                $itemArray = array($productByCode[0]["code_watchlist"]=>array('sale_watchlist_id'=>$productByCode[0]["sale_watchlist_id"], 'code'=>$productByCode[0]["code_watchlist"]));
+
         		if(!empty($_SESSION["cart_item"])) {
-        			foreach($_SESSION["cart_item"] as $k => $v) {
+        			foreach($itemArray as $k => $v) {
+
+                            $this->delete('sale_watchlist',array(
+                                'sale_watchlist_id' =>  $itemArray[$k]["sale_watchlist_id"], 
+                            ));
+
         					if($_REQUEST["code"] == $k)
         						unset($_SESSION["cart_item"][$k]);				
         					if(empty($_SESSION["cart_item"]))
         						unset($_SESSION["cart_item"]);
         			}
-            }
+                }
              exit($this->showCart_itemSale());
         	break;
         	case "empty":
@@ -52,46 +105,34 @@ class Sale extends Home{
         }
         }
         if(!empty($_REQUEST["action0"])) {
-        switch($_REQUEST["action0"]) {
-        	case "add":
-        		if(!empty($_REQUEST["quantity"])) {
-        			$productByCode = $this->runQuery("SELECT * FROM sale WHERE code='" . $_REQUEST["code"] . "'");
-        			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["title"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_REQUEST["quantity"], 'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["photo"]));
-        			
-        			if(!empty($_SESSION["cart_item"])) {    
-        				if(in_array($productByCode[0]["code"],array_keys($_SESSION["cart_item"]))) {
-        					foreach($_SESSION["cart_item"] as $k => $v) {
-        							if($productByCode[0]["code"] == $k) {
-        								if(empty($_SESSION["cart_item"][$k]["quantity"])) {
-        									$_SESSION["cart_item"][$k]["quantity"] = 0;
-        								}
-        								$_SESSION["cart_item"][$k]["quantity"] += $_REQUEST["quantity"];
-        							}
-        					}
-        				} else {
-        					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
-        				}
-        			} else {
-        				$_SESSION["cart_item"] = $itemArray;
-        			}
+            switch($_REQUEST["action0"]) {
+                case "remove":
+                    $productByCode = $this->runQuery("SELECT * FROM sale_watchlist WHERE code_watchlist='" . $_REQUEST["code"] . "' AND user_id3_list='" . $_REQUEST["user_id"] . "'");
+                    $itemArray = array($productByCode[0]["code_watchlist"]=>array('sale_watchlist_id'=>$productByCode[0]["sale_watchlist_id"], 'code'=>$productByCode[0]["code_watchlist"]));
+
+                    if(!empty($_SESSION["cart_item"])) {
+                        foreach($itemArray as $k => $v) {
+
+                                $this->delete('sale_watchlist',array(
+                                    'sale_watchlist_id' =>  $itemArray[$k]["sale_watchlist_id"], 
+                                ));
+
+                                if($_REQUEST["code"] == $k)
+                                    unset($_SESSION["cart_item"][$k]);				
+                                if(empty($_SESSION["cart_item"]))
+                                    unset($_SESSION["cart_item"]);
+                        }
+                    }
+                exit($this->showCart_item());
+                break;
+                case "empty":
+                    $this->delete('sale_watchlist',array(
+                         'user_id3_list' => $_REQUEST["user_id"]
+                    ));
+                    unset($_SESSION["cart_item"]);
+                exit($this->showCart_item());
+                break;	
             }
-             exit($this->showCart_itemSale());
-        	break;
-        	case "remove":
-        		if(!empty($_SESSION["cart_item"])) {
-        			foreach($_SESSION["cart_item"] as $k => $v) {
-        					if($_REQUEST["code"] == $k)
-        						unset($_SESSION["cart_item"][$k]);				
-        					if(empty($_SESSION["cart_item"]))
-        						unset($_SESSION["cart_item"]);
-        			}
-            }
-             exit($this->showCart_itemSale());
-        	break;
-        	case "empty":
-        		unset($_SESSION["cart_item"]);
-        	break;	
-        }
         }
     }
 
@@ -484,7 +525,7 @@ class Sale extends Home{
             				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
             				<td  style="text-align:right;"><?php echo "Frw ".number_format($item["price"]); ?></td>
             				<td  style="text-align:right;"><?php echo "Frw ". number_format($item_price); ?></td>
-            				<td style="text-align:center;"><a href="javascript:void(0);" onclick="cart_sale_add('remove','<?php echo $item['code']; ?>');" class="btnRemoveAction"><img src="<?php echo BASE_URL_LINK ;?>image/product-images/icon-delete.png" alt="Remove Item" /></a></td>
+            				<td style="text-align:center;"><a href="javascript:void(0);" onclick="cart_sale_add('remove','<?php echo $item['code']; ?>',<?php echo $item['user_id']; ?>);" class="btnRemoveAction"><img src="<?php echo BASE_URL_LINK ;?>image/product-images/icon-delete.png" alt="Remove Item" /></a></td>
             				<!-- <td style="text-align:center;"><a href="sale.php?action=remove&code=< ?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="< ?php echo BASE_URL_LINK ;?>image/product-images/icon-delete.png" alt="Remove Item" /></a></td> -->
             				</tr>
             				<?php
@@ -544,7 +585,7 @@ class Sale extends Home{
                                <form method="post" id="form-cartitem<?php echo $item['code']; ?>remove" >
                                         <input type="hidden" style="width:30px;" name="action" value="remove" />
                                         <input type="hidden" style="width:30px;" name="code" value="<?php echo $item['code']; ?>" />
-                                        <a href="javascript:void(0);" onclick="cart_add('remove','<?php echo 'form-cartitem'.$item['code'].'remove'; ?>','<?php echo $item['code']; ?>');"><img src="<?php echo BASE_URL_LINK ;?>image/product-images/icon-delete.png" alt="Remove Item" /></a> 
+                                        <a href="javascript:void(0);" onclick="cart_add('remove','<?php echo 'form-cartitem'.$item['code'].'remove'; ?>','<?php echo $item['code']; ?>',<?php echo $item['user_id']; ?>);"><img src="<?php echo BASE_URL_LINK ;?>image/product-images/icon-delete.png" alt="Remove Item" /></a> 
                                 </form>
                     </td>
             				
@@ -562,7 +603,8 @@ class Sale extends Home{
             </tbody>
             </table>	
             <div id="responseCheckout">
-              <input type="button" name="checkout" id="checkout" onclick="checkout('checkout');" value="Go To Checkout" class="btnRemoveAction btn-primary float-right" >	
+              <!-- <input type="button" name="checkout" id="checkout" onclick="checkout('checkout');" value="Go To Checkout" class="btnRemoveAction btn-primary float-right" >	 -->
+              <input type="button" name="checkout" id="checkout" onclick="paymentSale('payment');" value="Go To Checkout" class="btnRemoveAction btn-primary float-right" >	
             </div>
             <?php
             } else {
