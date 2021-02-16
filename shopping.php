@@ -26,11 +26,11 @@
 <div class="container mt-3 mb-5">
    <section class="content-header">
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-4">
                 <h1><i> Shopping</i></h1>
             </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
+            <div class="col-8">
+                <ol class="breadcrumb float-right">
                     <li class="breadcrumb-item">Shopping </li>
                     <li class="breadcrumb-item active"><i>Items</i></li>
                 </ol>

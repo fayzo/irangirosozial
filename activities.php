@@ -67,6 +67,8 @@
                                 data-toggle="tab">Car</a></li>
                             <li class="nav-item"><a class="nav-link" href="#icyamunara"
                                 data-toggle="tab">icyamunara</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#sale"
+                                data-toggle="tab">Sale</a></li>
                         </ul>
                 </div>
                 <div class="card-body">
@@ -90,6 +92,9 @@
                         </div>
                         <div class="tab-pane" id="icyamunara">
                         <?php echo $car->icyamunaraListActivities($_SESSION['key']); ?>
+                        </div>
+                        <div class="tab-pane" id="sale">
+                            <?php echo $sale->saleActivities($_SESSION['key']); ?>
                         </div>
                     </div> <!-- /.tab-content -->
                 </div>

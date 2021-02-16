@@ -704,45 +704,6 @@ public function links(){ ?>
         </div> <!-- card -->
    <?php }
 
-      public function saleData($user_id)
-    {
-        $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM sale WHERE user_id01 ='$user_id' ");
-        $row= $query->fetch_array();
-        return $row;
-    }
-
-    public function saleActivities($user_id)
-    {
-        $mysqli= $this->database;
-        $query = $mysqli->query("SELECT * FROM sale WHERE user_id01 = '$user_id' ORDER BY created_on01 Desc "); ?>
-        <div class="card card-primary mb-3 ">
-        <div class="card-header main-active p-1">
-            <h5 class="card-title text-center"><i> Sales</i></h5>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-        <?php while($row=$query->fetch_assoc()) { ?>
-                <div class="ml-1 mb-3 float-left" style="width: 252px;">
-
-                  <div class="card">
-                    <div class="card-img-top img-fuild"><img src="<?php echo BASE_URL_PUBLIC."uploads/sale/".$row["photo"]; ?>" width="250px" height="155px;"></div>
-                      <div class="card-body">
-                          <div class="card-title"><?php echo $row["title"]; ?></div> <!-- product-title -->
-                          <p class="card-text product-price"><?php echo "$".$row["price"]; ?></p>
-                          <form method="post" action="sale?action=add&code=<?php echo $row["code"]; ?>">
-               	      	  <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" readonly/><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
-                          </form>
-                      </div><!-- card-body -->
-                  </div><!-- card -->
-
-                </div><!-- col -->
-      <?php } ?>
-             </div> <!-- row -->
-           </div> <!-- card-body -->
-        </div> <!-- card -->
-   <?php }
-
     public function inbox($sessions)
     {
         $mysqli = $this->database;

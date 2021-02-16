@@ -97,8 +97,10 @@ class Sale extends Home{
         						unset($_SESSION["cart_item"]);
         			}
                 }
-             exit($this->showCart_itemSale());
+
+            exit($this->showCart_itemSale());
         	break;
+
         	case "empty":
         		unset($_SESSION["cart_item"]);
         	break;	
@@ -182,7 +184,11 @@ class Sale extends Home{
             $showpages = ($pages*9)-9;
         }
         $mysqli= $this->database;
-        $query= $mysqli->query("SELECT * FROM users U Left JOIN sale S ON S. user_id01 = U. user_id WHERE S. categories_sale = '{$categories}' ORDER BY created_on01 Desc Limit $showpages,9");
+        $query= $mysqli->query("SELECT * FROM users U 
+        Left JOIN sale S ON S. user_id01 = U. user_id 
+        Left JOIN sale_watchlist W ON S. sale_id = W. sale_id_list 
+        WHERE S. categories_sale = '{$categories}' 
+        ORDER BY created_on01 Desc Limit $showpages,9");
         ?>
         <div class="mb-3 ">
           <?php 
@@ -272,139 +278,12 @@ class Sale extends Home{
                                     echo $row["title"];
                                     } ?>
 
-                                    <?php if(isset($_SESSION['key']) && $user_id == $row['user_id01']){ ?>
-                                    <ul class="list-inline ml-2  float-right" style="list-style-type: none;">  
-
-                                            <li  class=" list-inline-item">
-                                                <ul class="showcartButt" style="list-style-type: none; margin:0px;" >
-                                                    <li>
-                                                        <a href="javascript:void(0)" class="more"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-                                                        <ul style="list-style-type: none; margin:0px; margin:0px;width:250px;text-align:center;" >
-                                                            <li style="list-style-type: none; margin:0px;"> 
-                                                                 <label class="delete-sale"  data-sale="<?php echo $row["sale_id"];?>"  data-user="<?php echo $row["user_id01"];?>">Delete </label>
-                                                            </li>
-
-                                                            <li style="list-style-type: none;"> 
-                                                            <label for="title">
-                                                            <div class="form-row">
-                                                                <div class="col">
-                                                                        title
-                                                                    <div class="input-group">
-                                                                        <input  type="text" class="form-control form-control-sm" name="title" id="title<?php echo $row["sale_id"];?>" value="<?php echo $row["title"];?>">
-                                                                        <div class="input-group-append">
-                                                                            <span class="input-group-text" style="padding: 0px 10px;"
-                                                                                aria-label="Username" aria-describedby="basic-addon1" ><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                                                                        </div>
-                                                                    </div> <!-- input-group -->
-                                                                </div>
-                                                            </div>
-                                                            </label>
-                                                            </li>
-                                                            
-                                                            <li style="list-style-type: none; margin:0px;"> 
-                                                            <label >photo
-                                                                <form action="<?php echo BASE_URL_PUBLIC;?>core/ajax_db/sale_delete.php" method="post" id="form-photo<?php echo $row["sale_id"];?>" enctype="multipart/form-data">
-                                                                    <input type="hidden" name="sale_id" value="<?php echo $row["sale_id"];?>">
-                                                                    <input type="file" class="form-control-file" name="update-form-sale" id="update-form-sale" data-sale="<?php echo $row["sale_id"];?>"> <br>
-                                                                </form>
-                                                             </label>
-                                                            </li>
-
-                                                            <li style="list-style-type: none; margin:0px;"> 
-                                                            <label for="">
-                                                            <div class="form-row">
-                                                                <div class="col">
-                                                                        Banner
-                                                                        <div class="input-group">
-                                                                              <select class="form-control" name="banner" id="banner<?php echo $row["sale_id"];?>">
-                                                                                <option value="<?php echo $row['banner']; ?>" selected><?php echo $row['banner']; ?></option>
-                                                                                <option value="new">New</option>
-                                                                                <option value="new_arrival">New arrival</option>
-                                                                                <option value="great_deal">Great deal</option>
-                                                                                <option value="empty">empty</option>
-                                                                              </select>
-                                                                            <div class="input-group-append">
-                                                                                <span class="input-group-text" style="padding: 0px 10px;" aria-label="Username" aria-describedby="basic-addon1" >banner</span>
-                                                                            </div>
-                                                                        </div> <!-- input-group -->
-                                                                </div>
-                                                            </div>
-                                                            </label>
-                                                            </li>
-
-                                                          <li style="list-style-type: none; margin:0px;"> 
-                                                            <label for="">
-                                                            <div class="form-row">
-                                                                <div class="col">
-                                                                        Sale
-                                                                        <div class="input-group">
-                                                                              <select class="form-control" name="available" id="available<?php echo $row["sale_id"];?>">
-                                                                              <?php if ($row['buy'] == 'available') { ?>
-                                                                                <option value="available" selected>Available</option>
-                                                                                <option value="sold">Sold</option>
-                                                                                <option value="empty">empty</option>
-                                                                              <?php }else { ?>
-                                                                                <option value="sold" selected>Sold</option>
-                                                                                <option value="available">Available</option>
-                                                                                <option value="empty">empty</option>
-                                                                              <?php } ?>
-                                                                              </select>
-                                                                            <div class="input-group-append">
-                                                                                <span class="input-group-text" style="padding: 0px 10px;" aria-label="Username" aria-describedby="basic-addon1" >sale</span>
-                                                                            </div>
-                                                                        </div> <!-- input-group -->
-                                                                    </label>
-                                                                </div>
-                                                                <div class="col">
-                                                                    discount %
-                                                                    <div class="input-group">
-                                                                        <input  type="number" class="form-control form-control-sm" name="discount_change" id="discount_change<?php echo $row["sale_id"];?>" value="<?php echo $row["discount"];?>">
-                                                                        <div class="input-group-append">
-                                                                            <span class="input-group-text" style="padding: 0px 10px;" aria-label="Username" aria-describedby="basic-addon1" >%</span>
-                                                                        </div>
-                                                                    </div> <!-- input-group -->
-                                                                </div>
-                                                            </div>
-                                                            </label>
-                                                            </li>
-                                                            
-                                                            <li style="list-style-type: none;"> 
-                                                            <label for="discount">
-                                                            <div class="form-row">
-                                                                <div class="col">
-                                                                    discount price
-                                                                    <div class="input-group">
-                                                                        <input  type="number" class="form-control form-control-sm" name="discount_price" id="discount_price<?php echo $row["sale_id"];?>" value="<?php echo $row["price_discount"];?>">
-                                                                        <div class="input-group-append">
-                                                                            <span class="input-group-text" style="padding: 0px 10px;" aria-label="Username" aria-describedby="basic-addon1">$</span>
-                                                                        </div>
-                                                                    </div> <!-- input-group -->
-                                                                </div>
-                                                                <div class="col">
-                                                                        Price
-                                                                    <div class="col">
-                                                                        </div>
-                                                                    <div class="input-group">
-                                                                        <input  type="number" class="form-control form-control-sm" name="price" id="price<?php echo $row["sale_id"];?>" value="<?php echo $row["price"];?>">
-                                                                        <div class="input-group-append">
-                                                                            <span class="input-group-text" style="padding: 0px 10px;"
-                                                                                aria-label="Username" aria-describedby="basic-addon1" >$</span>
-                                                                        </div>
-                                                                    </div> <!-- input-group -->
-                                                                </div>
-                                                            </div>
-                                                            </label>
-                                                            </li>
-
-                                                            <li style="list-style-type: none;"> 
-                                                            <label for="discount" class="update-sale-btn" data-sale="<?php echo $row["sale_id"];?>" data-user="<?php echo $row["user_id01"];?>">submit</label>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                    </ul>
-                                <?php } ?>
+                                    <!-- delete -->
+                                    <?php 
+                                    if(isset($_SESSION['key']) && $user_id == $row['user_id01']){ 
+                                        echo $this->Edit_sale($user_id,$row['user_id01'],$row); 
+                                    } ?>
+                                    <!-- delete -->
 
                                      <?php if($row['discount'] != 0){ ?>
                                           <span class="float-right text-danger"><?php echo $row["discount"]; ?>%</span>
@@ -415,6 +294,9 @@ class Sale extends Home{
                                     <?php if($row['price_discount'] != 0){ ?><span class="text-danger " style="text-decoration: line-through;"><?php echo number_format($row['price_discount']); ?> Frw</span> <?php } ?> 
                                    <div> <?php echo number_format($row["price"])." Frw"; ?> </div>
                                   </div>
+
+                                  <?php if(isset($_SESSION['key'])){ if($row['user_id3_list'] != $user_id && $row['sale_id_list'] != $row['sale_id']  ){ ;?>
+
                                    <form method="post" id="form-cartitem<?php echo $row['code']; ?>add" class="float-right">
                                       <div class="cart-action">
                                           <input type="hidden" style="width:30px;" name="action" value="add" />
@@ -424,6 +306,29 @@ class Sale extends Home{
                                           <!-- <input type="button" onclick="cart_add('add','< ?php echo 'form-cartitem'.$row['code'].'add'; ?>','< ?php echo $row['code']; ?>');" value="Add to Cart" class="btnAddAction" /> -->
                                       </div>
                                   </form>
+
+                                    <?php }else{ ;?>
+
+                                    <form method="post" id="form-cartitem<?php echo $row['code']; ?>add" class="float-right">
+                                        <div class="cart-action">
+                                            <input type="button" value="Remove" class="btn btn-danger"  onclick="cart_add('remove','<?php echo 'form-cartitem'.$row['code'].'remove'; ?>','<?php echo $row['code']; ?>',<?php echo $row['user_id']; ?>);" />
+                                        </div>
+                                    </form>
+
+                                    <?php } }else{ ?>
+
+                                   <form method="post" id="form-cartitem<?php echo $row['code']; ?>add" class="float-right">
+                                      <div class="cart-action">
+                                          <input type="hidden" style="width:30px;" name="action" value="add" />
+                                          <input type="hidden" style="width:30px;" name="code" value="<?php echo $row['code']; ?>" />
+                                          <input type="text" class="product-quantity" style="width:30px;" name="quantity" value="1" size="2" readonly/>
+                                          <input type="button" value="Add to Cart" class="btnAddAction offer-price-sale" data-sale="<?php echo $row['sale_id']; ?>"/>
+                                          <!-- <input type="button" onclick="cart_add('add','< ?php echo 'form-cartitem'.$row['code'].'add'; ?>','< ?php echo $row['code']; ?>');" value="Add to Cart" class="btnAddAction" /> -->
+                                      </div>
+                                    </form>
+
+                                    <?php } ;?>
+
                               </div><!-- card-body -->
                           </div><!-- card -->
 
@@ -519,7 +424,11 @@ class Sale extends Home{
             				<td>
                                 <div>Seller: <?php echo $item["seller_name"]; ?></div>
                                 <div>Phone: <?php echo $item["phone"]; ?></div>
-                                <div class="people-message more" data-user="<?php echo $item['user_id01'];?>"><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </div>
+                                <div>
+                                <span class="btn-sm btn-success people-message more" data-user="<?php echo $item['user_id01'];?>">
+                                    <i class="fa fa-envelope-o"></i> Message 
+                                </span>
+                                </div>
 
                             </td>
             				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
@@ -713,6 +622,284 @@ class Sale extends Home{
         $row= $query->fetch_array();
         return $row;
     }
+    
+       public function Edit_sale($user_id,$sale_id3,$row)
+    {
+        ?>
+            <ul class="list-inline ml-2  float-right" style="list-style-type: none;">  
+
+                    <li  class=" list-inline-item">
+                        <ul class="showcartButt" style="list-style-type: none; margin:0px;" >
+                            <li>
+                                <a href="javascript:void(0)" class="more"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                                <ul style="list-style-type: none; margin:0px; margin:0px;width:250px;text-align:center;" >
+                                    <li style="list-style-type: none; margin:0px;"> 
+                                        <label class="delete-sale"  data-sale="<?php echo $row["sale_id"];?>"  data-user="<?php echo $row["user_id01"];?>">Delete </label>
+                                    </li>
+
+                                    <li style="list-style-type: none;"> 
+                                    <label for="title">
+                                    <div class="form-row">
+                                        <div class="col">
+                                                title
+                                            <div class="input-group">
+                                                <input  type="text" class="form-control form-control-sm" name="title" id="title<?php echo $row["sale_id"];?>" value="<?php echo $row["title"];?>">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" style="padding: 0px 10px;"
+                                                        aria-label="Username" aria-describedby="basic-addon1" ><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                                </div>
+                                            </div> <!-- input-group -->
+                                        </div>
+                                    </div>
+                                    </label>
+                                    </li>
+                                    
+                                    <li style="list-style-type: none; margin:0px;"> 
+                                    <label >photo
+                                        <form action="<?php echo BASE_URL_PUBLIC;?>core/ajax_db/sale_delete.php" method="post" id="form-photo<?php echo $row["sale_id"];?>" enctype="multipart/form-data">
+                                            <input type="hidden" name="sale_id" value="<?php echo $row["sale_id"];?>">
+                                            <input type="file" class="form-control-file" name="update-form-sale" id="update-form-sale" data-sale="<?php echo $row["sale_id"];?>"> <br>
+                                        </form>
+                                    </label>
+                                    </li>
+
+                                    <li style="list-style-type: none; margin:0px;"> 
+                                    <label for="">
+                                    <div class="form-row">
+                                        <div class="col">
+                                                Banner
+                                                <div class="input-group">
+                                                        <select class="form-control" name="banner" id="banner<?php echo $row["sale_id"];?>">
+                                                        <option value="<?php echo $row['banner']; ?>" selected><?php echo $row['banner']; ?></option>
+                                                        <option value="new">New</option>
+                                                        <option value="new_arrival">New arrival</option>
+                                                        <option value="great_deal">Great deal</option>
+                                                        <option value="empty">empty</option>
+                                                        </select>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" style="padding: 0px 10px;" aria-label="Username" aria-describedby="basic-addon1" >banner</span>
+                                                    </div>
+                                                </div> <!-- input-group -->
+                                        </div>
+                                    </div>
+                                    </label>
+                                    </li>
+
+                                    <li style="list-style-type: none; margin:0px;"> 
+                                    <label for="">
+                                    <div class="form-row">
+                                        <div class="col">
+                                                Sale
+                                                <div class="input-group">
+                                                        <select class="form-control" name="available" id="available<?php echo $row["sale_id"];?>">
+                                                        <?php if ($row['buy'] == 'available') { ?>
+                                                        <option value="available" selected>Available</option>
+                                                        <option value="sold">Sold</option>
+                                                        <option value="empty">empty</option>
+                                                        <?php }else { ?>
+                                                        <option value="sold" selected>Sold</option>
+                                                        <option value="available">Available</option>
+                                                        <option value="empty">empty</option>
+                                                        <?php } ?>
+                                                        </select>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" style="padding: 0px 10px;" aria-label="Username" aria-describedby="basic-addon1" >sale</span>
+                                                    </div>
+                                                </div> <!-- input-group -->
+                                            </label>
+                                        </div>
+                                        <div class="col">
+                                            discount %
+                                            <div class="input-group">
+                                                <input  type="number" class="form-control form-control-sm" name="discount_change" id="discount_change<?php echo $row["sale_id"];?>" value="<?php echo $row["discount"];?>">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" style="padding: 0px 10px;" aria-label="Username" aria-describedby="basic-addon1" >%</span>
+                                                </div>
+                                            </div> <!-- input-group -->
+                                        </div>
+                                    </div>
+                                    </label>
+                                    </li>
+                                    
+                                    <li style="list-style-type: none;"> 
+                                    <label for="discount">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            discount price
+                                            <div class="input-group">
+                                                <input  type="number" class="form-control form-control-sm" name="discount_price" id="discount_price<?php echo $row["sale_id"];?>" value="<?php echo $row["price_discount"];?>">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" style="padding: 0px 10px;" aria-label="Username" aria-describedby="basic-addon1">$</span>
+                                                </div>
+                                            </div> <!-- input-group -->
+                                        </div>
+                                        <div class="col">
+                                                Price
+                                            <div class="col">
+                                                </div>
+                                            <div class="input-group">
+                                                <input  type="number" class="form-control form-control-sm" name="price" id="price<?php echo $row["sale_id"];?>" value="<?php echo $row["price"];?>">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" style="padding: 0px 10px;"
+                                                        aria-label="Username" aria-describedby="basic-addon1" >$</span>
+                                                </div>
+                                            </div> <!-- input-group -->
+                                        </div>
+                                    </div>
+                                    </label>
+                                    </li>
+
+                                    <li style="list-style-type: none;"> 
+                                    <label for="discount" class="update-sale-btn" data-sale="<?php echo $row["sale_id"];?>" data-user="<?php echo $row["user_id01"];?>">submit</label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+            </ul>
+
+            <?php
+
+    }
+
+    
+    public function saleData($user_id)
+    {
+        $mysqli= $this->database;
+        $query= $mysqli->query("SELECT * FROM sale WHERE user_id01 ='$user_id' ");
+        $row= $query->fetch_array();
+        return $row;
+    }
+
+    public function saleActivities($user_id)
+    {
+        $mysqli= $this->database;
+        $query = $mysqli->query("SELECT * FROM sale S
+        Left JOIN sale_watchlist W ON S. sale_id = W. sale_id_list and W. user_id3_list = '$user_id'
+        WHERE S. user_id01 = '$user_id' 
+        ORDER BY S. created_on01 Desc "); ?>
+
+        <div class="card card-primary mb-3 ">
+            <div class="card-header main-active p-1">
+                <h5 class="card-title text-center"><i> Sales</i></h5>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+             
+                <?php if ($query->num_rows > 0) { ?>
+                <div class="row">
+                <div class="col-md-12 pr-0">
+                    
+                <?php while($row= $query->fetch_array()) { ?>
+
+                        <div class="mr-3 mb-3 float-left" style="width: 260px;height:276px;">
+                        <div class="card">
+                            <div class="card-img-top img-fuild" id="sale_gurishaPreview<?php echo $row['sale_id']; ?>" style="background: url('<?php echo BASE_URL_PUBLIC ;?>uploads/sale/<?php echo $row["photo"]; ?>')no-repeat center center;background-size:contain;height:178px;width:260px;position:relative" >
+                   
+                                <?php $banner = $row['banner'];
+                                    switch ($banner) {
+                                        case $banner == 'new':
+                                            # code...
+                                            echo '<img style="margin-left: -10px;" src="'.BASE_URL_LINK.'image/banner/new.png"  width="80px"  >';
+                                            break;
+                                        case $banner == 'great_deal':
+                                            # code...
+                                            echo '<img style="float:right;" src="'.BASE_URL_LINK.'image/banner/great-deal.png"  width="120px" >';
+                                            break;
+                                        case $banner == 'new_arrival':
+                                            # code...
+                                            echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png"  width="120px" >';
+                                            break;
+                                        default:
+                                                # code...
+                                                echo '';
+                                                break;  
+                                    } ?>
+                            </div>
+                            <div class="card-body">
+                                <div id="response<?php echo $row['sale_id']; ?>"></div>
+
+                                <div class="card-title">
+                                <?php 
+                                    if (strlen($row["title"]) > 30) {
+                                    echo $row["title"] = substr($row["title"],0,30).'... ';
+                                    }else{
+                                    echo $row["title"];
+                                    } ?>
+
+                                    <!-- delete -->
+                                    <?php 
+                                    if(isset($_SESSION['key']) && $user_id == $row['user_id01']){ 
+                                        echo $this->Edit_sale($user_id,$row['user_id01'],$row); 
+                                    } ?>
+                                    <!-- delete -->
+
+                                    <?php if($row['discount'] != 0){ ?>
+                                        <span class="float-right text-danger"><?php echo $row["discount"]; ?>%</span>
+                                    <?php } ?>
+
+                                </div> <!-- product-title -->
+                                <div class="card-text product-price d-inline-block"> 
+                                    <?php if($row['price_discount'] != 0){ ?><span class="text-danger " style="text-decoration: line-through;"><?php echo number_format($row['price_discount']); ?> Frw</span> <?php } ?> 
+                                <div> <?php echo number_format($row["price"])." Frw"; ?> </div>
+                                </div>
+
+                                <?php if(isset($_SESSION['key'])){ if($row['user_id3_list'] != $user_id && $row['sale_id_list'] != $row['sale_id']  ){ ;?>
+
+                                <form method="post" id="form-cartitem<?php echo $row['code']; ?>add" class="float-right">
+                                    <div class="cart-action">
+                                        <input type="hidden" style="width:30px;" name="action" value="add" />
+                                        <input type="hidden" style="width:30px;" name="code" value="<?php echo $row['code']; ?>" />
+                                        <input type="text" class="product-quantity" style="width:30px;" name="quantity" value="1" size="2" readonly/>
+                                        <input type="button" value="Add to Cart" class="btnAddAction offer-price-sale" data-sale="<?php echo $row['sale_id']; ?>"/>
+                                        <!-- <input type="button" onclick="cart_add('add','< ?php echo 'form-cartitem'.$row['code'].'add'; ?>','< ?php echo $row['code']; ?>');" value="Add to Cart" class="btnAddAction" /> -->
+                                    </div>
+                                </form>
+
+                                    <?php }else{ ;?>
+
+                                    <form method="post" id="form-cartitem<?php echo $row['code']; ?>add" class="float-right">
+                                        <div class="cart-action">
+                                            <input type="button" value="Remove" class="btn btn-danger"  onclick="cart_add('remove','<?php echo 'form-cartitem'.$row['code'].'remove'; ?>','<?php echo $row['code']; ?>',<?php echo $row['user_id']; ?>);" />
+                                        </div>
+                                    </form>
+
+                                    <?php } }else{ ?>
+
+                                <form method="post" id="form-cartitem<?php echo $row['code']; ?>add" class="float-right">
+                                    <div class="cart-action">
+                                        <input type="hidden" style="width:30px;" name="action" value="add" />
+                                        <input type="hidden" style="width:30px;" name="code" value="<?php echo $row['code']; ?>" />
+                                        <input type="text" class="product-quantity" style="width:30px;" name="quantity" value="1" size="2" readonly/>
+                                        <input type="button" value="Add to Cart" class="btnAddAction offer-price-sale" data-sale="<?php echo $row['sale_id']; ?>"/>
+                                        <!-- <input type="button" onclick="cart_add('add','< ?php echo 'form-cartitem'.$row['code'].'add'; ?>','< ?php echo $row['code']; ?>');" value="Add to Cart" class="btnAddAction" /> -->
+                                    </div>
+                                    </form>
+
+                                    <?php } ;?>
+
+                            </div><!-- card-body -->
+                        </div><!-- card -->
+
+                        </div><!-- float-left -->
+                        <!-- </div> -->
+
+                    <?php } ?>    
+                </div>
+                </div>
+
+                <?php }else{
+
+                    echo ' <div class="col-md-12 col-lg-12 mt-2"><div class="alert alert-danger alert-dismissible fade show text-center">
+                                <button class="close" data-dismiss="alert" type="button">
+                                    <span>&times;</span>
+                                </button>
+                                <strong>No Record</strong>
+                            </div></div>'; 
+                } ?>
+           </div> <!-- card-body -->
+        </div> <!-- card -->
+   <?php }
 
 
 }

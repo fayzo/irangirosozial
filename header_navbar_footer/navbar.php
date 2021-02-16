@@ -28,13 +28,13 @@
          </a>
          <?php if (isset($_SESSION['job_user']) && $_SESSION['job_user'] === 'SME'){ ?>
         
-        <a class="sidebar-toggle_" href="<?php echo BUSINESS_POST_JOBS; ?>">
+        <a class="sidebar-toggle_ hidden-xs" href="<?php echo BUSINESS_POST_JOBS; ?>">
           <i class="fa fa-star"> </i>
           <span class="hidden-xs">Post Jobs</span>
         </a>
          <?php }else if (isset($_SESSION['job_user']) && $_SESSION['job_user'] === 'individual'){ ?>
         
-        <a class="sidebar-toggle_ " href="<?php echo INDIVIDUAL_POST_JOBS; ?>">
+        <a class="sidebar-toggle_ hidden-xs" href="<?php echo INDIVIDUAL_POST_JOBS; ?>">
           <i class="fa fa-star"> </i>
           <span class="hidden-xs">Post Jobs</span>
         </a>
@@ -60,8 +60,10 @@
         <?php  } ?>
         
         <?php if(isset($_SESSION["cart_item"])){ ?>
-          <a class="sidebar-toggle_" href="<?php echo SHOPPING ;?>">
+          <a class="sidebar-toggle_"  style="position:relative" href="<?php echo SHOPPING ;?>">
               <i class="fa fa-shopping-cart"></i>
+              <span id="messages1" style="position: absolute;top: 5px;left: 18px;">
+              <?php if(count($_SESSION["cart_item"]) > 0){echo '<span  class="badge badge-danger navbar-badge">'.count($_SESSION["cart_item"]).'</span>'; } ?></span>
             <span class="hidden-xs"> Watch-List</span>
           </a>
         <?php  } ?>

@@ -252,7 +252,7 @@ a:focus {
 .main-header .sidebar-toggle_ {
   background-color: transparent;
   background-image: none;
-  padding: 15px 15px;
+  padding: 15px 9px;
   font-family: fontAwesome;
 }
 .main-header .sidebar-toggle_:hover {
@@ -414,7 +414,9 @@ a:focus {
   .hidden-xs {
       display: none !important;
   }
-
+  .nav>li>a {
+    padding: 13px 6px;
+  }
   .img_size > img {
     width: 50px !important;
     height: 50px !important;

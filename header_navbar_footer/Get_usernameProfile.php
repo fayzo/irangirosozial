@@ -50,10 +50,10 @@ else{
             $houseV= $house->houseData($_SESSION['key']);
             $carV= $car->carData($_SESSION['key']);
             $icyamunaraV= $icyamunara->icyamunaraData($_SESSION['key']);
+            $saleV= $sale->saleData($_SESSION['key']);
 
             // $eventV= $home->eventsData($_SESSION['key']);
             // $blogV= $home->blogData($_SESSION['key']);
-            // $saleV= $home->saleData($_SESSION['key']);
 
             $notific= $notification->getNotificationCount($user_id);
             $notification->notificationsView($user_id);
