@@ -1,16 +1,16 @@
-<div class="card mt-3 col-8 offset-2">
-    <div class="card-header text-center">
+<div class="card mt-3 col-sm-12 col-md-8 offset-md-2">
+    <div class="card-header text-center px-0">
         <!-- MODAL TRIGGER -->
         <!-- <input style="float: right" type="button" class="btn btn-success "  data-toggle="modal" data-target="#editPages"  value="Edit Profile"> -->
-        <input style="float: right" type="button" class="btn btn-success" onclick="BusinessEdits(<?php echo $_SESSION['key'];?>, 'businessviewORedit');"  value="Edit Profile">
-        <input style="float: left" type="button" class="btn btn-info" data-toggle="modal" data-target="#examplePages" value="Example Page">
-        <h1><i>Business Description</i></h1> 
+        <input style="float: right" type="button" class="btn btn-sm btn-success" onclick="BusinessEdits(<?php echo $_SESSION['key'];?>, 'businessviewORedit');"  value="Edit Profile">
+        <input style="float: left" type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#examplePages" value="Example Page">
+        <h5 style="clear: left" ><i>Business Description</i></h5> 
     </div>
-  <div class="card-body ">
+  <div class="card-body px-0">
   <?php if(!empty($user['overview'])) { ?>
     <p id="business_id0" data-business="<?php echo $_SESSION['key'];?>"></p>
     <div class="text-center">
-    <h4 class="card-title  The-company-name0">The Logo company </h4>
+    <h6 class="card-title  font-weight-bold The-company-name0">The Logo company </h6>
            <?php if (!empty($user['profile_img'])) {?>
               <img src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $user['profile_img'] ;?>"  width="40px" height="40px" alt="logo" >
               <?php  }else{ ?>
@@ -19,37 +19,37 @@
     </div>
     <hr>
 
-    <h4 class="card-title ">The company overview: </h4>
+    <h6 class="card-title font-weight-bold">Company overview: </h6>
     <div class="The-company-overview0"></div>
     <hr>
 
-    <h4 class="card-title ">Company history: </h4>
+    <h6 class="card-title font-weight-bold">Company history: </h6>
     <div class="company-history0"></div>
     <hr>
 
-      <h4 class="card-title ">Management team: </h4>
+    <h6 class="card-title font-weight-bold">Management team: </h6>
       <div class="management-team0"></div>
     <hr>
 
-    <h4 class="card-title ">Legal structure and ownership: </h4>
+    <h6 class="card-title font-weight-bold">Legal structure and ownership: </h6>
     <div class="legal-structure0"></div>
     <hr>
 
-    <h4 class="card-title ">Locations and facilities: </h4>
+    <h6 class="card-title font-weight-bold">Locations and facilities: </h6>
     <div class="location-place0"></div>
     <hr>
 
-    <h4 class="card-title ">Mission statement: </h4>
+    <h6 class="card-title font-weight-bold">Mission statement: </h6>
     <div class="mission-statement0"></div>
     <hr>
 
-    <h4 class="card-title ">website: </h4>
+    <h6 class="card-title font-weight-bold">website: </h6>
     <div class="website0"></div>
     <hr>
 <?php }else{ ?>
 
-<div class="text-center">
-    <h4 class="card-title">The Logo company </h4>
+<div class="text-center font-weight-bold">
+    <h6 class="card-title">The Logo company </h6>
           <label for="">Examples of Logo represent the company</label>
           <ul class="list-inline" style="list-style-type:none">
              <li class="list-inline-item" ><img src="<?php echo BASE_URL_LINK.'image/flag/iconfinder_Flag_of_Burundi_96181.png' ;?>" width="40px" height="40px" alt="logo" ></li>
@@ -61,35 +61,35 @@
     </div>
     <hr>
 
-    <h4 class="card-title">The company overview: </h4>
+    <h6 class="card-title font-weight-bold">Company overview: </h6>
       <label for="">Examples of where you’ll briefly sum everything up. </label>
           <ul style="list-style-type:none">
              <li>This is where you’ll briefly sum everything up. </li>
           </ul>
     <hr>
 
-      <h4 class="card-title">Company history: </h4>
+      <h6 class="card-title font-weight-bold">Company history: </h6>
       <label for="">Examples of Company history. </label>
           <ul style="list-style-type:dot">
              <li>Provide the back story, including date of founding, and who was involved. </li>
           </ul>
     <hr>
 
-      <h4 class="card-title">Management team: </h4>
+      <h6 class="card-title font-weight-bold">Management team: </h6>
       <label for="">Examples of Details about who runs the company, and other key roles. </label>
           <ul style="list-style-type:dot">
              <li>Details about who runs the company, and other key roles.</li>
           </ul>
     <hr>
 
-      <h4 class="card-title">Legal structure and ownership: </h4>
+      <h6 class="card-title font-weight-bold">Legal structure and ownership: </h6>
       <label for="">Examples of Legal structure and ownership. </label>
           <ul style="list-style-type:dot">
              <li>How you’ve decided to structure your company, and who owns what percentage of it.</li>
           </ul>
     <hr>
 
-      <h4 class="card-title">Locations and facilities: </h4>
+      <h6 class="card-title font-weight-bold">Locations and facilities: </h6>
       <label for="">Examples of Details on your workspaces or plans to acquire them. </label>
           <ul style="list-style-type:dot">
              <li>Kigali, Rwanda.</li>
@@ -98,7 +98,7 @@
           </ul>
     <hr>
 
-      <h4 class="card-title">Mission statement: </h4>
+      <h6 class="card-title font-weight-bold">Mission statement: </h6>
       <label for="">Examples of Mission statement </label>
           <ul style="list-style-type:dot">
              <li>A concise statement of the guiding principles of your company.</li>

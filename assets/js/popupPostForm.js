@@ -29,11 +29,15 @@ $(document).ready(function () {
     });
 
     $(document).on('submit', "#popupForm", function (e) {
+        for(instance in CKEDITOR.instances){
+            CKEDITOR.instances[instance].updateElement();
+        }
         e.preventDefault();
         var id = $('#id_posts').val();
         var image_name = $('#file').val();
-        var textarea = $('.status').val();
         var title_name = $('#title_name').val();
+        // var textarea = $('.status').val();
+        var textarea = CKEDITOR.instances.editor1.getData();
 
          if (image_name == '') {
 

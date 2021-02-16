@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluids">
     <div class="row">
 
         <div class="col-md-6">
@@ -43,8 +43,8 @@
 
                         <div class="form-group">
                             <div class="clearfix">
-                                <a href="<?php echo INDEXX ;?>" class="float-left" style="padding: 8px; text-decoration: none; background: darkgray;color:white;border: none; border-radius: 4px;">Cancel</a>
-                                <button type="button" onclick="settingsUsernamepass1('settingspassword');" class="btn btn-danger float-right">Save Changes</button>
+                                <a href="<?php echo INDEXX ;?>" class="btn btn-sm float-left" style="padding: 8px; text-decoration: none; background: darkgray;color:white;border: none; border-radius: 4px;">Cancel</a>
+                                <button type="button" onclick="settingsUsernamepass1('settingspassword');" class="btn btn-sm btn-danger float-right">Save Changes</button>
                             </div>
                         </div>
 

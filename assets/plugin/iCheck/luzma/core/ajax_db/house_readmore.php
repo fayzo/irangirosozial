@@ -105,17 +105,18 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
                                       <?php } ?>
                                 </ul>
                             </div>  
+                            <h4 class="mt-2"><i>Personal Info</i></h4>
                             
                             <div><i class="h5"> Seller: <?php echo $user['authors']; ?></i>
                             <span <?php if(isset($_SESSION['key'])){ echo 'class="btn-sm btn-primary people-message more"'; }else{ echo 'class="more" id="login-please"  data-login="1"'; } ?> data-user="<?php echo $user['user_id'];?>"><i class="fa fa-envelope-o"></i> Message </span><br>
                             </div>
                             
-                            <div class="mb-2">
+                            <div class="b">
                             Location: 
                                 <?php echo $user['provincename']."/".$user['namedistrict']."/".$user['namesector']."/".$user['nameCell']; ?>
                             </div>
  
-                            <div class="mt-2">
+                            <div class="mb-2">
                                 <span>Phone: <?php echo $user['phone']; ?></span><br>
                                 <span>Price: <?php echo number_format($user['price'])." Frw"; ?></span><br>
                             </div>

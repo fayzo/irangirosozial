@@ -88,7 +88,13 @@
           <?php } ?>
 
           <li>
-            <a href="<?php echo NETWORK; ?>">
+            <a class="d-none d-md-block" href="<?php echo NETWORK; ?>">
+              <i class="fa fa-users"></i> <span>Network</span>
+              <span class="pull-right-container" style="margin-right: 10px;">
+                <small class="label pull-right"><i class="fa fa-search"></i></small>
+              </span>
+            </a>
+            <a class="d-sm-block d-md-none d-lg-none" href="<?php echo NETWORK_RESPONSIVE; ?>">
               <i class="fa fa-users"></i> <span>Network</span>
               <span class="pull-right-container" style="margin-right: 10px;">
                 <small class="label pull-right"><i class="fa fa-search"></i></small>

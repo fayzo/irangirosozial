@@ -7,7 +7,7 @@
       <?php } ?>
         <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-Add_Post" role="tab" aria-controls="list-profile">Posts Jobs</a>
         <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="tab" href="#list-messages" role="tab" aria-controls="list-messages">Inbox Messages</a>
-        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="tab" href="#list-profile" role="tab" aria-controls="list-profile">Social Profile</a>
+        <a class="list-group-item list-group-item-action hidden-xs" id="list-profile-list" data-toggle="tab" href="#list-profile" role="tab" aria-controls="list-profile">Social Profile</a>
         <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="tab" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
         <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="tab" href="#list-Logout" role="tab" aria-controls="list-settings">Logout</a>
       </div>
@@ -33,7 +33,7 @@
         <!-- END-OF A LINK OF add_post ID=#  -->
         <?php } ?>
 
-        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-settings-list">
+        <div class="tab-pane fade  hidden-xs" id="list-profile" role="tabpanel" aria-labelledby="list-settings-list">
            <?php include "siderbar_jobs_post/profile.php"?>
         </div> <!-- END-OF A LINK OF profile ID=#  -->
 
@@ -41,10 +41,10 @@
              <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="row mb-2">
-                    <div class="col-6">
-                        <h1>Inbox</h1>
+                    <div class="col-3">
+                        <h4>Inbox</h4>
                     </div>
-                    <div class="col-6">
+                    <div class="col-9">
                         <ol class="breadcrumb float-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Inbox</li>

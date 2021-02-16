@@ -3,11 +3,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1><i>Profile</i></h1>
+            <div class="col-3">
+                <h5><i>Profile</i></h5>
             </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
+            <div class="col-9">
+                <ol class="breadcrumb float-right">
                     <li class="breadcrumb-item"><a href="<?php echo HOME ;?>">Home</a></li>
                     <li class="breadcrumb-item active"><i> <?php echo $follow->followBtn($user['user_id'],$user_id,$user['user_id']) ;?></i></li>
                 </ol>
@@ -18,7 +18,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-md-3 mb-3">
+            <div class="col-md-3 mb-3  d-none d-md-block">
                       <!-- hastTag Me Box -->
                        <div class="sticky-top " style="top: 52px;">
                         <div class="card card-primary mb-3">
@@ -2691,7 +2691,7 @@
             </div>
             <!-- /.col -->
             
-            <div class="col-md-3">
+            <div class="col-md-3  d-none d-md-block">
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <!-- whoTofollow: user whoTofollow style 1 -->

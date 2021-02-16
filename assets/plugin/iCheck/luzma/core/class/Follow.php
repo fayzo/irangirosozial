@@ -587,6 +587,61 @@ class Follow extends Events
 
  <?php }
 
+     public function Network_FollowingLists_Responsive($limit,$user_id,$follow_id)
+    {
+        $mysqli= $this->database;
+        $query= "SELECT * FROM users WHERE user_id != $user_id AND user_id NOT IN (SELECT receiver FROM follow WHERE sender = $user_id ) ORDER BY user_id ASC LIMIT $limit";
+        $result=$mysqli->query($query);
+ 
+         if ($result->num_rows > 0) {
+ 
+         # code...
+         echo ' <div class="card">
+                      <div class="card-header main-active text-center">
+                            <i> WHO TO FOLLOW </i>
+                      </div>
+                      <div class="card-body message-color  whoTofollow  py-0">
+                      <ul class="whoTofollow-list">
+                      ';
+                      while ($whoTofollow=$result->fetch_array()) {
+             echo '      <li class="px-0 more">
+                             <div class="whoTofollow-list-img">
+                                     '.((!empty($whoTofollow['profile_img'])?'
+                                     <img src="'.BASE_URL_LINK."image/users_profile_cover/".$whoTofollow['profile_img'].'">
+                                     ':'
+                                     <img src="'.BASE_URL_LINK.NO_PROFILE_IMAGE_URL.'">
+                                 ')).'
+ 
+                                 '.$this->lengthsOfWhoNewCome($whoTofollow['date_registry']).'
+                             </div>
+                             <ul class="whoTofollow-list-info">
+                                 <li><a href="'.BASE_URL_PUBLIC.$whoTofollow['username'].'" id="'.$whoTofollow["user_id"].'" >'.$whoTofollow['username'].'</a>
+                                 </li>
+                                 <li>'.((!empty($whoTofollow['career'])?'
+                                 <small class="my-0" style="font-size: 12px;">'.$whoTofollow['career'].'</small>
+                                 ':'
+                                 <small class="my-0" style="font-size: 12px;">Member</small>
+                                 ')).'</li>
+                             </ul>
+                             <div class="whoTofollow-btn">
+                                   <div class="my-0 ml-2">'.$this->followBtn($whoTofollow['user_id'],$user_id,$follow_id).'</div>
+                                 <!-- <a href="#" type="button" class="btn main-active btn-sm">Follow</a> -->
+                             </div>
+                         </li> ';
+                       }
+                       
+             echo ' 
+                      </ul>
+                      </div>
+                      <div class="card-footer text-center">
+                          Pull down To View more >>>
+                      </div>
+                  </div>';
+                  
+             }
+ 
+    }
+
 }
 
 $follow = new follow();

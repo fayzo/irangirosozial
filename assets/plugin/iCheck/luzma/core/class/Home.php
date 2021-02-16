@@ -1724,7 +1724,7 @@ public function links(){ ?>
         //                                     </iframe>
         //                                     </section>',$tweet);
                                           
-        return  $tweet;
+        return  htmlspecialchars_decode($tweet);
         // var_dump($tweet);
 
     }

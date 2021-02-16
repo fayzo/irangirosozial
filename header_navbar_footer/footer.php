@@ -104,6 +104,8 @@
    <script src="<?php echo BASE_URL_LINK ;?>js/deleteComment.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/popupPostForm.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/fetch_home.js"></script>
+   <script src="<?php echo BASE_URL_LINK ;?>js/fetchPost_network_follow.js"></script>
+   
    <script src="<?php echo BASE_URL_LINK ;?>js/follow.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/message.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/posts_comments_home.js"></script>

@@ -35,10 +35,9 @@ $user = $home->userData($_SESSION['key']);
                         </div>
                         <span class="username" style="margin-left: 50px">
                             <div class="form-group" style="overflow: auto;width: 97%;">
-                                <input type="text"
-                                class="form-control" name="title_name" id="title_name" placeholder=" Title of your post Or Ask question">
+                                <input type="text" class="form-control" name="title_name" id="title_name" placeholder=" Title of your post Or Ask question">
                             </div>
-                            <textarea class="status" name="status" id="status"
+                            <textarea class="status" name="status" id="editor1"
                                 placeholder="Type Something here!" rows="4" cols="50"></textarea>
                             <div class="hash-box">
                                 <ul>
@@ -85,3 +84,11 @@ $user = $home->userData($_SESSION['key']);
 </div> <!-- apply-popup" -->
  <!-- POPUP TWEET-FORM END -->
 <script type="text/javascript"> $('.progress-hided').hide();</script>
+<script>
+    $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1')
+    //bootstrap WYSIHTML5 - text editor
+    // $('.textarea').wysihtml5()
+  });

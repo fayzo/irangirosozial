@@ -1,17 +1,17 @@
 
-<div class="card mt-3 col-8 offset-2">
-    <div class="card-header text-center">
-        <input style="float: right" type="button" class="btn btn-success" id="addPostsjobs" value="Post jobs">
-        <input style="float: left" type="button" class="btn btn-info" data-toggle="modal" data-target="#examplePost" value="Example jobs Posted">
-        <h1><i>Jobs Description</i></h1>
+<div class="card mt-3  col-sm-12 col-md-8 offset-md-2">
+    <div class="card-header text-center px-0">
+        <input style="float: right" type="button" class="btn btn-sm btn-success" id="addPostsjobs" value="Post jobs">
+        <input style="float: left" type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#examplePost" value="Example jobs">
+        <h5 style="clear: left"><i>Jobs Description</i></h5>
     </div>
-    <div class="card-body">
+    <div class="card-body" style="overflow:auto">
 
   <?php if ($jobs['business_id'] == $user['user_id'] && $_SESSION['key'] == $jobs['business_id']) { ?>
              <div class="row">
 
               <div class="col-md-6">
-                       <h3 class="text-center"><i> Jobs Turn <span class="bg-success rounded text-white px-1">On</span></i></h3>
+                       <h6 class="text-center"><i> Jobs Turn <span class="bg-success rounded text-white px-1">On</span></i></h6>
                       <table class="table table-striped table-bordered table-hover table-jobsFetchOn" >
                         <thead class="main-active">
                              <tr>
@@ -28,7 +28,7 @@
 
               <div class="col-md-6">
        
-                <h3 class="text-center"><i> Jobs Turn <span class="bg-danger rounded text-white px-1">Off</span></i></h3>
+                <h6 class="text-center"><i> Jobs Turn <span class="bg-danger rounded text-white px-1">Off</span></i></h6>
                 <table class="table table-striped table-bordered table-hover table-jobsFetch" >
                   <thead class="main-active">
                        <tr>

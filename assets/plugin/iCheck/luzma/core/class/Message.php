@@ -9,7 +9,7 @@ class Message extends Home
     {
        $mysqli= $this->database;
     //    $query="SELECT * FROM message LEFT JOIN users ON message_from= user_id WHERE message_to= $user_id ORDER BY message_on Desc ;";
-       $query="SELECT * FROM message M LEFT JOIN users U ON M. message_from= U. user_id WHERE M. message_to= $user_id AND M. status= 1 GROUP BY M. message_from, M. message_to ORDER BY M. message_on Desc ;";
+       $query="SELECT * FROM message M LEFT JOIN users U ON M. message_from= U. user_id WHERE M. message_to= $user_id AND M. status= 1 GROUP BY M. message_from, M. message_to ORDER BY M. message_on Desc";
              
     // $query="SELECT DISTINCT * FROM message M LEFT JOIN users U ON M. message_from = U. user_id WHERE M. message_to IN (
     //         SELECT MAX(message_to)

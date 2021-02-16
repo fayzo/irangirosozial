@@ -4,7 +4,7 @@
      <!-- Main content -->
      <section class="content">
          <div class="row">
-             <div class="col-md-3" >
+             <div class="col-md-3 mb-3" >
                <div class="sticky-top"  style="top: 52px;">
                  <a href="#compose.php" data-toggle="modal" data-target="#myModalComposer" class="btn main-active mb-3"
                      style="width:100%"><i class="fa fa-pencil"></i> Compose</a>

@@ -67,6 +67,7 @@ define('SALE', BASE_URL_PUBLIC.'sale');
 define('SPORTS', BASE_URL_PUBLIC.'sports');
 define('SETTINGS', BASE_URL_PUBLIC.'setting');
 define('WATCHLIST', BASE_URL_PUBLIC.'shopping');
+define('NETWORK_RESPONSIVE', BASE_URL_PUBLIC.'network_responsive');
 define('BUSINESS_POST_JOBS', BASE_URL_PUBLIC.'business_jobPost');
 define('INDIVIDUAL_POST_JOBS', BASE_URL_PUBLIC.'individual_jobPost');
 

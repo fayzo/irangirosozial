@@ -1,7 +1,7 @@
 <div class="container-fuild mt-4 mb-4">
 
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-sm-12 col-md-8 offset-md-2">
             <!-- Widget: user widget style 1 -->
             <div class="card card-follow user-follow">
                 <!-- Add the bg color to the header using any of the bg-* classes -->

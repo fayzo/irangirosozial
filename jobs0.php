@@ -76,10 +76,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="row mb-2">
-            <div class="col-2">
-                <h1><i>Jobs</i></h1>
+            <div class="col-sm-12 col-md-2">
+                <h4><i>Jobs</i></h4>
             </div>
-            <div class="col-10">
+            <div class="col-sm-12 col-md-10">
                 <ol class="breadcrumb float-right">
                     <li class="breadcrumb-item"><a href="<?php echo HOME ;?>">Home</a></li>
                       <?php if (isset($_SESSION['key'])){ ?>
