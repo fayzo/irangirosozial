@@ -62,7 +62,7 @@ $user = $home->userData($_SESSION['key']);
                                 </ul>
                             </div>
                             <div class="t-fo-right">
-                                <span id="count">1000</span>
+                                <span class="counts-ckeditor" id="count">1000</span>
                                 <input type="submit" class="btn main-active"  id="addpost" name="addpost" value="Post">
                             </div>
                             <div id="add-photo0" class="row">
@@ -91,4 +91,27 @@ $user = $home->userData($_SESSION['key']);
     CKEDITOR.replace('editor1')
     //bootstrap WYSIHTML5 - text editor
     // $('.textarea').wysihtml5()
+    // for(instance in CKEDITOR.instances){
+    //         CKEDITOR.instances[instance].updateElement();
+    //     }
+
+    CKEDITOR.instances.editor1.on("key", function (event) { 
+        var max = 1000;
+        var charCount = $('.counts-ckeditor'); 
+        var textarea_count = decodeHtmlEntities(CKEDITOR.instances.editor1.getData()).replace(/(<([^>]+)>)/ig, "").length;
+        // var textarea_counts = CKEDITOR.instances.editor1.getData();
+        // console.log(charCount,textarea_count,textarea_counts);
+
+            charCount.html(textarea_count); 
+
+            if (textarea_count > max ) {
+                $('.counts-ckeditor').css('color', '#e22358'); // red
+            }else {
+                $('.counts-ckeditor').css('color', '#4574ca');
+            }
+        });
+
+        function decodeHtmlEntities(str) {
+            return String(str).replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
+        }
   });

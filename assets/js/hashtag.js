@@ -33,10 +33,12 @@ $(document).ready(function () {
             $('.hash-box li').hide();
         }
         $('#count').text(max - content.length);
+
         if (content.length > max ) {
             $('#count').css('color', '#e22358'); // red
         }else {
             $('#count').css('color', '#4574ca');
         }
     });
+
 });
