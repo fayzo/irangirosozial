@@ -102,9 +102,6 @@ else{
 
 echo $sale->cart_item(); 
 
-echo $food->Foodcart_item(); 
-
-
 ?>
 <!DOCTYPE html>
 <html>

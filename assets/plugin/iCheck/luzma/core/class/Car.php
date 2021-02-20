@@ -220,16 +220,12 @@ class Car extends Icyamunara {
     }
 
       
-    public function deleteLikescar($tweet_id)
+    public function deleteLikescar($tweet_id,$user_id)
     {
         $mysqli= $this->database;
-        $query="DELETE B , L ,C ,R FROM events B 
-                        LEFT JOIN events_like L ON L. like_on = B. events_id 
-                        LEFT JOIN events_comment_like C ON C. like_on_ = B. events_id 
-                        LEFT JOIN events_comment R ON R. comment_on = B. events_id 
-                        WHERE B. events_id = '{$tweet_id}' and B. user_id3 = '{$user_id}' ";
+        $query="DELETE FROM car WHERE car_id = '{$tweet_id}' and user_id3 = '{$user_id}' ";
 
-        $query1="SELECT * FROM events WHERE events_id = $tweet_id and user_id3 = $user_id ";
+        $query1="SELECT * FROM car WHERE car_id = $tweet_id and user_id3 = $user_id ";
 
         $result= $mysqli->query($query1);
         $rows= $result->fetch_assoc();
@@ -244,15 +240,15 @@ class Car extends Icyamunara {
             $allower_ext = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf' , 'doc' , 'ppt'); // valid extensions
             if (array_diff($fileActualExt,$allower_ext) == false) {
                 $expode = explode("=",$photo);
-                $uploadDir = DOCUMENT_ROOT.'/uploads/events/';
+                $uploadDir = DOCUMENT_ROOT.'/uploads/car/';
                 for ($i=0; $i < count($expode); ++$i) { 
                       unlink($uploadDir.$expode[$i]);
                 }
             }else if (array_diff($fileActualExt,$allower_ext)[0] == 'mp4') {
-                $uploadDir = DOCUMENT_ROOT.'/uploads/events/';
+                $uploadDir = DOCUMENT_ROOT.'/uploads/car/';
                       unlink($uploadDir.$photo);
             }else if (array_diff($fileActualExt,$allower_ext)[0] == 'mp3') {
-                $uploadDir = DOCUMENT_ROOT.'/uploads/events/';
+                $uploadDir = DOCUMENT_ROOT.'/uploads/car/';
                       unlink($uploadDir.$photo);
             }
         }

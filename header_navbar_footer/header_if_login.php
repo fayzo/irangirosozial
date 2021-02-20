@@ -5,6 +5,7 @@ if ($users->loggedin() == false) {
     header('location: '.LOGIN.'');
 }else if($users->loggedin() == true) {
     $user= $home->userData($_SESSION['key']);
+    $_SESSION['irangiro_key'] = 1;
 
     $jobs= $home->jobsData($_SESSION['key']);
     $fundraisingV= $fundraising->fundraisingData($_SESSION['key']);
@@ -49,7 +50,6 @@ if ($users->loggedin() == false) {
     }
     
     echo $sale->cart_item(); 
-    echo $food->Foodcart_item(); 
 }
 
 

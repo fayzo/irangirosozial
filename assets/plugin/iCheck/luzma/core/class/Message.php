@@ -8,18 +8,7 @@ class Message extends Home
     public function recentMessage($user_id)
     {
        $mysqli= $this->database;
-    //    $query="SELECT * FROM message LEFT JOIN users ON message_from= user_id WHERE message_to= $user_id ORDER BY message_on Desc ;";
        $query="SELECT * FROM message M LEFT JOIN users U ON M. message_from= U. user_id WHERE M. message_to= $user_id AND M. status= 1 GROUP BY M. message_from, M. message_to ORDER BY M. message_on Desc";
-             
-    // $query="SELECT DISTINCT * FROM message M LEFT JOIN users U ON M. message_from = U. user_id WHERE M. message_to IN (
-    //         SELECT MAX(message_to)
-    //         FROM message WHERE message_to = $user_id  AND M. status= 1 GROUP BY message_from ORDER BY M. message_on Desc
-    //     ) ORDER BY M. message_on Desc";
-
-    // $query="SELECT * from users U
-    // inner join (select message,message_on,MAX(message_from)as ma, MAX(message_to) as maxid from message group by message_on) as b on
-    //     U.user_id= b.ma WHERE b.maxid= $user_id GROUP BY b.ma ORDER BY b.message_on Desc";
-
        $result=$mysqli->query($query);
        $data=array();
        while ($row = $result->fetch_array()) {

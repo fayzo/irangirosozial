@@ -91,8 +91,8 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
                                         // $splice = array_expode ($expode,0,10);
                                         for ($i=0; $i < count($expode); ++$i) { 
                                             ?>
-                                            <li data-thumb="<?php echo BASE_URL_PUBLIC.'uploads /icyamunara/'.$expode [$i]; ?>" > 
-                                               <img src="<?php echo BASE_URL_PUBLIC.'uploads /icyamunara/'.$expode [$i]; ?>" />
+                                            <li data-thumb="<?php echo BASE_URL_PUBLIC.'uploads/icyamunara/'.$expode [$i]; ?>" > 
+                                               <img src="<?php echo BASE_URL_PUBLIC.'uploads/icyamunara/'.$expode [$i]; ?>" />
                                             </li>
                                       <?php } ?>
                                 </ul>
@@ -137,7 +137,7 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
                                    ?>
                                     <div class="col-md-6 mt-2">
                                          <div class="imagehouseViewPopup more"  data-house="<?php echo $user["house_id"] ;?>">
-                                         <img src="<?php echo BASE_URL_PUBLIC."uploads /icyamunara/".$splice[$i] ;?>"
+                                         <img src="<?php echo BASE_URL_PUBLIC."uploads/icyamunara/".$splice[$i] ;?>"
                                              alt="Photo" >
                                          </div>
                                      <div class="h5"><i><?php echo $photo_title[$i]; ?></i></div>
@@ -156,7 +156,7 @@ if (isset($_POST['house_id']) && !empty($_POST['house_id'])) {
                                    ?>
                                     <div class="col-md-6 mt-2">
                                          <div class="imagehouseViewPopup more"  data-house="<?php echo $user["house_id"] ;?>">
-                                         <img src="<?php echo BASE_URL_PUBLIC."uploads /icyamunara/".$splice[$i] ;?>"
+                                         <img src="<?php echo BASE_URL_PUBLIC."uploads/icyamunara/".$splice[$i] ;?>"
                                              alt="Photo" >
                                          </div>
                                      <div class="h5"><i><?php echo $photo_title[$i]; ?></i></div>

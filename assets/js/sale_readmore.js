@@ -159,7 +159,90 @@ $(document).ready(function () {
             }
         });
     });
+    
+    $(document).on('click', '.offer-price-sale', function (e) {
+        e.stopPropagation();
+        var sale = $(this).data('sale');
+
+        $.ajax({
+            url: 'core/ajax_db/sale_offer',
+            method: 'POST',
+            dataType: 'text',
+            data: {
+                sale: sale,
+
+            }, success: function (response) {
+                $(".popupTweet").html(response);
+                $(".close-imagePopup").click(function () {
+                    $(".sale-popup").hide();
+                });
+                console.log(response);
+            }
+        });
+    });
+
+
 });
+
+function checkout(checkout) {
+
+    $.ajax({
+        url: 'core/ajax_db/sale_offer',
+        method: 'POST',
+        dataType: 'text',
+        data: {
+            checkout: checkout,
+
+        }, success: function (response) {
+            $("#responseSubmititerm").html('<div class="alert alert-success alert-dismissible fade show text-center">' +
+                '<button class="close" data-dismiss="alert" type="button">' +
+                '<span>&times;</span>' +
+                '</button> <strong>SUCCESS</strong>' + ' </div>');
+            setInterval(function () {
+                $("#responseSubmititerm").fadeOut();
+            });
+            $("#responseCheckout").html(response);
+            console.log(response);
+        }
+    });
+}
+
+function paymentSale(payment) {
+
+    $.ajax({
+        url: 'core/ajax_db/sale_offer',
+        method: 'POST',
+        dataType: 'text',
+        data: {
+            payment: payment,
+
+        }, success: function (response) {
+            $("#responseSubmititerm").html('<div class="alert alert-success alert-dismissible fade show text-center">' +
+                '<button class="close" data-dismiss="alert" type="button">' +
+                '<span>&times;</span>' +
+                '</button> <strong>SUCCESS</strong>' + ' </div>');
+            setInterval(function () {
+                $("#responseSubmititerm").fadeOut();
+            });
+            $("#responseCheckout").html(response);
+            console.log(response);
+        }
+    });
+}
+
+function saleuploadz(success, fileName) {
+    if (success) {
+        $('#salePreview' + success).attr("src",fileName);
+        // $('#salePreview'+success).attr("src", fileName);
+        // $('#fileInput').attr("value", fileName);
+        console.log(success);
+        console.log(fileName);
+
+    } else {
+        alert('There was an error during file upload!');
+    }
+    return true;
+}
 
 function isEmpty(caller) {
     if (caller.val() == "") {

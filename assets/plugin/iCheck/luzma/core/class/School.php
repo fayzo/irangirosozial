@@ -147,12 +147,28 @@ class School extends Home {
 
             <div class="card flex-md-row shadow-sm h-md-100 border-0 mb-3">
                 <div class="col-md-4 px-0 card-img-left more"   id="school-readmore" data-school="<?php echo $row['school_id'] ;?>">
-                    <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
+                    <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC ;?>uploads/school/<?php echo $row['photo_']; ?>" alt="Card image cap">
                 </div><!-- col -->
-                <div class="col-md-8 card-body d-flex flex-column align-items-start pt-0">
-                    <h5 class="text-primary mb-0">
+                <div class="col-md-8 card-body pt-0">
+                    <h5 class="text-primary mb-3">
                     <a class="text-primary;" style="text-transform: capitalize;" href="javascript:void(0)"  id="school-readmore" data-school="<?php echo $row['school_id'] ;?>"><?php echo $row['title_'] ;?></a>
                     </h5>
+                    <ul class="mt-2 list-inline" style="float:right"> 
+                    <?php if (isset($_SESSION['key']) && $row["user_id_"] == $_SESSION['key']){ ?>
+                        <li  class=" list-inline-item">
+                            <ul class="deleteButt" style="list-style-type: none; margin:0px;" >
+                                <li>
+                                    <a href="javascript:void(0)" class="more"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                                    <ul style="list-style-type: none; margin:0px;" >
+                                        <li style="list-style-type: none; margin:0px;"> 
+                                            <label class="deleteTweetSchool" data-school="<?php echo  $row["school_id"];?>"  data-user="<?php echo $row["user_id_"];?>" >Delete </label>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    <?php } ?>
+                    </ul>
                     <!-- <div class="text-muted">Created on < ?php echo $this->timeAgo($row['created_on_']) ;?> By < ?php echo $row['author_'] ;?> </div> -->
                     <div class="text-muted"><?php 	echo ''.$row['provincename'].'/ '.$row['namedistrict'].' district/ '.$row['namesector'].' Sector' ;?></div>
                     <div class="text-muted"><?php 	echo ''.$row['nameCell'].' Cell/ '.$row['VillageName'].' Village' ;?></div>
@@ -347,15 +363,31 @@ class School extends Home {
 
             <div class="card flex-md-row shadow-sm h-md-100 border-0 mb-3">
                 <div class="col-md-4 px-0 card-img-left more" id="school-readmore" data-school="<?php echo $row['school_id'] ;?>">
-                    <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC ;?>uploads/schoolFile/<?php echo $row['photo_']; ?>" alt="Card image cap">
+                    <img class="pic-responsive" src="<?php echo BASE_URL_PUBLIC ;?>uploads/school/<?php echo $row['photo_']; ?>" alt="Card image cap">
                 </div><!-- col -->
-                <div class="col-md-8 card-body d-flex flex-column align-items-start pt-0">
-                    <h5 class="text-primary mb-0">
-                    <a class="text-primary" href="javascript:void(0)"  id="school-readmore" data-school="<?php echo $row['school_id'] ;?>"><?php echo $row['title_'] ;?></a>
+                <div class="col-md-8 card-body pt-0">
+                    <h5 class="text-primary mb-3">
+                    <a class="text-primary;" style="text-transform: capitalize;" href="javascript:void(0)"  id="school-readmore" data-school="<?php echo $row['school_id'] ;?>"><?php echo $row['title_'] ;?></a>
                     </h5>
+                    <ul class="mt-2 list-inline" style="float:right"> 
+                    <?php if (isset($_SESSION['key']) && $row["user_id_"] == $_SESSION['key']){ ?>
+                        <li  class=" list-inline-item">
+                            <ul class="deleteButt" style="list-style-type: none; margin:0px;" >
+                                <li>
+                                    <a href="javascript:void(0)" class="more"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                                    <ul style="list-style-type: none; margin:0px;" >
+                                        <li style="list-style-type: none; margin:0px;"> 
+                                            <label class="deleteTweetSchool" data-school="<?php echo  $row["school_id"];?>"  data-user="<?php echo $row["user_id_"];?>" >Delete </label>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    <?php } ?>
+                    </ul>
                     <!-- <div class="text-muted">Created on < ?php echo $this->timeAgo($row['created_on_']) ;?> By < ?php echo $row['author_'] ;?> </div> -->
-                    <div class="text-muted"><?php 	echo ''.$row['provincename'].'/ '.$row['namedistrict'].' district/ '.$row['namesector'].' Sector' ;?></div>
-                    <div class="text-muted"><?php 	echo ''.$row['nameCell'].' Cell/ '.$row['VillageName'].' Village' ;?></div>
+                    <div class="text-muted"><?php 	echo ''.$row['provincename'].'/ '.$row['namedistrict'].' / '.$row['namesector'].'' ;?></div>
+                    <div class="text-muted"><?php 	echo ''.$row['nameCell'].'/ '.$row['VillageName'].'' ;?></div>
                     <p class="card-text mt-2 mb-1">
                         <?php if (strlen($row["text_"]) > 98) {
                                     echo $row["text_"] = substr($row["text_"],0,98).'...
@@ -425,6 +457,70 @@ class School extends Home {
         WHERE S. school_id = '$school_id' ");
         $row= $query->fetch_array();
         return $row;
+    }
+
+    public function school_getPopupTweet($user_id,$school_id,$school_user_id)
+    {
+        $mysqli= $this->database;
+        $result= $mysqli->query("SELECT * FROM users U Left JOIN school B ON B. user_id_ = U. user_id WHERE B. school_id = $school_id AND B. user_id_ = $school_user_id ");
+        // var_dump('ERROR: Could not able to execute'. $query.mysqli_error($mysqli));
+        while ($row= $result->fetch_array()) {
+            # code...
+            return $row;
+        }
+    }
+
+      
+    public function deleteLikesSchool($tweet_id,$user_id)
+    {
+        $mysqli= $this->database;
+        $query="DELETE FROM school WHERE school_id = '{$tweet_id}' and user_id_ = '{$user_id}' ";
+
+        $query1="SELECT * FROM school WHERE school_id = $tweet_id and user_id_ = $user_id ";
+
+        $result= $mysqli->query($query1);
+        $rows= $result->fetch_assoc();
+
+        if(!empty($rows['photo'])){
+            $photo=$rows['photo'].'='.$rows['other_photo'];
+            $expodefile = explode("=",$photo);
+            $fileActualExt= array();
+            for ($i=0; $i < count($expodefile); ++$i) { 
+                $fileActualExt[]= strtolower(substr($expodefile[$i],-3));
+            }
+            $allower_ext = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf' , 'doc' , 'ppt'); // valid extensions
+            if (array_diff($fileActualExt,$allower_ext) == false) {
+                $expode = explode("=",$photo);
+                $uploadDir = DOCUMENT_ROOT.'/uploads/school/';
+                for ($i=0; $i < count($expode); ++$i) { 
+                      unlink($uploadDir.$expode[$i]);
+                }
+            }else if (array_diff($fileActualExt,$allower_ext)[0] == 'mp4') {
+                $uploadDir = DOCUMENT_ROOT.'/uploads/school/';
+                      unlink($uploadDir.$photo);
+            }else if (array_diff($fileActualExt,$allower_ext)[0] == 'mp3') {
+                $uploadDir = DOCUMENT_ROOT.'/uploads/school/';
+                      unlink($uploadDir.$photo);
+            }
+        }
+
+        $query= $mysqli->query($query);
+        // var_dump("ERROR: Could not able to execute $query.".mysqli_error($mysqli));
+
+        if($query){
+                exit('<div class="alert alert-success alert-dismissible fade show text-center">
+                    <button class="close" data-dismiss="alert" type="button">
+                        <span>&times;</span>
+                    </button>
+                    <strong>SUCCESS DELETE</strong> </div>');
+            }else{
+                exit('<div class="alert alert-danger alert-dismissible fade show text-center">
+                    <button class="close" data-dismiss="alert" type="button">
+                        <span>&times;</span>
+                    </button>
+                    <strong>Fail to delete !!!</strong>
+                </div>');
+        }
     }
 
        public function schoolcountPOSTS($categories)

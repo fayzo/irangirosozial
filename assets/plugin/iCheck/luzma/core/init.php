@@ -6,21 +6,17 @@ include('class/Users.php');
 include('class/Post_like.php');
 include('class/Comment.php');
 include('class/Home.php');
-include('class/Events.php');
 include('class/Follow.php');
 include('class/Message.php');
 include('class/Trending.php');
 include('class/Notification.php');
 include('class/Fundraising.php');
 include('class/Crowfund.php');
-include('class/Gurisha.php');
-include('class/Blog.php');
 include('class/Posts_copyDraft.php');
 include('class/Post_home.php');
 include('class/Unemployment.php');
 include('class/professional.php');
 include('class/Sale.php');
-include('class/Food.php');
 include('class/House.php');
 include('class/Icyamunara.php');
 include('class/Car.php');
@@ -34,6 +30,10 @@ define('BASE_URL_LINK', 'http://localhost/irangiro_social_site/assets/');
 // define('BASE_URL_PUBLIC', 'https://irangiro.com/');
 // define('BASE_URL_LINK', 'https://irangiro.com/assets/');
 
+// UPLOAD PHOTO
+define('DOCUMENT_ROOT', $_SERVER['DOCUMENT_ROOT'].'/irangiro_social_site');
+// define('DOCUMENT_ROOT', $_SERVER['DOCUMENT_ROOT']);
+// UPLOAD PHOTO
 
 define('F_INDEX', BASE_URL_PUBLIC.'irangiro.home');
 define('HOME', BASE_URL_PUBLIC);
@@ -44,10 +44,6 @@ define('LOCKSCREEN_LOGIN', BASE_URL_PUBLIC.'include/lockscreen');
 define('LOCKSCREEN_LOGINCORE', BASE_URL_PUBLIC.'core/ajax_db/lockscreen.php?login_id=1');
 define('FORGET_PASSPOWRD', BASE_URL_PUBLIC.'include/forgotpassword');
 define('CREATE_PASSPOWRD', BASE_URL_PUBLIC.'include/createpassword');
-
-// UPLOAD PHOTO
-define('DOCUMENT_ROOT', $_SERVER['DOCUMENT_ROOT'].'/irangiro_social_site');
-// UPLOAD PHOTO
 
 // END SETTING FILE
 define('ACTIVITIES', BASE_URL_PUBLIC.'activities.php');

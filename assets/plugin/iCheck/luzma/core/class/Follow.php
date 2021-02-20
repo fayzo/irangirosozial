@@ -3,7 +3,7 @@
        header('Location: ../../404.html');
  }
 
-class Follow extends Events
+class Follow extends Home
 {
     public function checkfollow($follow_id,$user_id)
     {
@@ -106,8 +106,8 @@ class Follow extends Events
        $query="SELECT * FROM users WHERE user_id= $follow_id";
        $result= $mysqli->query($query);
        $row= $result->fetch_assoc();
-       Notification::SendNotifications($follow_id,$user_id,$follow_id,'follow');
        echo json_encode($row);
+       Notification::SendNotifications($follow_id,$user_id,$follow_id,'follow');
 
     }
 
@@ -601,10 +601,10 @@ class Follow extends Events
                             <i> WHO TO FOLLOW </i>
                       </div>
                       <div class="card-body message-color  whoTofollow  py-0">
-                      <ul class="whoTofollow-list">
+                      <ul class="whoTofollow-list row">
                       ';
                       while ($whoTofollow=$result->fetch_array()) {
-             echo '      <li class="px-0 more">
+             echo '      <li class="px-0 more col-6">
                              <div class="whoTofollow-list-img">
                                      '.((!empty($whoTofollow['profile_img'])?'
                                      <img src="'.BASE_URL_LINK."image/users_profile_cover/".$whoTofollow['profile_img'].'">

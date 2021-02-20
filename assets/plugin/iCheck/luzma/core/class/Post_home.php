@@ -3,7 +3,7 @@
 //        header('Location: ../../404.html');
 //  }
 
-class Posts_home extends Gurisha {
+class Posts_home extends Home {
    
 
     public function tweets($user_id,$limit)
@@ -1196,19 +1196,29 @@ class Posts_home extends Gurisha {
                      <?php }else{ echo '';}?>
                      </span>
             </ul>
-
             <div class="input-group">
                 <input class="form-control form-control-sm" id="commentHome<?php echo $tweet['tweet_id'];?>" type="text"
-                    name="comment"  placeholder="Reply to  <?php echo $tweet['username'] ;?>" >
+                    name="comment"  placeholder="Reply to  <?php echo $tweet['username'] ;?>">
                 <div class="input-group-append">
                     <span class="input-group-text btn" style="padding: 0px 10px;" 
                         aria-label="Username" aria-describedby="basic-addon1" <?php echo (isset($_SESSION['key']))?'id="post_HomeComment"':'id="login-please" data-login="1"' ;?>  data-tweet="<?php echo $tweet['tweet_id'];?>">
                         <span class="fa fa-arrow-right text-muted" ></span>
                     </span>
                 </div>
-            </div> <!-- input-group -->
+            </div>
 
-               <div class="card collapse" id="a<?php echo  $tweet["tweet_id"];?>">
+            <div class="card collapse" id="a<?php echo  $tweet["tweet_id"];?>">
+                <!-- <div class="input-group">
+                    <textarea class="form-control form-control-sm" id="commentHome< ?php echo $tweet['tweet_id'];?>" type="text"
+                        style="height: 43px;" name="comment"  placeholder="Reply to  < ?php echo $tweet['username'] ;?>" row="1" ></textarea>
+                    <div class="input-group-append">
+                        <span class="input-group-text btn" style="padding: 0px 10px;" 
+                            aria-label="Username" aria-describedby="basic-addon1" < ?php echo (isset($_SESSION['key']))?'id="post_HomeComment"':'id="login-please" data-login="1"' ;?>  data-tweet="< ?php echo $tweet['tweet_id'];?>">
+                            <span class="fa fa-arrow-right text-muted" ></span>
+                        </span>
+                    </div>
+                </div>  --><!-- input-group -->
+                
                   <div class="card-body" style="padding-right:0">
                     <?php if (!empty($comment)) { ?>
                     <h5><i>Comments (<?php echo $this->CountsComment($tweet["tweet_id"]); ?>)</i></h5>

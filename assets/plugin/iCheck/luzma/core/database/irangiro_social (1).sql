@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2021 at 07:16 PM
+-- Generation Time: Feb 20, 2021 at 01:54 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -99,227 +99,6 @@ INSERT INTO `apply_job` (`cv_id`, `firstname0`, `middlename0`, `lastname0`, `ema
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog`
---
-
-CREATE TABLE `blog` (
-  `blog_id` int(10) UNSIGNED NOT NULL,
-  `created_on3` datetime NOT NULL,
-  `user_id3` int(11) NOT NULL,
-  `retweet_blog_id` int(11) NOT NULL,
-  `tweet_blog_by` int(11) NOT NULL,
-  `categories_blog` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `authors` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `other_photo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `video` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `youtube` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title_main` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title` varchar(600) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `likes_counts` int(11) NOT NULL,
-  `retweet_counts` int(11) NOT NULL,
-  `blog_posted_on` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `blog_retweet_Msg` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `blog_post` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `blog`
---
-
-INSERT INTO `blog` (`blog_id`, `created_on3`, `user_id3`, `retweet_blog_id`, `tweet_blog_by`, `categories_blog`, `title`, `text`, `authors`, `photo`, `other_photo`, `video`, `youtube`, `photo_Title_main`, `photo_Title`, `likes_counts`, `retweet_counts`, `blog_posted_on`, `blog_retweet_Msg`, `blog_post`) VALUES
-(2, '2019-06-28 15:45:07', 61, 0, 0, 'science', 'harry potter', 'iyi film ikoze mwibaga', 'quan', '2019_92f.jpg', '2019_33f.jpg=2019_60fayz.jpg=2019_17fayz.jpg', '', '', '', '', 0, 0, '0', '', ''),
-(4, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 1, 3, '0', '', ''),
-(5, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_89rwanda.jpg', '2019_55ramp.jpg=2019_80ramzy2.jpg', '', '', '', '', 2, 1, '0', '', ''),
-(6, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_92rwanda.jpg', '2019_40ramp.jpg=2019_64ramzy2.jpg', '', '', '', '', 1, 2, '0', '', ''),
-(7, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'One more for good measure', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'zidani', '2019_11f.jpg', '2019_60hear.jpg', '', '', '', '', 2, 1, '0', '', ''),
-(9, '2019-07-23 12:46:42', 61, 0, 0, '', 'shema rutahizamu ntiyoroshye', 'good', 'fayzo', '2019_93camera.jpg', '2019_68camera.jpg=2019_64exte.jpg', '', '', '', '', 0, 0, '0', '', ''),
-(10, '2019-07-23 12:46:42', 61, 0, 0, '', 'shema rutahizamu ntiyoroshye', 'good', 'fayzo', '2019_29camera.jpg', '2019_87camera.jpg=2019_91exte.jpg', '', '', '', '', 0, 0, '0', '', ''),
-(11, '2019-07-23 12:46:42', 61, 4, 61, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 0, 1, '2019', 'nic', 'posted'),
-(12, '2019-07-23 12:46:42', 61, 5, 61, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_89rwanda.jpg', '2019_55ramp.jpg=2019_80ramzy2.jpg', '', '', '', '', 0, 1, '2019-08-10 10-01-12', 'nicee', 'posted'),
-(13, '2019-07-23 12:46:42', 61, 3, 66, 'history', 'Title of a longer featured blog post', 'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what\'s most interesting in this post\'s contents.', 'harry kane', '2019_14fayz.jpg', '2019_64imag.jpg=2019_28imag.jpg', '', '', '', '', 0, 2, '2019-08-10 10-14-28', 'gudz', 'posted'),
-(14, '2019-07-23 12:46:42', 61, 7, 61, 'history', 'One more for good measure', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'zidani', '2019_11f.jpg', '2019_60hear.jpg', '', '', '', '', 0, 1, '2019-08-11 07-28-59', 'sf', 'posted'),
-(15, '2019-07-23 12:46:42', 61, 6, 61, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_92rwanda.jpg', '2019_40ramp.jpg=2019_64ramzy2.jpg', '', '', '', '', 0, 1, '2019-08-11 07-42-20', 'xzx', 'posted'),
-(16, '2019-07-23 12:46:42', 61, 4, 64, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 0, 2, '2019-08-11 08-38-04', 'dfadfg', 'posted'),
-(17, '2019-07-23 12:46:42', 61, 6, 66, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_92rwanda.jpg', '2019_40ramp.jpg=2019_64ramzy2.jpg', '', '', '', '', 1, 2, '2019-08-11 10-34-23', 'ni', 'posted'),
-(18, '2019-07-23 12:46:42', 61, 4, 66, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 1, 3, '2019-08-11 10-40-51', 'j', 'posted'),
-(19, '2019-08-12 08:31:31', 61, 0, 61, 'Technology', 'HARRY POTTER', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'murisa', '2019_18a2-d.jpg', '2019_36abst.jpg', '', '', '', '', 0, 0, '', '', ''),
-(20, '2019-08-12 08:41:58', 61, 0, 61, 'history', 'Title of a longer featured blog post', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'fax', '2019_510a50.png', '2019_705-ye.jpg', '', '', '', '', 1, 0, '', '', ''),
-(22, '2019-08-12 08:59:38', 61, 0, 61, 'history', 'My Skills And Experiences', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'hope', '2019_561099.jpg', '2019_48a2-d.jpg', '', '', '', '', 1, 0, '', '', ''),
-(23, '2019-08-12 09:37:37', 61, 0, 61, 'Technology', 'English Filipino', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'jojo', '2019_42b753.jpg', '2019_585-ye.jpg=2019_764778.jpg=2019_100a2-d.jpg=2019_50abst.jpg=2019_16b753.jpg', '', '', 'concert', 'june=may=double=sign=music=', 1, 0, '', '', ''),
-(24, '2019-08-12 09:37:38', 61, 0, 61, 'Technology', 'English Filipino', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'jojo', '2019_58b753.jpg', '2019_325-ye.jpg=2019_564778.jpg=2019_43a2-d.jpg=2019_21abst.jpg=2019_16b753.jpg', '', '', 'concert', 'june=may=double=sign=music=', 0, 0, '', '', ''),
-(2, '2019-06-28 15:45:07', 61, 0, 0, 'science', 'harry potter', 'iyi film ikoze mwibaga', 'quan', '2019_92f.jpg', '2019_33f.jpg=2019_60fayz.jpg=2019_17fayz.jpg', '', '', '', '', 0, 0, '0', '', ''),
-(4, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 1, 3, '0', '', ''),
-(5, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_89rwanda.jpg', '2019_55ramp.jpg=2019_80ramzy2.jpg', '', '', '', '', 2, 1, '0', '', ''),
-(6, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_92rwanda.jpg', '2019_40ramp.jpg=2019_64ramzy2.jpg', '', '', '', '', 1, 2, '0', '', ''),
-(7, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'One more for good measure', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'zidani', '2019_11f.jpg', '2019_60hear.jpg', '', '', '', '', 2, 1, '0', '', ''),
-(9, '2019-07-23 12:46:42', 61, 0, 0, '', 'shema rutahizamu ntiyoroshye', 'good', 'fayzo', '2019_93camera.jpg', '2019_68camera.jpg=2019_64exte.jpg', '', '', '', '', 0, 0, '0', '', ''),
-(10, '2019-07-23 12:46:42', 61, 0, 0, '', 'shema rutahizamu ntiyoroshye', 'good', 'fayzo', '2019_29camera.jpg', '2019_87camera.jpg=2019_91exte.jpg', '', '', '', '', 0, 0, '0', '', ''),
-(11, '2019-07-23 12:46:42', 61, 4, 61, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 0, 1, '2019', 'nic', 'posted'),
-(12, '2019-07-23 12:46:42', 61, 5, 61, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_89rwanda.jpg', '2019_55ramp.jpg=2019_80ramzy2.jpg', '', '', '', '', 0, 1, '2019-08-10 10-01-12', 'nicee', 'posted'),
-(13, '2019-07-23 12:46:42', 61, 3, 66, 'history', 'Title of a longer featured blog post', 'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what\'s most interesting in this post\'s contents.', 'harry kane', '2019_14fayz.jpg', '2019_64imag.jpg=2019_28imag.jpg', '', '', '', '', 0, 2, '2019-08-10 10-14-28', 'gudz', 'posted'),
-(14, '2019-07-23 12:46:42', 61, 7, 61, 'history', 'One more for good measure', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'zidani', '2019_11f.jpg', '2019_60hear.jpg', '', '', '', '', 0, 1, '2019-08-11 07-28-59', 'sf', 'posted'),
-(15, '2019-07-23 12:46:42', 61, 6, 61, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_92rwanda.jpg', '2019_40ramp.jpg=2019_64ramzy2.jpg', '', '', '', '', 0, 1, '2019-08-11 07-42-20', 'xzx', 'posted'),
-(16, '2019-07-23 12:46:42', 61, 4, 64, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 0, 2, '2019-08-11 08-38-04', 'dfadfg', 'posted'),
-(17, '2019-07-23 12:46:42', 61, 6, 66, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_92rwanda.jpg', '2019_40ramp.jpg=2019_64ramzy2.jpg', '', '', '', '', 1, 2, '2019-08-11 10-34-23', 'ni', 'posted'),
-(18, '2019-07-23 12:46:42', 61, 4, 66, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 1, 3, '2019-08-11 10-40-51', 'j', 'posted'),
-(19, '2019-08-12 08:31:31', 61, 0, 61, 'Technology', 'HARRY POTTER', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'murisa', '2019_18a2-d.jpg', '2019_36abst.jpg', '', '', '', '', 0, 0, '', '', ''),
-(20, '2019-08-12 08:41:58', 61, 0, 61, 'history', 'Title of a longer featured blog post', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'fax', '2019_510a50.png', '2019_705-ye.jpg', '', '', '', '', 1, 0, '', '', ''),
-(22, '2019-08-12 08:59:38', 61, 0, 61, 'history', 'My Skills And Experiences', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'hope', '2019_561099.jpg', '2019_48a2-d.jpg', '', '', '', '', 1, 0, '', '', ''),
-(23, '2019-08-12 09:37:37', 61, 0, 61, 'Technology', 'English Filipino', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'jojo', '2019_42b753.jpg', '2019_585-ye.jpg=2019_764778.jpg=2019_100a2-d.jpg=2019_50abst.jpg=2019_16b753.jpg', '', '', 'concert', 'june=may=double=sign=music=', 1, 0, '', '', ''),
-(24, '2019-08-12 09:37:38', 61, 0, 61, 'Technology', 'English Filipino', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'jojo', '2019_58b753.jpg', '2019_325-ye.jpg=2019_564778.jpg=2019_43a2-d.jpg=2019_21abst.jpg=2019_16b753.jpg', '', '', 'concert', 'june=may=double=sign=music=', 0, 0, '', '', ''),
-(2, '2019-06-28 15:45:07', 61, 0, 0, 'science', 'harry potter', 'iyi film ikoze mwibaga', 'quan', '2019_92f.jpg', '2019_33f.jpg=2019_60fayz.jpg=2019_17fayz.jpg', '', '', '', '', 0, 0, '0', '', ''),
-(4, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 1, 3, '0', '', ''),
-(5, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_89rwanda.jpg', '2019_55ramp.jpg=2019_80ramzy2.jpg', '', '', '', '', 2, 1, '0', '', ''),
-(6, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_92rwanda.jpg', '2019_40ramp.jpg=2019_64ramzy2.jpg', '', '', '', '', 1, 2, '0', '', ''),
-(7, '2019-07-23 12:46:42', 61, 0, 0, 'history', 'One more for good measure', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'zidani', '2019_11f.jpg', '2019_60hear.jpg', '', '', '', '', 2, 1, '0', '', ''),
-(9, '2019-07-23 12:46:42', 61, 0, 0, '', 'shema rutahizamu ntiyoroshye', 'good', 'fayzo', '2019_93camera.jpg', '2019_68camera.jpg=2019_64exte.jpg', '', '', '', '', 0, 0, '0', '', ''),
-(10, '2019-07-23 12:46:42', 61, 0, 0, '', 'shema rutahizamu ntiyoroshye', 'good', 'fayzo', '2019_29camera.jpg', '2019_87camera.jpg=2019_91exte.jpg', '', '', '', '', 0, 0, '0', '', ''),
-(11, '2019-07-23 12:46:42', 61, 4, 61, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 0, 1, '2019', 'nic', 'posted'),
-(12, '2019-07-23 12:46:42', 61, 5, 61, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_89rwanda.jpg', '2019_55ramp.jpg=2019_80ramzy2.jpg', '', '', '', '', 0, 1, '2019-08-10 10-01-12', 'nicee', 'posted'),
-(13, '2019-07-23 12:46:42', 61, 3, 66, 'history', 'Title of a longer featured blog post', 'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what\'s most interesting in this post\'s contents.', 'harry kane', '2019_14fayz.jpg', '2019_64imag.jpg=2019_28imag.jpg', '', '', '', '', 0, 2, '2019-08-10 10-14-28', 'gudz', 'posted'),
-(14, '2019-07-23 12:46:42', 61, 7, 61, 'history', 'One more for good measure', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'zidani', '2019_11f.jpg', '2019_60hear.jpg', '', '', '', '', 0, 1, '2019-08-11 07-28-59', 'sf', 'posted'),
-(15, '2019-07-23 12:46:42', 61, 6, 61, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_92rwanda.jpg', '2019_40ramp.jpg=2019_64ramzy2.jpg', '', '', '', '', 0, 1, '2019-08-11 07-42-20', 'xzx', 'posted'),
-(16, '2019-07-23 12:46:42', 61, 4, 64, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 0, 2, '2019-08-11 08-38-04', 'dfadfg', 'posted'),
-(17, '2019-07-23 12:46:42', 61, 6, 66, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'roon', '2019_92rwanda.jpg', '2019_40ramp.jpg=2019_64ramzy2.jpg', '', '', '', '', 1, 2, '2019-08-11 10-34-23', 'ni', 'posted'),
-(18, '2019-07-23 12:46:42', 61, 4, 66, 'history', 'Title of a longer featured blog post', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'raheem sterling', '2019_90hear.jpg', '2019_51imag.jpg=2019_24imag.jpg', '', '', '', '', 1, 3, '2019-08-11 10-40-51', 'j', 'posted'),
-(19, '2019-08-12 08:31:31', 61, 0, 61, 'Technology', 'HARRY POTTER', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'murisa', '2019_18a2-d.jpg', '2019_36abst.jpg', '', '', '', '', 0, 0, '', '', ''),
-(20, '2019-08-12 08:41:58', 61, 0, 61, 'history', 'Title of a longer featured blog post', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'fax', '2019_510a50.png', '2019_705-ye.jpg', '', '', '', '', 1, 0, '', '', ''),
-(22, '2019-08-12 08:59:38', 61, 0, 61, 'history', 'My Skills And Experiences', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'hope', '2019_561099.jpg', '2019_48a2-d.jpg', '', '', '', '', 1, 0, '', '', ''),
-(23, '2019-08-12 09:37:37', 61, 0, 61, 'Technology', 'English Filipino', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'jojo', '2019_42b753.jpg', '2019_585-ye.jpg=2019_764778.jpg=2019_100a2-d.jpg=2019_50abst.jpg=2019_16b753.jpg', '', '', 'concert', 'june=may=double=sign=music=', 1, 0, '', '', ''),
-(24, '2019-08-12 09:37:38', 61, 0, 61, 'Technology', 'English Filipino', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', 'jojo', '2019_58b753.jpg', '2019_325-ye.jpg=2019_564778.jpg=2019_43a2-d.jpg=2019_21abst.jpg=2019_16b753.jpg', '', '', 'concert', 'june=may=double=sign=music=', 0, 0, '', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_comment`
---
-
-CREATE TABLE `blog_comment` (
-  `comment_id` int(11) NOT NULL,
-  `comment` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment_on` int(11) NOT NULL,
-  `comment_by` int(11) NOT NULL,
-  `comment_at` datetime NOT NULL,
-  `likes_counts_` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `blog_comment`
---
-
-INSERT INTO `blog_comment` (`comment_id`, `comment`, `comment_on`, `comment_by`, `comment_at`, `likes_counts_`) VALUES
-(2, 'amakuru', 5, 66, '2019-08-11 10:41:35', 3),
-(3, 'bite byawe', 5, 61, '2019-08-11 11:15:18', 0),
-(4, 'as', 5, 61, '2019-08-11 11:17:51', 1),
-(5, 'ewe', 23, 61, '2019-08-14 16:51:46', 0),
-(6, 'amakkuru', 24, 66, '2019-08-24 11:44:41', 0),
-(7, 'nice', 23, 61, '2019-09-02 13:53:17', 0),
-(8, 'hello', 22, 61, '2019-09-02 13:54:06', 0),
-(9, 'ew', 24, 61, '2019-09-03 09:56:09', 0),
-(2, 'amakuru', 5, 66, '2019-08-11 10:41:35', 3),
-(3, 'bite byawe', 5, 61, '2019-08-11 11:15:18', 0),
-(4, 'as', 5, 61, '2019-08-11 11:17:51', 1),
-(5, 'ewe', 23, 61, '2019-08-14 16:51:46', 0),
-(6, 'amakkuru', 24, 66, '2019-08-24 11:44:41', 0),
-(7, 'nice', 23, 61, '2019-09-02 13:53:17', 0),
-(8, 'hello', 22, 61, '2019-09-02 13:54:06', 0),
-(9, 'ew', 24, 61, '2019-09-03 09:56:09', 0),
-(2, 'amakuru', 5, 66, '2019-08-11 10:41:35', 3),
-(3, 'bite byawe', 5, 61, '2019-08-11 11:15:18', 0),
-(4, 'as', 5, 61, '2019-08-11 11:17:51', 1),
-(5, 'ewe', 23, 61, '2019-08-14 16:51:46', 0),
-(6, 'amakkuru', 24, 66, '2019-08-24 11:44:41', 0),
-(7, 'nice', 23, 61, '2019-09-02 13:53:17', 0),
-(8, 'hello', 22, 61, '2019-09-02 13:54:06', 0),
-(9, 'ew', 24, 61, '2019-09-03 09:56:09', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_comment_like`
---
-
-CREATE TABLE `blog_comment_like` (
-  `like_id_` int(11) NOT NULL,
-  `like_on_` int(11) NOT NULL,
-  `like_by_` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `blog_comment_like`
---
-
-INSERT INTO `blog_comment_like` (`like_id_`, `like_on_`, `like_by_`) VALUES
-(1, 2, 66),
-(2, 2, 61),
-(3, 2, 74),
-(4, 4, 61),
-(5, 6, 61),
-(6, 5, 61),
-(1, 2, 66),
-(2, 2, 61),
-(3, 2, 74),
-(4, 4, 61),
-(5, 6, 61),
-(6, 5, 61),
-(1, 2, 66),
-(2, 2, 61),
-(3, 2, 74),
-(4, 4, 61),
-(5, 6, 61),
-(6, 5, 61);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_like`
---
-
-CREATE TABLE `blog_like` (
-  `like_id` int(11) NOT NULL,
-  `like_on` int(11) NOT NULL,
-  `like_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `blog_like`
---
-
-INSERT INTO `blog_like` (`like_id`, `like_on`, `like_by`) VALUES
-(5, 4, 61),
-(6, 5, 61),
-(9, 6, 66),
-(10, 5, 66),
-(11, 7, 61),
-(12, 7, 66),
-(14, 20, 61),
-(15, 22, 61),
-(17, 23, 61),
-(5, 4, 61),
-(6, 5, 61),
-(9, 6, 66),
-(10, 5, 66),
-(11, 7, 61),
-(12, 7, 66),
-(14, 20, 61),
-(15, 22, 61),
-(17, 23, 61),
-(5, 4, 61),
-(6, 5, 61),
-(9, 6, 66),
-(10, 5, 66),
-(11, 7, 61),
-(12, 7, 66),
-(14, 20, 61),
-(15, 22, 61),
-(17, 23, 61);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `car`
 --
 
@@ -356,14 +135,7 @@ CREATE TABLE `car` (
 --
 
 INSERT INTO `car` (`car_id`, `authors`, `photo`, `other_photo`, `video`, `youtube`, `price`, `phone`, `country01`, `photo_Title_main`, `photo_Title`, `city`, `province`, `districts`, `sector`, `cell`, `village`, `text`, `categories_car`, `discount`, `price_discount`, `banner`, `buy`, `user_id3`, `created_on3`) VALUES
-(4, 'shema', '2020_412019.jpg', '2020_362019.jpg', '', '', '4000000', '07878', '', 'ingenda nenza', 'irihuta=====', '', '1', '102', '10203', '1020302', '102030202', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', 'car_For_sale', 0, 0.00, '', 'available', 1, '2020-12-16 01:50:42'),
-(5, 'shema', '2021_77in_g.jpg', '2021_50imag.jpg', '', '', '3000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:52:12'),
-(6, 'shema', '2021_53in_g.jpg', '2021_76imag.jpg', '', '', '44000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:52:13'),
-(7, 'shema', '2021_81in_g.jpg', '2021_12imag.jpg', '', '', '32000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 50, 33000000.00, 'new_arrival', 'sold', 1, '2021-01-19 18:52:31'),
-(8, 'shema', '2021_42in_g.jpg', '2021_96imag.jpg', '', '', '8000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:53:07'),
-(9, 'shema', '2021_131807.jpg', '2021_231807.jpg', '', '', '80000', '0787867y8', '', 'good', 'good=====', '', '1', '101', '10102', '1010202', '101020202', 'it is in good condition', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:40:04'),
-(10, 'shema', '2021_191905.jpg', '2021_771807.jpg', '', '', '80000', '0786746', '', 'nice cloud', 'nice guarden=====', '', '1', '101', '10104', '1010401', '101040104', 'it is gud', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:06:49'),
-(11, 'shema', '2021_750_57.jpg', '2021_700_57.jpg', '', '', '900000', '078667587', '', 's', 'ff=====', '', '1', '102', '10204', '1020402', '102040204', 'ir', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-02-02 20:00:54');
+(8, 'shema', '2021_42in_g.jpg', '2021_96imag.jpg', '', '', '8000000', '0787678', '', 'irihuta', 'irakora=====', '', '1', '102', '10208', '1020801', '102080104', 'it is good', 'car_For_sale', 0, 0.00, '', 'available', 1, '2021-01-19 18:53:07');
 
 -- --------------------------------------------------------
 
@@ -2985,9 +2757,6 @@ INSERT INTO `comment` (`comment_id`, `comment`, `comment_on`, `comment_by`, `com
 (17, 'uraho', 463, 61, '2020-12-01 13:28:43', 0, -2),
 (18, 'nice', 55, 2, '2020-12-18 04:09:42', 0, 0),
 (19, 'gud', 55, 2, '2020-12-18 04:10:00', 0, 0),
-(20, 'nice', 54, 4, '2021-01-06 22:37:35', 0, 0),
-(27, 'gud picture', 65, 5, '2021-02-07 12:54:48', 0, 0),
-(28, 'uraabuze', 68, 5, '2021-02-07 12:54:59', 0, 0),
 (29, 'what', 70, 5, '2021-02-07 12:56:32', 0, 0);
 
 -- --------------------------------------------------------
@@ -3330,146 +3099,6 @@ INSERT INTO `employersdomestics` (`employers_id`, `firstname_`, `lastname_`, `ph
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entertainment`
---
-
-CREATE TABLE `entertainment` (
-  `entertainment_id` int(11) NOT NULL,
-  `title` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `authors` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `other_photo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `video` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `youtube` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `categories_news` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id3` int(11) NOT NULL,
-  `created_on3` datetime NOT NULL,
-  `photo_Title_main` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title0` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title1` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title2` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title3` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title4` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title5` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `events`
---
-
-CREATE TABLE `events` (
-  `events_id` int(11) NOT NULL,
-  `retweet_events_id` int(11) NOT NULL,
-  `tweet_events_by` int(11) NOT NULL,
-  `country` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `authors` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `province` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `districts` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sector` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cell` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `village` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name_place` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `location_events` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `start_events` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date0` date NOT NULL,
-  `categories_events` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `additioninformation` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `video` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `youtube` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `likes_counts` int(11) NOT NULL,
-  `user_id3` int(11) NOT NULL,
-  `retweet_counts` int(11) NOT NULL,
-  `events_posted_on` datetime NOT NULL,
-  `events_retweet_Msg` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `events_post` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_on3` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `events`
---
-
-INSERT INTO `events` (`events_id`, `retweet_events_id`, `tweet_events_by`, `country`, `title`, `authors`, `photo_Title`, `province`, `districts`, `sector`, `cell`, `village`, `name_place`, `location_events`, `start_events`, `date0`, `categories_events`, `additioninformation`, `photo`, `video`, `youtube`, `likes_counts`, `user_id3`, `retweet_counts`, `events_posted_on`, `events_retweet_Msg`, `events_post`, `created_on3`) VALUES
-(4, 0, 0, 'rwanda', '', '', '', '', '', '', '', '', 'milles collins', '', '', '0000-00-00', 'Party', 'having fun', '2019_96head.jpg', '', '', 0, 61, 0, '0000-00-00 00:00:00', '', '', '2019-06-15 03:14:08'),
-(5, 0, 0, 'rwanda', '', '', '', '', '', '', '', '', 'milles collins', 'kimihurura', '07h', '0000-00-00', 'Party', 'having fun', '2019_18ramz.png', '', '', 0, 61, 0, '0000-00-00 00:00:00', '', '', '2019-06-15 03:28:53'),
-(10, 0, 0, 'rwanda', '', '', '', '', '', '', '', '', 'milles collins', 'kimihurura', '07h', '2019-06-16', 'Party', 'n', '2019_28imag.jpg', '', '', 0, 61, 0, '0000-00-00 00:00:00', '', '', '2019-06-15 03:50:26'),
-(11, 0, 0, 'rwanda', '', '', '', '', '', '', '', '', 'milles collins', 'kimihurura', '07h', '2019-06-16', 'Party', 'gud', '2019_291.jpg', '', '', 0, 61, 0, '0000-00-00 00:00:00', '', '', '2019-06-15 03:59:15'),
-(13, 0, 0, 'RW', '', '', 'music=====', '1', '102', '1020203', '10202', '102020303', 'lemigo', 'kimihurura', '09 h', '2019-08-12', 'Party', 'is all', '2019_27b753.jpg', '', '', 0, 61, 0, '0000-00-00 00:00:00', '', '', '2019-08-12 11:15:27'),
-(14, 0, 0, 'RW', 'WORKING PLACE', 'FAY', 'DE SIGN=====', '2', '202', '2020201', '20202', '202020106', 'LEMIGO', 'KIMIHURURA', '08 H', '2019-08-18', 'Party', 'WORKING AND PLAYING AND DANCING', '2019_45abst.jpg', '', '', 1, 61, 1, '0000-00-00 00:00:00', '', '', '2019-08-12 12:29:15'),
-(15, 0, 0, 'NO', 'my working on gym', 'kim', 'one push=====', '2', '201', '2010404', '20104', '201040404', 'stade', 'kamonyi', '8 h', '2019-08-19', 'Party', 'Click to share on Facebook (Opens in new window)Click to share on WhatsApp (Opens in new window)Click to share on Google+ (Opens in new window)Click to share on Twitter (Opens in new window)\r\nI am Marilyn, 40 years old. Graduated in bachelor of science and business administration. I have been 11 years worked here in hong kong. My first employer is a single mom with 6 years old daughter. I do housework chores and help the child and tutoring her home work.', '2019_61a2-d.jpg', '', '', 0, 61, 0, '0000-00-00 00:00:00', '', '', '2019-08-12 12:35:43'),
-(16, 14, 61, 'RW', 'WORKING PLACE', 'FAY', 'DE SIGN=====', '2', '202', '2020201', '20202', '202020106', 'LEMIGO', 'KIMIHURURA', '08 H', '2019-08-18', 'Party', 'WORKING AND PLAYING AND DANCING', '2019_45abst.jpg', '', '', 0, 61, 1, '2019-08-12 17:25:25', 'amak', 'posted', '2019-08-12 12:29:15');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `events_comment`
---
-
-CREATE TABLE `events_comment` (
-  `comment_id` int(11) NOT NULL,
-  `comment_on` int(11) NOT NULL,
-  `comment_by` int(11) NOT NULL,
-  `comment` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment_at` datetime NOT NULL,
-  `likes_counts_` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `events_comment`
---
-
-INSERT INTO `events_comment` (`comment_id`, `comment_on`, `comment_by`, `comment`, `comment_at`, `likes_counts_`) VALUES
-(1, 14, 61, 'ikirori', '2019-08-14 05:40:30', 1),
-(2, 14, 61, 'gud', '2019-09-02 13:53:03', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `events_comment_like`
---
-
-CREATE TABLE `events_comment_like` (
-  `like_id_` int(11) NOT NULL,
-  `like_on_` int(11) NOT NULL,
-  `like_by_` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `events_comment_like`
---
-
-INSERT INTO `events_comment_like` (`like_id_`, `like_on_`, `like_by_`) VALUES
-(1, 1, 61);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `events_like`
---
-
-CREATE TABLE `events_like` (
-  `like_id` int(11) NOT NULL,
-  `like_on` int(11) NOT NULL,
-  `like_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `events_like`
---
-
-INSERT INTO `events_like` (`like_id`, `like_on`, `like_by`) VALUES
-(2, 14, 61);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `follow`
 --
 
@@ -3486,57 +3115,17 @@ CREATE TABLE `follow` (
 
 INSERT INTO `follow` (`follow_id`, `sender`, `receiver`, `follow_on`) VALUES
 (6, 2, 1, '2020-12-16 02:23:21'),
-(8, 1, 2, '2020-12-16 02:15:13'),
-(9, 1, 3, '2020-12-18 04:14:03'),
-(10, 1, 4, '2020-12-18 04:49:38'),
 (11, 4, 1, '2020-12-18 04:27:54'),
 (12, 2, 5, '2020-12-19 11:16:24'),
-(14, 1, 5, '2021-02-06 14:45:36'),
 (15, 2, 1, '2021-02-06 13:47:11'),
 (16, 5, 2, '2021-02-06 14:44:13'),
-(17, 5, 1, '2021-02-06 14:38:11');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `food`
---
-
-CREATE TABLE `food` (
-  `food_id` int(11) NOT NULL,
-  `authors` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `other_photo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `video` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `youtube` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` double(10,2) NOT NULL,
-  `phone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `country01` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title_main` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_Title` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `city` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `province` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `districts` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sector` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cell` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `village` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `categories_food` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `discount` int(11) NOT NULL,
-  `price_discount` float(10,2) NOT NULL,
-  `banner` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id3` int(11) NOT NULL,
-  `created_on3` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `food`
---
-
-INSERT INTO `food` (`food_id`, `authors`, `photo`, `other_photo`, `video`, `youtube`, `price`, `phone`, `country01`, `photo_Title_main`, `photo_Title`, `city`, `province`, `districts`, `sector`, `cell`, `village`, `text`, `categories_food`, `code`, `quantity`, `discount`, `price_discount`, `banner`, `user_id3`, `created_on3`) VALUES
-(29, 'shema', '2020_452019.jpg', '2020_102019.jpg', '', '', 300000.00, '0784343', '', 'ifiriti', 'amakaroni=====', '', '1', '101', '1010402', '10104', '101040203', 'it is good', 'food', 'hamburg1', 1, 0, 0.00, '', 1, '2020-12-16 02:48:19');
+(17, 5, 1, '2021-02-06 14:38:11'),
+(20, 5, 4, '2021-02-18 11:00:16'),
+(21, 4, 3, '2021-02-18 11:01:05'),
+(22, 4, 5, '2021-02-18 11:08:03'),
+(23, 0, 5, '2021-02-18 10:22:41'),
+(26, 1, 5, '2021-02-18 10:21:36'),
+(27, 1, 3, '2021-02-18 10:21:37');
 
 -- --------------------------------------------------------
 
@@ -3669,12 +3258,7 @@ CREATE TABLE `house` (
 --
 
 INSERT INTO `house` (`house_id`, `authors`, `photo`, `other_photo`, `video`, `youtube`, `text`, `categories_house`, `price`, `phone`, `country01`, `province`, `districts`, `sector`, `cell`, `village`, `buy`, `discount`, `price_discount`, `banner`, `photo_Title_main`, `photo_Title`, `user_id3`, `created_on3`) VALUES
-(38, 'shema', '2020_120rwe.jpg', '2020_336262.jpg', '', '', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', 'House_For_sale', 7900000.00, '078675776', '', '1', '102', '10203', '1020303', '102030304', 'available', 50, 8900000.00, 'great_deal', 'ni nziza', 'irahantu henza=====', 1, '2020-12-16 02:29:20'),
-(39, 'shema', '2021_46gett.jpg', '2021_95home.jpg', '', '', 'it is good condition', 'House_For_sale', 8000.00, '078865743', '', '1', '101', '10102', '1010202', '101020204', 'sold', 40, 9000.00, 'great_deal', 'house infront of garden', 'garden=====', 1, '2021-01-19 18:33:49'),
-(40, 'dhema', '2021_18home.jpg', '2021_43images.jpg', '', '', 'it is a good house in good location', 'House_For_sale', 500000.00, '078787834', '', '1', '102', '10205', '1020502', '102050203', 'available', 0, 0.00, 'new', '4bed and 3 bath', 'big garden and parking=====', 1, '2021-02-02 20:11:45'),
-(41, 'shema', '2021_55home.jpg', '2021_41brad.jpg', '', '', 'it is a good house with a good condition', 'House_For_sale', 800000.00, '0787677', '', '1', '102', '10208', '1020803', '102080302', 'available', 0, 0.00, '', 'ni nziza cyane', 'ifite ibyumba byinshi=====', 1, '2021-02-07 12:48:19'),
-(42, 'shema', '2021_541807.jpg', '2021_10home.jpg', '', '', 'it is a good house', 'House_For_sale', 900000.00, '07874543', '', '1', '102', '10213', '1021302', '102130203', 'available', 0, 0.00, '', 'nice house', 'good condition=====', 1, '2021-02-07 12:52:11'),
-(43, 'muhire', '2021_48abou.jpg', '2021_90brad.jpg', '', '', 'it is a good condition', 'House_For_sale', 1000000.00, '07886757', '', '1', '102', '10209', '1020902', '102090203', 'available', 0, 0.00, '', 'Gud condition', 'nice wall=====', 1, '2021-02-07 13:01:54');
+(38, 'shema', '2020_120rwe.jpg', '2020_336262.jpg', '', '', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', 'House_For_sale', 7900000.00, '078675776', '', '1', '102', '10203', '1020303', '102030304', 'available', 50, 8900000.00, 'great_deal', 'ni nziza', 'irahantu henza=====', 1, '2020-12-16 02:29:20');
 
 -- --------------------------------------------------------
 
@@ -3713,9 +3297,7 @@ CREATE TABLE `icyamunara` (
 --
 
 INSERT INTO `icyamunara` (`house_id`, `authors`, `discount`, `price`, `price_discount`, `photo`, `other_photo`, `video`, `youtube`, `text`, `phone`, `country01`, `province`, `districts`, `sector`, `cell`, `village`, `buy`, `banner`, `photo_Title_main`, `photo_Title`, `user_id3`, `created_on3`) VALUES
-(40, 'shema', 0, 60000.00, 40.00, '2020_422019.jpg', '2020_662019.jpg', '', '', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', '07778434', '', '1', '102', '10202', '1020203', '102020304', 'available', 'new_arrival', 'intebe nziza', 'sale manger=====', 1, '2020-12-16 02:14:16'),
-(41, 'shema', 20, 870000.00, 200000.00, '2021_6089-2.jpg', '2021_61down.jpg', '', '', 'intebe nziza', '07876674546', '', '1', '102', '10205', '1020502', '102050204', 'available', 'new_arrival', 'ni ziza cyane', 'agaseke=====', 1, '2021-01-19 18:26:34'),
-(42, 'shema', 9, 900000.00, 0.00, '2021_66hard.jpg', '2021_88imag.jpg', '', '', 'nigicoresho kiza', '008976768', '', '1', '102', '10203', '1020302', '102030203', 'available', 'new_arrival', 'ndagurisha ibikoresho', 'ibyo muzu=====', 1, '2021-02-02 20:52:09');
+(40, 'shema', 0, 60000.00, 40.00, '2020_422019.jpg', '2020_662019.jpg', '', '', '200 m square feet Garden,4 bedroom,2 bathroom, kitchen and cabinet, car parking dapibuseget quame kitchen and cabinet, car parking dapibuseget quame', '07778434', '', '1', '102', '10202', '1020203', '102020304', 'available', 'new_arrival', 'intebe nziza', 'sale manger=====', 1, '2020-12-16 02:14:16');
 
 -- --------------------------------------------------------
 
@@ -3765,12 +3347,7 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`like_id`, `like_by`, `like_on`) VALUES
-(1, 2, 70),
-(2, 2, 65),
-(3, 2, 64),
-(4, 5, 64),
-(5, 5, 63),
-(6, 5, 61);
+(1, 2, 70);
 
 -- --------------------------------------------------------
 
@@ -3802,7 +3379,8 @@ INSERT INTO `message` (`message_id`, `message`, `message_to`, `message_from`, `m
 (8, 'uraho', 2, 1, '2020-12-21 04:10:17', 0),
 (10, 'amakurur yawe', 4, 1, '2020-12-21 04:27:37', 1),
 (11, 'ewan', 4, 1, '2020-12-21 04:27:45', 1),
-(12, 'amakuru yawe', 1, 5, '2021-02-06 14:38:51', 1);
+(12, 'amakuru yawe', 1, 5, '2021-02-06 14:38:51', 1),
+(13, 'amakuru', 5, 1, '2021-02-16 13:20:14', 0);
 
 -- --------------------------------------------------------
 
@@ -3819,45 +3397,6 @@ CREATE TABLE `notification` (
   `time` datetime NOT NULL,
   `status` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`notification_id`, `notification_for`, `notification_from`, `target`, `type`, `time`, `status`) VALUES
-(1, 1, 2, 1, 'follow', '2020-12-16 02:22:27', 1),
-(2, 1, 2, 1, 'follow', '2020-12-16 02:22:31', 1),
-(3, 1, 2, 1, 'follow', '2020-12-16 02:22:32', 1),
-(4, 1, 2, 1, 'follow', '2020-12-16 02:22:32', 1),
-(5, 1, 2, 1, 'follow', '2020-12-16 02:22:33', 1),
-(6, 1, 2, 1, 'follow', '2020-12-16 02:23:21', 1),
-(7, 2, 1, 2, 'follow', '2020-12-16 01:54:39', 1),
-(8, 2, 1, 2, 'follow', '2020-12-16 02:15:13', 1),
-(9, 3, 1, 3, 'follow', '2020-12-18 04:14:03', 1),
-(10, 3, 1, 46, 'retweet', '2020-12-18 04:14:37', 1),
-(11, 4, 1, 54, 'retweet', '2020-12-18 04:44:02', 1),
-(12, 4, 1, 4, 'follow', '2020-12-18 04:49:38', 1),
-(13, 1, 4, 1, 'follow', '2020-12-18 04:27:54', 1),
-(14, 5, 2, 56, 'retweet', '2020-12-19 11:16:08', 1),
-(15, 5, 2, 5, 'follow', '2020-12-19 11:16:24', 1),
-(16, 5, 1, 57, 'retweet', '2020-12-19 11:17:31', 1),
-(17, 1, 4, 42, 'retweet', '2021-01-06 22:25:00', 1),
-(18, 1, 5, 1, 'follow', '2021-02-06 14:38:07', 1),
-(19, 5, 1, 68, 'retweet', '2021-02-06 14:45:11', 1),
-(20, 5, 1, 5, 'follow', '2021-02-06 14:45:36', 1),
-(21, 1, 2, 1, 'follow', '2021-02-06 13:47:11', 1),
-(22, 2, 5, 2, 'follow', '2021-02-06 14:44:14', 1),
-(23, 1, 1, 65, 'retweet', '2021-02-06 14:37:28', 1),
-(24, 1, 5, 1, 'follow', '2021-02-06 14:38:11', 1),
-(25, 1, 2, 70, 'likes', '2021-02-07 12:31:43', 1),
-(26, 1, 2, 65, 'likes', '2021-02-07 12:31:52', 1),
-(27, 1, 2, 64, 'likes', '2021-02-07 12:31:59', 1),
-(28, 1, 5, 64, 'retweet', '2021-02-07 12:32:47', 1),
-(29, 1, 5, 64, 'likes', '2021-02-07 12:32:52', 1),
-(30, 1, 5, 63, 'likes', '2021-02-07 12:32:53', 1),
-(31, 1, 5, 61, 'retweet', '2021-02-07 12:33:16', 1),
-(32, 1, 5, 61, 'likes', '2021-02-07 12:33:19', 1),
-(33, 5, 1, 75, 'mention', '2021-02-07 13:19:19', 1);
 
 -- --------------------------------------------------------
 
@@ -3960,9 +3499,8 @@ CREATE TABLE `sale` (
 --
 
 INSERT INTO `sale` (`sale_id`, `title`, `seller_name`, `code`, `price`, `price_discount`, `discount`, `buy`, `quantity`, `phone`, `photo`, `other_photo`, `video`, `youtube`, `text`, `categories_sale`, `photo_Title_main`, `photo_Title`, `user_id01`, `created_on01`, `country01`, `province`, `districts`, `sector`, `cell`, `village`, `banner`) VALUES
-(25, 'earphone', 'shema', 'earphone81', 30000.00, 0, 0, '', 0, '0786675457', '2021_830_ai.jpeg', '2021_930_wi.jpeg', '', '', 'it is good condition', 'electronics', 'earphone', 'pochet=====', 1, '2021-02-14 19:26:31', '', '1', '101', '10103', '1010302', '101030204', ''),
-(26, 'speaker', 'shema', 'speaker28', 30000.00, 0, 0, '', 0, '067657678', '2021_206356.jpg', '2021_5961bw.jpg', '', '', 'nice look and it affordable', 'electronics', 'speaker', 'microphone=====', 1, '2021-02-14 19:28:13', '', '1', '101', '10102', '1010203', '101020304', ''),
-(27, 'microphone', 'shema', 'microphone16', 70000.00, 0, 0, '', 0, '07854467', '2021_6761bw.jpg', '2021_2561ks.jpg', '', '', 'microphone', 'electronics', 'microphone-43', 'microphone-m3=====', 1, '2021-02-14 19:29:21', '', '2', '201', '20103', '2010303', '201030303', '');
+(28, 'headphone', 'shema', 'headphone71', 30000.00, 0, 0, '', 0, '0787656476', '2021_510_ai.jpeg', '2021_270_wi.jpeg', '', '', 'it is gud condition', 'electronics', 'it good condition', 'pochets=====', 1, '2021-02-18 10:38:29', '', '1', '102', '10202', '1020201', '102020103', ''),
+(30, 'Airpods pochets', 'shema', 'Airpods pochets68', 10000.00, 0, 0, '', 0, '078z384312', '2021_7341zn.jpg', '2021_55s-l1.jpg', '', '', 'it a good pochets for airpods', 'electronics', 'Red', 'Black=====', 1, '2021-02-18 10:41:59', '', '1', '102', '10207', '1020701', '102070104', '');
 
 -- --------------------------------------------------------
 
@@ -3987,15 +3525,6 @@ CREATE TABLE `sale_watchlist` (
   `price_watchlist` float NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `sale_watchlist`
---
-
-INSERT INTO `sale_watchlist` (`sale_watchlist_id`, `sale_id_list`, `user_id3_list`, `user_id_owner_sale_list`, `seller_name`, `phone`, `code_watchlist`, `status_sale`, `categories`, `photo_Title_main_list`, `photo_list`, `quantitys`, `unit_price`, `price_watchlist`, `modified`) VALUES
-(50, 25, 1, 1, 'shema', '0786675457', 'earphone81', 0, 'electronics', 'earphone', '2021_830_ai.jpeg', 1, 30000, 30000, '2021-02-14 19:44:35'),
-(51, 26, 1, 1, 'shema', '067657678', 'speaker28', 0, 'electronics', 'speaker', '2021_206356.jpg', 1, 30000, 30000, '2021-02-14 19:44:39'),
-(52, 27, 1, 1, 'shema', '07854467', 'microphone16', 0, 'electronics', 'microphone', '2021_6761bw.jpg', 1, 70000, 70000, '2021-02-14 19:44:43');
 
 -- --------------------------------------------------------
 
@@ -4032,9 +3561,7 @@ CREATE TABLE `school` (
 --
 
 INSERT INTO `school` (`school_id`, `title_`, `author_`, `categories_of_school`, `type_of_school`, `text_`, `photo_`, `other_photo_`, `video_`, `youtube_`, `country`, `photo_Title_main`, `photo_Title`, `location_province`, `location_districts`, `location_Sector`, `location_cell`, `location_village`, `phone_`, `user_id_`, `created_on_`) VALUES
-(8, 'lycee de kigali', 'munyeshaka', 'Public School', 'Secondary School', 'it is good school', '2020_862019.png', '2020_392019.png', '', '', 'RW', '', '', '1', '101', '10102', '1010203', '101020303', '078976768', 1, '2020-12-16 01:59:50'),
-(9, 'APE RUGUNGA', 'MASABO', 'Public School', 'Secondary School', 'IT is a private school', '2021_57abou.jpg', '2021_46home.jpg', '', '', 'RW', '', '', '1', '102', '10206', '1020604', '102060403', '078646778', 1, '2021-01-19 18:42:58'),
-(10, 'Green Hills', 'mukeshimana', 'Private School', 'Primary School', 'it is a good school', '2021_870000.jpg', '2021_55imag.jpg', '', '', 'RW', '', '=====', '1', '102', '10208', '1020802', '102080204', '078676878', 1, '2021-02-02 20:26:35');
+(12, 'Lycee De kigali', 'Masabo', 'Public School', 'Secondary School', 'it is a public school', '2021_442019.png', '2021_502019.png', '', '', 'RW', 'Lycee De Kigali', 'Public School=====', '1', '101', '10109', '1010903', '101090311', '07685588', 1, '2021-02-18 10:33:38');
 
 -- --------------------------------------------------------
 
@@ -4552,21 +4079,6 @@ CREATE TABLE `trends` (
   `created_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `trends`
---
-
-INSERT INTO `trends` (`trend_id`, `hashtag`, `target`, `created_on`) VALUES
-(8, 'MentalHealth', '31', '2020-12-06 07:44:08'),
-(9, 'MentalHealth', '32', '2020-12-06 07:44:45'),
-(10, 'Bipolar', '33', '2020-12-06 07:45:11'),
-(11, 'Autism', '34', '2020-12-06 07:45:32'),
-(12, 'MentalHealth', '35', '2020-12-06 07:47:47'),
-(13, 'MentalHealth', '45', '2020-12-18 04:11:23'),
-(14, 'Rwot', '46', '2020-12-18 04:11:38'),
-(15, 'Rwot', '50', '2020-12-18 04:24:30'),
-(16, 'Rwot', '51', '2020-12-18 04:26:20');
-
 -- --------------------------------------------------------
 
 --
@@ -4595,50 +4107,13 @@ CREATE TABLE `tweets` (
 --
 
 INSERT INTO `tweets` (`tweet_id`, `status`, `title_name`, `photo_Title_main`, `photo_Title`, `tweetBy`, `retweet_id`, `retweet_by`, `tweet_image`, `tweet_image_size`, `likes_counts`, `retweet_counts`, `posted_on`, `retweet_Msg`) VALUES
-(31, '#MentalHealth A mental health disorder characterised by persistently depressed mood or loss of interest in activities, causing significant impairment in daily life.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:44:07', ''),
-(32, '#MentalHealth Anxiety disorder\nA mental health disorder characterised by feelings of worry, anxiety or fear that are strong enough to interfere with one\'s daily activities.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:44:45', ''),
-(33, '#Bipolar disorder\nA disorder associated with episodes of mood swings ranging from depressive lows to manic highs.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:45:11', ''),
-(34, '#Autism\nA serious developmental disorder that impairs the ability to communicate and interact.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:45:32', ''),
-(35, '#MentalHealth What are some types of mental disorders?\nAnxiety disorders, including panic disorder and  Depression, bipolar disorder, and other mood disorders. Eating disorders.', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:47:47', ''),
-(36, 'want affordable, private online counseling check this site https://www.betterhelp.com/helpme/', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-06 07:49:09', ''),
-(37, 'if you want a life easy, just work on hard things', '', '', '', 2, 0, 0, '', '', 0, 0, '2020-12-07 17:46:06', ''),
-(38, 'iragiro', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-07 19:44:56', ''),
-(39, 'nice', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-07 19:48:59', ''),
-(40, 'gud', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-07 20:18:04', ''),
-(41, 'nice', '', '', '', 1, 0, 0, '', '', 0, 0, '2020-12-07 20:18:11', ''),
-(42, 'gud', '', '', '', 1, 0, 0, '', '', 0, 1, '2020-12-07 20:18:48', ''),
-(43, 'gud', '', '', '', 2, 0, 0, '', '', 0, 0, '2020-12-16 02:36:38', ''),
-(44, 's', '', '', '', 2, 0, 0, '', '', 0, 0, '2020-12-16 02:37:55', ''),
-(45, '#MentalHealth is the bigest problems', '', '', '', 3, 0, 0, '', '', 0, 0, '2020-12-18 04:11:23', ''),
-(46, '#Rwot ibi mwari mubizi', '', '', '', 3, 0, 0, '', '', 0, 1, '2020-12-18 04:11:38', ''),
-(47, '#Rwot ibi mwari mubizi', '', '', '', 3, 46, 1, '', '', 0, 1, '2020-12-18 04:14:37', 'nice'),
-(48, 'mubona gahunda iteye gute', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:23:43', ''),
-(49, 'ibintu mwe mubibona gute', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:24:02', ''),
-(50, '#Rwot mumeze mute', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:24:30', ''),
-(51, '#Rwot ko mbona mutambuja', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:26:20', ''),
-(52, 'nice work', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:26:43', ''),
-(53, 'namwe nuko mubibona', '', '', '', 4, 0, 0, '', '', 0, 0, '2020-12-18 04:27:21', ''),
-(54, 'nice work', '', '', '', 4, 0, 0, '', '', 0, 1, '2020-12-18 04:30:31', ''),
 (55, 'nice work', '', '', '', 4, 54, 1, '', '', 0, 1, '2020-12-18 04:44:02', 'nice'),
 (56, 'ibi nabyo kbs', '', '', '', 5, 0, 0, '', '', 0, 1, '2020-12-19 11:15:25', ''),
-(57, 'ibi nabyo kbs', '', '', '', 5, 56, 2, '', '', 0, 1, '2020-12-19 11:16:08', 'nice'),
-(58, 'gud', '', '', '', 1, 42, 4, '', '', 0, 1, '2021-01-06 22:25:00', 'bite'),
-(59, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.', '', '', '', 1, 0, 0, '', '', 0, 0, '2021-02-05 12:21:14', ''),
-(60, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.', '', '', '', 1, 0, 0, '', '', 0, 0, '2021-02-05 12:31:44', ''),
-(61, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. https://www.w3schools.com/jsref/met_win_settimeout.asp', '', '', '', 1, 0, 0, '', '', 1, 1, '2021-02-06 09:49:45', ''),
-(62, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.https://www.w3schools.com/jsref/met_win_settimeout.aspKeffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.https://www.w3schools.com/jsref/met_win_settimeout.asp', '', '', '', 1, 0, 0, '', '', 0, 0, '2021-02-06 09:52:43', ''),
-(63, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.https://www.w3schools.com/jsref/met_win_settimeout.aspamakururyaweKeffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk.https://www.w3schools.com/jsref/met_win_settimeout.asp', '', '', '', 1, 0, 0, '', '', 1, 0, '2021-02-06 11:23:27', ''),
-(64, 'uko watagira business mu Rwanda', 'NI gute natagiza business mu Rwanda', '', 'iyi ni technology ivomera=kuhira imyaka====', 1, 0, 0, '2021_451020.jpg=2021_14agri.jpg', '', 2, 1, '2021-02-06 13:30:26', ''),
-(65, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to:\r\n â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. \r\nâ€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services', 'Why become an ICT Hub?', '', 'niceto be in cover=planet work=cross over===', 1, 0, 0, '2021_2542.jpg=2021_36imag.jpg=2021_59imag.jpg', '', 1, 1, '2021-02-06 14:16:11', ''),
-(66, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to:\n â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. \nâ€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services', 'Why become an ICT Hub?', '', '', 5, 0, 0, '', '', 0, 0, '2021-02-06 13:53:44', ''),
 (67, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to: â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. â€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services', 'Why become an ICT Hub?', '', '', 5, 0, 0, '', '', 0, 0, '2021-02-06 13:54:26', ''),
-(68, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to:\n â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. \nâ€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services.', 'Why become an ICT Hub?', '', '', 5, 0, 0, '', '', 0, 1, '2021-02-06 13:57:55', ''),
 (70, 'Globally, ICT remains to be the fastest growing economic sector and the export of ICT-enabled services would be an invaluable contributor to the national economy development. The ICT Hub status will enable the country to:\r\n â€¢ Generate direct and indirect job opportunities for thousands of educated Rwandan youth and increase national economic productivity. This can be achieved not only through inbred innovations with global application but also through offshoring arrangements with consumers of ICT services from other countries and continents. An expansion of opportunities in this space also means an expansion of employment opportunities. \r\nâ€¢ Stimulate the economy and significantly grow the contribution of the Information Technology enabled Services (ITeS) to the national economy by attracting and partnering with global organizations and institutions to develop solutions addressing the socio-economic challenges in education, health, agriculture, fintech and e-government services', 'Why become an ICT Hub?', '', 'niceto be in cover=planet work=cross over===', 1, 65, 1, '2021_2542.jpg=2021_36imag.jpg=2021_59imag.jpg', '', 1, 1, '2021-02-06 14:37:28', 'nice content keep it up'),
 (71, 'uko watagira business mu Rwanda', 'NI gute natagiza business mu Rwanda', '', 'iyi ni technology ivomera=kuhira imyaka====', 1, 64, 5, '2021_451020.jpg=2021_14agri.jpg', '', 1, 1, '2021-02-07 12:32:47', 'iterambere ryiza'),
-(72, 'Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillw birdon it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. https://www.w3schools.com/jsref/met_win_settimeout.asp', '', '', '', 1, 61, 5, '', '', 0, 1, '2021-02-07 12:33:15', 'well done'),
-(73, 'amakuru yanyu', '', '', '', 1, 0, 0, '', '', 0, 0, '2021-02-07 13:17:55', ''),
-(74, 'muraho', '', '', 'gud interior=nice home====', 1, 0, 0, '2021_871807.jpg=2021_23abou.jpg', '20765=626833', 0, 0, '2021-02-07 13:18:36', ''),
-(75, '@claude amakuru', '', '', 'gud=work====', 1, 0, 0, '2021_411905.jpg=2021_761807.jpg', '17500=20765', 0, 0, '2021-02-07 13:19:19', '');
+(87, '@irangiro uraho', '', '', '', 2, 85, 1, '', '', 1, 1, '2021-02-18 10:51:25', 'gud'),
+(93, 'Is always feeling a deep sadness a sign of depression?', '', '', '', 6, 0, 0, '', '', 72, 0, '2020-12-20 23:53:59', '');
 
 -- --------------------------------------------------------
 
@@ -4709,11 +4184,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `username`, `email`, `password`, `gender`, `chat`, `job_user`, `career`, `country`, `date_birth`, `date_registry`, `last_login`, `last_profile_edit`, `counts_login`, `forgotUsernameCounts`, `forgotUsernameCountsTimesHeCreates`, `forgotUsernameCountsTimesHeCreatespassword`, `profile_img`, `profile_img_crop`, `cover_img`, `background`, `language`, `color`, `education`, `diploma`, `skills`, `location`, `hobbys`, `followers`, `following`, `approval`, `countViewin_profile`, `company_education`, `type_of_business`, `address`, `size_of_people`, `companyname`, `overview`, `history`, `team`, `legal_structure`, `location_facilities`, `mission_statement`, `website`, `unemployment`, `categories_fields`, `phone`, `about`, `years`, `field`, `age`, `status_career`, `course`) VALUES
-(1, 'irangiro', 'social', 'irangiro', 'irangiroltd@gmail.com', 'fafa', 'Male', 'on', 'SME', 'Professional', 'RW', '1999-08-03', '2020-12-06', '2021-02-14 19:18:21', '2020-12-10 04:18:36', 92, 0, 0, 0, '116vect.png', '', '529port.jpg', '', '', 'black', 'lyccee', 'Certificate', 'design', 'kigali', 'foot', 4, 4, 'on', 99, 'Public', 'builder', 'KG 513 st', '50', 'irangiro', 'it is a good company', 'yaangiye cyera', 'ifite abantu benshi', 'ibyo dukora', 'mu mujyi', 'tukomeza gukora', 'irangiro.com', 'no', 'management', '0786577676', '&lt;p&gt;Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.&lt;/p&gt;', 2, 'management', '26', 'Single', 'finance,management,computer,science'),
-(2, 'Tips', 'Mindseet', 'Tips', 'admin@irangiro.com', 'fafa', 'Male', 'off', '', '', 'RW', '1999-08-03', '2020-12-07', '2021-02-07 12:31:37', '0000-00-00 00:00:00', 12, 0, 0, 0, '784port.jpg', '', '153img6.jpg', '', '', 'black', '', '', '', '', '', 2, 3, 'off', 20, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
-(3, 'jean', 'jean', 'jean', 'jean@gmail.com', 'jean', 'Male', 'off', '', '', 'RW', '2002-04-04', '2020-12-18', '2020-12-18 04:15:11', '0000-00-00 00:00:00', 2, 0, 0, 0, '', '', '', '', '', 'black', '', '', '', '', '', 1, 0, 'off', 3, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
-(4, 'muhire', 'muhire', 'muhire', 'muhire@gmail.com', 'muhire', 'Male', 'off', 'SME', '', 'RW', '2001-05-04', '2020-12-18', '2021-02-02 20:05:12', '0000-00-00 00:00:00', 8, 0, 0, 0, '3896459.jpg', '', '', '', '', 'black', '', '', '', '', '', 1, 1, 'off', 23, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
-(5, 'claude', 'claude', 'claude', 'claude@yahoo.com', 'claude', 'Male', 'off', '', '', 'RW', '1996-05-06', '2020-12-19', '2021-02-07 13:19:52', '0000-00-00 00:00:00', 12, 0, 0, 0, '', '', '', '', '', 'black', '', '', '', '', '', 2, 2, 'on', 40, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '');
+(1, 'irangiro', 'social', 'irangiro', 'irangiroltd@gmail.com', 'fafa', 'Male', 'on', 'SME', 'Professional', 'RW', '1999-08-03', '2020-12-06', '2021-02-18 10:52:55', '2020-12-10 04:18:36', 107, 0, 0, 0, '116vect.png', '', '529port.jpg', '', '', 'black', 'lyccee', 'Certificate', 'design', 'kigali', 'foot', 4, 2, 'on', 100, 'Public', 'builder', 'KG 513 st', '50', 'irangiro', 'it is a good company', 'yaangiye cyera', 'ifite abantu benshi', 'ibyo dukora', 'mu mujyi', 'tukomeza gukora', 'irangiro.com', 'no', 'management', '0786577676', '&lt;p&gt;Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American Apparel.&lt;/p&gt;', 2, 'management', '26', 'Single', 'finance,management,computer,science'),
+(2, 'Tips', 'Mindseet', 'Tips', 'admin@irangiro.com', 'fafa', 'Male', 'off', '', '', 'RW', '1999-08-03', '2020-12-07', '2021-02-18 10:41:56', '0000-00-00 00:00:00', 16, 0, 0, 0, '784port.jpg', '', '153img6.jpg', '', '', 'black', '', '', '', '', '', 0, 3, 'off', 20, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(3, 'jean', 'jean', 'jean', 'jean@gmail.com', 'jean', 'Male', 'off', '', '', 'RW', '2002-04-04', '2020-12-18', '2021-02-18 10:45:22', '0000-00-00 00:00:00', 3, 0, 0, 0, '', '', '', '', '', 'black', '', '', '', '', '', 2, 0, 'off', 3, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(4, 'muhire', 'muhire', 'muhire', 'muhire@gmail.com', 'muhire', 'Male', 'off', 'SME', '', 'RW', '2001-05-04', '2020-12-18', '2021-02-18 10:43:47', '0000-00-00 00:00:00', 11, 0, 0, 0, '3896459.jpg', '', '', '', '', 'black', '', '', '', '', '', 1, 3, 'off', 26, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(5, 'claude', 'claude', 'claude', 'claude@yahoo.com', 'claude', 'Male', 'off', '', '', 'RW', '1996-05-06', '2020-12-19', '2021-02-18 10:40:26', '0000-00-00 00:00:00', 16, 0, 0, 0, '', '', '', '', '', 'black', '', '', '', '', '', 2, 3, 'on', 41, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(6, 'Vanessa', 'Ezra', 'Abewe', 'vanessabewe@gmail.com', '1234567890', 'Female', 'on', '', '', 'RW', '1994-03-15', '2020-12-18', '2020-12-18 02:51:52', '0000-00-00 00:00:00', 1, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(7, 'uwimana', 'jeannette', 'jeanette', 'jeanetterw353@gmail.com', 'jeanette', 'Female', 'off', '', '', 'RW', '1994-05-13', '2020-12-18', '2020-12-19 11:44:11', '0000-00-00 00:00:00', 2, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(8, 'mugire', 'claude', 'claude', 'claudeerwa@gmail.com', 'claude', 'Male', 'off', '', '', 'RW', '1997-03-02', '2020-12-18', '2020-12-18 02:28:19', '0000-00-00 00:00:00', 1, 0, 0, 0, '665images.jpg', '', '', '', '', '', '', '', '', '', '', 0, 0, '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(9, 'muyomba', 'salim', 'salim', 'salimSrw@gmail.com', 'salim', 'Male', 'off', '', '', 'RW', '1990-04-02', '2020-12-18', '2020-12-21 02:00:52', '0000-00-00 00:00:00', 9, 0, 0, 0, '6225ba2.jpg', '', '', '', '', '', '', '', '', '', '', 0, 0, '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', ''),
+(10, 'uwimana', 'gentille', 'gentille', 'gentilledf@gmail.com', 'gentille', 'Female', 'off', '', '', 'RW', '2000-04-04', '2020-12-18', '2020-12-19 11:48:29', '0000-00-00 00:00:00', 2, 0, 0, 0, '332hair.jpg', '', '', '', '', '', '', '', '', '', '', 0, 0, '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -17363,40 +16843,10 @@ ALTER TABLE `districts`
   ADD UNIQUE KEY `districtcode` (`districtcode`);
 
 --
--- Indexes for table `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`events_id`);
-
---
--- Indexes for table `events_comment`
---
-ALTER TABLE `events_comment`
-  ADD PRIMARY KEY (`comment_id`);
-
---
--- Indexes for table `events_comment_like`
---
-ALTER TABLE `events_comment_like`
-  ADD PRIMARY KEY (`like_id_`);
-
---
--- Indexes for table `events_like`
---
-ALTER TABLE `events_like`
-  ADD PRIMARY KEY (`like_id`);
-
---
 -- Indexes for table `follow`
 --
 ALTER TABLE `follow`
   ADD PRIMARY KEY (`follow_id`);
-
---
--- Indexes for table `food`
---
-ALTER TABLE `food`
-  ADD PRIMARY KEY (`food_id`);
 
 --
 -- Indexes for table `fundraising`
@@ -17563,7 +17013,7 @@ ALTER TABLE `car`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `comment_crowfunding`
@@ -17602,40 +17052,10 @@ ALTER TABLE `crowfund_donation`
   MODIFY `donate_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `events`
---
-ALTER TABLE `events`
-  MODIFY `events_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `events_comment`
---
-ALTER TABLE `events_comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `events_comment_like`
---
-ALTER TABLE `events_comment_like`
-  MODIFY `like_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `events_like`
---
-ALTER TABLE `events_like`
-  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `follow`
 --
 ALTER TABLE `follow`
-  MODIFY `follow_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `food`
---
-ALTER TABLE `food`
-  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `follow_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `fundraising`
@@ -17683,25 +17103,25 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `like_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `like_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `post_comment`
 --
 ALTER TABLE `post_comment`
-  MODIFY `comment_id_` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `post_dislike`
@@ -17719,19 +17139,19 @@ ALTER TABLE `post_like`
 -- AUTO_INCREMENT for table `sale`
 --
 ALTER TABLE `sale`
-  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `sale_watchlist`
 --
 ALTER TABLE `sale_watchlist`
-  MODIFY `sale_watchlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `sale_watchlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `trash`
@@ -17749,13 +17169,13 @@ ALTER TABLE `trends`
 -- AUTO_INCREMENT for table `tweets`
 --
 ALTER TABLE `tweets`
-  MODIFY `tweet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `tweet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

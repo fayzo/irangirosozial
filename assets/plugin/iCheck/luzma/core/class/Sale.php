@@ -559,9 +559,9 @@ class Sale extends Home{
     public function deleteLikesSale($sale_id,$user_id)
     {
         $mysqli= $this->database;
-        $query="DELETE FROM sale WHERE sale_id = $sale_id ";
+        $query="DELETE FROM sale WHERE sale_id = $sale_id and user_id01= '{$user_id}' ";
 
-        $query1="SELECT * FROM sale WHERE sale_id = $sale_id ";
+        $query1="SELECT * FROM sale WHERE sale_id = $sale_id and user_id01= '{$user_id}' ";
 
         $result= $mysqli->query($query1);
         $rows= $result->fetch_assoc();
@@ -576,15 +576,15 @@ class Sale extends Home{
             $allower_ext = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf' , 'doc' , 'ppt'); // valid extensions
             if (array_diff($fileActualExt,$allower_ext) == false) {
                 $expode = explode("=",$photo);
-                $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/Blog_nyarwanda_CMS/uploads/sale/';
+                $uploadDir = DOCUMENT_ROOT.'/uploads/sale/';
                 for ($i=0; $i < count($expode); ++$i) { 
                       unlink($uploadDir.$expode[$i]);
                 }
             }else if (array_diff($fileActualExt,$allower_ext)[0] == 'mp4') {
-                $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/Blog_nyarwanda_CMS/uploads/sale/';
+                $uploadDir = DOCUMENT_ROOT.'/uploads/sale/';
                       unlink($uploadDir.$photo);
             }else if (array_diff($fileActualExt,$allower_ext)[0] == 'mp3') {
-                $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/Blog_nyarwanda_CMS/uploads/sale/';
+                $uploadDir = DOCUMENT_ROOT.'/uploads/sale/';
                       unlink($uploadDir.$photo);
             }
         }

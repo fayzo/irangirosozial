@@ -75,7 +75,7 @@ if (isset($_POST['school_id']) && !empty($_POST['school_id'])) {
 
                    <div class="row reusercolor p-2">
                        <div class="col-md-12">
-                            <h5 class="text-center black-bg h4 mb-2"><?php echo $user['type_of_school']." in ".$user['provincename']." Location ".$user['namedistrict']."/".$user['namesector']; ?></h5>
+                            <h5 class="text-center black-bg h4 mb-2"><?php echo $user['type_of_school']." in ".$user['provincename']." /".$user['namedistrict']."/".$user['namesector']; ?></h5>
                              <!-- < ?php echo $school['provincename']; ?> /  -->
                                 <!-- < ?php echo $school['namedistrict']; ?> District/  -->
                                 <!-- < ?php echo $school['namesector']; ?> Sector/  -->
@@ -91,8 +91,8 @@ if (isset($_POST['school_id']) && !empty($_POST['school_id'])) {
                                         // $splice = array_expode ($expode,0,10);
                                         for ($i=0; $i < count($expode); ++$i) { 
                                             ?>
-                                            <li data-thumb="<?php echo BASE_URL_PUBLIC.'uploads/schoolFile/'.$expode [$i]; ?>" > 
-                                               <img src="<?php echo BASE_URL_PUBLIC.'uploads/schoolFile/'.$expode [$i]; ?>" />
+                                            <li data-thumb="<?php echo BASE_URL_PUBLIC.'uploads/school/'.$expode [$i]; ?>" > 
+                                               <img src="<?php echo BASE_URL_PUBLIC.'uploads/school/'.$expode [$i]; ?>" />
                                             </li>
                                       <?php } ?>
                                 </ul>
@@ -152,7 +152,7 @@ if (isset($_POST['school_id']) && !empty($_POST['school_id'])) {
                                    ?>
                                     <div class="col-md-6 mt-2">
                                          <div class="imageschoolViewPopup more"  data-school="<?php echo $user["school_id"] ;?>">
-                                         <img src="<?php echo BASE_URL_PUBLIC."uploads/schoolFile/".$splice[$i] ;?>"
+                                         <img src="<?php echo BASE_URL_PUBLIC."uploads/school/".$splice[$i] ;?>"
                                              alt="photo_" >
                                          </div>
                                      <div class="h5"><i><?php echo $photo_Title[$i]; ?></i></div>
@@ -171,7 +171,7 @@ if (isset($_POST['school_id']) && !empty($_POST['school_id'])) {
                                    ?>
                                     <div class="col-md-6 mt-2">
                                          <div class="imageschoolViewPopup more"  data-school="<?php echo $user["school_id"] ;?>">
-                                         <img src="<?php echo BASE_URL_PUBLIC."uploads/schoolFile/".$splice[$i] ;?>"
+                                         <img src="<?php echo BASE_URL_PUBLIC."uploads/school/".$splice[$i] ;?>"
                                              alt="photo_" >
                                          </div>
                                      <div class="h5"><i><?php echo $photo_Title[$i]; ?></i></div>

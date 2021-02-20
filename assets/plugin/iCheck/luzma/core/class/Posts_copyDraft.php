@@ -3,7 +3,7 @@
        header('Location: ../../404.html');
  }
 
-class Posts_copyDraft extends  Gurisha {
+class Posts_copyDraft extends  Home {
 
     public function tweets($user_id,$limit)
     {

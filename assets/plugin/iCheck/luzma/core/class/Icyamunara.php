@@ -289,7 +289,7 @@ class Icyamunara extends House {
     public function deleteLikesCyamunara($house_id,$user_id)
     {
         $mysqli= $this->database;
-        $query="DELETE FROM icyamunara WHERE house_id = '{$house_id}' and B. user_id3 = '{$user_id}' ";
+        $query="DELETE FROM icyamunara WHERE house_id = '{$house_id}' and user_id3 = '{$user_id}' ";
 
         $query1="SELECT * FROM icyamunara WHERE house_id = $house_id and user_id3 = $user_id ";
 

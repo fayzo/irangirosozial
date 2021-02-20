@@ -131,7 +131,6 @@
    <script src="<?php echo BASE_URL_LINK ;?>js/donation.js"></script>
 
    <script src="<?php echo BASE_URL_LINK ;?>js/sale_delete.js"></script>
-   <script src="<?php echo BASE_URL_LINK ;?>js/sale_gurisha_delete.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/sale_readmore.js"></script>
 
    <script src="<?php echo BASE_URL_LINK ;?>js/house_addcategories.js"></script>
@@ -143,17 +142,8 @@
    <script src="<?php echo BASE_URL_LINK ;?>js/icyamunara.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/icyamunara_delete.js"></script>
 
-   <script src="<?php echo BASE_URL_LINK ;?>js/food_addcategories.js"></script>
-   <script src="<?php echo BASE_URL_LINK ;?>js/food_delete.js"></script>
-   <script src="<?php echo BASE_URL_LINK ;?>js/food_cart_items.js"></script>
-   
-   <script src="<?php echo BASE_URL_LINK ;?>js/events_addcategories.js"></script>
-   <script src="<?php echo BASE_URL_LINK ;?>js/events_like.js"></script>
-
-   <script src="<?php echo BASE_URL_LINK ;?>js/blog_readmore.js"></script>
-   <script src="<?php echo BASE_URL_LINK ;?>js/blog_like.js"></script>
-
    <script src="<?php echo BASE_URL_LINK ;?>js/school_add.js"></script>
+   <script src="<?php echo BASE_URL_LINK ;?>js/school_delete.js"></script>
 
    <script src="<?php echo BASE_URL_LINK ;?>js/businesspages.js"></script>
    <script src="<?php echo BASE_URL_LINK ;?>js/businessPost.js"></script>

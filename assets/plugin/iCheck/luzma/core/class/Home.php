@@ -1393,7 +1393,7 @@ public function links(){ ?>
     {
 
         $insertValuesSQL ="";
-        $targetDir = DOCUMENT_ROOT.'/uploads/schoolFile/';
+        $targetDir = DOCUMENT_ROOT.'/uploads/school/';
         $allowTypes = array('jpg','png','jpeg','mp4','mp3', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt','docx', 'xlsx','xls','zip');
         
         foreach($file['name'] as $key => $value){
@@ -1460,79 +1460,6 @@ public function links(){ ?>
         return  $filenamedb;
 
     }
-
-    public function uploadMoviesFile($file)
-    {
-
-        $insertValuesSQL ="";
-        $targetDir = DOCUMENT_ROOT.'/uploads/movies/';
-        $allowTypes = array('jpg','png','jpeg','mp4','mp3', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt','docx', 'xlsx','xls','zip');
-        
-        foreach($file['name'] as $key => $value){
-            // File upload path
-            $fileName = basename($file['name'][$key]);
-            $fileExt = explode('.', $fileName);
-            $fileActualExt = strtolower(end($fileExt));
-
-             $filenames = (strlen($fileName) > 10)? 
-                     strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
-                     strtolower(date('Y').'_'.rand(10,100).$fileName);
-
-            $valued[] = $filenames;
-
-            $targetFilePath = $targetDir . $filenames;
-            
-            // Check whether file type is valid
-            $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-            if(in_array($fileType, $allowTypes)){
-                // Upload file to server
-                $fileTmpName = $file["tmp_name"];
-                move_uploaded_file($fileTmpName[$key], $targetFilePath);
-            }
-        }
-        
-        # Build the values
-        $filenamedb = implode("=", $valued);
-        return  $filenamedb;
-
-    }
-
-    public function uploadEventsFile($file)
-    {
-
-        $insertValuesSQL ="";
-        $targetDir = DOCUMENT_ROOT.'/uploads/events/';
-        $allowTypes = array('jpg','png','jpeg','mp4','mp3', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt','docx', 'xlsx','xls','zip');
-        
-        foreach($file['name'] as $key => $value){
-            // File upload path
-            $fileName = basename($file['name'][$key]);
-            $fileExt = explode('.', $fileName);
-            $fileActualExt = strtolower(end($fileExt));
-
-             $filenames = (strlen($fileName) > 10)? 
-                     strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
-                     strtolower(date('Y').'_'.rand(10,100).$fileName);
-
-            $valued[] = $filenames;
-
-            $targetFilePath = $targetDir . $filenames;
-            
-            // Check whether file type is valid
-            $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-            if(in_array($fileType, $allowTypes)){
-                // Upload file to server
-                $fileTmpName = $file["tmp_name"];
-                move_uploaded_file($fileTmpName[$key], $targetFilePath);
-            }
-        }
-        
-        # Build the values
-        $filenamedb = implode("=", $valued);
-        return  $filenamedb;
-
-    }
-
 
     public function uploadcrowfundraisingFile($file)
     {
@@ -1680,6 +1607,8 @@ public function links(){ ?>
             $query = "SELECT * FROM users WHERE username ='$username' ";
             $resul = $mysqli->query($query);
             $data= $resul->fetch_assoc();
+        }
+        if (!empty($data)) {
             if ($data['user_id'] != $user_id ) {
                 Notification::SendNotifications($data['user_id'],$user_id,$tweet_id,'mention');
             }
@@ -1734,10 +1663,10 @@ public function links(){ ?>
         $mysqli= $this->database;
         $query= "UPDATE tweets SET likes_counts = likes_counts +1 WHERE tweet_id= $tweet_id ";
         $mysqli->query($query);
+        $this->creates('likes',array('like_by' => $user_id ,'like_on' => $tweet_id));
         if ($get_id != $user_id) {
             Notification::SendNotifications($get_id,$user_id,$tweet_id,'likes');
         }
-        $this->creates('likes',array('like_by' => $user_id ,'like_on' => $tweet_id));
     }
 
       public function unLike( $user_id,$tweet_id, $get_id)
