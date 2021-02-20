@@ -170,8 +170,9 @@ class School extends Home {
                     <?php } ?>
                     </ul>
                     <!-- <div class="text-muted">Created on < ?php echo $this->timeAgo($row['created_on_']) ;?> By < ?php echo $row['author_'] ;?> </div> -->
-                    <div class="text-muted"><?php 	echo ''.$row['provincename'].'/ '.$row['namedistrict'].' district/ '.$row['namesector'].' Sector' ;?></div>
-                    <div class="text-muted"><?php 	echo ''.$row['nameCell'].' Cell/ '.$row['VillageName'].' Village' ;?></div>
+                    <div class="text-muted"><?php 	echo ''.$row['provincename'].'/ '.$row['namedistrict'].' district/ '.$row['namesector'].' Sector' ;?>
+                        <?php 	echo '/'.$row['nameCell'].' Cell/ '.$row['VillageName'].' Village' ;?>
+                    </div>
                    <p class="card-text mt-2 mb-1">
                         <?php if (strlen($row["text_"]) > 98) {
                                     echo $row["text_"] = substr($row["text_"],0,98).'...

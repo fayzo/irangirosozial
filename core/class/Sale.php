@@ -232,41 +232,19 @@ class Sale extends Home{
                 </div>
 
             <div class="row">
-                <div class="col-md-12 pr-0">
-                    
-          <?php while($row= $query->fetch_array()) { ?>
-
-                         <div class="mr-3 mb-3 float-left" style="width: 260px;height:276px;">
+                
+                <?php while($row= $query->fetch_array()) { ?>
+                    <div class="col-6 col-md-3 col-lg-3 mb-3 pr-0">
+                         <!-- <div class="mr-3 mb-3 float-left" style="width: 260px;height:276px;"> -->
                         <!-- //   width: 252px;height:178px -->
                          <!-- <div class="col-md-3"> -->
 
                           <div class="card">
-                             <div class="card-img-top img-fuild" id="sale_gurishaPreview<?php echo $row['sale_id']; ?>" style="background: url('<?php echo BASE_URL_PUBLIC ;?>uploads/sale/<?php echo $row["photo"]; ?>')no-repeat center center;background-size:contain;height:178px;width:260px;position:relative" >
-                             <!-- <div class="card-img-top img-fuild" id="sale_gurishaPreview< ?php echo $row['sale_id']; ?>" style="width:260px;height:178px;text-align: center;z-index:1;">
-                                 <img src="< ?php echo BASE_URL_PUBLIC."uploads/sale/".$row["photo"]; ?>" height="178px">
-                            </div>
-                            <div class="card-img-top img-fuild" id="sale_gurishaPreview< ?php echo $row['sale_id']; ?>" style="position:absolute;z-index:2;">
- -->
-                                <?php $banner = $row['banner'];
-                                      switch ($banner) {
-                                          case $banner == 'new':
-                                              # code...
-                                              echo '<img style="margin-left: -10px;" src="'.BASE_URL_LINK.'image/banner/new.png"  width="80px"  >';
-                                              break;
-                                          case $banner == 'great_deal':
-                                              # code...
-                                              echo '<img style="float:right;" src="'.BASE_URL_LINK.'image/banner/great-deal.png"  width="120px" >';
-                                              break;
-                                          case $banner == 'new_arrival':
-                                              # code...
-                                              echo '<img style="margin-right: -10px;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png"  width="120px" >';
-                                              break;
-                                         default:
-                                                # code...
-                                                echo '';
-                                                break;  
-                                      } ?>
-                              </div>
+                             <!-- <div class="card-img-top img-fuild" id="sale_gurishaPreview< ?php echo $row['sale_id']; ?>" style="background: url('< ?php echo BASE_URL_PUBLIC ;?>uploads/sale/< ?php echo $row["photo"]; ?>')no-repeat center center;background-size:contain;height:178px;width:260px;position:relative" > -->
+                                <div class="card-img-top img-fuild" id="sale_gurishaPreview<?php echo $row['sale_id']; ?>" >
+                                    <?php echo $this->bannerDiscountSale($row['banner']); ?>
+                                    <img class="sale-pic-responsive" src="<?php echo BASE_URL_PUBLIC."uploads/sale/".$row["photo"]; ?>">
+                                </div>
                               <div class="card-body">
                                  <div id="response<?php echo $row['sale_id']; ?>"></div>
 
@@ -332,12 +310,13 @@ class Sale extends Home{
                               </div><!-- card-body -->
                           </div><!-- card -->
 
-                         </div><!-- float-left -->
+                         <!-- </div> -->
+                         <!-- float-left -->
                            <!-- </div> -->
+                        </div>
 
                     <?php } ?>    
                     
-                </div>
                 </div>
                 <?php }else{
 
@@ -761,7 +740,28 @@ class Sale extends Home{
             <?php
 
     }
-
+    
+    public function bannerDiscountSale($banner)
+    {
+        switch ($banner) {
+            case $banner == 'new':
+                # code...
+                echo '<img style="margin-left: -10px;position: absolute;" src="'.BASE_URL_LINK.'image/banner/new.png"  width="80px"  >';
+                break;
+            case $banner == 'great_deal':
+                # code...
+                echo '<img style="float:right;position: absolute;" src="'.BASE_URL_LINK.'image/banner/great-deal.png"  width="120px" >';
+                break;
+            case $banner == 'new_arrival':
+                # code...
+                echo '<img style="margin-right: -10px;position: absolute;" src="'.BASE_URL_LINK.'image/banner/new-arrival.png"  width="120px" >';
+                break;
+           default:
+                  # code...
+                  echo '';
+                  break;  
+        }
+    }
     
     public function saleData($user_id)
     {

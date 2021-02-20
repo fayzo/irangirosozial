@@ -599,7 +599,7 @@ public function links(){ ?>
     <ul  class="list-inline link-view">
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.crowfund">GushoraStartUp</a> </li>
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.fundraising"> Fundraising</a></li>
-        <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.career_profession"> Career Professional</a> </li>
+        <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.career_profession"> Professional</a> </li>
         <!-- <li class="list-inline-item"><a href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.sale">Sale</a></li> -->
         <!-- <li class="list-inline-item"><a href="< ?php echo BASE_URL_PUBLIC; ?>irangiro.blog">Blog</a></li> -->
         <li class="list-inline-item"><a href="<?php echo BASE_URL_PUBLIC; ?>irangiro.jobs">Jobs</a></li>

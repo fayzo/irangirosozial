@@ -22,7 +22,7 @@
 <div class="container-fluid">
 
     <div class="row mt-3">
-      <div class="col-4 col-md-2 col-lg-2 ">
+      <div class="col-4 col-md-2 col-lg-2 d-none d-md-block">
           <div class="list-group sticky-top" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action active" id="list-Business-list" onclick="cartItemsCategories('electronics',1,<?php echo $user_id; ?>);" data-toggle="tab" role="tab" aria-controls="list-Community" >Electronics <span class="float-right badge badge-primary"><?php echo $sale->cartcountPOSTS('electronics');?></span></a>
             <a class="list-group-item list-group-item-action" id="list-Business-list" onclick="cartItemsCategories('arts',1,<?php echo $user_id; ?>);" data-toggle="tab" role="tab" aria-controls="list-Community" >Arts <span class="float-right badge badge-primary"><?php echo $sale->cartcountPOSTS('arts');?></span></a>
@@ -33,7 +33,7 @@
           </div>
       </div>
 
-      <div class="col-8 col-md-10 col-lg-10 ">
+      <div class="col-sm-12 col-md-10 col-lg-10 ">
           <div class="row">
               <div class="col-md-9" id="sale-hides">
                   <?php echo $sale->cartList('electronics',1,$user_id); ?>
