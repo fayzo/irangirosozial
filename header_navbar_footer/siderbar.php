@@ -107,7 +107,7 @@
               <i class="fa fa-files-o"></i>
               <span>Options</span>
               <span class="pull-right-container">
-                <span class="badge badge-primary pull-right">13</span>
+                <span class="badge badge-primary pull-right">10</span>
               </span>
             </a>
             <ul class="treeview-menu">

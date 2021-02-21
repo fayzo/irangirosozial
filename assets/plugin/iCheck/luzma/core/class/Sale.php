@@ -750,7 +750,7 @@ class Sale extends Home{
                 break;
             case $banner == 'great_deal':
                 # code...
-                echo '<img style="float:right;position: absolute;" src="'.BASE_URL_LINK.'image/banner/great-deal.png"  width="120px" >';
+                echo '<img style="position: absolute; right: 0;top: 0;" src="'.BASE_URL_LINK.'image/banner/great-deal.png"  width="120px" >';
                 break;
             case $banner == 'new_arrival':
                 # code...
