@@ -13,13 +13,13 @@
  * @category  HTTP
  * @package   HTTP_Request2
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2020 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2014 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
 
-// pear-package-only /** Exception class for HTTP_Request2 package */
-// pear-package-only require_once 'HTTP/Request2/Exception.php';
+/** Exception class for HTTP_Request2 package */
+require_once 'HTTP/Request2/Exception.php';
 
 /**
  * Class for building multipart/form-data request body
@@ -47,13 +47,13 @@ class HTTP_Request2_MultipartBody
      * Form parameters added via {@link HTTP_Request2::addPostParameter()}
      * @var  array
      */
-    private $_params = [];
+    private $_params = array();
 
     /**
      * File uploads added via {@link HTTP_Request2::addUpload()}
      * @var  array
      */
-    private $_uploads = [];
+    private $_uploads = array();
 
     /**
      * Header for parts with parameters
@@ -75,7 +75,7 @@ class HTTP_Request2_MultipartBody
      *
      * @var  array
      */
-    private $_pos = [0, 0];
+    private $_pos = array(0, 0);
 
 
     /**
@@ -92,13 +92,13 @@ class HTTP_Request2_MultipartBody
         $this->_params = self::_flattenArray('', $params, $useBrackets);
         foreach ($uploads as $fieldName => $f) {
             if (!is_array($f['fp'])) {
-                $this->_uploads[] = $f + ['name' => $fieldName];
+                $this->_uploads[] = $f + array('name' => $fieldName);
             } else {
                 for ($i = 0; $i < count($f['fp']); $i++) {
-                    $upload = [
+                    $upload = array(
                         'name' => ($useBrackets? $fieldName . '[' . $i . ']': $fieldName)
-                    ];
-                    foreach (['fp', 'filename', 'size', 'type'] as $key) {
+                    );
+                    foreach (array('fp', 'filename', 'size', 'type') as $key) {
                         $upload[$key] = $f[$key][$i];
                     }
                     $this->_uploads[] = $upload;
@@ -199,7 +199,7 @@ class HTTP_Request2_MultipartBody
                 $length  -= min(strlen($closing) - $this->_pos[1], $length);
             }
             if ($length > 0) {
-                $this->_pos     = [$this->_pos[0] + 1, 0];
+                $this->_pos     = array($this->_pos[0] + 1, 0);
             } else {
                 $this->_pos[1] += $oldLength;
             }
@@ -214,7 +214,7 @@ class HTTP_Request2_MultipartBody
      */
     public function rewind()
     {
-        $this->_pos = [0, 0];
+        $this->_pos = array(0, 0);
         foreach ($this->_uploads as $u) {
             rewind($u['fp']);
         }
@@ -248,9 +248,9 @@ class HTTP_Request2_MultipartBody
     private static function _flattenArray($name, $values, $useBrackets)
     {
         if (!is_array($values)) {
-            return [[$name, $values]];
+            return array(array($name, $values));
         } else {
-            $ret = [];
+            $ret = array();
             foreach ($values as $k => $v) {
                 if (empty($name)) {
                     $newName = $k;

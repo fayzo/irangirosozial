@@ -80,6 +80,7 @@
   <script src="<?php echo BASE_URL_LINK ;?>dist/js/fastclick.js"></script>
   <script src="<?php echo BASE_URL_LINK ;?>dist/js/jquery.Jcrop.min.js"></script>
   <script src="<?php echo BASE_URL_LINK ;?>plugin/iCheck/icheck.min.js"></script>
+  <script src="<?php echo BASE_URL_LINK ;?>dist/js/pdf.js"></script> 
   <script src="<?php echo BASE_URL_LINK ;?>dist/js/siderbarResponsive.js"></script>
   <script src="<?php echo BASE_URL_LINK ;?>dist/js/lightslider.js"></script> 
 

@@ -1,4 +1,5 @@
-var endDate = new Date().getTime() + 1000800000;
+// var endDate = new Date().getTime() + 1000800000;
+var endDate = new Date("Mar 5, 2021 15:37:25").getTime();
 
 var x = setInterval(function() {
 

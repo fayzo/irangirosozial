@@ -46,8 +46,8 @@ include('core/init.php');
                             <input type="email" name="newslatter_email_client" id="newslatter_email_client" class="form-control" placeholder="email address">
                         </div>
                         <button type="button" id="newslatter_form_submit" class="btn btn-subscribe">Notify Me</button>
-                        <div id="responseNewslatter"></div>
                     </form>
+                        <div id="responseNewslatter"></div>
                 </div>
                 <div class="col-md-6 d-none d-md-flex align-items-center">
                     <img src="assets_coming_soon/images/coming-soon.png" alt="coming soon" class="img-fluid">

@@ -13,15 +13,15 @@
  * @category  HTTP
  * @package   HTTP_Request2
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2020 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2014 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
 
-// pear-package-only /**
-// pear-package-only  * Base class for HTTP_Request2 adapters
-// pear-package-only  */
-// pear-package-only require_once 'HTTP/Request2/Adapter.php';
+/**
+ * Base class for HTTP_Request2 adapters
+ */
+require_once 'HTTP/Request2/Adapter.php';
 
 /**
  * Mock adapter intended for testing
@@ -53,7 +53,7 @@ class HTTP_Request2_Adapter_Mock extends HTTP_Request2_Adapter
      * A queue of responses to be returned by sendRequest()
      * @var  array
      */
-    protected $responses = [];
+    protected $responses = array();
 
     /**
      * Returns the next response from the queue built by addResponse()
@@ -115,7 +115,7 @@ class HTTP_Request2_Adapter_Mock extends HTTP_Request2_Adapter
         ) {
             throw new HTTP_Request2_Exception('Parameter is not a valid response');
         }
-        $this->responses[] = [$response, $url];
+        $this->responses[] = array($response, $url);
     }
 
     /**

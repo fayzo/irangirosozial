@@ -984,10 +984,28 @@ public function links(){ ?>
             
             // Check whether file type is valid
             $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+
             if(in_array($fileType, $allowTypes)){
+                
                 // Upload file to server
                 $fileTmpName = $file["tmp_name"];
-                move_uploaded_file($fileTmpName[$key], $targetFilePath);
+
+                $allowTypes_img = array('jpg','png','jpeg');
+                $fileType_img = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+
+                if(in_array($fileType_img, $allowTypes_img)){
+                    # code...
+                    // $fileTmp = $this->resize_image($fileTmpName[$key], 500, 500);
+                    // $d=move_uploaded_file($fileTmp, $targetFilePath);
+
+                    $d=move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                    $this->thumbnail($filenames,$targetDir,$targetDir, 480, 400 );
+
+                }else {
+                    # code...
+                    move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                }
+
             }
         }
         
@@ -997,6 +1015,78 @@ public function links(){ ?>
 
         return  $filenamedb;
 
+    }
+
+    public function resize_image($file, $width, $height) {
+
+        list($w, $h) = getimagesize($file);
+        /* calculate new image size with ratio */
+        $ratio = max($width/$w, $height/$h);
+        $h = ceil($height / $ratio);
+        $x = ($w - $width / $ratio) / 2;
+        $w = ceil($width / $ratio);
+        /* read binary data from image file */
+        $imgString = file_get_contents($file);
+        /* create image from string */
+        $image = imagecreatefromstring($imgString);
+        $tmp = imagecreatetruecolor($width, $height);
+        imagecopyresampled($tmp, $image,
+        0, 0,
+        $x, 0,
+        $width, $height,
+        $w, $h);
+        imagejpeg($tmp, $file, 100);
+        return $file;
+        /* cleanup memory */
+        imagedestroy($image);
+        imagedestroy($tmp);
+    
+    }
+
+    public function thumbnail( $img, $source, $dest, $maxw, $maxh ) {      
+        $jpg = $source.$img;
+    
+        if( $jpg ) {
+            list( $width, $height  ) = getimagesize( $jpg ); //$type will return the type of the image
+            $source = imagecreatefromjpeg( $jpg );
+    
+            if( $maxw >= $width && $maxh >= $height ) {
+                $ratio = 1;
+            }elseif( $width > $height ) {
+                $ratio = $maxw / $width;
+            }else {
+                $ratio = $maxh / $height;
+            }
+    
+            $thumb_width = round( $width * $ratio ); //get the smaller value from cal # floor()
+            $thumb_height = round( $height * $ratio );
+    
+            $thumb = imagecreatetruecolor( $thumb_width, $thumb_height );
+            imagecopyresampled( $thumb, $source, 0, 0, 0, 0, $thumb_width, $thumb_height, $width, $height );
+    
+            $path = $dest.$img;
+            imagejpeg( $thumb, $path, 75 );
+        }
+        imagedestroy( $thumb );
+        imagedestroy( $source );
+    }
+
+    public function compress($source, $destination, $quality) {
+
+        $info = getimagesize($source);
+    
+        if ($info['mime'] == 'image/jpeg') 
+            $image = imagecreatefromjpeg($source);
+    
+        elseif ($info['mime'] == 'image/gif') 
+            $image = imagecreatefromgif($source);
+    
+        elseif ($info['mime'] == 'image/png') 
+            $image = imagecreatefrompng($source);
+    
+        imagejpeg($image, $destination, $quality);
+    
+        return $destination;
     }
 
     public function uploadSize($file)

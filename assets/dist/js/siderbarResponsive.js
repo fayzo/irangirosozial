@@ -93,6 +93,7 @@ function CloseYoutube() {
 }
 
 function displayImage0(e) { 
+
   for (var i = 0; i < e.files.length; i++) {
     var myDiv = document.getElementById("add-photo0");
     var selectList = document.createElement("div");
@@ -134,6 +135,79 @@ function displayImage0(e) {
 
 
 function displayImage(e) {
+
+  var file = e.files[0];
+  console.log(e.files);
+  console.log(file.type );
+
+if(file.type == "application/pdf"){
+
+    var myDiv = document.getElementById("add-photo0");
+    var selectList = document.createElement("canvas");
+    var photo = "pdfViewer";
+    selectList.id = photo;
+    selectList.className = "col-md-4 mt-2";
+    myDiv.appendChild(selectList);
+
+  // Loaded via <script> tag, create shortcut to access PDF.js exports.
+  // var pdfjsLib = window['pdfjs-dist/build/pdf'];
+  // The workerSrc property shall be specified.
+  // pdfjsLib.GlobalWorkerOptions.workerSrc = 'http://localhost/irangiro_social_site/assets/dist/js/pdf.worker.js';
+
+		var fileReader = new FileReader();  
+		fileReader.onload = function() {
+			var pdfData = new Uint8Array(this.result);
+			// Using DocumentInitParameters object to load binary data.
+			var loadingTask = pdfjsLib.getDocument({data: pdfData});
+			loadingTask.promise.then(function(pdf) {
+			  console.log('PDF loaded');
+			  
+			  // Fetch the first page
+			  var pageNumber = 1;
+			  pdf.getPage(pageNumber).then(function(page) {
+				console.log('Page loaded');
+				
+				var scale = 1.5;
+				var viewport = page.getViewport({scale: scale});
+
+				// Prepare canvas using PDF page dimensions
+				var canvas = $("#pdfViewer")[0];
+				var context = canvas.getContext('2d');
+				canvas.height = viewport.height;
+				canvas.width = viewport.width;
+
+				// Render PDF page into canvas context
+				var renderContext = {
+				  canvasContext: context,
+				  viewport: viewport
+				};
+				var renderTask = page.render(renderContext);
+				renderTask.promise.then(function () {
+				  console.log('Page rendered');
+				});
+			  });
+			}, function (reason) {
+			  // PDF loading error
+			  console.error(reason);
+			});
+		};
+		fileReader.readAsArrayBuffer(file);
+
+  }else if(file.type ==  file.type == "application/msword"
+          || file.type == "application/msword"
+          || file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          || file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.template"
+          || file.type == "application/vnd.ms-word.document.macroEnabled.12"
+          || file.type == "application/vnd.ms-word.template.macroEnabled.12"
+          || file.type == "application/vnd.ms-excel"
+          || file.type == "application/vnd.ms-excel"
+          || file.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+          || file.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.template"
+          || file.type == "application/vnd.ms-excel.sheet.macroEnabled.12"
+          || file.type == "application/vnd.ms-excel.template.macroEnabled.12"
+          || file.type == "application/vnd.ms-excel.addin.macroEnabled.12"){
+
+  }else{
 
   for (var i = 0; i < e.files.length; i++) {
     var myDiv = document.getElementById("add-photo0");
@@ -183,4 +257,8 @@ function displayImage(e) {
   console.log(e.files);
   console.log(e.files.length);
   
+} 
+// else if 
+  
 }
+// displayImage

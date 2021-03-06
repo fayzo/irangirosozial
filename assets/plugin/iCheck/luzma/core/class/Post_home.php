@@ -929,6 +929,19 @@ class Posts_home extends Home {
                                     <a href="#" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a>
                                 </span>
                             </div>
+                            <style>
+                            .pdfobject-container { width:100%; height: 30rem; border: 1rem solid rgba(0,0,0,.1); }
+                            </style>
+                            <!-- <object data="< ?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" type="application/pdf" class="pdfobject-container">
+                            <p>Alternative text - include a link <a href="< ?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>">to the PDF!</a></p>
+                            </object> -->
+                            <!-- <embed src="< ?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" type="application/pdf" width= "500" height= "375"> -->
+                            <!-- <div id="< ?php echo str_replace(".","_", "example1".pathinfo($splice[$i])['basename']) ;?>" class="pdfobject-container"></div>
+                            
+                            <script src="< ?php echo BASE_URL_LINK ;?>dist/js/jquery.min.js"></script>
+                            <script src="< ?php echo BASE_URL_LINK ;?>dist/js/pdfobject.js"></script> 
+
+                            <script> PDFObject.embed("< ?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>", "< ?php  echo str_replace(".","_", "#example1".pathinfo($splice[$i])['basename']) ;?>");</script> -->
                         </div><!-- col -->
                     <?php
                         $rowCount++;

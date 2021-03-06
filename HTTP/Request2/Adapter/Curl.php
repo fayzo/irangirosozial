@@ -13,15 +13,15 @@
  * @category  HTTP
  * @package   HTTP_Request2
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2020 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2014 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
 
-// pear-package-only /**
-// pear-package-only  * Base class for HTTP_Request2 adapters
-// pear-package-only  */
-// pear-package-only require_once 'HTTP/Request2/Adapter.php';
+/**
+ * Base class for HTTP_Request2 adapters
+ */
+require_once 'HTTP/Request2/Adapter.php';
 
 /**
  * Adapter for HTTP_Request2 wrapping around cURL extension
@@ -39,64 +39,64 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
      * Mapping of header names to cURL options
      * @var  array
      */
-    protected static $headerMap = [
+    protected static $headerMap = array(
         'accept-encoding' => CURLOPT_ENCODING,
         'cookie'          => CURLOPT_COOKIE,
         'referer'         => CURLOPT_REFERER,
         'user-agent'      => CURLOPT_USERAGENT
-    ];
+    );
 
     /**
      * Mapping of SSL context options to cURL options
      * @var  array
      */
-    protected static $sslContextMap = [
+    protected static $sslContextMap = array(
         'ssl_verify_peer' => CURLOPT_SSL_VERIFYPEER,
         'ssl_cafile'      => CURLOPT_CAINFO,
         'ssl_capath'      => CURLOPT_CAPATH,
         'ssl_local_cert'  => CURLOPT_SSLCERT,
         'ssl_passphrase'  => CURLOPT_SSLCERTPASSWD
-    ];
+    );
 
     /**
      * Mapping of CURLE_* constants to Exception subclasses and error codes
      * @var  array
      */
-    protected static $errorMap = [
-        CURLE_UNSUPPORTED_PROTOCOL  => ['HTTP_Request2_MessageException',
-                                             HTTP_Request2_Exception::NON_HTTP_REDIRECT],
-        CURLE_COULDNT_RESOLVE_PROXY => ['HTTP_Request2_ConnectionException'],
-        CURLE_COULDNT_RESOLVE_HOST  => ['HTTP_Request2_ConnectionException'],
-        CURLE_COULDNT_CONNECT       => ['HTTP_Request2_ConnectionException'],
+    protected static $errorMap = array(
+        CURLE_UNSUPPORTED_PROTOCOL  => array('HTTP_Request2_MessageException',
+                                             HTTP_Request2_Exception::NON_HTTP_REDIRECT),
+        CURLE_COULDNT_RESOLVE_PROXY => array('HTTP_Request2_ConnectionException'),
+        CURLE_COULDNT_RESOLVE_HOST  => array('HTTP_Request2_ConnectionException'),
+        CURLE_COULDNT_CONNECT       => array('HTTP_Request2_ConnectionException'),
         // error returned from write callback
-        CURLE_WRITE_ERROR           => ['HTTP_Request2_MessageException',
-                                             HTTP_Request2_Exception::NON_HTTP_REDIRECT],
-        CURLE_OPERATION_TIMEOUTED   => ['HTTP_Request2_MessageException',
-                                             HTTP_Request2_Exception::TIMEOUT],
-        CURLE_HTTP_RANGE_ERROR      => ['HTTP_Request2_MessageException'],
-        CURLE_SSL_CONNECT_ERROR     => ['HTTP_Request2_ConnectionException'],
-        CURLE_LIBRARY_NOT_FOUND     => ['HTTP_Request2_LogicException',
-                                             HTTP_Request2_Exception::MISCONFIGURATION],
-        CURLE_FUNCTION_NOT_FOUND    => ['HTTP_Request2_LogicException',
-                                             HTTP_Request2_Exception::MISCONFIGURATION],
-        CURLE_ABORTED_BY_CALLBACK   => ['HTTP_Request2_MessageException',
-                                             HTTP_Request2_Exception::NON_HTTP_REDIRECT],
-        CURLE_TOO_MANY_REDIRECTS    => ['HTTP_Request2_MessageException',
-                                             HTTP_Request2_Exception::TOO_MANY_REDIRECTS],
-        CURLE_SSL_PEER_CERTIFICATE  => ['HTTP_Request2_ConnectionException'],
-        CURLE_GOT_NOTHING           => ['HTTP_Request2_MessageException'],
-        CURLE_SSL_ENGINE_NOTFOUND   => ['HTTP_Request2_LogicException',
-                                             HTTP_Request2_Exception::MISCONFIGURATION],
-        CURLE_SSL_ENGINE_SETFAILED  => ['HTTP_Request2_LogicException',
-                                             HTTP_Request2_Exception::MISCONFIGURATION],
-        CURLE_SEND_ERROR            => ['HTTP_Request2_MessageException'],
-        CURLE_RECV_ERROR            => ['HTTP_Request2_MessageException'],
-        CURLE_SSL_CERTPROBLEM       => ['HTTP_Request2_LogicException',
-                                             HTTP_Request2_Exception::INVALID_ARGUMENT],
-        CURLE_SSL_CIPHER            => ['HTTP_Request2_ConnectionException'],
-        CURLE_SSL_CACERT            => ['HTTP_Request2_ConnectionException'],
-        CURLE_BAD_CONTENT_ENCODING  => ['HTTP_Request2_MessageException'],
-    ];
+        CURLE_WRITE_ERROR           => array('HTTP_Request2_MessageException',
+                                             HTTP_Request2_Exception::NON_HTTP_REDIRECT),
+        CURLE_OPERATION_TIMEOUTED   => array('HTTP_Request2_MessageException',
+                                             HTTP_Request2_Exception::TIMEOUT),
+        CURLE_HTTP_RANGE_ERROR      => array('HTTP_Request2_MessageException'),
+        CURLE_SSL_CONNECT_ERROR     => array('HTTP_Request2_ConnectionException'),
+        CURLE_LIBRARY_NOT_FOUND     => array('HTTP_Request2_LogicException',
+                                             HTTP_Request2_Exception::MISCONFIGURATION),
+        CURLE_FUNCTION_NOT_FOUND    => array('HTTP_Request2_LogicException',
+                                             HTTP_Request2_Exception::MISCONFIGURATION),
+        CURLE_ABORTED_BY_CALLBACK   => array('HTTP_Request2_MessageException',
+                                             HTTP_Request2_Exception::NON_HTTP_REDIRECT),
+        CURLE_TOO_MANY_REDIRECTS    => array('HTTP_Request2_MessageException',
+                                             HTTP_Request2_Exception::TOO_MANY_REDIRECTS),
+        CURLE_SSL_PEER_CERTIFICATE  => array('HTTP_Request2_ConnectionException'),
+        CURLE_GOT_NOTHING           => array('HTTP_Request2_MessageException'),
+        CURLE_SSL_ENGINE_NOTFOUND   => array('HTTP_Request2_LogicException',
+                                             HTTP_Request2_Exception::MISCONFIGURATION),
+        CURLE_SSL_ENGINE_SETFAILED  => array('HTTP_Request2_LogicException',
+                                             HTTP_Request2_Exception::MISCONFIGURATION),
+        CURLE_SEND_ERROR            => array('HTTP_Request2_MessageException'),
+        CURLE_RECV_ERROR            => array('HTTP_Request2_MessageException'),
+        CURLE_SSL_CERTPROBLEM       => array('HTTP_Request2_LogicException',
+                                             HTTP_Request2_Exception::INVALID_ARGUMENT),
+        CURLE_SSL_CIPHER            => array('HTTP_Request2_ConnectionException'),
+        CURLE_SSL_CACERT            => array('HTTP_Request2_ConnectionException'),
+        CURLE_BAD_CONTENT_ENCODING  => array('HTTP_Request2_MessageException'),
+    );
 
     /**
      * Response being received
@@ -115,12 +115,6 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
      * @var boolean
      */
     protected $eventReceivedHeaders = false;
-
-    /**
-     * Whether 'sentBoody' event was sent to observers
-     * @var boolean
-     */
-    protected $eventSentBody = false;
 
     /**
      * Position within request body
@@ -177,26 +171,27 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
         $this->position             = 0;
         $this->eventSentHeaders     = false;
         $this->eventReceivedHeaders = false;
-        $this->eventSentBody        = false;
 
         try {
             if (false === curl_exec($ch = $this->createCurlHandle())) {
-                throw self::wrapCurlError($ch);
+                $e = self::wrapCurlError($ch);
             }
-        } finally {
-            if (isset($ch)) {
-                $this->lastInfo = curl_getinfo($ch);
-                if (CURLE_OK !== curl_errno($ch)) {
-                    $this->request->setLastEvent('warning', curl_error($ch));
-                }
-                curl_close($ch);
-            }
-            $response = $this->response;
-            unset($this->request, $this->requestBody, $this->response);
+        } catch (Exception $e) {
+        }
+        if (isset($ch)) {
+            $this->lastInfo = curl_getinfo($ch);
+            curl_close($ch);
+        }
+
+        $response = $this->response;
+        unset($this->request, $this->requestBody, $this->response);
+
+        if (!empty($e)) {
+            throw $e;
         }
 
         if ($jar = $request->getCookieJar()) {
-            $jar->addCookiesFromResponse($response);
+            $jar->addCookiesFromResponse($response, $request->getUrl());
         }
 
         if (0 < $this->lastInfo['size_download']) {
@@ -226,10 +221,10 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
     {
         $ch = curl_init();
 
-        curl_setopt_array($ch, [
+        curl_setopt_array($ch, array(
             // setup write callbacks
-            CURLOPT_HEADERFUNCTION => [$this, 'callbackWriteHeader'],
-            CURLOPT_WRITEFUNCTION  => [$this, 'callbackWriteBody'],
+            CURLOPT_HEADERFUNCTION => array($this, 'callbackWriteHeader'),
+            CURLOPT_WRITEFUNCTION  => array($this, 'callbackWriteBody'),
             // buffer size
             CURLOPT_BUFFERSIZE     => $this->request->getConfig('buffer_size'),
             // connection timeout
@@ -238,7 +233,7 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
             CURLINFO_HEADER_OUT    => true,
             // request url
             CURLOPT_URL            => $this->request->getUrl()->getUrl()
-        ]);
+        ));
 
         // set up redirects
         if (!$this->request->getConfig('follow_redirects')) {
@@ -382,7 +377,7 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
         }
 
         // set headers not having special keys
-        $headersFmt = [];
+        $headersFmt = array();
         foreach ($headers as $name => $value) {
             $canonicalName = implode('-', array_map('ucfirst', explode('-', $name)));
             $headersFmt[]  = $canonicalName . ': ' . $value;
@@ -405,14 +400,11 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
     protected function workaroundPhpBug47204($ch, &$headers)
     {
         // no redirects, no digest auth -> probably no rewind needed
-        // also apply workaround only for POSTs, othrerwise we get
-        // https://pear.php.net/bugs/bug.php?id=20440 for PUTs
         if (!$this->request->getConfig('follow_redirects')
             && (!($auth = $this->request->getAuth())
                 || HTTP_Request2::AUTH_DIGEST != $auth['scheme'])
-            || HTTP_Request2::METHOD_POST !== $this->request->getMethod()
         ) {
-            curl_setopt($ch, CURLOPT_READFUNCTION, [$this, 'callbackReadBody']);
+            curl_setopt($ch, CURLOPT_READFUNCTION, array($this, 'callbackReadBody'));
 
         } else {
             // rewind may be needed, read the whole body into memory
@@ -477,36 +469,40 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
      */
     protected function callbackWriteHeader($ch, $string)
     {
-        if (!$this->eventSentHeaders
-            // we may receive a second set of headers if doing e.g. digest auth
-            // but don't bother with 100-Continue responses (bug #15785)
-            || $this->eventReceivedHeaders && $this->response->getStatus() >= 200
-        ) {
-            $this->request->setLastEvent(
-                'sentHeaders', curl_getinfo($ch, CURLINFO_HEADER_OUT)
-            );
-        }
-        if (!$this->eventSentBody) {
+        // we may receive a second set of headers if doing e.g. digest auth
+        if ($this->eventReceivedHeaders || !$this->eventSentHeaders) {
+            // don't bother with 100-Continue responses (bug #15785)
+            if (!$this->eventSentHeaders
+                || $this->response->getStatus() >= 200
+            ) {
+                $this->request->setLastEvent(
+                    'sentHeaders', curl_getinfo($ch, CURLINFO_HEADER_OUT)
+                );
+            }
             $upload = curl_getinfo($ch, CURLINFO_SIZE_UPLOAD);
-            // if body wasn't read by the callback, send event with total body size
+            // if body wasn't read by a callback, send event with total body size
             if ($upload > $this->position) {
                 $this->request->setLastEvent(
                     'sentBodyPart', $upload - $this->position
                 );
+                $this->position = $upload;
             }
-            if ($upload > 0) {
+            if ($upload && (!$this->eventSentHeaders
+                            || $this->response->getStatus() >= 200)
+            ) {
                 $this->request->setLastEvent('sentBody', $upload);
             }
+            $this->eventSentHeaders = true;
+            // we'll need a new response object
+            if ($this->eventReceivedHeaders) {
+                $this->eventReceivedHeaders = false;
+                $this->response             = null;
+            }
         }
-        $this->eventSentHeaders = true;
-        $this->eventSentBody    = true;
-
-        if ($this->eventReceivedHeaders || empty($this->response)) {
-            $this->eventReceivedHeaders = false;
-            $this->response             = new HTTP_Request2_Response(
+        if (empty($this->response)) {
+            $this->response = new HTTP_Request2_Response(
                 $string, false, curl_getinfo($ch, CURLINFO_EFFECTIVE_URL)
             );
-
         } else {
             $this->response->parseHeaderLine($string);
             if ('' == trim($string)) {
@@ -520,13 +516,13 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
 
                     // for versions lower than 5.2.10, check the redirection URL protocol
                     if (!defined('CURLOPT_REDIR_PROTOCOLS') && $redirectUrl->isAbsolute()
-                        && !in_array($redirectUrl->getScheme(), ['http', 'https'])
+                        && !in_array($redirectUrl->getScheme(), array('http', 'https'))
                     ) {
                         return -1;
                     }
 
                     if ($jar = $this->request->getCookieJar()) {
-                        $jar->addCookiesFromResponse($this->response);
+                        $jar->addCookiesFromResponse($this->response, $this->request->getUrl());
                         if (!$redirectUrl->isAbsolute()) {
                             $redirectUrl = $this->request->getUrl()->resolve($redirectUrl);
                         }
@@ -536,7 +532,6 @@ class HTTP_Request2_Adapter_Curl extends HTTP_Request2_Adapter
                     }
                 }
                 $this->eventReceivedHeaders = true;
-                $this->eventSentBody        = false;
             }
         }
         return strlen($string);
