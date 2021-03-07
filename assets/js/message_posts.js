@@ -2,9 +2,11 @@
 $(document).ready(function () {
     // THIS FUNCTION IS TO SHOW REAMORE IN POST TEXT
     $(".readtext-tweet-readmore").click(function(){
-		// $(".more-text").contents().unwrap();
+        var tweetText = $(this).data('tweettext');
+		$(".view-more-text"+tweetText).contents().unwrap();
 		$(this).siblings(".more-text").contents().unwrap();
 		$(this).remove();
+        // console.log(tweetText);
 	});
 
     $(document).on('click','#readtext-tweet-readmores',function () {

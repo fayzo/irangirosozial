@@ -908,7 +908,8 @@ $paths=basename($_SERVER['REQUEST_URI']);
 $path=$_SERVER['REQUEST_URI'];
 $result = substr(strrchr($path,'/'),1);
 
-if (isset($_SESSION['key']) && $result === '' || isset($_SESSION['key']) && $self === 'profile.php'){ ?>
+if (isset($_SESSION['key']) && $result === '' || isset($_SESSION['key']) && $self === 'profile.php' || 
+isset($_SESSION['key']) && $self === 'hashtag.php'){ ?>
   
   <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
   <body class="hold-transition skin-blue fixed sidebar-mini-expand-feature sidebar-mini">

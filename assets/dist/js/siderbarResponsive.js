@@ -193,21 +193,80 @@ if(file.type == "application/pdf"){
 		};
 		fileReader.readAsArrayBuffer(file);
 
-  }else if(file.type ==  file.type == "application/msword"
-          || file.type == "application/msword"
-          || file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-          || file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.template"
-          || file.type == "application/vnd.ms-word.document.macroEnabled.12"
-          || file.type == "application/vnd.ms-word.template.macroEnabled.12"
-          || file.type == "application/vnd.ms-excel"
-          || file.type == "application/vnd.ms-excel"
-          || file.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-          || file.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.template"
-          || file.type == "application/vnd.ms-excel.sheet.macroEnabled.12"
-          || file.type == "application/vnd.ms-excel.template.macroEnabled.12"
-          || file.type == "application/vnd.ms-excel.addin.macroEnabled.12"){
+  }else if(file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || 
+           file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.template" ||
+           file.type == "application/vnd.ms-word.document.macroEnabled.12" ||
+           file.type == "application/vnd.ms-word.template.macroEnabled.12" ||
+           file.type == "application/vnd.ms-excel" ||
+           file.type == "application/msword" ||
+           file.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" || 
+           file.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.template" ||
+           file.type == "application/vnd.ms-excel.sheet.macroEnabled.12" ||
+           file.type == "application/vnd.ms-excel.template.macroEnabled.12" ||
+           file.type == "application/vnd.ms-excel.addin.macroEnabled.12"){
 
-  }else{
+            for (var i = 0; i < e.files.length; i++) {
+              var myDiv = document.getElementById("add-photo0");
+              var selectList = document.createElement("div");
+              var photo = "add-photo";
+              selectList.id = photo + [i + 1];
+              selectList.className = "col-md-6 mt-2";
+              myDiv.appendChild(selectList);
+            }
+          
+            function setupReader(files,y) {
+              if (files) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                  if (y <= 5) {
+                    $('#add-photo' + [y + 1] + '').html(
+                      '<span class="mailbox-attachment-icon"><i class="fa fa-file-word-o"></i></span>'+
+                        '<div class="mailbox-attachment-info main-active">'+
+                            '<a href="" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>'+
+                              '<span class="profilephoto' + y + '" ></span>' +
+                            '</a>'+
+                            '<span class="mailbox-attachment-size">'+
+                                '<span class="filesize' + y + '" ></span>' +
+                                '<a href="#" class="btn btn-default btn-sm float-right">' +
+                                  '<i class="fa fa-cloud-download"></i></a>' +
+                          ' </span>'+
+                        '</div>'
+                    );
+                  } else {
+                    $('#add-photo' + [y + 1] + '').html(
+                      '<span class="mailbox-attachment-icon"><i class="fa fa-file-word-o"></i></span>'+
+                        '<div class="mailbox-attachment-info main-active">'+
+                            '<a href="" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>'+
+                              '<span class="profilephoto' + y + '" ></span>' +
+                            '</a>'+
+                            '<span class="mailbox-attachment-size">'+
+                                '<span class="filesize' + y + '" ></span>' +
+                                '<a href="#" class="btn btn-default btn-sm float-right">' +
+                                  '<i class="fa fa-cloud-download"></i></a>' +
+                          ' </span>'+
+                        '</div>'
+                    );
+                  }
+          
+                  $('.profilephoto' + y +'').html(files['name'] + ' KB');
+                  $('.filesize' + y +'').html(files['size'] + ' KB');
+                };
+                reader.readAsDataURL(files,"UTF-8");
+                // reader.readAsText(file, "UTF-8");
+              }
+            }
+          
+            for (var y = 0; y < e.files.length; y++) {
+              setupReader(e.files[y],y);
+            }
+          
+            console.log(e.files);
+            console.log(e.files.length);
+            
+  }else if(file.type == "image/jpeg" ||file.type == "image/png" || 
+  file.type == "image/gif" 
+
+  ) {
 
   for (var i = 0; i < e.files.length; i++) {
     var myDiv = document.getElementById("add-photo0");
@@ -240,6 +299,53 @@ if(file.type == "application/pdf"){
         } else {
           $('#add-photo' + [y + 1] + '').html(
             '<img src="#" class="profilephoto' + y + '" alt="User Image"  width= "200px">'
+          );
+        }
+
+        $('.profilephoto' + y +'').attr('src', e.target.result);
+      };
+      reader.readAsDataURL(files,"UTF-8");
+      // reader.readAsText(file, "UTF-8");
+    }
+  }
+
+  for (var y = 0; y < e.files.length; y++) {
+    setupReader(e.files[y],y);
+  }
+
+  console.log(e.files);
+  console.log(e.files.length);
+  
+  }else if( file.type == "video/mp4" || file.type == "video/webm" ) {
+
+  for (var i = 0; i < e.files.length; i++) {
+    var myDiv = document.getElementById("add-photo0");
+    var selectList = document.createElement("div");
+    var photo = "add-photo";
+    selectList.id = photo + [i + 1];
+    selectList.className = "col-md-12 mt-2";
+    myDiv.appendChild(selectList);
+  }
+
+  function setupReader(files,y) {
+    if (files) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        if (y <= 5) {
+          $('#add-photo' + [y + 1] + '').html(
+            '<div class="form-group mt-3">' +
+            '<video controls preload="auto" width="100%" height="360"> '+
+            '<source src="" class="profilephoto' + y + '" type="video/mp4"> '+
+'            </video>' +
+            '</div>'
+          );
+        } else {
+          $('#add-photo' + [y + 1] + '').html(
+            '<div class="form-group mt-3">' +
+            '<video controls preload="auto" width="100%" height="360"> '+
+            '<source src="" class="profilephoto' + y + '" type="video/mp4" > '+
+'            </video>' +
+            '</div>'
           );
         }
 

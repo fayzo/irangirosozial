@@ -24,6 +24,7 @@ if(!empty($_FILES['picture']['name'])){
     // chdir($path);
     // $targetPath = getcwd().DIRECTORY_SEPARATOR.$fileName;
     // FILES TO DELETE ON ITS DESTINATIONS
+    $home->thumbnail($_FILES['picture']['tmp_name'],$uploadDir,$uploadDir, 480, 400 , $files['type']);
     move_uploaded_file($_FILES['picture']['tmp_name'], $targetPath);
         // FILES TO DELETE ON ITS DESTINATIONS
         $query= $db->query("SELECT profile_img FROM users WHERE user_id= $id ");
@@ -76,6 +77,7 @@ if(!empty($_FILES['pictureLogo']['name'])){
     // chdir($path);
     // $targetPath = getcwd().DIRECTORY_SEPARATOR.$fileName;
     // FILES TO DELETE ON ITS DESTINATIONS
+    $home->thumbnail($_FILES['pictureLogo']['tmp_name'],$uploadDir,$uploadDir, 480, 400 , $files['type']);
     move_uploaded_file($_FILES['pictureLogo']['tmp_name'], $targetPath);
         // FILES TO DELETE ON ITS DESTINATIONS
         $query= $db->query("SELECT profile_img FROM users WHERE user_id= $id ");
@@ -126,7 +128,9 @@ if(!empty($_FILES['cover_picture']['name'])){
     // chdir($path);
     // $targetPath = getcwd().DIRECTORY_SEPARATOR.$coverName;
     // FILES TO DELETE ON ITS DESTINATIONS
+    $home->thumbnail($_FILES['cover_picture']['tmp_name'],$uploadDir,$uploadDir, 480, 400 , $files['type']);
     move_uploaded_file($_FILES['cover_picture']['tmp_name'], $targetPath);
+    // var_dump($dz);
         // FILES TO DELETE ON ITS DESTINATIONS
         $query= $db->query("SELECT cover_img FROM users WHERE user_id= $id ");
         $rows= $query->fetch_assoc();

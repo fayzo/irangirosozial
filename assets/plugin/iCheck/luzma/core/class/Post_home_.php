@@ -295,8 +295,8 @@ class Posts_home extends  Home {
                                             <?php   }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                        <video controls poster="../assets/image/img/avatar3.png" width="248px" height="110px">
-                                                            <source src="git.mp4" type="video/mp4"> 
+                                                        <video controls poster="<?php echo BASE_URL_LINK ;?>image/img/avatar3.png" width="248px" height="110px">
+                                                            <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/mp4"> 
                                                             <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                 <!-- fallback content here -->
                                                         </video>
@@ -348,8 +348,9 @@ class Posts_home extends  Home {
                                               <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                         <video controls poster="../assets/image/img/avatar3.png" width="640" height="360">
-                                                             <source src="video/boatride.webm" type="video/webm"> 
+                                                         <video controls poster="<?php echo BASE_URL_LINK ;?>image/img/avatar3.png" width="640" height="360">
+                                                             <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/webm"> 
+                                                             <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                  <!-- fallback content herehere -->
                                                          </video>      
                                                      </div><!-- col -->
@@ -1533,8 +1534,8 @@ class Posts_home extends  Home {
                                             <?php   }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                        <video controls poster="../assets/image/img/avatar3.png" width="248px" height="110px">
-                                                            <source src="git.mp4" type="video/mp4"> 
+                                                        <video controls  width="248px" height="110px">
+                                                            <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/mp4"> 
                                                             <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                 <!-- fallback content here -->
                                                         </video>
@@ -1586,8 +1587,9 @@ class Posts_home extends  Home {
                                               <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                         <video controls poster="../assets/image/img/avatar3.png" width="640" height="360">
-                                                             <source src="video/boatride.webm" type="video/webm"> 
+                                                         <video controls  width="640" height="360">
+                                                             <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/webm"> 
+                                                             <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                  <!-- fallback content herehere -->
                                                          </video>      
                                                      </div><!-- col -->
@@ -2758,7 +2760,7 @@ class Posts_home extends  Home {
                                             <?php   }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                        <video controls poster="../assets/image/img/avatar3.png" width="248px" height="110px">
+                                                        <video controls poster="<?php echo BASE_URL_LINK ;?>image/img/avatar3.png" width="248px" height="110px">
                                                             <source src="git.mp4" type="video/mp4"> 
                                                             <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                 <!-- fallback content here -->
@@ -2811,7 +2813,7 @@ class Posts_home extends  Home {
                                               <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                         <video controls poster="../assets/image/img/avatar3.png" width="640" height="360">
+                                                         <video controls poster="<?php echo BASE_URL_LINK ;?>image/img/avatar3.png" width="640" height="360">
                                                              <source src="video/boatride.webm" type="video/webm"> 
                                                                  <!-- fallback content herehere -->
                                                          </video>      

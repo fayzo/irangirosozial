@@ -10,26 +10,27 @@ class Message extends Home
        $mysqli= $this->database;
     //    $query="SELECT * FROM message M LEFT JOIN users U ON M. message_from= U. user_id WHERE M. message_to= $user_id AND M. status= 1 GROUP BY M. message_from, M. message_to HAVING  COUNT(DISTINCT M. message_to)=1 AND COUNT(DISTINCT M. message_from)=1 ORDER BY M. message_on Desc";
 
-       $query="SELECT * FROM message M 
-       LEFT JOIN users U ON M. message_from= U. user_id 
-       JOIN (
-            SELECT MAX(message_on) AS max_date
-            FROM message WHERE message_to = $user_id  
-            GROUP BY message_from, message_to
-        ) AS lm ON m. message_on = lm .max_date
-       WHERE M. message_to= $user_id AND M. status= 1 GROUP BY M. message_from, M. message_to ORDER BY M. message_on Desc";
+    // THIS ONE MAKE MODAL TO WORK BAD
+    //    $query="SELECT * FROM message M 
+    //    LEFT JOIN users U ON M. message_from= U. user_id 
+    //    JOIN (
+    //         SELECT MAX(message_on) AS max_date
+    //         FROM message WHERE message_to = $user_id  
+    //         GROUP BY message_from, message_to
+    //     ) AS lm ON m. message_on = lm .max_date
+    //    WHERE M. message_to= $user_id AND M. status= 1 GROUP BY M. message_from, M. message_to ORDER BY M. message_on Desc";
     
-    //    $query ="SELECT * FROM message m
-    //             JOIN users U ON m. message_from = U. user_id 
-    //             JOIN (
-    //                 SELECT message_from, message_to, MAX(message_on) AS max_date
-    //                 FROM message
-    //                 WHERE message_to = $user_id  
-    //                 GROUP BY message_from, message_to
-    //             ) AS lm ON m. message_on = lm .max_date AND 
-    //             m. message_from= lm. message_from AND
-    //             m. message_to=lm. message_to 
-    //             WHERE m. message_to= $user_id AND m. status= 1 ";
+       $query ="SELECT * FROM message m
+                JOIN users U ON m. message_from = U. user_id 
+                JOIN (
+                    SELECT message_from, message_to, MAX(message_on) AS max_date
+                    FROM message
+                    WHERE message_to = $user_id  
+                    GROUP BY message_from, message_to
+                ) AS lm ON m. message_on = lm .max_date AND 
+                m. message_from= lm. message_from AND
+                m. message_to=lm. message_to 
+                WHERE m. message_to= $user_id AND m. status= 1 ";
 
         $result=$mysqli->query($query);
         // var_dump('ERROR: Could not able to execute'. $result.mysqli_error($mysqli));
@@ -44,15 +45,7 @@ class Message extends Home
     public function recentMessageUnread($user_id)
     {
        $mysqli= $this->database;
-    //    $query="SELECT * FROM message M LEFT JOIN users U ON M. message_from= U. user_id WHERE M. message_to= $user_id AND M. status= 0 GROUP BY M. message_from, M. message_to HAVING  COUNT(DISTINCT M. message_to)=1 AND COUNT(DISTINCT M. message_from)=1 ORDER BY M. message_on Desc";
-       $query="SELECT * FROM message M 
-       LEFT JOIN users U ON M. message_from= U. user_id 
-       JOIN (
-            SELECT MAX(message_on) AS max_date
-            FROM message WHERE message_to = $user_id  
-            GROUP BY message_from, message_to
-        ) AS lm ON m. message_on = lm .max_date
-       WHERE M. message_to= $user_id AND M. status= 0 GROUP BY M. message_from, M. message_to ORDER BY M. message_on Desc";
+       $query="SELECT * FROM message M LEFT JOIN users U ON M. message_from= U. user_id WHERE M. message_to= $user_id AND M. status= 0 GROUP BY M. message_from, M. message_to HAVING  COUNT(DISTINCT M. message_to)=1 AND COUNT(DISTINCT M. message_from)=1 ORDER BY M. message_on Desc";
 
        $result=$mysqli->query($query);
        $data=array();

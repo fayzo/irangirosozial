@@ -972,9 +972,13 @@ public function links(){ ?>
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
 
-             $filenames = (strlen($fileName) > 10)? 
-                     strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
-                     strtolower(date('Y').'_'.rand(10,100).$fileName);
+            $searching = " ";
+            $replace = "_";
+            $filenames = str_replace($searching,$replace, $fileExt[0]).strtolower(date('Y').'_'.rand(10,1000).".".$fileActualExt);
+
+            //  $filenames = (strlen($fileName) > 10)? 
+            //          strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
+            //          strtolower(date('Y').'_'.rand(10,100).$fileName);
 
             $valued[] = $filenames;
             $fileSize[] = $size;
@@ -998,8 +1002,9 @@ public function links(){ ?>
                     // $fileTmp = $this->resize_image($fileTmpName[$key], 500, 500);
                     // $d=move_uploaded_file($fileTmp, $targetFilePath);
 
-                    $d=move_uploaded_file($fileTmpName[$key], $targetFilePath);
-                    $this->thumbnail($filenames,$targetDir,$targetDir, 480, 400 );
+                    $this->thumbnail($fileTmpName[$key],$targetDir,$targetDir, 480, 400 , $file['type'][$key]);
+                    move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                    Var_dump($dz);
 
                 }else {
                     # code...
@@ -1043,13 +1048,29 @@ public function links(){ ?>
     
     }
 
-    public function thumbnail( $img, $source, $dest, $maxw, $maxh ) {      
-        $jpg = $source.$img;
+    public function thumbnail( $img, $source, $dest, $maxw, $maxh ,$type ) {      
+        $jpg = $img;
     
         if( $jpg ) {
             list( $width, $height  ) = getimagesize( $jpg ); //$type will return the type of the image
-            $source = imagecreatefromjpeg( $jpg );
-    
+            // $source = imagecreatefromjpeg( $jpg );
+
+            if ($type == 'image/gif')
+            {
+                // header ('Content-Type: image/gif');
+                $source = imagecreatefromgif($jpg);
+            }
+            elseif ($type == 'image/jpeg')
+            {
+                // header ('Content-Type: image/jpeg');
+                $source  = imagecreatefromjpeg($jpg);
+            }
+            elseif ($type == 'image/png')
+            {
+                // header ('Content-Type: image/png');
+                $source = imagecreatefrompng($jpg);
+            }
+        
             if( $maxw >= $width && $maxh >= $height ) {
                 $ratio = 1;
             }elseif( $width > $height ) {
@@ -1064,8 +1085,14 @@ public function links(){ ?>
             $thumb = imagecreatetruecolor( $thumb_width, $thumb_height );
             imagecopyresampled( $thumb, $source, 0, 0, 0, 0, $thumb_width, $thumb_height, $width, $height );
     
-            $path = $dest.$img;
-            imagejpeg( $thumb, $path, 75 );
+            $path = $img;
+
+            if ($type == 'image/gif')
+                imagegif ( $thumb, $path, 75);
+            elseif ($type == 'image/jpeg')
+                imagejpeg ( $thumb, $path, 75);
+            elseif ($type == 'image/png')
+                imagepng ( $thumb, $path, 9);
         }
         imagedestroy( $thumb );
         imagedestroy( $source );
@@ -1217,7 +1244,9 @@ public function links(){ ?>
             if(in_array($fileType, $allowTypes)){
                 // Upload file to server
                 $fileTmpName = $file["tmp_name"];
+                $dz= $this->thumbnail($fileTmpName[$key],$targetDir,$targetDir, 480, 400 , $file['type'][$key]);
                 move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                Var_dump($dz);
             }
         }
         
@@ -1240,9 +1269,13 @@ public function links(){ ?>
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
 
-             $filenames = (strlen($fileName) > 10)? 
-                     strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
-                     strtolower(date('Y').'_'.rand(10,100).$fileName);
+            $searching = " ";
+            $replace = "_";
+            $filenames = str_replace($searching,$replace, $fileExt[0]).strtolower(date('Y').'_'.rand(10,1000).".".$fileActualExt);
+
+            //  $filenames = (strlen($fileName) > 10)? 
+            //          strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
+            //          strtolower(date('Y').'_'.rand(10,100).$fileName);
 
             $valued[] = $filenames;
 
@@ -1253,7 +1286,10 @@ public function links(){ ?>
             if(in_array($fileType, $allowTypes)){
                 // Upload file to server
                 $fileTmpName = $file["tmp_name"];
+                
+                $dz= $this->thumbnail($fileTmpName[$key],$targetDir,$targetDir, 480, 400 , $file['type'][$key]);
                 move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                Var_dump($dz);
             }
         }
         
@@ -1312,9 +1348,13 @@ public function links(){ ?>
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
 
-             $filenames = (strlen($fileName) > 10)? 
-                     strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
-                     strtolower(date('Y').'_'.rand(10,100).$fileName);
+            $searching = " ";
+            $replace = "_";
+            $filenames = str_replace($searching,$replace, $fileExt[0]).strtolower(date('Y').'_'.rand(10,1000).".".$fileActualExt);
+
+            //  $filenames = (strlen($fileName) > 10)? 
+            //          strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
+            //          strtolower(date('Y').'_'.rand(10,100).$fileName);
 
             $valued[] = $filenames;
 
@@ -1325,7 +1365,10 @@ public function links(){ ?>
             if(in_array($fileType, $allowTypes)){
                 // Upload file to server
                 $fileTmpName = $file["tmp_name"];
+                  
+                $dz= $this->thumbnail($fileTmpName[$key],$targetDir,$targetDir, 480, 400 , $file['type'][$key]);
                 move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                Var_dump($dz);
             }
         }
         
@@ -1348,9 +1391,13 @@ public function links(){ ?>
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
 
-             $filenames = (strlen($fileName) > 10)? 
-                     strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
-                     strtolower(date('Y').'_'.rand(10,100).$fileName);
+            $searching = " ";
+            $replace = "_";
+            $filenames = str_replace($searching,$replace, $fileExt[0]).strtolower(date('Y').'_'.rand(10,1000).".".$fileActualExt);
+
+            //  $filenames = (strlen($fileName) > 10)? 
+            //          strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
+            //          strtolower(date('Y').'_'.rand(10,100).$fileName);
 
             $valued[] = $filenames;
 
@@ -1361,7 +1408,10 @@ public function links(){ ?>
             if(in_array($fileType, $allowTypes)){
                 // Upload file to server
                 $fileTmpName = $file["tmp_name"];
+                  
+                $dz= $this->thumbnail($fileTmpName[$key],$targetDir,$targetDir, 480, 400 , $file['type'][$key]);
                 move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                Var_dump($dz);
             }
         }
         
@@ -1384,9 +1434,13 @@ public function links(){ ?>
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
 
-             $filenames = (strlen($fileName) > 10)? 
-                     strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
-                     strtolower(date('Y').'_'.rand(10,100).$fileName);
+            $searching = " ";
+            $replace = "_";
+            $filenames = str_replace($searching,$replace, $fileExt[0]).strtolower(date('Y').'_'.rand(10,1000).".".$fileActualExt);
+
+            //  $filenames = (strlen($fileName) > 10)? 
+            //          strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
+            //          strtolower(date('Y').'_'.rand(10,100).$fileName);
 
             $valued[] = $filenames;
 
@@ -1397,7 +1451,10 @@ public function links(){ ?>
             if(in_array($fileType, $allowTypes)){
                 // Upload file to server
                 $fileTmpName = $file["tmp_name"];
+                
+                $dz= $this->thumbnail($fileTmpName[$key],$targetDir,$targetDir, 480, 400 , $file['type'][$key]);
                 move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                Var_dump($dz);
             }
         }
         
@@ -1492,9 +1549,13 @@ public function links(){ ?>
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
 
-             $filenames = (strlen($fileName) > 10)? 
-                     strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
-                     strtolower(date('Y').'_'.rand(10,100).$fileName);
+            $searching = " ";
+            $replace = "_";
+            $filenames = str_replace($searching,$replace, $fileExt[0]).strtolower(date('Y').'_'.rand(10,1000).".".$fileActualExt);
+
+            //  $filenames = (strlen($fileName) > 10)? 
+            //          strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
+            //          strtolower(date('Y').'_'.rand(10,100).$fileName);
 
             $valued[] = $filenames;
 
@@ -1505,7 +1566,10 @@ public function links(){ ?>
             if(in_array($fileType, $allowTypes)){
                 // Upload file to server
                 $fileTmpName = $file["tmp_name"];
+                
+                $dz= $this->thumbnail($fileTmpName[$key],$targetDir,$targetDir, 480, 400 , $file['type'][$key]);
                 move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                Var_dump($dz);
             }
         }
         
@@ -1564,9 +1628,13 @@ public function links(){ ?>
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
 
-             $filenames = (strlen($fileName) > 10)? 
-                     strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
-                     strtolower(date('Y').'_'.rand(10,100).$fileName);
+            $searching = " ";
+            $replace = "_";
+            $filenames = str_replace($searching,$replace, $fileExt[0]).strtolower(date('Y').'_'.rand(10,1000).".".$fileActualExt);
+
+            //  $filenames = (strlen($fileName) > 10)? 
+            //          strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt):
+            //          strtolower(date('Y').'_'.rand(10,100).$fileName);
 
             $valued[] = $filenames;
 
@@ -1577,7 +1645,11 @@ public function links(){ ?>
             if(in_array($fileType, $allowTypes)){
                 // Upload file to server
                 $fileTmpName = $file["tmp_name"];
+                $this->thumbnail($fileTmpName[$key],$targetDir,$targetDir, 480, 400 , $file['type'][$key]);
                 move_uploaded_file($fileTmpName[$key], $targetFilePath);
+                
+                // var_dump($dz,$fileTmpName[$key],$file['type'][$key]);
+                // var_dump($filenames,strtolower(date('Y').'_'.rand(10,100).substr($fileName,0,4).".".$fileActualExt));
             }
         }
         
@@ -2258,8 +2330,9 @@ public function links(){ ?>
                                             <?php   }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                        <video controls poster="../assets/image/img/avatar3.png" width="248px" height="110px">
-                                                            <source src="git.mp4" type="video/mp4"> 
+                                                    <?php $expode = explode("=",$tweet['tweet_image']); ?>
+                                                        <video controls preload="auto" width="100%" height="110px">
+                                                            <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/mp4"> 
                                                             <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                 <!-- fallback content here -->
                                                         </video>
@@ -2319,8 +2392,10 @@ public function links(){ ?>
                                               <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                         <video controls poster="../assets/image/img/avatar3.png" width="640" height="360">
-                                                             <source src="video/boatride.webm" type="video/webm"> 
+                                                    <?php $expode = explode("=",$tweet['tweet_image']); ?>
+                                                        <video controls preload="auto" width="100%" height="360">
+                                                        <!-- <video controls poster="< ?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>"  width="100%" height="360"> -->
+                                                             <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/webm"> 
                                                                  <!-- fallback content herehere -->
                                                          </video>      
                                                      </div><!-- col -->
@@ -3021,7 +3096,7 @@ public function links(){ ?>
                                     }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                                     <div class="row mb-2" >
                                     <div class="col-12" >
-                                    <video controls preload="metadata" width="500px"  height="280px" preload="none">
+                                    <video controls preload="auto" width="100%"  height="280px" >
                                         <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/mp4"> 
                                         <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                             <!-- fallback content here 
@@ -3039,7 +3114,7 @@ public function links(){ ?>
                               <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                                  <div class="row mb-2">
                                     <div class="col-12">
-                                    <video controls poster="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" width="auto" height="auto">
+                                    <video controls preload="auto" width="100%" height="auto">
                                         <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/webm"> 
                                             <!-- fallback content herehere -->
                                     </video>
@@ -3312,40 +3387,22 @@ public function links(){ ?>
                                   <?php if (!empty($tweet['profile_img'])) {?>
                                   <img src="<?php echo BASE_URL_LINK ;?>image/users_profile_cover/<?php echo $user['profile_img'] ;?>" alt="User Image">
                                   <?php  }else{ ?>
-                                    <img src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>" alt="User Image">
+                                    <img src="<?php echo BASE_URL_LINK."image/users_profile_cover/irangiro.png" ;?>" alt="User Image">
                                   <?php } ?>
                             </div>
                             </div>
                              <span class="username">
-                                 <a href="<?php echo PROFILE ;?>">Adam Jones</a>
+                                 <a href="<?php echo PROFILE ;?>">Irangiro</a>
                              </span>
-                             <span class="description">Posted 5 photos - 5 days ago</span>
+                             <span class="description">Public Figure | Content Creator</span>
                          </div>
                          <!-- /.user-block -->
                          <div class="row mb-3">
-                             <div class="col-6">
-                                 <img class="img-fluid"
-                                     src="<?php echo BASE_URL_LINK ;?>image/img/photo1.png" alt="Photo">
-                             </div>
-                             <!-- /.col -->
-                             <div class="col-6">
+                             <div class="col-12">
                                  <div class="row">
-                                     <div class="col-6">
-                                         <img class="img-fluid mb-3"
-                                             src="<?php echo BASE_URL_LINK ;?>image/img/photo2.png"
-                                             alt="Photo">
+                                     <div class="col-12">
                                          <img class="img-fluid"
-                                             src="<?php echo BASE_URL_LINK ;?>image/img/photo3.jpg"
-                                             alt="Photo">
-                                     </div>
-                                     <!-- /.col -->
-                                     <div class="col-6">
-                                         <img class="img-fluid mb-3"
-                                             src="<?php echo BASE_URL_LINK ;?>image/img/photo4.jpg"
-                                             alt="Photo">
-                                         <img class="img-fluid"
-                                             src="<?php echo BASE_URL_LINK ;?>image/img/photo1.png"
-                                             alt="Photo">
+                                             src="<?php echo BASE_URL_LINK."image/users_cover_profile/coming-soon.png" ;?>" alt="Photo">
                                      </div>
                                      <!-- /.col -->
                                  </div>
@@ -3362,7 +3419,7 @@ public function links(){ ?>
                                 Like</a>
                             <span class="float-right">
                                 <a href="#" class="link-black text-sm">
-                                    <i class="fa fa-comments-o mr-1"></i> Comments (5)
+                                    <i class="fa fa-comments-o mr-1"></i> Comments ()
                                 </a>
                             </span>
                         </p>

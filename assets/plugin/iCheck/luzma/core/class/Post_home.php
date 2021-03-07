@@ -320,8 +320,10 @@ class Posts_home extends Home {
                         <?php   }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                             <div class="row">
                                 <div class="col-6 ">
-                                    <video controls poster="../assets/image/img/avatar3.png" width="248px" height="110px">
-                                        <source src="git.mp4" type="video/mp4"> 
+                                    <?php $expode = explode("=",$tweet['tweet_image']); ?>
+
+                                    <video  controls preload="auto" width="100%" height="110px">
+                                        <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0];?>" type="video/mp4"> 
                                         <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                             <!-- fallback content here -->
                                     </video>
@@ -381,8 +383,10 @@ class Posts_home extends Home {
                           <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                             <div class="row">
                                 <div class="col-6 ">
-                                     <video controls poster="../assets/image/img/avatar3.png" width="640" height="360">
-                                         <source src="video/boatride.webm" type="video/webm"> 
+                                     <?php $expode = explode("=",$tweet['tweet_image']); ?>
+
+                                     <video  controls preload="auto" width="100%" height="360px">
+                                         <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0];?>" type="video/webm"> 
                                              <!-- fallback content herehere -->
                                      </video>      
                                  </div><!-- col -->
@@ -595,7 +599,7 @@ class Posts_home extends Home {
                         // $tweetstatus = substr($tweet['status'],0, strpos($tweet['status'], ' ', 200)).'
                     $tweettext = substr($tweet['status'], 0, 200);
                     $tweetstatus = substr($tweet['status'], 0, strrpos($tweettext, ' ')).'
-                    <span class="readtext-tweet-readmore"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
+                    <span class="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'"><a href="javascript:void(0)" id="readtext-tweet-readmore" data-tweettext="'.$tweet['tweet_id'].'" style"font-weight: 500 !important;font-size:8px">... read more...</a></span>';
                     echo $this->getTweetLink($tweetstatus);
                     }else{
                     echo $this->getTweetLink($tweet['status']);
@@ -1102,7 +1106,8 @@ class Posts_home extends Home {
                 <div class="row mb-2" >
                 <div class="col-12" >
                     <?php $expode = explode("=",$tweet['tweet_image']); ?>
-                <video controls poster="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>" width="500px" height="280px">
+                    <!-- poster="< ?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>" -->
+                <video controls preload="auto" width="100%" height="auto">
                     <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0];?>" type="video/mp4"> 
                     <!-- <source src="video/boatride.webm" type="video/webm">  -->
                         <!-- fallback content here -->
@@ -1112,7 +1117,7 @@ class Posts_home extends Home {
           <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
              <div class="row mb-2">
                 <div class="col-12">
-                <video controls poster="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" width="auto" height="auto">
+                <video controls preload="auto" width="100%" height="auto">
                     <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/webm"> 
                         <!-- fallback content herehere -->
                 </video>

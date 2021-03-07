@@ -326,8 +326,8 @@ class Posts_copyDraft extends  Home {
                                             <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                        <video controls poster="assets/image/img/avatar3.png" preload="metadata" width="248px" height="110px">
-                                                            <source src="git.mp4" type="video/mp4"> 
+                                                        <video  controls preload="auto" width="100%" height="110px">
+                                                            <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/mp4"> 
                                                             <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                 <!-- fallback content here -->
                                                         </video>
@@ -390,8 +390,9 @@ class Posts_copyDraft extends  Home {
                                               <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                                                 <div class="row">
                                                     <div class="col-6 ">
-                                                         <video controls poster="../assets/image/img/avatar3.png" width="640" height="360">
-                                                             <source src="video/boatride.webm" type="video/webm"> 
+                                                         <video controls preload="auto" width="100%" height="360">
+                                                             <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/webm"> 
+                                                             <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                  <!-- fallback content herehere -->
                                                          </video>      
                                                      </div><!-- col -->
@@ -1115,7 +1116,7 @@ class Posts_copyDraft extends  Home {
                                 <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                                     <div class="row mb-2" >
                                     <div class="col-12" >
-                                    <video controls preload="metadata" width="500px"  height="280px" preload="none">
+                                    <video controls preload="auto" width="100px"  height="auto" >
                                         <source src="<?php 
                                         $expode = explode("=",$tweet['tweet_image']); 
                                         echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>" type="video/mp4"> 
@@ -1135,7 +1136,7 @@ class Posts_copyDraft extends  Home {
                               <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                                  <div class="row mb-2">
                                     <div class="col-12">
-                                    <video controls poster="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" width="auto" height="auto">
+                                    <video  controls preload="auto" width="100%" height="auto">
                                         <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/webm"> 
                                             <!-- fallback content herehere -->
                                     </video>

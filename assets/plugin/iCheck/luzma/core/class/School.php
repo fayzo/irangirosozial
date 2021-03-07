@@ -482,8 +482,9 @@ class School extends Home {
         $result= $mysqli->query($query1);
         $rows= $result->fetch_assoc();
 
-        if(!empty($rows['photo'])){
-            $photo=$rows['photo'].'='.$rows['other_photo'];
+        if(!empty($rows['photo_'])){
+            $photo=$rows['photo_'].'='.$rows['other_photo_'];
+            // .'='.$rows['video_'].'='.$rows['youtube_']
             $expodefile = explode("=",$photo);
             $fileActualExt= array();
             for ($i=0; $i < count($expodefile); ++$i) { 

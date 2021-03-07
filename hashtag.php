@@ -371,8 +371,8 @@ if (isset($_GET['hashtag']) && !empty($_GET['hashtag'])) {
                                                 <?php   }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                                                     <div class="row">
                                                         <div class="col-6 ">
-                                                            <video controls poster="../assets/image/img/avatar3.png" width="248px" height="110px">
-                                                                <source src="git.mp4" type="video/mp4"> 
+                                                            <video controls preload="auto" width="100%" height="110px">
+                                                                <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/mp4"> 
                                                                 <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                     <!-- fallback content here -->
                                                             </video>
@@ -432,8 +432,8 @@ if (isset($_GET['hashtag']) && !empty($_GET['hashtag'])) {
                                                 <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                                                     <div class="row">
                                                         <div class="col-6 ">
-                                                            <video controls poster="../assets/image/img/avatar3.png" width="640" height="360">
-                                                                <source src="video/boatride.webm" type="video/webm"> 
+                                                            <video controls preload="auto" width="100%" height="360">
+                                                                <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/webm"> 
                                                                     <!-- fallback content herehere -->
                                                             </video>      
                                                         </div><!-- col -->
@@ -1140,7 +1140,7 @@ if (isset($_GET['hashtag']) && !empty($_GET['hashtag'])) {
                                         <div class="row mb-2" >
                                         <div class="col-12" >
                                             <?php $expode = explode("=",$tweet['tweet_image']); ?>
-                                        <video controls poster="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0] ;?>" width="500px" height="280px">
+                                        <video controls preload="auto" width="100%" height="280px">
                                             <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$expode[0];?>" type="video/mp4"> 
                                             <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                 <!-- fallback content here -->
@@ -1769,8 +1769,8 @@ if (isset($_GET['hashtag']) && !empty($_GET['hashtag'])) {
                                                 <?php   }else if(array_diff($fileActualExt,$allower_ext)[0] == 'mp4') { ?>
                                                     <div class="row">
                                                         <div class="col-6 ">
-                                                            <video controls poster="../assets/image/img/avatar3.png" width="248px" height="110px">
-                                                                <source src="git.mp4" type="video/mp4"> 
+                                                            <video controls preload="auto" width="100%" height="110px">
+                                                                <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/mp4"> 
                                                                 <!-- <source src="video/boatride.webm" type="video/webm">  -->
                                                                     <!-- fallback content here -->
                                                             </video>
@@ -1830,8 +1830,8 @@ if (isset($_GET['hashtag']) && !empty($_GET['hashtag'])) {
                                                 <?php }else if(array_diff($fileActualExt,$allower_ext)[0] == 'webm'){ ?>
                                                     <div class="row">
                                                         <div class="col-6 ">
-                                                            <video controls poster="../assets/image/img/avatar3.png" width="640" height="360">
-                                                                <source src="video/boatride.webm" type="video/webm"> 
+                                                            <video controls preload="auto" width="640" height="360">
+                                                                <source src="<?php echo BASE_URL_PUBLIC."uploads/posts/".$tweet['tweet_image'] ;?>" type="video/webm"> 
                                                                     <!-- fallback content herehere -->
                                                             </video>      
                                                         </div><!-- col -->
