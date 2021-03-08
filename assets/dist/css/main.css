@@ -1,9 +1,9 @@
 .skin-rose .main-active {
-    background-color: #da0e6c;;
+    background-color: #da0e6c;
     color: #ffffff;
 }
 .skin-rose  .borders-tops {
-    border-top: 3px solid#da0e6c;;
+    border-top: 3px solid#da0e6c;
 }
 .skin-rose   .list-group-item.active {
   color: #ecf1ec !important;
@@ -14,7 +14,99 @@
 .skin-rose .borders-bottoms {
   border-bottom: 3px solid #da0e6c;
 }
-/* skin-red */
+/* skin-green */
+/* skin-purple-light  */
+
+.skin-purple-light .main-active {
+    background-color: #605ca8;
+    color: #ffffff;
+}
+.skin-purple-light   .borders-tops {
+    border-top: 3px solid#605ca8;
+}
+.skin-purple-light .list-group-item.active {
+  color: #ecf1ec !important;
+  background-color: #605ca8 !important;
+  border-color: #605ca8 !important;
+}
+
+.skin-purple-light .borders-bottoms {
+  border-bottom: 3px solid #605ca8;
+}
+/* skin-green */
+
+.skin-green .main-active {
+    background-color: #00a65a;
+    color: #ffffff;
+}
+.skin-green .borders-tops {
+    border-top: 3px solid#00a65a;
+}
+.skin-green   .list-group-item.active {
+  color: #ecf1ec !important;
+  background-color: #00a65a !important;
+  border-color: #00a65a !important;
+}
+
+.skin-green .borders-bottoms {
+  border-bottom: 3px solid #00a65a;
+}
+/* skin-green-light */
+
+.skin-green-light .main-active {
+    background-color: #00a65a;
+    color: #ffffff;
+}
+.skin-green-light .borders-tops {
+    border-top: 3px solid#00a65a;
+}
+.skin-green-light  .list-group-item.active {
+  color: #ecf1ec !important;
+  background-color: #00a65a !important;
+  border-color: #00a65a !important;
+}
+
+.skin-green-light .borders-bottoms {
+  border-bottom: 3px solid #00a65a;
+}
+/* skin-yellow */
+
+.skin-yellow .main-active {
+    background-color: #f39c12;
+    color: #ffffff;
+}
+.skin-yellow .borders-tops {
+    border-top: 3px solid#f39c12;
+}
+.skin-yellow   .list-group-item.active {
+  color: #ecf1ec !important;
+  background-color: #f39c12 !important;
+  border-color: #f39c12 !important;
+}
+
+.skin-yellow .borders-bottoms {
+  border-bottom: 3px solid #f39c12;
+}
+/* skin-yellow-light */
+
+.skin-yellow-light .main-active {
+    background-color: #f39c12;
+    color: #ffffff;
+}
+.skin-yellow-light .borders-tops {
+    border-top: 3px solid#f39c12;
+}
+.skin-yellow-light  .list-group-item.active {
+  color: #ecf1ec !important;
+  background-color: #f39c12 !important;
+  border-color: #f39c12 !important;
+}
+
+.skin-yellow-light .borders-bottoms {
+  border-bottom: 3px solid #f39c12;
+}
+/* skin-purple */
+
 .skin-purple .main-active {
     background-color: #605ca8;
     color: #ffffff;
@@ -30,6 +122,25 @@
 
 .skin-purple .borders-bottoms {
   border-bottom: 3px solid #605ca8;
+}
+/* end skin-purple */
+/* skin-purple-green */
+
+.skin-purple-green .main-active {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: #ffffff;
+}
+.skin-purple-green .borders-tops {
+    border-top: 3px solid #764ba2;
+}
+.skin-purple-green  .list-group-item.active {
+  color: #ecf1ec !important;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-color: #764ba2;
+}
+
+.skin-purple-green .borders-bottoms {
+  border-bottom: 3px solid #764ba2;
 }
 /* end skin-purple */
 /* skin-red */
@@ -89,6 +200,19 @@
   background-color: #333333;
   color:#ffff;
 }
+.skin-black-light .main-active{
+  background-color: #333333;
+  color:#ffff;
+}
+.skin-black-light .list-group-item.active {
+  color: #fff !important;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+}
+.skin-black-light .borders-tops {
+  border-top: 3px solid#333333;
+}
+
 .skin-Black .card{
   background-color: #272323;
   color:#c3bebe;
@@ -594,4 +718,28 @@ video{
 .bg-getcell {
   background: #b9b6b22b;
   padding: 10px;
+}
+.dropdown>.background-img>a {
+  border-radius: 10px;
+  background-color: #FFF;
+  border: 3px solid #FFF;
+  padding-left: 0;
+  padding-right: 0;
+  opacity: 1;
+  cursor: pointer;
+  display: block;
+  max-height: 100px;
+  overflow: hidden;
+  padding: 0;
+  min-width: 25%;
+}
+.search-icon {
+  width: 28px;
+  height: 28px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 30px;
+  vertical-align: middle;
 }

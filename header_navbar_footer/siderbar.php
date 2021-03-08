@@ -53,6 +53,19 @@
             </ul>
           </li>
 
+          <li class="treeview">
+            <a href="<?php echo BALANCE; ?>">
+              <i class="fas fa-coins"></i> <span>Balance</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="<?php echo BALANCE; ?>"><i class="fa fa-circle-o"></i>Your Balance : 15,000 coins</a></li>
+              <li><a href="<?php echo BALANCE; ?>"><i class="fa fa-circle-o"></i>Check Your Balance</a></li>
+            </ul>
+          </li>
+
           <?php } ?>
 
           <li class="treeview">

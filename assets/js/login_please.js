@@ -20,6 +20,26 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('click', '#recharge_coins', function (e) {
+        e.stopPropagation();
+        var user = $(this).data('user');
+
+        $.ajax({
+            url: 'core/ajax_db/balance_payment',
+            method: 'POST',
+            dataType: 'text',
+            data: {
+                recharge_coins: user,
+            }, success: function (response) {
+                $(".popupTweet").html(response);
+                $(".close-imagePopup").click(function () {
+                    $(".balance-popup").hide();
+                });
+                // console.log(response);
+            }
+        });
+    });
+
     $(document).on('click', '#logout-please', function (e) {
         e.stopPropagation();
 

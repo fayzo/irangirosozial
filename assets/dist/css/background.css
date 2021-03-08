@@ -1,26 +1,26 @@
 .build {
-    background: url(http://localhost/irangiro_social_site/assets/image/background_image/build.jpg) fixed center center;
+    background: url(../../../assets/image/background_image/build.jpg) fixed center center;
     background-size: cover;
     background-repeat: no-repeat; 
     
 }
 
 .build1 {
-    background: url(http://localhost/irangiro_social_site/assets/image/background_image/build1.jpg) fixed center center;
+    background: url(../../../assets/image/background_image/build1.jpg) fixed center center;
     background-size: cover;
     background-repeat: no-repeat; 
     
 }
 
 .build2 {
-    background: url(http://localhost/irangiro_social_site/assets/image/background_image/build2.jpg) fixed center center;
+    background: url(../../../assets/image/background_image/build2.jpg) fixed center center;
     background-size: cover;
     background-repeat: no-repeat; 
     
 }
 
 .chair {
-    background: url(http://localhost/irangiro_social_site/assets/image/background_image/chair.jpg) fixed center center;
+    background: url(../../../assets/image/background_image/chair.jpg) fixed center center;
     background-size: cover;
     background-repeat: no-repeat; 
     

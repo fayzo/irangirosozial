@@ -11,6 +11,32 @@
         <!-- Home tab content -->
         <div class="tab-pane" id="control-sidebar-home-tab">
           <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <div class="dropdown">
+                   <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                       Choose background-img
+                   </a>
+                  <div class="dropdown-menu  background-img" aria-labelledby="navbarDropdown">
+                       <a class="d-inline-block" href="#" onclick="background('build',<?php echo $user_id;?>)">
+                           <img src="<?php echo BASE_URL_LINK ;?>image/background_image/build.jpg" width="155px"> </a>
+                       <a href="#" onclick="background('build1',<?php echo $user_id;?>)"> <img
+                               src="<?php echo BASE_URL_LINK ;?>image/background_image/build1.jpg" width="155px"></a>
+                       <a href="#" onclick="background('build2',<?php echo $user_id;?>)"> <img
+                               src="<?php echo BASE_URL_LINK ;?>image/background_image/build2.jpg" width="155px"></a>
+                       <a href="#" onclick="background('chair',<?php echo $user_id;?>)"> <img
+                               src="<?php echo BASE_URL_LINK ;?>image/background_image/chair.jpg" width="155px"></a>
+                       <a href="#" onclick="background('white-bg',<?php echo $user_id;?>)">
+                         <button class="search-icon white-bg" style="width:155px;"></button> </a>
+                       <a href="#" onclick="background('rose-bg',<?php echo $user_id;?>)">
+                         <button class="search-icon rose-bg" style="width:155px;"></button> </a>
+                       <a href="#" onclick="background('blue-bg',<?php echo $user_id;?>)">
+                         <button class="search-icon blue-bg" style="width:155px;"></button> </a>
+                       <a href="#" onclick="background('pink-bg',<?php echo $user_id;?>)">
+                         <button class="search-icon pink-bg" style="width:155px;"></button> </a>
+                       <!-- <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a> -->
+                  </div>
+                </div>
           <ul class="control-sidebar-menu">
             <li>
               <a href="javascript:void(0)">

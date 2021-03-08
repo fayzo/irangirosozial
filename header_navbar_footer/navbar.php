@@ -231,6 +231,9 @@
                   <div class="pull-left">
                     <a href="<?php echo BASE_URL_PUBLIC.$user['username'];?>" class="btn btn-info btn-sm">Profile</a>
                   </div>
+                  <div class="pull-left"style="margin-left:50px">
+                    <a href="javascript:void(0)" id="recharge_coins" data-user="<?php echo $_SESSION['key']; ?>" class="btn btn-warning btn-sm text-white">Balance</a>
+                  </div>
                   <div class="pull-right">
                     <!-- <a href="< ?php echo LOGOUT;?>" class="btn btn-danger btn-sm ">Sign out</a> -->
                     <a href="javascript:void(0)" id="logout-please" class="btn btn-danger btn-sm ">Sign out</a>

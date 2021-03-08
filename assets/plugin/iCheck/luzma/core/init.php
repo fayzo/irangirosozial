@@ -47,6 +47,7 @@ define('CREATE_PASSPOWRD', BASE_URL_PUBLIC.'include/createpassword');
 
 // END SETTING FILE
 define('ACTIVITIES', BASE_URL_PUBLIC.'activities.php');
+define('BALANCE', BASE_URL_PUBLIC.'balance');
 define('NETWORK', BASE_URL_PUBLIC.'network');
 define('INDEXX', BASE_URL_PUBLIC.'indexx');
 define('SHOPPING', BASE_URL_PUBLIC.'shopping');

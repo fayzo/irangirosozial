@@ -488,8 +488,8 @@ class Follow extends Home
         <div class="card mb-3">
           <div class="card-header">
               <h5>More suggestions for you</h5>
-              <hr>
-               <ul class="nav nav-pills">
+              <!-- <hr> -->
+               <ul class="nav nav-pills d-none" >
                     <li class="nav-item"><a class="nav-link  active" href="#people"
                         data-toggle="tab">people</a> </li>
                     <!-- <li class="nav-item"><a class="nav-link" href="#groups"
@@ -527,7 +527,7 @@ class Follow extends Home
                         </div>
                         <div class="card-footer">
                             <h5 class="user-username-follow m-1 "><a href="'.BASE_URL_PUBLIC.$following['username'].'">'.$following['username'].'</a></h5>
-                            <h5 class="user-username-follow m-1"><small>'.((!empty($following['career']))? $this->getTweetLink($following['career']):'no career').'</small></h5>
+                            <h5 class="user-username-follow m-1"><small>'.((!empty($following['career']))? $this->getTweetLink($following['career']):'Member').'</small></h5>
                             <span>'.$this->followBtn($following['user_id'],$user_id,$follow_id).'</span>
                         </div>
                         <!-- /.footer -->

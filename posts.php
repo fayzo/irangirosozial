@@ -6,7 +6,8 @@
 
 
       <!-- Main content -->
-      <section class="content-header">
+      <section class="content container">
+
       <div class="row">
           <div class="col-4">
                 <h5><i> Your Post</i></h5>
@@ -23,9 +24,6 @@
                 </ol>
           </div>
       </div>
-      </section>
-      <!-- Main content -->
-      <section class="content">
 
         <div class="row">
           <div class="col-md-3 mb-3 d-none d-md-block ">

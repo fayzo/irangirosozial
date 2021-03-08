@@ -101,7 +101,7 @@ $(document).ready(function (e) {
                             $("#response-posts").fadeOut();
                         }, 1000);
                         setInterval(function () {
-                            // location.reload();
+                            location.reload();
                         }, 1100);
                     }, error: function (response) {
                         $("#response-posts").html(response).fadeIn();

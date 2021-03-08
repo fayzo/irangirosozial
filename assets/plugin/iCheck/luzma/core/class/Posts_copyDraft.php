@@ -176,6 +176,7 @@ class Posts_copyDraft extends  Home {
                                                   
                                                 <div class="row">
                                             <?php $expode = explode("=",$tweet['tweet_image']);
+                                             $size_kb = explode("=",$tweet['tweet_image_size']);
                                                   $splice= array_splice($expode,0,2);
                                                   for ($i=0; $i < count($splice); ++$i) { ?>
 
@@ -185,7 +186,8 @@ class Posts_copyDraft extends  Home {
                                                             <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                                 <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- ||Sep2014-report.pdf -->
                                                             <span class="mailbox-attachment-size">
-                                                                1,245 KB
+                                                                 <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                                 <!-- 1,245 KB -->
                                                                 <a href="#" class="btn btn-default btn-sm float-right"><i
                                                                         class="fa fa-cloud-download"></i></a>
                                                             </span>
@@ -252,6 +254,7 @@ class Posts_copyDraft extends  Home {
                                                 <div class="row">
 
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                   $splice= array_splice($expode,0,2);
                                                   for ($i=0; $i < count($splice); ++$i) { ?>
 
@@ -261,7 +264,8 @@ class Posts_copyDraft extends  Home {
                                                             <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                                 <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- || Sep2014-report.pdf -->
                                                             <span class="mailbox-attachment-size">
-                                                                1,245 KB
+                                                                <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                                <!-- 1,245 KB -->
                                                                 <a href="#" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a>
                                                             </span>
                                                         </div>
@@ -762,6 +766,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 1; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -772,7 +777,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- ||Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i
                                                                 class="fa fa-cloud-download"></i></a>
                                                     </span>
@@ -791,6 +797,7 @@ class Posts_copyDraft extends  Home {
 
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -801,7 +808,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- ||Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i
                                                                 class="fa fa-cloud-download"></i></a>
                                                     </span>
@@ -819,6 +827,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 3; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -829,7 +838,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- ||Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i
                                                                 class="fa fa-cloud-download"></i></a>
                                                     </span>
@@ -847,6 +857,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 2; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -857,7 +868,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- ||Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i
                                                                 class="fa fa-cloud-download"></i></a>
                                                     </span>
@@ -875,6 +887,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 3; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -885,7 +898,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- ||Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i
                                                                 class="fa fa-cloud-download"></i></a>
                                                     </span>
@@ -904,6 +918,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 3; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -914,7 +929,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- ||Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i
                                                                 class="fa fa-cloud-download"></i></a>
                                                     </span>
@@ -944,6 +960,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 1; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -954,7 +971,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- || Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a>
                                                     </span>
                                                 </div>
@@ -972,6 +990,7 @@ class Posts_copyDraft extends  Home {
 
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -982,7 +1001,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- || Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a>
                                                     </span>
                                                 </div>
@@ -999,6 +1019,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 3; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -1009,7 +1030,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- || Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a>
                                                     </span>
                                                 </div>
@@ -1026,6 +1048,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 2; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -1036,7 +1059,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- || Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a>
                                                     </span>
                                                 </div>
@@ -1053,6 +1077,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 3; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -1063,7 +1088,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- || Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a>
                                                     </span>
                                                 </div>
@@ -1081,6 +1107,7 @@ class Posts_copyDraft extends  Home {
                                                $numOfCols = 3; ?>
                                                <div class="row">
                                                 <?php $expode = explode("=",$tweet['tweet_image']);
+                                                 $size_kb = explode("=",$tweet['tweet_image_size']);
                                                 // $splice= array_splice($expode,0,2);
                                                 $splice= $expode;
                                                 for ($i=0; $i < count($splice); ++$i) { 
@@ -1091,7 +1118,8 @@ class Posts_copyDraft extends  Home {
                                                     <a href="<?php echo BASE_URL_PUBLIC."uploads/posts/".pathinfo($splice[$i])['basename'] ;?>" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>
                                                         <?php  echo pathinfo($splice[$i])['basename'] ;?></a><!-- || Sep2014-report.pdf -->
                                                     <span class="mailbox-attachment-size">
-                                                        1,245 KB
+                                                    <?php echo  $this->formatSizeUnits($size_kb[$i]); ?>
+                                                        <!-- 1,245 KB -->
                                                         <a href="#" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a>
                                                     </span>
                                                 </div>

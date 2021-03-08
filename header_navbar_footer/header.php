@@ -74,6 +74,50 @@
 </style>
 <!-- END image-gallery10 -->
 <script>
+
+    function colors(requests, id) {
+        var xhr = new XMLHttpRequest();
+        var url = "core/ajax_db/color_db.php?key=color" + '&color=' + requests;
+        xhr.open("POST", url, true);
+        xhr.send();
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                var sc = document.body;
+                sc.setAttribute("id", json.color);
+                
+                console.log(json.user_id + ", " + json.color);
+                // console.log(xhr.responseText);
+                // location.reload();
+                // if (xhr.responseText.indexOf('color') >= 0) {
+                //     window.location = 'admin.php';
+                // }
+            };
+        }
+    }
+
+     function background(requests, id) {
+        var xhr = new XMLHttpRequest();
+        var url = "core/ajax_db/background_db.php?key=background" + '&id=' + id + '&background=' + requests;
+        xhr.open("POST", url, true);
+        xhr.send();
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                var sc = document.body;
+                sc.setAttribute("class", json.background);
+                
+                // console.log(json.admin_id + ", " + json.background);
+                // console.log(xhr.responseText);
+                // location.reload();
+                // if (xhr.responseText.indexOf('color') >= 0) {
+                //     window.location = 'admin.php';
+                // }
+            };
+        }
+    }
   
   function follow_FecthRequest(id,user_id,follow_id) {
         var xhr = new XMLHttpRequest();
@@ -912,13 +956,13 @@ if (isset($_SESSION['key']) && $result === '' || isset($_SESSION['key']) && $sel
 isset($_SESSION['key']) && $self === 'hashtag.php'){ ?>
   
   <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
-  <body class="hold-transition skin-blue fixed sidebar-mini-expand-feature sidebar-mini">
+  <body class="hold-transition fixed sidebar-mini-expand-feature sidebar-mini  <?php echo (!empty($user['color']))? $user['color'] :'skin-blue'; ?>">
   <!-- <body class="hold-transition skin-blue fixed sidebar-collapse sidebar-mini "> -->
   <!-- Site wrapper skin-blue -->
 <?php }else{ ?>
 
   <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
-  <body class="hold-transition skin-blue fixed sidebar-collapse">
+  <body class="hold-transition fixed sidebar-collapse <?php echo (!empty($user['color']))? $user['color'] :'skin-blue'; ?>">
   <!-- Site wrapper skin-blue -->
 
 <?php } ?>
@@ -932,4 +976,4 @@ isset($_SESSION['key']) && $self === 'hashtag.php'){ ?>
     <!-- =============================================== -->
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div class="content-wrapper <?php echo (!empty($user['background']))? $user['background'] :''; ?> ">

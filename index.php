@@ -5,7 +5,7 @@
 <?php include "header_navbar_footer/header.php"?>
 
       <!-- Main content -->
-      <section class="content">
+      <section class="content container">
 
         <div class="row">
           <div class="col-md-3 mb-3 d-none d-md-block">

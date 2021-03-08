@@ -22,7 +22,7 @@ if (isset($_POST['post_as']) && !empty($_POST['post_as'])) {
 <div class="jobs-popup">
     <div class="wrap6" id="disabler">
         <div class="wrap6Pophide" onclick="togglePopup( )"></div>
-        <div class="img-popup-wrapLogin"  id="popupEnd">
+        <div class="img-popup-wrapLogin"  id="popupEnd" >
         	<div class="img-popup-bodys">
 
           <div class="card borders-bottoms">
@@ -75,18 +75,21 @@ if (isset($_POST['loginTerms']) && !empty($_POST['loginTerms'])) {
   ?>
 
   <div class="jobs-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrap">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+        <div class="img-popup-wrapLogin" id="popupEnd" style="max-width: 439px;">
         	<div class="img-popup-body">
 
         <div class="card">
+        <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
+
           <div class="card-body">
 
           <form class="form-signin">
-            <h1 class="h3 mb-3  text-center font-weight-normal">Please sign in As SME or Public / Private Organization</h1>
+            <h4 class="h4 mb-3  text-center font-weight-normal">Please sign in As SME <br> Public / Private Organization</h4>
             <div class="form-group">
               <label for="inputEmail" class="sr-only">Username</label>
               <input type="text" id="Username" class="form-control mb-3" placeholder="Username" >
@@ -127,18 +130,22 @@ if (isset($_POST['loginTerms0']) && !empty($_POST['loginTerms0'])) {
     $user= $home->userData($_SESSION['key']);
   ?>
   <div class="jobs-popup">
-    <div class="wrap6">
+    <div class="wrap6" id="disabler">
         <span class="colose">
         	<button class="close-imagePopup"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
-        <div class="img-popup-wrap">
+        <div class="wrap6Pophide" onclick="togglePopup( )"></div>
+
+        <div class="img-popup-wrapLogin" id="popupEnd" style="max-width: 439px;">
         	<div class="img-popup-body">
 
         <div class="card">
+          <button class="btn btn-success btn-sm  float-right d-md-block d-lg-none"  onclick="togglePopup ( )">close</button>
+
           <div class="card-body">
 
           <form class="form-signin">
-            <h1 class="h3 mb-3 text-center font-weight-normal">Please sign in As Individual</h1>
+            <h3 class="h3 mb-3 text-center font-weight-normal">Please sign in As Individual</h3>
             <div class="form-group">
               <label for="inputEmail" class="sr-only">Username</label>
               <input type="text" id="Username" class="form-control mb-3" placeholder="Username" >

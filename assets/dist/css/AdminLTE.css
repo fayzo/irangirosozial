@@ -577,6 +577,7 @@ a:focus {
   display: block;
 }
 .sidebar-menu > li > a > .fa,
+.sidebar-menu > li > a > .fas,
 .sidebar-menu > li > a > .glyphicon,
 .sidebar-menu > li > a > .ion {
   width: 20px;

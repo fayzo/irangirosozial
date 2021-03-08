@@ -23,7 +23,9 @@
           </div>
         </div>
       </header>
-    <section class="content-header">
+
+      <section class="content container">
+      
         <div class="row">
             <div class="col-sm-12 col-md-2">
                 <h4><i>Jobs</i></h4>
@@ -41,9 +43,6 @@
                 </ol>
             </div>
         </div>
-    </section>
-      <!-- Main content -->
-      <section class="content">
 
         <div class="row">
           <div class="col-md-3 mb-3 d-none d-md-block">
