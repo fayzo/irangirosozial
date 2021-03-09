@@ -74,7 +74,7 @@
                 <div class="card-body">
                 <div class="tab-content">
                         <div class="tab-pane active " id="jobs">
-                            <?php echo $home->jobsactivities($_SESSION['key']); ?>
+                            <?php echo $job->jobsactivities($_SESSION['key']); ?>
                         </div> 
                         <div class="tab-pane" id="fundraisings">
                             <?php echo $fundraising->fundraisingsActivities($_SESSION['key']); ?>

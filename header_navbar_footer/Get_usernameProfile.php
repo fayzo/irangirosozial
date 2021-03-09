@@ -10,7 +10,7 @@ if (isset($_GET['username']) == true && empty($_GET['username']) == false) {
    	if ($users->loggedin() == true) {
         $user_id= $_SESSION['key'];
         
-        $jobs= $home->jobsData($_SESSION['key']);
+        $jobs= $job->jobsData($_SESSION['key']);
         $fundraisingV= $fundraising->fundraisingData($_SESSION['key']);
         $crowfundV= $crowfund->crowfundraisingData($_SESSION['key']);
         $houseV= $house->houseData($_SESSION['key']);
@@ -44,7 +44,7 @@ else{
         if ($users->loggedin() == true) {
             $user_id= $_SESSION['key'];
 
-            $jobs= $home->jobsData($_SESSION['key']);
+            $jobs= $job->jobsData($_SESSION['key']);
             $fundraisingV= $fundraising->fundraisingData($_SESSION['key']);
             $crowfundV= $crowfund->crowfundraisingData($_SESSION['key']);
             $houseV= $house->houseData($_SESSION['key']);

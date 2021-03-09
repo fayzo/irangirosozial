@@ -4,7 +4,7 @@ include "core/init.php";
 if ($users->jobloggedin() == 'SME' && $users->loggedin() == true) {
     $user= $home->userData($_SESSION['key']);
     
-    $jobs= $home->jobsData($_SESSION['key']);
+    $jobs= $job->jobsData($_SESSION['key']);
     $fundraisingV= $fundraising->fundraisingData($_SESSION['key']);
     $crowfundV= $crowfund->crowfundraisingData($_SESSION['key']);
     $houseV= $house->houseData($_SESSION['key']);

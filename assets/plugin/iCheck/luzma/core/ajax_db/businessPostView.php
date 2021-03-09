@@ -6,7 +6,7 @@ if (isset($_POST['job_id']) && !empty($_POST['job_id'])) {
     // $user_id= $_SESSION['key'];
     $job_id= $_POST['job_id']; 
     $business_id= $_POST['business_id']; 
-    $user = $home->jobsviewData($business_id,$job_id);
+    $user = $job->jobsviewData($business_id,$job_id);
     ?>
 
  <div class="job-popup">
@@ -90,7 +90,7 @@ if (isset($_POST['job_id']) && !empty($_POST['job_id'])) {
 if (isset($_POST['search']) && !empty($_POST['search'])) {
     // $user_id= $_SESSION['key'];
     $search= $users->test_input($_POST['search']);
-    $result= $home->searchJobs($search);
+    $result= $job->searchJobs($search);
     echo '<h4 style="padding: 0px 10px;">'.$_POST['search'].'</h4> ';
 
      if (is_array($result) || is_object($result)){

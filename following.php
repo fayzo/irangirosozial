@@ -95,7 +95,7 @@
           <div class="col-md-3 mb-3 d-none d-md-block">
                 <?php echo $home->userProfile($profileData['user_id']); ?>
                 
-                <?php echo $home->jobsfetch() ;?>
+                <?php echo $job->jobsfetch() ;?>
                 
                 <div class="sticky-top" style="top: 52px;">
                     <?php echo $trending->trends(); ?>

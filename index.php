@@ -18,7 +18,7 @@
             <!-- Profile Image -->
             
             <div class="sticky-top" style="top: 52px;z-index:1000;">
-              <?php echo $home->jobsfetch() ;?>
+              <?php echo $job->jobsfetch() ;?>
             </div>
 
           </div>

@@ -7,7 +7,7 @@ if ($users->loggedin() == false) {
     $user= $home->userData($_SESSION['key']);
     $_SESSION['irangiro_key'] = 1;
 
-    $jobs= $home->jobsData($_SESSION['key']);
+    $jobs= $job->jobsData($_SESSION['key']);
     $fundraisingV= $fundraising->fundraisingData($_SESSION['key']);
     $crowfundV= $crowfund->crowfundraisingData($_SESSION['key']);
     $houseV= $house->houseData($_SESSION['key']);

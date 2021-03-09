@@ -209,7 +209,7 @@ if (isset($_POST['delete'])) {
         // var_dump($id);
         // var_dump(array_keys($_POST)[1]);
 
-	$users->InboxDelete('trash',$id,$datetime);
+	$job->InboxDelete('trash',$id,$datetime);
 
   }
 }

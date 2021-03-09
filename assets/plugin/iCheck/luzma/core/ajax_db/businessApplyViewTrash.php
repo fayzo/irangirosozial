@@ -210,7 +210,7 @@ if (isset($_POST['delete'])) {
         // var_dump($id);
         // var_dump(array_keys($_POST)[1]);
 
-	$users->TrashDelete('trash',$id,$datetime);
+	$job->TrashDelete('trash',$id,$datetime);
 
   }
 }
@@ -230,7 +230,7 @@ if (isset($_POST['deleteCheck'])) {
         // var_dump($_POST);
         // var_dump($id);
 
-	$users->TrashAllDelete('apply_job',$id,$datetime);
+	$job->TrashAllDelete('apply_job',$id,$datetime);
 
   }
 }

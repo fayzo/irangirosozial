@@ -6,6 +6,7 @@ include('class/Users.php');
 include('class/Post_like.php');
 include('class/Comment.php');
 include('class/Home.php');
+include('class/Job.php');
 include('class/Follow.php');
 include('class/Message.php');
 include('class/Trending.php');

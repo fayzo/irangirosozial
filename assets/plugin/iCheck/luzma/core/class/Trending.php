@@ -8,7 +8,9 @@ class Trending extends Home
      public function trends()
     {
        $mysqli= $this->database;
-       $query= "SELECT *, COUNT(tweet_id) AS tweetycounts FROM trends INNER JOIN tweets ON status LIKE CONCAT('%#',hashtag,'%') OR retweet_Msg LIKE CONCAT('%#',hashtag,'%') GROUP BY hashtag ORDER BY tweet_id";
+      //  $query= "SELECT *, COUNT(tweet_id) AS tweetycounts  FROM  trends INNER JOIN tweets ON status LIKE CONCAT('%#',hashtag,'%') OR retweet_Msg LIKE CONCAT('%#',hashtag,'%') GROUP BY hashtag HAVING COUNT(DISTINCT hashtag)=1 ORDER BY tweet_id Desc LIMIT 10";
+       $query= "SELECT *, COUNT(trend_id) AS tweetycounts  FROM  trends
+        WHERE hashtag = hashtag GROUP BY hashtag HAVING COUNT(DISTINCT hashtag)=1 ORDER BY trend_id Desc LIMIT 10";
        $result=$mysqli->query($query); 
 
        if ($result->num_rows > 0 ) {
@@ -19,7 +21,9 @@ class Trending extends Home
                         <h5 class="card-title text-center"><i> HashTags</i></h5>
                   </div>
                     <div class="card-body text-center message-color">
-      <?php  while ($trend= $result->fetch_array()) { ?>
+      <?php  while ($trend= $result->fetch_array()) { 
+         //  echo print_r($trend,$trend['tweetycounts']).'<br>';
+         ?>
                     <!-- /.card-header -->
                         <strong><a href="<?php echo BASE_URL_PUBLIC.$trend['hashtag'].'.hashtag' ;?>" >#<?php echo $trend['hashtag'] ;?></a></strong>
 
@@ -38,7 +42,7 @@ class Trending extends Home
      public function trends_hashtag()
     {
        $mysqli= $this->database;
-       $query= "SELECT *, COUNT(tweet_id) AS tweetycounts FROM trends INNER JOIN tweets ON status LIKE CONCAT('%#',hashtag,'%') OR retweet_Msg LIKE CONCAT('%#',hashtag,'%') GROUP BY hashtag ORDER BY tweet_id";
+       $query= "SELECT *, COUNT(trend_id) AS tweetycounts FROM trends INNER JOIN tweets ON status LIKE CONCAT('%#',hashtag,'%') OR retweet_Msg LIKE CONCAT('%#',hashtag,'%') GROUP BY hashtag ORDER BY trend_id";
        $result=$mysqli->query($query); 
 
        if ($result->num_rows > 0 ) {

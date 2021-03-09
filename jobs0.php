@@ -27,7 +27,7 @@
   border: 1px solid #000;
 }
 
-.large-2 {
+.job-hide .large-2 {
   height: 50vh;
   overflow-y: scroll;
   margin-bottom: 10px;
@@ -36,13 +36,13 @@
   /* background: #ccc; */
 }
 
-.large-2::-webkit-scrollbar-track {
+.job-hide .large-2::-webkit-scrollbar-track {
   border: 1px solid #fff;
   padding: 2px 0;
   background-color: #f7f7f7;
 }
 
-.large-2::-webkit-scrollbar {
+.job-hide .large-2::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -98,7 +98,7 @@
 
           <div class="row">
             <div class="col-md-12 mb-4" id="jobs-hides" >
-                <?php echo $home->jobsfetchALL0('Featured',1) ;?>
+                <?php echo $job->jobsfetchALL0('Featured',1) ;?>
             </div><!-- /.col -->
           </div><!-- /.row -->
 

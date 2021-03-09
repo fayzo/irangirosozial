@@ -3,10 +3,16 @@ include('../init.php');
 $users->preventUsersAccess($_SERVER['REQUEST_METHOD'],realpath(__FILE__),realpath($_SERVER['SCRIPT_FILENAME']));
 
 if (isset($_POST['apply_id']) && !empty($_POST['business_id'])) {
+  if (isset($_SESSION['key'])) {
+    # code...
     $user_id= $_SESSION['key'];
+  }else {
+    # code...
+    $user_id= $_SESSION['irangiro_key'];
+  }
     $job_id= $_POST['apply_id'];
     $business_id= $_POST['business_id'];
-    $user = $home->jobsviewData($business_id,$job_id);
+    $user = $job->jobsviewData($business_id,$job_id);
      ?>
 
 <div class="apply-popup">

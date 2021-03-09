@@ -83,7 +83,7 @@ if (isset($_POST['recharge_coins']) && !empty($_POST['recharge_coins'])) {
                       </tbody>
               </table>
             <div class=" text-center h4" id='response'></div>
-            <p class="mt-5 mb-3  text-center  text-muted"><?php echo $users->copyright(2018); ?><a href="https://irangiro.com">Irangiro LTD</a>.</strong> All rights</p>
+            <p class="mt-5 mb-3  text-center  text-muted"><?php echo $users->copyright(2018); ?><a href="https://irangiro.com">Irangiro IRG</a>.</strong> All rights</p>
           </form>
 
            </div>

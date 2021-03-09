@@ -2704,7 +2704,7 @@
                  <div class="sticky-top " style="top: 52px;">
                         <!-- hastTag Me Box -->
                          <!-- jobs -->
-                         <?php echo $home->jobsfetch() ;?>
+                         <?php echo $job->jobsfetch() ;?>
                          <!-- jobs -->
                 </div>
             </div>

@@ -33,7 +33,7 @@
                 <div class="mb-3">
                   <?php echo $follow->FollowingListsProfile($profileData['user_id'],$user_id,$profileData['user_id']); ?>
                 </div>
-                <?php echo $home->jobsfetch() ;?>
+                <?php echo $job->jobsfetch() ;?>
             </div>
             <div class="sticky-top" style="top: 52px;">
                   <?php echo $trending->trends(); ?>

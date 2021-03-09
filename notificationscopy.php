@@ -29,7 +29,7 @@
                 <?php echo $trending->trends(); ?>
                 <!-- Profile Image -->
                 <div class="sticky-top" style="top: 52px;">
-                  <?php echo $home->jobsfetch() ;?>
+                  <?php echo $job->jobsfetch() ;?>
                 </div>
             </div>
             <!-- /.col -->

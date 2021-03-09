@@ -56,7 +56,7 @@ class Follow extends Home
        }else {
            # code...
           return ' 
-           <button type="button" class="btn btn-primary btn-sm" onclick=location.href="'.LOGIN.'" ><i class="fa fa-user-plus"></i> Follow</button>
+           <button type="button" class="btn btn-primary btn-sm main-active " onclick=location.href="'.LOGIN.'" ><i class="fa fa-user-plus main-active"></i> Follow</button>
            ';
        }
 
@@ -91,7 +91,7 @@ class Follow extends Home
        }else {
            # code...
           return ' 
-           <button type="button" class="btn btn-primary btn-sm" onclick=location.href="'.LOGIN.'" ><i class="fa fa-user-plus"></i> Follow</button>
+           <button type="button" class="btn btn-primary btn-sm main-active " onclick=location.href="'.LOGIN.'" ><i class="fa fa-user-plus main-active"></i> Follow</button>
            ';
        }
 
@@ -179,7 +179,7 @@ class Follow extends Home
                         </div>
                         <div class="card-footer">
                             <h5 class="user-username-follow m-1 "><a href="'.BASE_URL_PUBLIC.$following['username'].'">'.$following['username'].'</a></h5>
-                            <h5 class="user-username-follow m-1"><small>'.((!empty($following['career']))? $this->getTweetLink($following['career']):'no career').'</small></h5>
+                            <h5 class="user-username-follow m-1"><small>'.((!empty($following['career']))? $this->getTweetLink($following['career']):'Member').'</small></h5>
                             <span>'.$this->followBtn($following['user_id'],$user_id,$profile_id,$follow_id).'</span>
                         </div>
                         <!-- /.footer -->
@@ -216,7 +216,7 @@ class Follow extends Home
                         </div>
                         <div class="card-footer">
                             <h5 class="user-username-follow m-1"><a href="'.BASE_URL_PUBLIC.$following['username'].'">'.$following['username'].'</a></h5>
-                            <h5 class="user-username-follow m-1"><small>'.((!empty($following['career']))? $this->getTweetLink($following['career']):'no career').'</small></h5>
+                            <h5 class="user-username-follow m-1"><small>'.((!empty($following['career']))? $this->getTweetLink($following['career']):'Member').'</small></h5>
                             <span>'.$this->followBtn($following['user_id'],$user_id,$profile_id,$follow_id).'</span>
                         </div>
                         <!-- /.footer -->
@@ -366,7 +366,7 @@ class Follow extends Home
                             <div class="info-body-name">
                                 <div class="in-b-name">
                                     <div><a href="<?php echo BASE_URL_PUBLIC.$user['username'] ;?>"><?php echo $user['username'] ;?></a><span><?php echo self::followBtns($whoTofollow,$user_id,$follow_id); ?></span></div>
-                                    <!-- <span><small><a href="< ?php echo BASE_URL_PUBLIC.$user['username'] ;?>">< ?php if(!empty($user['career'])){ echo $user['career'] ;}else{ echo 'no career' ;} ?></a></small></span> -->
+                                    <!-- <span><small><a href="< ?php echo BASE_URL_PUBLIC.$user['username'] ;?>">< ?php if(!empty($user['career'])){ echo $user['career'] ;}else{ echo 'Member' ;} ?></a></small></span> -->
                                 </div><!-- in b name end-->
                             </div><!-- info body name end-->
                         </div><!-- info in body end-->
@@ -493,7 +493,7 @@ class Follow extends Home
                         </div>
                         <div class="card-footer">
                             <h5 class="user-username-follow m-1 "><a href="'.BASE_URL_PUBLIC.$following['username'].'">'.$following['username'].'</a></h5>
-                            <h5 class="user-username-follow m-1"><small>'.((!empty($following['career']))? $this->getTweetLink($following['career']):'no career').'</small></h5>
+                            <h5 class="user-username-follow m-1"><small>'.((!empty($following['career']))? $this->getTweetLink($following['career']):'Member').'</small></h5>
                             <span>'.$this->followBtn($following['user_id'],$user_id,$follow_id).'</span>
                         </div>
                         <!-- /.footer -->

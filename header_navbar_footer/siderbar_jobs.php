@@ -19,13 +19,13 @@
         <div class="tab-pane fade" id="list-Manage_Admins" role="tabpanel" aria-labelledby="list-messages-list">
             <div class="row">
                 <!-- <div class="col-12" style="overflow: auto; white-space: nowrap; width: 100%;height: 250px"> -->
-                <div class="col-md-12">
+                <div class="col-md-12 bg-light mb-2">
                       <?php include "siderbar_jobs/approval_users.php"?>
                 </div>
             </div>
             <div class="row">
                 <!-- <div class="col-12" style="overflow: auto; white-space: nowrap; width: 100%;height: 250px"> -->
-                <div class="col-md-12">
+                <div class="col-md-12 bg-light">
                      <?php include "siderbar_jobs/unapproval_users.php"?>
                 </div>
             </div>

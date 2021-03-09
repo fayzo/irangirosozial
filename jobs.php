@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col-md-12 mb-4"  id="jobs-hides">
                         <!-- jobs -->
-                            <?php echo $home->jobsfetchALL('Featured',1) ;?>
+                            <?php echo $job->jobsfetchALL('Featured',1) ;?>
                         <!-- /.card -->
                     </div>
                     <!-- /.col -->

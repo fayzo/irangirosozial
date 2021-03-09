@@ -66,7 +66,7 @@
                                  <tbody>
                                     <tr><span id="responseSubmitalldelete"></span></tr>
                                     <tr><input type="hidden" name="deleteCheck" value="deleteCheck" ></tr>
-                                    <?php echo $home->sentInbox($_SESSION['key']) ; ?>
+                                    <?php echo $job->sentInbox($_SESSION['key']) ; ?>
                                      <!-- <tr>
                                          <td><input type="checkbox"></td>
                                          <td class="mailbox-star"><a href="#"><i
