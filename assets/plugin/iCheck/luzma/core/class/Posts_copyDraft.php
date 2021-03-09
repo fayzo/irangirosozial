@@ -606,6 +606,7 @@ class Posts_copyDraft extends  Home {
                                                 <ul><li>
                                                     <a href="<?php echo BASE_URL_PUBLIC.$tweet['username'] ;?>" ><?php echo $tweet['username'] ;?></a>
                                                     <ul><li><?php echo Follow::tooltipProfile($tweet['user_id'],$user_id,$tweet['user_id']); ?></li></ul>
+                                                    <!-- <ul><li>< ?php echo Follow::coins_recharge($tweet['user_id'],$user_id); ?></li></ul> -->
                                                     </li>
                                                 </ul>
                                                 <?php }else{ ?>

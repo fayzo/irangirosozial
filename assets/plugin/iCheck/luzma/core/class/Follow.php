@@ -365,16 +365,34 @@ class Follow extends Home
                             </div><!--  in b box end-->
                             <div class="info-body-name">
                                 <div class="in-b-name">
-                                    <div><a href="<?php echo BASE_URL_PUBLIC.$user['username'] ;?>"><?php echo $user['firstname']." ".$user['lastname'] ;?></a><span><?php echo self::followBtns($whoTofollow,$user_id,$follow_id); ?></span></div>
+                                    <div><a href="<?php echo BASE_URL_PUBLIC.$user['username'] ;?>"><?php echo $user['username'] ;?></a><span><?php echo self::followBtns($whoTofollow,$user_id,$follow_id); ?></span></div>
                                     <!-- <span><small><a href="< ?php echo BASE_URL_PUBLIC.$user['username'] ;?>">< ?php if(!empty($user['career'])){ echo $user['career'] ;}else{ echo 'no career' ;} ?></a></small></span> -->
                                 </div><!-- in b name end-->
                             </div><!-- info body name end-->
                         </div><!-- info in body end-->
                         <div class="info-in-footer">
+                                <div class="col-md-12 mb-2">
+                                    <label for="exampleFormControlInput1">Send Reward <i class="fas fa-coins text-warning"></i> Coins to <?php echo $user['username'] ;?></label>
+                                    <div class="form-group">
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select Coins</option>
+                                        <option>35 coins    =>    500 Frw</option>
+                                        <option>70 coins    =>    1,000 Frw</option>
+                                        <option>350 coins   =>    5,000 Frw </option>
+                                        <option>1400 coins  =>    21,000 Frw </option>
+                                        <option>3500 coins  =>    54,000 Frw </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Comment to <?php echo $user['username'] ;?>">
+                                    </div>
+                                    <input type="button" name="reward" id="reward" value="Send Reward" class="btn btn-primary btn-lg btn-block">
+                                </div><!-- col -->
+                                
                             <div class="number-wrapper">
                                 <div class="num-box">
                                     <div class="num-head">
-                                        POSTS
+                                    <a href="<?php echo BASE_URL_PUBLIC.$user['username'].'.posts';?>"> POSTS</a>
                                     </div>
                                     <div class="num-body">
                                        <?php echo self::countsPostss($user['user_id']);?>
@@ -382,7 +400,7 @@ class Follow extends Home
                                 </div>
                                 <div class="num-box">
                                     <div class="num-head">
-                                        FOLLOWING
+                                    <a href="<?php echo BASE_URL_PUBLIC.$user['username'].'.followers';?>"> FOLLOWING </a>
                                     </div>
                                     <div class="num-body">
                                         <span class="count-following"><?php echo $user['following'] ;?></span>
@@ -390,7 +408,7 @@ class Follow extends Home
                                 </div>
                                 <div class="num-box">
                                     <div class="num-head">
-                                        FOLLOWERS
+                                        <a href="<?php echo BASE_URL_PUBLIC.$user['username'].'.followers';?>"> FOLLOWERS</a>
                                     </div>
                                     <div class="num-body">
                                         <span class="count-followers"><?php echo $user['followers'] ;?></span>
@@ -403,6 +421,37 @@ class Follow extends Home
 
             </div><!-- col -->
         </div><!-- row -->
+        
+    <?php }
+
+    static public function coins_recharge($user_id,$user_key,$username)
+    {
+        $mysqli= self::$databases;
+        $sql="SELECT * FROM users WHERE user_id = '{$user_id}' ";
+        $query= $mysqli->query($sql);
+        $user= $query->fetch_assoc(); ?>
+
+         <div  class="container">
+         <div  class="row">
+            <div class="col-md-12">
+                <label for="exampleFormControlInput1">Send Reward <i class="fas fa-coins text-warning"></i> Coins to <?php echo $username;?></label>
+                <div class="form-group">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Select Coins</option>
+                    <option>35 coins    =>    500 Frw</option>
+                    <option>70 coins    =>    1,000 Frw</option>
+                    <option>350 coins   =>    5,000 Frw </option>
+                    <option>1400 coins  =>    21,000 Frw </option>
+                    <option>3500 coins  =>    54,000 Frw </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Comment to <?php echo $username ;?>">
+                </div>
+                <button type="button" name="reward" id="reward" class="btn btn-primary btn-lg btn-block">Send Reward</button>
+            </div><!-- col -->
+        </div><!-- row -->
+        </div><!-- container -->
         
     <?php }
 

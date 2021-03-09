@@ -24,9 +24,9 @@ if (isset($_POST['recharge_coins']) && !empty($_POST['recharge_coins'])) {
           <form class="form-signin">
             <h4 class="h4 mb-3  text-center font-weight-normal">Balance</h4>
             <div class="form-group">
-              <label>Your Coins Balance is: </label>
-              <i class="fas fa-coins "></i> 15,000 coins
-              <button type="button" class="btn btn-default">Withdraw</button>
+              <label>Your Coins Balance is: </label> <i class="fa fa-money text-success"></i>
+              <i class="fas fa-coins text-warning"></i> 15,000 coins
+              <button type="button" class="btn btn-default"><i class="fas fa-money-check"></i>  Withdraw</button>
             </div>
 
               <label for="inputEmail" >Buy coins and deposit in your account</label>
@@ -34,7 +34,7 @@ if (isset($_POST['recharge_coins']) && !empty($_POST['recharge_coins'])) {
                   <thead class="thead-inverse">
                       <tr>
                           <th>N0</th>
-                          <th>Coins</th>
+                          <th><i class="fas fa-coins"></i> Coins</th>
                           <th width="30%"></th>
                           <th>Price</th>
                       </tr>
@@ -42,7 +42,7 @@ if (isset($_POST['recharge_coins']) && !empty($_POST['recharge_coins'])) {
                       <tbody>
                           <tr>
                               <td>1</td>
-                              <td> <i class="fas fa-coins "></i> 40 coins</td>
+                              <td> <i class="fas fa-coins text-warning"></i> 40 coins</td>
                               <td></td>
                               <td>
                                 <button type="button" onclick="coins('21000')" class="btn btn-sm btn-danger">500 Frw</button>
@@ -50,7 +50,7 @@ if (isset($_POST['recharge_coins']) && !empty($_POST['recharge_coins'])) {
                           </tr>
                           <tr>
                               <td>2</td>
-                              <td><i class="fas fa-coins "></i> 70 coins</td>
+                              <td><i class="fas fa-coins text-warning"></i> 70 coins</td>
                               <td></td>
                               <td>
                                  <button type="button" onclick="coins('21000')" class="btn btn-sm btn-danger">1,000 Frw</button>
@@ -58,7 +58,7 @@ if (isset($_POST['recharge_coins']) && !empty($_POST['recharge_coins'])) {
                           </tr>
                           <tr>
                               <td>3</td>
-                              <td><i class="fas fa-coins "></i> 350 coins</td>
+                              <td><i class="fas fa-coins text-warning"></i> 350 coins</td>
                               <td></td>
                               <td>
                                  <button type="button" onclick="coins('5000')" class="btn btn-sm btn-danger">5,000 Frw</button>
@@ -66,7 +66,7 @@ if (isset($_POST['recharge_coins']) && !empty($_POST['recharge_coins'])) {
                           </tr>
                           <tr>
                               <td>4</td>
-                              <td><i class="fas fa-coins "></i> 1400 coins</td>
+                              <td><i class="fas fa-coins text-warning"></i> 1400 coins</td>
                               <td></td>
                               <td>
                                  <button type="button" onclick="coins('21000')" class="btn btn-sm btn-danger">21,000 Frw</button>
@@ -74,7 +74,7 @@ if (isset($_POST['recharge_coins']) && !empty($_POST['recharge_coins'])) {
                           </tr>
                           <tr>
                               <td>5</td>
-                              <td><i class="fas fa-coins "></i> 3500 coins</td>
+                              <td><i class="fas fa-coins text-warning"></i> 3500 coins</td>
                               <td></td>
                               <td>
                                  <button type="button" onclick="coins('54000')" class="btn btn-sm btn-danger">54,000 Frw</button>
@@ -83,7 +83,7 @@ if (isset($_POST['recharge_coins']) && !empty($_POST['recharge_coins'])) {
                       </tbody>
               </table>
             <div class=" text-center h4" id='response'></div>
-            <p class="mt-5 mb-3  text-center  text-muted"><?php echo $users->copyright(2018); ?></p>
+            <p class="mt-5 mb-3  text-center  text-muted"><?php echo $users->copyright(2018); ?><a href="https://irangiro.com">Irangiro LTD</a>.</strong> All rights</p>
           </form>
 
            </div>

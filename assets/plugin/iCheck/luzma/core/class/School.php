@@ -50,7 +50,7 @@ class School extends Home {
                         aria-expanded="false">
                             school province
                         </button>
-                <div class="dropdown-menu main-active" aria-labelledby="triggerId">
+                <div class="dropdown-menu" aria-labelledby="triggerId">
                     <a class="dropdown-item" href="javascript:void(0)" onclick="schoolCategories(1,1);" >kigali city<span class="badge badge-primary"><?php echo $this->schoolcountPOSTS(1);?></span></a>
                     <a class="dropdown-item" href="javascript:void(0)" onclick="schoolCategories(4,1);" >Northern province<span class="badge badge-primary"><?php echo $this->schoolcountPOSTS(4);?></span></a>
                     <a class="dropdown-item" href="javascript:void(0)" onclick="schoolCategories(5,1);" >East province<span class="badge badge-primary"><?php echo $this->schoolcountPOSTS(5);?></span></a>
@@ -270,7 +270,7 @@ class School extends Home {
                         aria-expanded="false">
                             school province
                         </button>
-                <div class="dropdown-menu main-active" aria-labelledby="triggerId">
+                <div class="dropdown-menu" aria-labelledby="triggerId">
                     <a class="dropdown-item" href="javascript:void(0)" onclick="schoolCategories0('kindergarden School',1);" >kindergarden<span class="badge badge-primary"><?php echo $this->schoolcountPOSTS0('kindergarden School');?></span></a>
                     <a class="dropdown-item" href="javascript:void(0)" onclick="schoolCategories0('Primary School',1);" >Primary School<span class="badge badge-primary"><?php echo $this->schoolcountPOSTS0('Primary School');?></span></a>
                     <a class="dropdown-item" href="javascript:void(0)" onclick="schoolCategories0('Secondary School',1);" >Secondary School<span class="badge badge-primary"><?php echo $this->schoolcountPOSTS0('Secondary School');?></span></a>

@@ -476,6 +476,12 @@
     transition: all 200ms ease-in;
 }
 
+.post ul button:hover i {
+    /* font-size: 17px; */
+    color: #f0f1f3;
+    transition: all 200ms ease-in;
+}
+
 .post ul button {
     outline: none;
     color: #007bff;

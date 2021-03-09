@@ -711,10 +711,10 @@ if (isset($_POST['showpoptweet']) && !empty($_POST['showpoptweet'])) {
                   </div>
                   </div>
                 ')).'
-               <span class="username"> <a href="'.BASE_URL_PUBLIC.$comments['username'].'" style="float:left;padding-right:3px;">'.$comments['firstname']   ." ".$comments['lastname'].'</a>
+               <span class="username"> <a href="'.BASE_URL_PUBLIC.$comments['username'].'" style="float:left;padding-right:3px;">'.$comments['username'].'</a>
                     <!-- //Jonathan Burke Jr. -->
                 </span>
-                 <span class="description"> Shared publicly - '.$home->timeAgo($comments["comment_at"]).' today
+                 <span class="description"> Shared publicly - '.$home->timeAgo($comments["comment_at"]).'
                  </span>
                  <span class="description">'.$home->getTweetLink($comments["comment"]).'</span>
               </div> <!-- /.user-block -->

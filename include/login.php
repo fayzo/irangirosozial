@@ -268,11 +268,11 @@ if(isset($_POST['key'])){
                     console.log(response);
                     if (response.indexOf('SUCCESS') >= 0) {
                         setInterval(() => {
-                            window.location = '../index.php';
+                            window.location = '../';
                         }, 1000);
                     } else if (response.indexOf('Fail') >= 0) {
                         setInterval(() => {
-                            window.location = 'lockscreen.php';
+                            window.location = 'lockscreen';
                         }, 2000);
                         isEmptys(password);
                     } else {

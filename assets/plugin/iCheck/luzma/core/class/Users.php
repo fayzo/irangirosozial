@@ -1568,7 +1568,7 @@ class Users{
     {
         $current_year = date('Y');
         if($start_year < $current_year){
-            return "&copy; $start_year&ndash;$current_year Company Name";
+            return "&copy; $start_year&ndash;$current_year ";
         }else{
             return "&copy; $start_year";
         }

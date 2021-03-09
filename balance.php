@@ -47,12 +47,12 @@
             <div class="card-body">
 
             <div class="form-group">
-              <label>Your Coins Balance is: </label>
-              <i class="fas fa-coins "></i> 15,000 coins
-              <button type="button" class="btn btn-default">Withdraw</button>
+              <label>Your Coins Balance is: </label> <i class="fa fa-money text-success"></i>
+              <i class="fas fa-coins text-warning"></i> 15,000 coins
+              <button type="button" class="btn btn-default"><i class="fas fa-money-check"></i> Withdraw</button>
             </div>
 
-              <label for="inputEmail" >Buy coins and deposit in your account</label>
+              <label for="inputEmail" >Buy coins and deposit in your account <i class="fa fa-check-circle text-success"></i></label>
               <table class="table table-hover table-inverse table-responsive">
                   <thead class="thead-inverse">
                       <tr>
@@ -65,7 +65,7 @@
                       <tbody>
                           <tr>
                               <td>1</td>
-                              <td> <i class="fas fa-coins "></i> 40 coins</td>
+                              <td><i class="fas fa-coins text-warning"></i> 35 coins</td></td>
                               <td></td>
                               <td>
                                 <button type="button" onclick="coins('21000')" class="btn btn-sm btn-danger">500 Frw</button>
@@ -73,7 +73,7 @@
                           </tr>
                           <tr>
                               <td>2</td>
-                              <td><i class="fas fa-coins "></i> 70 coins</td>
+                              <td><i class="fas fa-coins text-warning"></i> 70 coins</td>
                               <td></td>
                               <td>
                                  <button type="button" onclick="coins('21000')" class="btn btn-sm btn-danger">1,000 Frw</button>
@@ -81,7 +81,7 @@
                           </tr>
                           <tr>
                               <td>3</td>
-                              <td><i class="fas fa-coins "></i> 350 coins</td>
+                              <td><i class="fas fa-coins text-warning"></i> 350 coins</td>
                               <td></td>
                               <td>
                                  <button type="button" onclick="coins('5000')" class="btn btn-sm btn-danger">5,000 Frw</button>
@@ -89,7 +89,7 @@
                           </tr>
                           <tr>
                               <td>4</td>
-                              <td><i class="fas fa-coins "></i> 1400 coins</td>
+                              <td><i class="fas fa-coins text-warning"></i> 1400 coins</td>
                               <td></td>
                               <td>
                                  <button type="button" onclick="coins('21000')" class="btn btn-sm btn-danger">21,000 Frw</button>
@@ -97,7 +97,7 @@
                           </tr>
                           <tr>
                               <td>5</td>
-                              <td><i class="fas fa-coins "></i> 3500 coins</td>
+                              <td><i class="fas fa-coins text-warning"></i> 3500 coins</td>
                               <td></td>
                               <td>
                                  <button type="button" onclick="coins('54000')" class="btn btn-sm btn-danger">54,000 Frw</button>
@@ -113,7 +113,7 @@
         </div><!-- /.card -->
 
         <div class="card mt-3">
-            <div class="card-header p-1 text-center">
+            <div class="card-header main-active p-1 text-center">
                 <h4 class="card-title">Transaction Historic statement</h4>
             </div>
             <div class="card-body">
@@ -132,14 +132,14 @@
                                 <td>1</td>
                                 <td> <img class="rounded-circle" width="35px" height="35px" src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>"></td>
                                 <td>it was gud to danate</td>
-                                <td>50,000 Coins</td>
+                                <td><i class="fas fa-coins text-warning"></i> 50,000 Coins</td>
                                 <td>12/2/2021</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td> <img class="rounded-circle" width="35px" height="35px" src="<?php echo BASE_URL_LINK.NO_PROFILE_IMAGE_URL ;?>"></td>
                                 <td>it was gud to danate</td>
-                                <td>50,000 Coins</td>
+                                <td><i class="fas fa-coins text-warning"></i> 50,000 Coins</td>
                                 <td>12/2/2021</td>
 
                             </tr>

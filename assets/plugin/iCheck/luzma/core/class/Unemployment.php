@@ -30,7 +30,7 @@ class Unemployment extends Home {
                           aria-expanded="false">
                               Fields
                           </button>
-                  <div class="dropdown-menu main-active" aria-labelledby="triggerId">
+                  <div class="dropdown-menu" aria-labelledby="triggerId">
                     <a class="dropdown-item" href="#">Select any field</a>
                     <a class="dropdown-item d-flex justify-content-between align-items-center" href="javascript:void(0)" onclick="unemploymentCategories('Featured',1);" >Featured<span class="badge badge-primary"><?php echo $this->unemplyomentcountPOSTS('Featured');?></span></a>
                     <a class="dropdown-item d-flex justify-content-between align-items-center" href="javascript:void(0)" onclick="unemploymentCategories('accountant',1);" >accountant<span class="badge badge-primary"><?php echo $this->unemplyomentcountPOSTS('accountant');?></span></a>

@@ -21,6 +21,7 @@ array('countViewin_profile' => 'countViewin_profile +1', ),$profileData['user_id
                         <div class="widget-user-header text-white"
                             style="background: url('<?php echo BASE_URL_LINK.NO_COVER_IMAGE_URL ;?>')no-repeat center center;background-size:cover;">
                   <?php  } ?>
+                        <div class="widget-user-desc"><i class="fas fa-coins text-warning"></i> 35 Coins</div>
                         <h3 class="widget-user-username"><?php echo $profileData['username'] ;?></h3> <!-- Elizabeth Pierce -->
                         <h5 class="widget-user-desc">Member</h5>
                     </div>
@@ -88,7 +89,21 @@ array('countViewin_profile' => 'countViewin_profile +1', ),$profileData['user_id
                       <?php if ($profileData['user_id'] != $_SESSION['key']) { ?>
                     <li class="breadcrumb-item"><span class="people-message more" data-user="<?php echo $profileData['user_id'];?>"><a href="javascript:void(0);" ><i style="font-size: 20px;" class="fa fa-envelope-o"></i> Message </a></span></li>
                     <?php } } ?>
-                    <li class="breadcrumb-item active"><i> <?php echo $follow->followBtn($profileData['user_id'],$user_id,$profileData['user_id']) ;?></i></li>
+                    <li class="breadcrumb-item"><i> <?php echo $follow->followBtn($profileData['user_id'],$user_id,$profileData['user_id']) ;?></i></li>
+                    <li class="breadcrumb-item "><i>
+                    <span class="username tooltips" style="display:inline-block">
+                    <!-- < ?php if($user_id == $_SESSION['key']) { ?>  -->
+                    <?php if($user_id) { ?> 
+                            <ul><li>
+                                <a href="#" >Send Reward <i class="fas fa-coins text-warning"></i> Coins</a>
+                                <ul style="left: -100px;right: -80px;"><li><?php echo Follow::coins_recharge($user_id,$profileData['user_id'],$profileData['username']); ?></li></ul>
+                                </li>
+                            </ul>
+                    <?php } ?> 
+                    </span>
+                    </i>
+                    </li>
+                    <li class="breadcrumb-item"><a href="<?php echo BALANCE ;?>" ><i class="fas fa-money-check"></i> Withdraw </a></li>
                 </ol>
           </div>
       </div>

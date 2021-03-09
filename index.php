@@ -23,6 +23,8 @@
 
           </div>
           <div class="col-md-6 mb-4">
+          <?php if (isset($_SESSION['key'])){ ?>
+
             <div id="response-posts"></div>
             <div class="card  borders-tops mb-4">
               <div class="card-body message-color" style="padding-bottom: 0rem;">
@@ -81,6 +83,8 @@
               <!-- card-body -->
             </div>
             <!-- card -->
+          <?php } ?>
+
 
             <div class="posted">
             <!-- Box Comment -->
